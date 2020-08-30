@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
+    //help from https://www.youtube.com/watch?v=NGGoOa4BpmY
+
     public float playerDist;
 
     private Transform playerLoc;
