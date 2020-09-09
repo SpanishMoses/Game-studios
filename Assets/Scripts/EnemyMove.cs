@@ -8,12 +8,15 @@ public class EnemyMove : MonoBehaviour
     //help from https://www.youtube.com/watch?v=NGGoOa4BpmY
 
     public float playerDist;
+    public float backUpDist;
+    public float speed;
 
     private Transform playerLoc;
 
     NavMeshAgent navMeshAgent;
 
     public bool locActive;
+    public bool backUp;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +30,27 @@ public class EnemyMove : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, playerLoc.transform.position) < playerDist){
             locActive = true;
+            backUp = false;
         }
 
-        if (Vector2.Distance(transform.position, playerLoc.transform.position) > playerDist)
+        /*if (Vector2.Distance(transform.position, playerLoc.transform.position) > playerDist)
         {
             locActive = false;
+        }
+        */
+        if (Vector2.Distance(transform.position, playerLoc.position) <= navMeshAgent.stoppingDistance)
+        {
+            transform.position = this.transform.position;
+        }
+
+            if (Vector2.Distance(transform.position, playerLoc.transform.position) < backUpDist)
+        {
+            backUp = true;
+            locActive = false;
+        }
+
+        if (backUp == false){
+            locActive = true;
         }
     }
 
@@ -41,12 +60,24 @@ public class EnemyMove : MonoBehaviour
         {
             SetDestination();
         }
+        if (backUp == true){
+            AwayDestination();
+        }
     }
 
     void SetDestination(){
         if (playerLoc.transform.position != null){
             Vector3 targetVector = playerLoc.transform.position;
             navMeshAgent.SetDestination(targetVector);
+        }
+    }
+
+    void AwayDestination()
+    {
+        if (playerLoc.transform.position != null)
+        {
+            Vector3 targetVector = playerLoc.transform.position;
+            navMeshAgent.SetDestination(-targetVector);
         }
     }
 }
