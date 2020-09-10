@@ -9,21 +9,21 @@ public class EnemyBasicBullet : MonoBehaviour
     public float speed;
 
     private Transform player;
-    private Vector2 target;
+    private Vector3 target;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = new Vector2(player.position.x, player.position.y);
+        target = new Vector3(player.position.x, player.position.y, player.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
-            transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-            if (transform.position.x == target.x && transform.position.y == target.y)
+            if (transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z)
             {
                 DestroyProjectile();
 
