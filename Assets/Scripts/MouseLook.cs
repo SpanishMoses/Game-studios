@@ -13,6 +13,7 @@ public class MouseLook : MonoBehaviour
     float xRotation = 0f;
 
     public float dist = 100f;
+    public float damage = 1f;
 
     public bool shootReady;
 
@@ -46,12 +47,16 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(playerBody.position, playerBody.transform.forward, out hit, dist))
         {
             Debug.Log(hit.transform.name);
+            EnemyHealth enemyHealth = hit.transform.GetComponent<EnemyHealth>();
+            if (enemyHealth != null){
+                enemyHealth.TakeDamage(damage);
+            }
         }
     }
 
     IEnumerator reload(){
         shootReady = false;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         shootReady = true;
     }
 }
