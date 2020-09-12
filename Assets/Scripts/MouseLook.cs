@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
+    //hit scan help from https://www.youtube.com/watch?v=THnivyG0Mvo&ab_channel=Brackeys
 
     public float mouseSensitivity = 100f;
 
@@ -11,10 +12,15 @@ public class MouseLook : MonoBehaviour
 
     float xRotation = 0f;
 
+    public float dist = 100f;
+
+    public bool shootReady;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        shootReady = true;
     }
 
     // Update is called once per frame
@@ -28,5 +34,24 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+
+        if (Input.GetKey(KeyCode.Mouse0) && shootReady == true){
+            Shoot();
+            StartCoroutine(reload());
+        }
+    }
+
+    void Shoot(){
+        RaycastHit hit;
+        if (Physics.Raycast(playerBody.position, playerBody.transform.forward, out hit, dist))
+        {
+            Debug.Log(hit.transform.name);
+        }
+    }
+
+    IEnumerator reload(){
+        shootReady = false;
+        yield return new WaitForSeconds(2);
+        shootReady = true;
     }
 }
