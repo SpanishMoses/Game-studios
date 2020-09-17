@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float dashForce = 50f;
     [SerializeField] private float dashDuration = 0.2f;
+    [SerializeField] private float timeBetweenDashes = 1f;
+    private bool canDash = true;
 
     Vector3 velocity;
     bool isGrounded;
@@ -58,9 +60,12 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         //Dash
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
         {
+            canDash = false;
             StartCoroutine(Dash());
+            StartCoroutine(DashRecharge());
+
         }
     }
 
@@ -68,8 +73,9 @@ public class PlayerMovement : MonoBehaviour
     {
         //rb.AddForce(Camera.main.transform.forward * dashForce, ForceMode.VelocityChange);
 
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        //rb.velocity = Vector3.zero;
+        //rb.angularVelocity = Vector3.zero;
+        velocity.y = 0f;
 
         speed = dashForce;
 
@@ -77,6 +83,13 @@ public class PlayerMovement : MonoBehaviour
 
         speed = defaultSpeed;
 
-        rb.velocity = Vector3.zero;
+        velocity.y = 0f;
+        //rb.velocity = Vector3.zero;
+    }
+
+    public IEnumerator DashRecharge()
+    {
+        yield return new WaitForSeconds(timeBetweenDashes);
+        canDash = true;
     }
 }
