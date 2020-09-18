@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
     public float health;
+    public float amount = 1f;
 
     private void Awake()
     {
@@ -95,13 +96,13 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "EnemyBullet"){
             Debug.Log("yeet");
-            Destroy(other.gameObject);
-        }
-    }*/
+            TakeDamage(amount);
+            }
+    }
 
     public void TakeDamage(float amount)
     {
