@@ -8,10 +8,15 @@ public class EnemyHealth : MonoBehaviour
 
     public float health;
 
+    public GameObject blood;
+    public GameObject parent;
+
     public void TakeDamage(float amount){
         health -= amount;
+        Instantiate(blood, parent.transform.position, Quaternion.identity);
         if (health <= 0f){
             Debug.Log("dead");
+            Destroy(gameObject);
         }
     }
 }
