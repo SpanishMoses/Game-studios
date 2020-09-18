@@ -34,16 +34,6 @@ public class EnemyMove : MonoBehaviour
             backUp = false;
         }
 
-        /*if (Vector2.Distance(transform.position, playerLoc.transform.position) > playerDist)
-        {
-            locActive = false;
-        }
-        */
-        if (Vector2.Distance(transform.position, playerLoc.position) == navMeshAgent.stoppingDistance)
-        {
-            transform.position = this.transform.position;
-        }
-
             if (Vector2.Distance(transform.position, playerLoc.transform.position) < backUpDist)
         {
             backUp = true;
@@ -57,11 +47,11 @@ public class EnemyMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (locActive == true)
+        if (locActive == true && backUp == false)
         {
             SetDestination();
         }
-        if (backUp == true){
+        if (backUp == true && locActive == false){
             AwayDestination();
         }
     }
