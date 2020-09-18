@@ -7,6 +7,7 @@ public class EnemyShoot : MonoBehaviour
     public GameObject bullet;
     EnemyMove mov;
     public GameObject parent;
+    public float damage = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,5 +28,17 @@ public class EnemyShoot : MonoBehaviour
         yield return new WaitForSeconds(6);
         Instantiate(bullet, parent.transform.position, Quaternion.identity);
         StartCoroutine(shoot());
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player"){
+            //Destroy(gameObject);
+            Debug.Log("YETT");
+            /*PlayerMovement playHealth = other.transform.GetComponent<PlayerMovement>();
+            if (playHealth != null){
+                playHealth.TakeDamage(damage);
+            }*/
+        }
     }
 }

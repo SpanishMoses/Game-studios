@@ -15,6 +15,9 @@ public class MouseLook : MonoBehaviour
     public float dist = 100f;
     public float damage = 1f;
 
+    public float currAmmo;
+    public float maxAmmo;
+
     public bool shootReady;
 
     // Start is called before the first frame update
@@ -36,14 +39,20 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
 
-        if (Input.GetKey(KeyCode.Mouse0) && shootReady == true){
+        if (Input.GetKey(KeyCode.Mouse0) && shootReady == true && currAmmo <= maxAmmo && currAmmo > 0){
             Shoot();
             StartCoroutine(reload());
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0) && shootReady == true && currAmmo == 0)
+        {
+            Debug.Log("no ammo");
         }
     }
 
     void Shoot(){
         RaycastHit hit;
+        currAmmo--;
         if (Physics.Raycast(playerBody.position, playerBody.transform.forward, out hit, dist))
         {
             Debug.Log(hit.transform.name);

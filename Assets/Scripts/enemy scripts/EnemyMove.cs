@@ -28,7 +28,8 @@ public class EnemyMove : MonoBehaviour
 
     private void Update()
     {
-        if (Vector2.Distance(transform.position, playerLoc.transform.position) < playerDist){
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) < playerDist && Vector2.Distance(transform.position, playerLoc.transform.position) > backUpDist)
+        {
             locActive = true;
             backUp = false;
         }
@@ -38,7 +39,7 @@ public class EnemyMove : MonoBehaviour
             locActive = false;
         }
         */
-        if (Vector2.Distance(transform.position, playerLoc.position) <= navMeshAgent.stoppingDistance)
+        if (Vector2.Distance(transform.position, playerLoc.position) == navMeshAgent.stoppingDistance)
         {
             transform.position = this.transform.position;
         }

@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    public float health;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -91,5 +93,22 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBetweenDashes);
         canDash = true;
+    }
+
+    /*private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "EnemyBullet"){
+            Debug.Log("yeet");
+            Destroy(other.gameObject);
+        }
+    }*/
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (health <= 0f)
+        {
+            Debug.Log("dead");
+        }
     }
 }
