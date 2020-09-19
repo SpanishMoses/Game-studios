@@ -13,15 +13,15 @@ public class EnemyShoot : MonoBehaviour
     void Start()
     {
         mov = GetComponent<EnemyMove>();
-        StartCoroutine(shoot());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (mov.locActive == true){
-            
-        }*/
+        if (mov.locActive == true){
+            StartCoroutine(shoot());
+        }
     }
 
     IEnumerator shoot(){

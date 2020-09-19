@@ -33,7 +33,7 @@ public class TextManager : MonoBehaviour
         foreach (char letter in sentences[index].ToCharArray())
         {
             text.text += letter;
-            anim.SetFloat("Blend", 1);
+            //anim.SetFloat("Blend", 1);
             yield return new WaitForSeconds(typingSpeed);
         }
     }
