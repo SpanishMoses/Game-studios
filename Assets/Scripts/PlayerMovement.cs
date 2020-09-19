@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+    public bool cantMove;
 
     public float health;
     public float amount = 1f;
@@ -33,11 +35,19 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")){
+            cantMove = true;
+        } else
+        {
+            cantMove = false;
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0)
@@ -45,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
+        if (cantMove == false){ 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -62,13 +73,13 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        //Dash
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
-        {
-            canDash = false;
-            StartCoroutine(Dash());
-            StartCoroutine(DashRecharge());
-
+            //Dash
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
+            {
+                canDash = false;
+                StartCoroutine(Dash());
+                StartCoroutine(DashRecharge());
+            }
         }
     }
 

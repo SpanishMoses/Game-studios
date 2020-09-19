@@ -16,16 +16,21 @@ public class TextManager : MonoBehaviour
 
     public Animator anim;
 
+    private PlayerMovement player;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Type());
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (text.text == sentences[index]){
+            player.cantMove = false;
+        }
     }
 
     public IEnumerator Type()
@@ -46,6 +51,7 @@ public class TextManager : MonoBehaviour
             text.text = "";
             sentenceNum++;
             StartCoroutine(Type());
+
         }
     }
 }
