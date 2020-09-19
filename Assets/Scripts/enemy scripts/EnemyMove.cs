@@ -28,7 +28,7 @@ public class EnemyMove : MonoBehaviour
 
     private void Update()
     {
-        if (Vector2.Distance(transform.position, playerLoc.transform.position) < playerDist && Vector2.Distance(transform.position, playerLoc.transform.position) > backUpDist)
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) < playerDist)
         {
             locActive = true;
             backUp = false;
@@ -68,7 +68,7 @@ public class EnemyMove : MonoBehaviour
         if (playerLoc.transform.position != null)
         {
             Vector3 targetVector = playerLoc.transform.position;
-            navMeshAgent.SetDestination(-targetVector);
+            navMeshAgent.SetDestination(targetVector);
         }
     }
 }
