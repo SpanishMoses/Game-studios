@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyMove : MonoBehaviour
 {
     //help from https://www.youtube.com/watch?v=NGGoOa4BpmY
+    //backing up from https://www.youtube.com/watch?v=Zjlg9F3FRJs&ab_channel=Jayanam
 
     public float playerDist;
     public float backUpDist;
@@ -43,17 +44,20 @@ public class EnemyMove : MonoBehaviour
         if (backUp == false){
             locActive = true;
         }
-    }
 
-    private void FixedUpdate()
-    {
         if (locActive == true && backUp == false)
         {
             SetDestination();
         }
-        if (backUp == true && locActive == false){
+        if (backUp == true && locActive == false)
+        {
             AwayDestination();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     void SetDestination(){
@@ -65,10 +69,18 @@ public class EnemyMove : MonoBehaviour
 
     void AwayDestination()
     {
-        if (playerLoc.transform.position != null)
+        /*if (playerLoc.transform.position != null)
         {
             Vector3 targetVector = playerLoc.transform.position;
             navMeshAgent.SetDestination(targetVector);
+        }*/
+
+        float distance = Vector3.Distance(transform.position, playerLoc.transform.position);
+
+        if (distance < backUpDist){
+            Vector3 dirToPlayer = transform.position - playerLoc.transform.position;
+            Vector3 newPos = transform.position + dirToPlayer * 2;
+            navMeshAgent.SetDestination(newPos);
         }
     }
 }
