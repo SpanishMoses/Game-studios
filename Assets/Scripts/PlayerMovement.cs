@@ -35,13 +35,12 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        /*if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")){
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")){
             cantMove = true;
         } else
         {
             cantMove = false;
-        }*/
-        cantMove = false;
+        }
     }
 
     // Update is called once per frame

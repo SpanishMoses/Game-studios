@@ -35,4 +35,18 @@ public class EnemyBasicBullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
- }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("yer");
+        Destroy(gameObject);
+
+        if (collision.gameObject.tag == "Player"){
+            PlayerMovement playerMovement = collision.transform.GetComponent<PlayerMovement>();
+            if (playerMovement != null){
+                playerMovement.TakeDamage(1f);
+            }
+        }
+
+    }
+}

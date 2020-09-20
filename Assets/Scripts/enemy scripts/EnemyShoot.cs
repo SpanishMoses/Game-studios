@@ -43,6 +43,8 @@ public class EnemyShoot : MonoBehaviour
         StartCoroutine(shoot());
     }*/
 
+    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player"){
