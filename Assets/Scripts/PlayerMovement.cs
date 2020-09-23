@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Text healthText;
     public GameObject damagePic;
-    public GameObject deadText;
+    public GameObject deadScreen;
 
     public GameObject player;
     public GameObject checkpoint;
@@ -97,12 +97,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         healthText.text = "Health: " + health;
-
-        if (Input.GetKey(KeyCode.K) && canRespawn == true){
-            respawn();
-            deadText.SetActive(false);
-            canRespawn = false;
-        }
     }
 
     public IEnumerator Dash()
@@ -132,12 +126,11 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Checkpoint"){
-            checkpoint = other.gameObject; ;
+            checkpoint = other.gameObject;
         }
 
         if (other.gameObject.tag == "Pit"){
-            //StartCoroutine(Restart());
-            respawn();
+            StartCoroutine(respawnTimer());
             Debug.Log("hi");
         }
 
@@ -181,11 +174,13 @@ public class PlayerMovement : MonoBehaviour
 
     void respawn(){
         player.transform.position = checkpoint.transform.position;
+        Physics.SyncTransforms();
     }
 
-    IEnumerator Restart(){
-        yield return new WaitForSeconds(0.5f);
-        deadText.SetActive(true);
-        canRespawn = true;
+    IEnumerator respawnTimer(){
+        deadScreen.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        deadScreen.SetActive(false);
+        respawn();
     }
 }
