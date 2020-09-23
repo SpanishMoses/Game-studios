@@ -31,24 +31,29 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     public bool cantMove;
-
+    public bool canRespawn;
+    
     public float health;
     public float amount = 1f;
 
     public Text healthText;
     public GameObject damagePic;
+    public GameObject deadText;
+
+    public GameObject player;
+    public GameObject checkpoint;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        /*if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")){
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")){
             cantMove = true;
         } else
         {
             cantMove = false;
-        }*/
+        }
 
-        cantMove = false;
+        //cantMove = false;
 
         damagePic.SetActive(false);
     }
@@ -92,6 +97,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         healthText.text = "Health: " + health;
+
+        if (Input.GetKey(KeyCode.K) && canRespawn == true){
+            respawn();
+            deadText.SetActive(false);
+            canRespawn = false;
+        }
     }
 
     public IEnumerator Dash()
@@ -120,6 +131,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Checkpoint"){
+            checkpoint = other.gameObject; ;
+        }
+
+        if (other.gameObject.tag == "Pit"){
+            //StartCoroutine(Restart());
+            respawn();
+            Debug.Log("hi");
+        }
+
         if (other.gameObject.tag == "Consumable"){
             Consumables consume = other.transform.GetComponent<Consumables>();
             if (consume != null && consume.isHealth == true){
@@ -156,5 +177,15 @@ public class PlayerMovement : MonoBehaviour
         damagePic.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         damagePic.SetActive(false);
+    }
+
+    void respawn(){
+        player.transform.position = checkpoint.transform.position;
+    }
+
+    IEnumerator Restart(){
+        yield return new WaitForSeconds(0.5f);
+        deadText.SetActive(true);
+        canRespawn = true;
     }
 }
