@@ -28,8 +28,14 @@ public class TextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (text.text == sentences[index]){
+        if (text.text == sentences[index] && sentenceNum < 9){
             player.cantMove = false;
+        } else if (sentenceNum == 9){
+            player.cantMove = true;
+            if (text.text == sentences[index] && sentenceNum == 9 && Input.GetKey(KeyCode.Mouse0)){
+                player.cantMove = false;
+                sentenceNum++;
+            }
         }
     }
 

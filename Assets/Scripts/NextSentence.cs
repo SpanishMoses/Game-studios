@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NextSentence : MonoBehaviour
 {
+    public GameObject pixie;
 
     public TextManager textMan;
     private PlayerMovement player;

@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f939a20a0b8180f4eb69c57dc12d843c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixie: {fileID: 0}
   textMan: {fileID: 993025132}
 --- !u!65 &10302156
 BoxCollider:
@@ -795,6 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f939a20a0b8180f4eb69c57dc12d843c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixie: {fileID: 0}
   textMan: {fileID: 993025132}
 --- !u!65 &96758911
 BoxCollider:
@@ -1803,6 +1805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f939a20a0b8180f4eb69c57dc12d843c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixie: {fileID: 0}
   textMan: {fileID: 993025132}
 --- !u!65 &193679218
 BoxCollider:
@@ -3503,6 +3506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f939a20a0b8180f4eb69c57dc12d843c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixie: {fileID: 0}
   textMan: {fileID: 993025132}
 --- !u!65 &359449501
 BoxCollider:
@@ -8090,6 +8094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f939a20a0b8180f4eb69c57dc12d843c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixie: {fileID: 0}
   textMan: {fileID: 993025132}
 --- !u!65 &710687500
 BoxCollider:
@@ -16186,6 +16191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f939a20a0b8180f4eb69c57dc12d843c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixie: {fileID: 0}
   textMan: {fileID: 993025132}
 --- !u!65 &1398218735
 BoxCollider:
@@ -17022,6 +17028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f939a20a0b8180f4eb69c57dc12d843c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixie: {fileID: 0}
   textMan: {fileID: 993025132}
 --- !u!65 &1514416714
 BoxCollider:
@@ -19392,6 +19399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f939a20a0b8180f4eb69c57dc12d843c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixie: {fileID: 0}
   textMan: {fileID: 993025132}
 --- !u!65 &1666334721
 BoxCollider:
@@ -19925,6 +19933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f939a20a0b8180f4eb69c57dc12d843c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pixie: {fileID: 0}
   textMan: {fileID: 993025132}
 --- !u!65 &1725586005
 BoxCollider:
@@ -34060,27 +34069,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 412740960797635225, guid: b6f3f207da0ce2740b30f246aa587977, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 412740960797635225, guid: b6f3f207da0ce2740b30f246aa587977, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 412740960797635225, guid: b6f3f207da0ce2740b30f246aa587977, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 412740961166910656, guid: b6f3f207da0ce2740b30f246aa587977, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.85
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 412740961166910656, guid: b6f3f207da0ce2740b30f246aa587977, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.01
+      value: 4.78
       objectReference: {fileID: 0}
     - target: {fileID: 412740961166910656, guid: b6f3f207da0ce2740b30f246aa587977, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 86.34
+      value: 103.22
       objectReference: {fileID: 0}
     - target: {fileID: 412740961166910656, guid: b6f3f207da0ce2740b30f246aa587977, type: 3}
       propertyPath: m_LocalRotation.x
