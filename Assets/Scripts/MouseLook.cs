@@ -70,7 +70,7 @@ public class MouseLook : MonoBehaviour
             Debug.Log("useshotgun");
             useShotgun = true;
             usePistol = false;
-            damage = 1;
+            damage = 4;
             reloadTime = 1f;
             //ammoText.text = currAmmoS + "/" + maxAmmoS;
         }
