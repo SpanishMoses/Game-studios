@@ -133,7 +133,7 @@ public class MouseLook : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damage);
-                
+                Instantiate(blood, sHit.point, Quaternion.identity);
             }
         }
 
@@ -144,6 +144,7 @@ public class MouseLook : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damage);
+                Instantiate(blood, sHit2.point, Quaternion.identity);
             }
         }
 
@@ -154,6 +155,7 @@ public class MouseLook : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damage);
+                Instantiate(blood, sHit3.point, Quaternion.identity);
             }
         }
 
@@ -164,6 +166,7 @@ public class MouseLook : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damage);
+                Instantiate(blood, sHit4.point, Quaternion.identity);
             }
         }
     }
