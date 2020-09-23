@@ -11,11 +11,15 @@ public class EnemyHealth : MonoBehaviour
     public float health;
     public float minHealth;
 
+    public int amountTaken = 1;
+
     public GameObject blood;
     public GameObject parent;
 
-    public ArrayedEnemy array;
+    public BoxCollider collid;
 
+    //public ArrayedEnemy array;
+    public EnemySpawner enemySpawn;
 
     private void Update()
     {
@@ -33,7 +37,15 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
         }
             if (health <= 0 && partOfArray == true){
-                array.TakeAway(1f);
-            }
+            StartCoroutine(startDeath());
+            Debug.Log("started");
+        }
+    }
+
+    IEnumerator startDeath(){
+        collid.enabled = false;
+        yield return new WaitForSeconds(1f);
+        enemySpawn.deductEnemy(amountTaken);
+        Destroy(gameObject);
     }
 }

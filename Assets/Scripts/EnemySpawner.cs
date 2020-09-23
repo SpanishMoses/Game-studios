@@ -43,4 +43,8 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+
+    public void deductEnemy(int deduct){
+        enemiesSpawned -= deduct;
+    }
 }

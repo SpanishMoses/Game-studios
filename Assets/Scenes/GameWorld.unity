@@ -3327,9 +3327,11 @@ MonoBehaviour:
   partOfArray: 1
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 352169069}
-  array: {fileID: 352169078}
+  collid: {fileID: 352169070}
+  enemySpawn: {fileID: 1628059129}
 --- !u!114 &352169072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4236,9 +4238,11 @@ MonoBehaviour:
   partOfArray: 1
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 399832968}
-  array: {fileID: 399832977}
+  collid: {fileID: 399832969}
+  enemySpawn: {fileID: 1628059129}
 --- !u!114 &399832971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4627,9 +4631,11 @@ MonoBehaviour:
   partOfArray: 1
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 412331314}
-  array: {fileID: 412331323}
+  collid: {fileID: 412331315}
+  enemySpawn: {fileID: 1628059129}
 --- !u!114 &412331317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4923,9 +4929,11 @@ MonoBehaviour:
   partOfArray: 1
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 420622927}
-  array: {fileID: 420622936}
+  collid: {fileID: 420622928}
+  enemySpawn: {fileID: 1628059129}
 --- !u!114 &420622930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7345,9 +7353,11 @@ MonoBehaviour:
   partOfArray: 1
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 633227966}
-  array: {fileID: 633227975}
+  collid: {fileID: 633227967}
+  enemySpawn: {fileID: 1628059129}
 --- !u!114 &633227969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8745,9 +8755,11 @@ MonoBehaviour:
   partOfArray: 1
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 740704551}
-  array: {fileID: 740704560}
+  collid: {fileID: 740704552}
+  enemySpawn: {fileID: 1628059129}
 --- !u!114 &740704554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9706,9 +9718,11 @@ MonoBehaviour:
   partOfArray: 1
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 805031834}
-  array: {fileID: 805031843}
+  collid: {fileID: 805031835}
+  enemySpawn: {fileID: 1628059129}
 --- !u!114 &805031837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11754,7 +11768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914114985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52.9, y: 0.21000004, z: -161.1}
+  m_LocalPosition: {x: 0, y: 8.1, z: 116.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 272593470}
@@ -13133,9 +13147,11 @@ MonoBehaviour:
   partOfArray: 0
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 1091727934}
-  array: {fileID: 0}
+  collid: {fileID: 0}
+  enemySpawn: {fileID: 0}
 --- !u!114 &1091727937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14400,9 +14416,11 @@ MonoBehaviour:
   partOfArray: 1
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 1193926414}
-  array: {fileID: 1193926423}
+  collid: {fileID: 1193926415}
+  enemySpawn: {fileID: 1579345916}
 --- !u!114 &1193926417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19335,9 +19353,11 @@ MonoBehaviour:
   partOfArray: 1
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 1648318868}
-  array: {fileID: 1648318877}
+  collid: {fileID: 1648318869}
+  enemySpawn: {fileID: 1628059129}
 --- !u!114 &1648318871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31871,9 +31891,11 @@ MonoBehaviour:
   partOfArray: 1
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 1865933981}
-  array: {fileID: 1865933990}
+  collid: {fileID: 1865933982}
+  enemySpawn: {fileID: 1628059129}
 --- !u!114 &1865933984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32444,9 +32466,11 @@ MonoBehaviour:
   partOfArray: 1
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 1922843852}
-  array: {fileID: 1922843861}
+  collid: {fileID: 1922843853}
+  enemySpawn: {fileID: 1579345916}
 --- !u!114 &1922843855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33404,9 +33428,11 @@ MonoBehaviour:
   partOfArray: 0
   health: 5
   minHealth: 0
+  amountTaken: 1
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 2035241594}
-  array: {fileID: 0}
+  collid: {fileID: 0}
+  enemySpawn: {fileID: 0}
 --- !u!114 &2035241597
 MonoBehaviour:
   m_ObjectHideFlags: 0
