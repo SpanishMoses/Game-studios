@@ -4,21 +4,29 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-
+    public GameObject door;
     public GameObject[] enemies;
+
+    public bool activated;
+
+    public int enemiesSpawned;
 
     // Start is called before the first frame update
     void Start()
     {
+        activated = false;
         for (int i = 0; i < enemies.Length; i++){
             enemies[i].SetActive(false);
         }
+        enemiesSpawned = enemies.Length;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (enemiesSpawned == 0){
+            door.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,7 +35,8 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 0; i < enemies.Length; i++)
             {
                 enemies[i].SetActive(true);
-                Destroy(gameObject);
+                activated = true;
+                //Destroy(gameObject);
             }
         }
     }
