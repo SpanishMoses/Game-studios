@@ -9137,8 +9137,13 @@ MonoBehaviour:
   cam: {fileID: 854584380}
   dist: 100
   damage: 1
-  currAmmo: 50
-  maxAmmo: 100
+  reloadTime: 0
+  currAmmoP: 50
+  maxAmmoP: 100
+  currAmmoS: 20
+  maxAmmoS: 40
+  usePistol: 0
+  useShotgun: 0
   shootReady: 0
   ammoText: {fileID: 499910278}
 --- !u!81 &854584383

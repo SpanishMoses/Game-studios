@@ -128,8 +128,16 @@ public class PlayerMovement : MonoBehaviour
             }
             
             if (consume != null && consume.isAmmo == true){
-                mouse.currAmmo += consume.amount;
-                Destroy(other.gameObject);
+                if (mouse.usePistol == true)
+                {
+                    mouse.currAmmoP += consume.amount;
+                    Destroy(other.gameObject);
+                }
+
+                if (mouse.useShotgun == true){
+                    mouse.currAmmoP += consume.amount;
+                    Destroy(other.gameObject);
+                }
             }
         }
     }
