@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement instance;
 
+    public MouseLook mouse;
+
     private Rigidbody rb;
 
     public float defaultSpeed = 12f;
@@ -38,12 +40,14 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")){
+        /*if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")){
             cantMove = true;
         } else
         {
             cantMove = false;
-        }
+        }*/
+
+        cantMove = false;
     }
 
     // Update is called once per frame
@@ -113,10 +117,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "EnemyBullet"){
-            Debug.Log("yeet");
-            TakeDamage(amount);
+        if (other.gameObject.tag == "Consumable"){
+            Consumables consume = other.transform.GetComponent<Consumables>();
+            if (consume != null && consume.isHealth == true){
+                health += consume.amount;
+                Destroy(other.gameObject);
             }
+            
+            if (consume != null && consume.isAmmo == true){
+                mouse.currAmmo += consume.amount;
+                Destroy(other.gameObject);
+            }
+        }
     }
 
     public void TakeDamage(float amount)
