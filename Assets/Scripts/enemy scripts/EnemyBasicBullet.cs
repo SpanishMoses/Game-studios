@@ -6,6 +6,8 @@ public class EnemyBasicBullet : MonoBehaviour
 {
     //https://www.youtube.com/watch?v=_Z1t7MNk0c4&t=682s
 
+    private Vector3 normalizeDirection;
+
     public float speed;
 
     private Transform player;
@@ -16,17 +18,19 @@ public class EnemyBasicBullet : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector3(player.position.x, player.position.y, player.position.z);
+        normalizeDirection = (target - transform.position).normalized;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        
+        transform.position += normalizeDirection * speed * Time.deltaTime;
 
-            /*if (transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z)
+        /*if (transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z)
             {
-                DestroyProjectile();
-
+                
             }*/
     }
 
