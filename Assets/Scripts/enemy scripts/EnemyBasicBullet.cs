@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBasicBullet : MonoBehaviour
 {
     //https://www.youtube.com/watch?v=_Z1t7MNk0c4&t=682s
+    //https://answers.unity.com/questions/853535/move-infinite-in-same-direction.html
 
     private Vector3 normalizeDirection;
 
