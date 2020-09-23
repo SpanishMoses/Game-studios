@@ -13,7 +13,6 @@ public class EnemyHealth : MonoBehaviour
 
     public int amountTaken = 1;
 
-    public GameObject blood;
     public GameObject parent;
 
     public BoxCollider collid;
@@ -30,7 +29,6 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float amount){
         health -= amount;
-        Instantiate(blood, parent.transform.position, Quaternion.identity);
         if (health <= 0f && partOfArray == false)
         {
             Debug.Log("dead");

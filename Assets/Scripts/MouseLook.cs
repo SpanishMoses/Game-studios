@@ -36,6 +36,8 @@ public class MouseLook : MonoBehaviour
 
     public Text ammoText;
 
+    public GameObject blood;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -111,6 +113,7 @@ public class MouseLook : MonoBehaviour
             EnemyHealth enemyHealth = hit.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null){
                 enemyHealth.TakeDamage(damage);
+                Instantiate(blood, hit.point, Quaternion.identity);
             }
         }
     }
@@ -130,6 +133,7 @@ public class MouseLook : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damage);
+                
             }
         }
 

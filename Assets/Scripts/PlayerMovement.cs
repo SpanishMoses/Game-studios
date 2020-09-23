@@ -154,6 +154,10 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+
+        if (other.gameObject.tag == "End"){
+            StartCoroutine(restartlevel());
+        }
     }
 
     public void TakeDamage(float amount)
@@ -182,5 +186,12 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1f);
         deadScreen.SetActive(false);
         respawn();
+    }
+
+    IEnumerator restartlevel(){
+        deadScreen.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        deadScreen.SetActive(false);
+        SceneManager.LoadScene("GameWorld");
     }
 }
