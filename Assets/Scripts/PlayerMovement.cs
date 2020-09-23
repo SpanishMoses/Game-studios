@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float health;
     public float amount = 1f;
+
+    public Text healthText;
 
     private void Awake()
     {
@@ -80,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(DashRecharge());
             }
         }
+
+        healthText.text = "Health: " + health;
     }
 
     public IEnumerator Dash()

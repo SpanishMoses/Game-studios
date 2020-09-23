@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class MouseLook : MonoBehaviour
     public float maxAmmo;
 
     public bool shootReady;
+
+    public Text ammoText;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +51,8 @@ public class MouseLook : MonoBehaviour
         {
             Debug.Log("no ammo");
         }
+
+        ammoText.text = currAmmo + "/" + maxAmmo;
     }
 
     void Shoot(){
