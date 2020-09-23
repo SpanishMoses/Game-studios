@@ -6,7 +6,8 @@ public class ArrayedEnemy : MonoBehaviour
 {
     //float amount = 1f;
     public EnemySpawner spawn;
-    
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class ArrayedEnemy : MonoBehaviour
         if (spawn.activated == true)
         {
             spawn.enemiesSpawned--;
+            Destroy(gameObject);
         }
     }
 }

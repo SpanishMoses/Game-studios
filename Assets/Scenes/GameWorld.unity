@@ -3265,6 +3265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 1
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 352169069}
   array: {fileID: 352169078}
@@ -4172,6 +4173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 1
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 399832968}
   array: {fileID: 399832977}
@@ -4562,6 +4564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 1
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 412331314}
   array: {fileID: 412331323}
@@ -4857,6 +4860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 1
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 420622927}
   array: {fileID: 420622936}
@@ -7278,6 +7282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 1
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 633227966}
   array: {fileID: 633227975}
@@ -8618,6 +8623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 1
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 740704551}
   array: {fileID: 740704560}
@@ -9576,8 +9582,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19dab9ab2442114e8ab04547611773c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partOfArray: 0
+  partOfArray: 1
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 805031834}
   array: {fileID: 805031843}
@@ -12996,6 +13003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 0
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 1091727934}
   array: {fileID: 0}
@@ -14262,6 +14270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 1
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 1193926414}
   array: {fileID: 1193926423}
@@ -18150,6 +18159,7 @@ MonoBehaviour:
   - {fileID: 1922843852}
   activated: 1
   enemiesSpawned: 0
+  box: {fileID: 1579345917}
 --- !u!65 &1579345917
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18556,6 +18566,7 @@ MonoBehaviour:
   - {fileID: 399832968}
   activated: 0
   enemiesSpawned: 0
+  box: {fileID: 1628059130}
 --- !u!65 &1628059130
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18873,6 +18884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 1
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 1648318868}
   array: {fileID: 1648318877}
@@ -31405,6 +31417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 1
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 1865933981}
   array: {fileID: 1865933990}
@@ -31977,6 +31990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 1
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 1922843852}
   array: {fileID: 1922843861}
@@ -32936,6 +32950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partOfArray: 0
   health: 5
+  minHealth: 0
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   parent: {fileID: 2035241594}
   array: {fileID: 0}

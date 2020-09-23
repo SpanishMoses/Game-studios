@@ -9,21 +9,31 @@ public class EnemyHealth : MonoBehaviour
     public bool partOfArray;
 
     public float health;
+    public float minHealth;
 
     public GameObject blood;
     public GameObject parent;
 
     public ArrayedEnemy array;
 
+
+    private void Update()
+    {
+        if (health <= minHealth){
+            health = minHealth;
+        }
+    }
+
     public void TakeDamage(float amount){
         health -= amount;
         Instantiate(blood, parent.transform.position, Quaternion.identity);
-        if (health <= 0f){
+        if (health <= 0f && partOfArray == false)
+        {
             Debug.Log("dead");
-            if (partOfArray == true){
-                array.TakeAway(1f);
-            }
             Destroy(gameObject);
         }
+            if (health == 0 && partOfArray == true){
+                array.TakeAway(1f);
+            }
     }
 }
