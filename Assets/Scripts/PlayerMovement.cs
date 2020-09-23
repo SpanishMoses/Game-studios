@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public float amount = 1f;
 
     public Text healthText;
+    public GameObject damagePic;
 
     private void Awake()
     {
@@ -48,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
         }*/
 
         cantMove = false;
+
+        damagePic.SetActive(false);
     }
 
     // Update is called once per frame
@@ -134,9 +137,16 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+        StartCoroutine(flashHit());
         if (health <= 0f)
         {
             Debug.Log("dead");
         }
+    }
+
+    IEnumerator flashHit(){
+        damagePic.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        damagePic.SetActive(false);
     }
 }

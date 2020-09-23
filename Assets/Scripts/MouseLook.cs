@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MouseLook : MonoBehaviour
 {
     //hit scan help from https://www.youtube.com/watch?v=THnivyG0Mvo&ab_channel=Brackeys
+    //shake code from https://www.youtube.com/watch?v=kzHHAdvVkto
 
     public float mouseSensitivity = 100f;
 
@@ -13,6 +14,8 @@ public class MouseLook : MonoBehaviour
 
     float xRotation = 0f;
 
+    public GameObject cam;
+    Vector3 camInitialPosition;
     public float dist = 100f;
     public float damage = 1f;
 
