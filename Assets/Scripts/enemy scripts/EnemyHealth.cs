@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
             Debug.Log("dead");
             Destroy(gameObject);
         }
-            if (health == 0 && partOfArray == true){
+            if (health <= 0 && partOfArray == true){
                 array.TakeAway(1f);
             }
     }
