@@ -25,9 +25,8 @@ public class EnemyBasicBullet : MonoBehaviour
 
             if (transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z)
             {
-                DestroyProjectile();
+                //DestroyProjectile();
 
-                Destroy(gameObject, 9f);
             }
     }
 

@@ -105,7 +105,7 @@ public class MouseLook : MonoBehaviour
     void ShootPistol(){
         RaycastHit hit;
         currAmmoP--;
-        if (Physics.Raycast(playerBody.position, playerBody.transform.forward, out hit, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, dist))
         {
             Debug.Log(hit.transform.name);
             EnemyHealth enemyHealth = hit.transform.GetComponent<EnemyHealth>();
@@ -123,7 +123,7 @@ public class MouseLook : MonoBehaviour
         RaycastHit sHit4;
         currAmmoS--;
 
-        if (Physics.Raycast(playerBody.position, playerBody.transform.forward, out sHit, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out sHit, dist))
         {
             Debug.Log(sHit.transform.name);
             EnemyHealth enemyHealth = sHit.transform.GetComponent<EnemyHealth>();
@@ -133,7 +133,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(playerBody.position, playerBody.transform.forward + new Vector3(-.2f, 0f, 0f), out sHit2, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.2f, 0f, 0f), out sHit2, dist))
         {
             Debug.Log(sHit2.transform.name);
             EnemyHealth enemyHealth = sHit2.transform.GetComponent<EnemyHealth>();
@@ -143,7 +143,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(playerBody.position, playerBody.transform.forward + new Vector3(0f, .1f, 0f), out sHit3, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, .1f, 0f), out sHit3, dist))
         {
             Debug.Log(sHit3.transform.name);
             EnemyHealth enemyHealth = sHit3.transform.GetComponent<EnemyHealth>();
@@ -153,7 +153,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(playerBody.position, playerBody.transform.forward + new Vector3(0f, -.1f, 0f), out sHit4, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.1f, 0f), out sHit4, dist))
         {
             Debug.Log(sHit4.transform.name);
             EnemyHealth enemyHealth = sHit4.transform.GetComponent<EnemyHealth>();
