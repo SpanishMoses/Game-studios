@@ -149,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 if (mouse.useShotgun == true){
-                    mouse.currAmmoP += consume.amount;
+                    mouse.currAmmoS += consume.amount;
                     Destroy(other.gameObject);
                 }
             }
