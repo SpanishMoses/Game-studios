@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: -4196887084118192232
     second: Bear_Walk_3
+  - first:
+      213: 428436268548754254
+    second: Bear_Walk_0
+  - first:
+      213: 3407299969701969080
+    second: Bear_Walk_1
+  - first:
+      213: 629681802130618560
+    second: Bear_Walk_2
+  - first:
+      213: 8530937385674261070
+    second: Bear_Walk_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,7 +56,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -116,10 +128,10 @@ TextureImporter:
       name: Bear_Walk_0
       rect:
         serializedVersion: 2
-        x: 17
+        x: 0
         y: 64
-        width: 31
-        height: 57
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68ab924837cc60de0800000000000000
-      internalID: -1367180640349734266
+      spriteID: e4b0ebb248c12f500800000000000000
+      internalID: 428436268548754254
       vertices: []
       indices: 
       edges: []
@@ -137,10 +149,10 @@ TextureImporter:
       name: Bear_Walk_1
       rect:
         serializedVersion: 2
-        x: 81
+        x: 64
         y: 64
-        width: 30
-        height: 58
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c71f299f0dbacfc0800000000000000
-      internalID: -3473756287870756920
+      spriteID: 8bcf8411549294f20800000000000000
+      internalID: 3407299969701969080
       vertices: []
       indices: 
       edges: []
@@ -158,10 +170,10 @@ TextureImporter:
       name: Bear_Walk_2
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 0
-        width: 31
-        height: 57
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f52064a2f9c4e1040800000000000000
-      internalID: 4620214514221449823
+      spriteID: 0c8f58943441db800800000000000000
+      internalID: 629681802130618560
       vertices: []
       indices: 
       edges: []
@@ -179,10 +191,10 @@ TextureImporter:
       name: Bear_Walk_3
       rect:
         serializedVersion: 2
-        x: 81
+        x: 64
         y: 0
-        width: 30
-        height: 58
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89fc5bcde69a1c5c0800000000000000
-      internalID: -4196887084118192232
+      spriteID: e42c63a7a5af36670800000000000000
+      internalID: 8530937385674261070
       vertices: []
       indices: 
       edges: []

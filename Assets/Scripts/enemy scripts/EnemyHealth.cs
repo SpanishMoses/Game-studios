@@ -17,6 +17,8 @@ public class EnemyHealth : MonoBehaviour
 
     public BoxCollider collid;
 
+    public Animator animator;
+
     //public ArrayedEnemy array;
     public EnemySpawner enemySpawn;
 
@@ -42,6 +44,7 @@ public class EnemyHealth : MonoBehaviour
 
     IEnumerator startDeath(){
         collid.enabled = false;
+        animator.SetTrigger("IsDead");
         yield return new WaitForSeconds(1f);
         enemySpawn.deductEnemy(amountTaken);
         Destroy(gameObject);

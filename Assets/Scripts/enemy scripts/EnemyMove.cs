@@ -24,6 +24,7 @@ public class EnemyMove : MonoBehaviour
     {
         playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         navMeshAgent = this.GetComponent<NavMeshAgent>();
+        
 
     }
 
