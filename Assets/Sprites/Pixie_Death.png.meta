@@ -35,6 +35,21 @@ TextureImporter:
   - first:
       213: 6448092317451565542
     second: Pixie_Death_10
+  - first:
+      213: 2895590021701182415
+    second: Pixie_Death_0
+  - first:
+      213: -5067642050487039411
+    second: Pixie_Death_1
+  - first:
+      213: 8688405410118774124
+    second: Pixie_Death_2
+  - first:
+      213: -3669746828733782902
+    second: Pixie_Death_3
+  - first:
+      213: -1087246843151405792
+    second: Pixie_Death_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,7 +114,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -111,7 +126,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,10 +152,10 @@ TextureImporter:
       name: Pixie_Death_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 135
-        width: 34
-        height: 47
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27cee4178d5d09c30800000000000000
-      internalID: 4364223164512660594
+      spriteID: fc32aa288c33f2820800000000000000
+      internalID: 2895590021701182415
       vertices: []
       indices: 
       edges: []
@@ -158,10 +173,10 @@ TextureImporter:
       name: Pixie_Death_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 135
-        width: 34
-        height: 51
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c50dd8b1864651d20800000000000000
-      internalID: 3248613104519336028
+      spriteID: d4a43e3976e1ca9b0800000000000000
+      internalID: -5067642050487039411
       vertices: []
       indices: 
       edges: []
@@ -179,10 +194,10 @@ TextureImporter:
       name: Pixie_Death_2
       rect:
         serializedVersion: 2
-        x: 13
-        y: 71
-        width: 36
-        height: 53
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +205,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26abce29e5eec6670800000000000000
-      internalID: 8533457483919571554
+      spriteID: c6d26b6ffaa639870800000000000000
+      internalID: 8688405410118774124
       vertices: []
       indices: 
       edges: []
@@ -200,10 +215,10 @@ TextureImporter:
       name: Pixie_Death_3
       rect:
         serializedVersion: 2
-        x: 21
-        y: 120
-        width: 5
-        height: 5
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 448b29c169e850940800000000000000
-      internalID: 5261768515027908676
+      spriteID: a84e4b1d3b0721dc0800000000000000
+      internalID: -3669746828733782902
       vertices: []
       indices: 
       edges: []
@@ -221,10 +236,10 @@ TextureImporter:
       name: Pixie_Death_4
       rect:
         serializedVersion: 2
-        x: 39
-        y: 113
-        width: 10
-        height: 12
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,134 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33728f152b1637e10800000000000000
-      internalID: 2194204861966853939
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixie_Death_5
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 116
-        width: 7
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a25038e2341822460800000000000000
-      internalID: 7215471678544086314
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixie_Death_6
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 119
-        width: 14
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba9b9a65f452c3c50800000000000000
-      internalID: 6646228172778617259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixie_Death_7
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 71
-        width: 37
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0762a51c2332bdc10800000000000000
-      internalID: 2079294353860863600
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixie_Death_8
-      rect:
-        serializedVersion: 2
-        x: 117
-        y: 112
-        width: 7
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 233c8adda6c5949c0800000000000000
-      internalID: -3942518384731045070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixie_Death_9
-      rect:
-        serializedVersion: 2
-        x: 45
-        y: 106
-        width: 12
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9c460c97cd68fd60800000000000000
-      internalID: 7924204248441965723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixie_Death_10
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 7
-        width: 34
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6e930ac9cc93c7950800000000000000
-      internalID: 6448092317451565542
+      spriteID: 02dabc2b1c259e0f0800000000000000
+      internalID: -1087246843151405792
       vertices: []
       indices: 
       edges: []
