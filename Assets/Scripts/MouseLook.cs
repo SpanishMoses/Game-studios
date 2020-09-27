@@ -345,8 +345,15 @@ public class MouseLook : MonoBehaviour
 
     void ShootFireworkk(){
         currAmmoF--;
-        Instantiate(firework, cam.transform.position, Quaternion.identity);
-        firework.GetComponent<Rigidbody>().AddForce(cam.transform.forward * 7f, ForceMode.Impulse);
+        RaycastHit fHit;
+        Vector3 targetPoint;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out fHit)){
+            targetPoint = fHit.point;
+            Vector3 direction = targetPoint - cam.transform.position;
+            GameObject bullet = Instantiate(firework, cam.transform.position, Quaternion.identity);
+            bullet.transform.forward = direction.normalized;
+            bullet.GetComponent<Rigidbody>().AddForce(direction.normalized * 20f, ForceMode.Impulse);
+        }      
     }
 
     IEnumerator reload(){
