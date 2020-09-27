@@ -9,6 +9,7 @@ public class MouseLook : MonoBehaviour
     //shake code from https://www.youtube.com/watch?v=kzHHAdvVkto
     //shotgun code from https://www.youtube.com/watch?v=1gPLfY93JHk&ab_channel=FPSBuilders
     //grenade throw from https://www.youtube.com/watch?v=sglRyWQh79g&ab_channel=FPSBuilders
+    //help from https://www.youtube.com/watch?v=wZ2UUOC17AY&ab_channel=Dave%2FGameDevelopment
 
     public float mouseSensitivity = 100f;
 
