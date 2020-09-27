@@ -8,6 +8,7 @@ public class MouseLook : MonoBehaviour
     //hit scan help from https://www.youtube.com/watch?v=THnivyG0Mvo&ab_channel=Brackeys
     //shake code from https://www.youtube.com/watch?v=kzHHAdvVkto
     //shotgun code from https://www.youtube.com/watch?v=1gPLfY93JHk&ab_channel=FPSBuilders
+    //grenade throw from https://www.youtube.com/watch?v=sglRyWQh79g&ab_channel=FPSBuilders
 
     public float mouseSensitivity = 100f;
 
@@ -33,10 +34,15 @@ public class MouseLook : MonoBehaviour
     public float currAmmoM;
     public float maxAmmoM;
 
+    //grenade ammo
+    public float currAmmoG;
+    public float maxAmmoG;
+
     public bool usePistol;
     public bool useShotgun;
     public bool useMachineGun;
     public bool useKnife;
+    public bool useGrenade;
 
     //floats for machine gun
     public float fireRate = 15f;
@@ -47,6 +53,8 @@ public class MouseLook : MonoBehaviour
     public Text ammoText;
 
     public GameObject blood;
+
+    public GameObject grenade;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +82,7 @@ public class MouseLook : MonoBehaviour
             useShotgun = false;
             useMachineGun = false;
             useKnife = false;
+            useGrenade = false;
             damage = 2;
             reloadTime = 0.5f;
             dist = 50f;
@@ -87,6 +96,7 @@ public class MouseLook : MonoBehaviour
             usePistol = false;
             useMachineGun = false;
             useKnife = false;
+            useGrenade = false;
             damage = 4;
             reloadTime = 1f;
             dist = 30f;
@@ -100,6 +110,7 @@ public class MouseLook : MonoBehaviour
             usePistol = false;
             useMachineGun = true;
             useKnife = false;
+            useGrenade = false;
             damage = 1;
             reloadTime = 1f;
             dist = 50f;
@@ -113,9 +124,24 @@ public class MouseLook : MonoBehaviour
             usePistol = false;
             useMachineGun = false;
             useKnife = true;
+            useGrenade = false;
             damage = 3;
             reloadTime = 1f;
             dist = 5;
+            //ammoText.text = currAmmoS + "/" + maxAmmoS;
+        }
+
+        if (Input.GetKey(KeyCode.Alpha5))
+        {
+            Debug.Log("usemachinegun");
+            useShotgun = false;
+            usePistol = false;
+            useMachineGun = false;
+            useKnife = false;
+            useGrenade = true;
+            damage = 3;
+            reloadTime = 1f;
+            dist = 20f;
             //ammoText.text = currAmmoS + "/" + maxAmmoS;
         }
 
@@ -142,13 +168,19 @@ public class MouseLook : MonoBehaviour
             StartCoroutine(reload());
         }
 
+        if (Input.GetKey(KeyCode.Mouse0) && useGrenade == true && shootReady == true && currAmmoG <= maxAmmoG && currAmmoG > 0)
+        {
+            ThrowGrenade();
+            StartCoroutine(reload());
+        }
+
         if (Input.GetKey(KeyCode.Mouse0) && shootReady == true && currAmmoP == 0)
         {
             Debug.Log("no ammo");
         }
 
-        //ammoText.text = currAmmoP + "/" + maxAmmoP;
-
+        //ammo text scripts
+        //used for changing the text to accomadate what type of gun you're using
         if (usePistol == true){
             ammoText.text = currAmmoP + "/" + maxAmmoP;
         }
@@ -163,6 +195,10 @@ public class MouseLook : MonoBehaviour
 
         if (useKnife == true){
             ammoText.text = "Stab away";
+        }
+
+        if (useGrenade == true){
+            ammoText.text = currAmmoG + "/" + maxAmmoG;
         }
     }
 
@@ -263,6 +299,12 @@ public class MouseLook : MonoBehaviour
                 Instantiate(blood, kHit.point, Quaternion.identity);
             }
         }
+    }
+
+    void ThrowGrenade(){
+        currAmmoG--;
+        GameObject grenadeInstance = Instantiate(grenade, cam.transform.position, cam.transform.rotation);
+        grenadeInstance.GetComponent<Rigidbody>().AddForce(cam.transform.forward * dist, ForceMode.Impulse);
     }
 
     IEnumerator reload(){
