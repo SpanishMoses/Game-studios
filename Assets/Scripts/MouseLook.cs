@@ -29,8 +29,17 @@ public class MouseLook : MonoBehaviour
     public float currAmmoS;
     public float maxAmmoS;
 
+    //machineGun Ammo
+    public float currAmmoM;
+    public float maxAmmoM;
+
     public bool usePistol;
     public bool useShotgun;
+    public bool useMachineGun;
+
+    //floats for machine gun
+    public float fireRate = 15f;
+    private float nextTimeToFire = 0f;
 
     public bool shootReady;
 
@@ -62,7 +71,8 @@ public class MouseLook : MonoBehaviour
             Debug.Log("usePistol");
             usePistol = true;
             useShotgun = false;
-            damage = 1;
+            useMachineGun = false;
+            damage = 2;
             reloadTime = 0.5f;
             //ammoText.text = currAmmoP + "/" + maxAmmoP;
         }
@@ -72,7 +82,19 @@ public class MouseLook : MonoBehaviour
             Debug.Log("useshotgun");
             useShotgun = true;
             usePistol = false;
+            useMachineGun = false;
             damage = 4;
+            reloadTime = 1f;
+            //ammoText.text = currAmmoS + "/" + maxAmmoS;
+        }
+
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            Debug.Log("usemachinegun");
+            useShotgun = false;
+            usePistol = false;
+            useMachineGun = true;
+            damage = 1;
             reloadTime = 1f;
             //ammoText.text = currAmmoS + "/" + maxAmmoS;
         }
@@ -86,6 +108,12 @@ public class MouseLook : MonoBehaviour
         {
             shootShotgun();
             StartCoroutine(reload());
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0) && useMachineGun == true && shootReady == true && currAmmoM <= maxAmmoM && currAmmoM > 0 && Time.time >= nextTimeToFire)
+        {
+            nextTimeToFire = Time.time + 1f / fireRate;
+            ShootMachineGun();
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && shootReady == true && currAmmoP == 0)
@@ -102,6 +130,11 @@ public class MouseLook : MonoBehaviour
         if (useShotgun == true){
             ammoText.text = currAmmoS + "/" + maxAmmoS;
         }
+
+        if (useMachineGun == true){
+            ammoText.text = currAmmoM + "/" + maxAmmoM;
+        }
+
     }
 
     void ShootPistol(){
@@ -167,6 +200,22 @@ public class MouseLook : MonoBehaviour
             {
                 enemyHealth.TakeDamage(damage);
                 Instantiate(blood, sHit4.point, Quaternion.identity);
+            }
+        }
+    }
+
+    void ShootMachineGun(){
+        RaycastHit mHit;
+        currAmmoM--;
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.1f, 0f), out mHit, dist))
+        {
+            Debug.Log(mHit.transform.name);
+            EnemyHealth enemyHealth = mHit.transform.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damage);
+                Instantiate(blood, mHit.point, Quaternion.identity);
             }
         }
     }
