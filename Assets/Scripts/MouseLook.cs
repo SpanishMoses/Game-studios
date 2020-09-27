@@ -17,7 +17,7 @@ public class MouseLook : MonoBehaviour
 
     public GameObject cam;
     Vector3 camInitialPosition;
-    public float dist = 100f;
+    public float dist;
     public float damage;
     public float reloadTime;
 
@@ -36,6 +36,7 @@ public class MouseLook : MonoBehaviour
     public bool usePistol;
     public bool useShotgun;
     public bool useMachineGun;
+    public bool useKnife;
 
     //floats for machine gun
     public float fireRate = 15f;
@@ -72,8 +73,10 @@ public class MouseLook : MonoBehaviour
             usePistol = true;
             useShotgun = false;
             useMachineGun = false;
+            useKnife = false;
             damage = 2;
             reloadTime = 0.5f;
+            dist = 50f;
             //ammoText.text = currAmmoP + "/" + maxAmmoP;
         }
 
@@ -83,8 +86,10 @@ public class MouseLook : MonoBehaviour
             useShotgun = true;
             usePistol = false;
             useMachineGun = false;
+            useKnife = false;
             damage = 4;
             reloadTime = 1f;
+            dist = 30f;
             //ammoText.text = currAmmoS + "/" + maxAmmoS;
         }
 
@@ -94,8 +99,23 @@ public class MouseLook : MonoBehaviour
             useShotgun = false;
             usePistol = false;
             useMachineGun = true;
+            useKnife = false;
             damage = 1;
             reloadTime = 1f;
+            dist = 50f;
+            //ammoText.text = currAmmoS + "/" + maxAmmoS;
+        }
+
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            Debug.Log("usemachinegun");
+            useShotgun = false;
+            usePistol = false;
+            useMachineGun = false;
+            useKnife = true;
+            damage = 3;
+            reloadTime = 1f;
+            dist = 5;
             //ammoText.text = currAmmoS + "/" + maxAmmoS;
         }
 
@@ -114,6 +134,12 @@ public class MouseLook : MonoBehaviour
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             ShootMachineGun();
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0) && useKnife == true && shootReady == true)
+        {
+            StabKnife();
+            StartCoroutine(reload());
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && shootReady == true && currAmmoP == 0)
@@ -135,6 +161,9 @@ public class MouseLook : MonoBehaviour
             ammoText.text = currAmmoM + "/" + maxAmmoM;
         }
 
+        if (useKnife == true){
+            ammoText.text = "Stab away";
+        }
     }
 
     void ShootPistol(){
@@ -216,6 +245,22 @@ public class MouseLook : MonoBehaviour
             {
                 enemyHealth.TakeDamage(damage);
                 Instantiate(blood, mHit.point, Quaternion.identity);
+            }
+        }
+    }
+
+    void StabKnife()
+    {
+        RaycastHit kHit;
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.1f, 0f), out kHit, dist))
+        {
+            Debug.Log(kHit.transform.name);
+            EnemyHealth enemyHealth = kHit.transform.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damage);
+                Instantiate(blood, kHit.point, Quaternion.identity);
             }
         }
     }
