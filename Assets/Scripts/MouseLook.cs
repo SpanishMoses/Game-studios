@@ -38,11 +38,16 @@ public class MouseLook : MonoBehaviour
     public float currAmmoG;
     public float maxAmmoG;
 
+    //firework ammo
+    public float currAmmoF;
+    public float maxAmmoF;
+
     public bool usePistol;
     public bool useShotgun;
     public bool useMachineGun;
     public bool useKnife;
     public bool useGrenade;
+    public bool useFirework;
 
     //floats for machine gun
     public float fireRate = 15f;
@@ -55,6 +60,7 @@ public class MouseLook : MonoBehaviour
     public GameObject blood;
 
     public GameObject grenade;
+    public GameObject firework;
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +89,7 @@ public class MouseLook : MonoBehaviour
             useMachineGun = false;
             useKnife = false;
             useGrenade = false;
+            useFirework = false;
             damage = 2;
             reloadTime = 0.5f;
             dist = 50f;
@@ -97,6 +104,7 @@ public class MouseLook : MonoBehaviour
             useMachineGun = false;
             useKnife = false;
             useGrenade = false;
+            useFirework = false;
             damage = 4;
             reloadTime = 1f;
             dist = 30f;
@@ -111,6 +119,7 @@ public class MouseLook : MonoBehaviour
             useMachineGun = true;
             useKnife = false;
             useGrenade = false;
+            useFirework = false;
             damage = 1;
             reloadTime = 1f;
             dist = 50f;
@@ -119,12 +128,13 @@ public class MouseLook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha4))
         {
-            Debug.Log("usemachinegun");
+            Debug.Log("useknife");
             useShotgun = false;
             usePistol = false;
             useMachineGun = false;
             useKnife = true;
             useGrenade = false;
+            useFirework = false;
             damage = 3;
             reloadTime = 1f;
             dist = 5;
@@ -133,14 +143,30 @@ public class MouseLook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha5))
         {
-            Debug.Log("usemachinegun");
+            Debug.Log("usegrenade");
             useShotgun = false;
             usePistol = false;
             useMachineGun = false;
             useKnife = false;
             useGrenade = true;
+            useFirework = false;
             damage = 3;
             reloadTime = 1f;
+            dist = 20f;
+            //ammoText.text = currAmmoS + "/" + maxAmmoS;
+        }
+
+        if (Input.GetKey(KeyCode.Alpha6))
+        {
+            Debug.Log("usefirework");
+            useShotgun = false;
+            usePistol = false;
+            useMachineGun = false;
+            useKnife = false;
+            useGrenade = false;
+            useFirework = true;
+            damage = 3;
+            reloadTime = 4f;
             dist = 20f;
             //ammoText.text = currAmmoS + "/" + maxAmmoS;
         }
@@ -174,6 +200,12 @@ public class MouseLook : MonoBehaviour
             StartCoroutine(reload());
         }
 
+        if (Input.GetKey(KeyCode.Mouse0) && useFirework == true && shootReady == true && currAmmoF <= maxAmmoF && currAmmoF > 0)
+        {
+            ShootFireworkk();
+            StartCoroutine(reload());
+        }
+
         if (Input.GetKey(KeyCode.Mouse0) && shootReady == true && currAmmoP == 0)
         {
             Debug.Log("no ammo");
@@ -199,6 +231,10 @@ public class MouseLook : MonoBehaviour
 
         if (useGrenade == true){
             ammoText.text = currAmmoG + "/" + maxAmmoG;
+        }
+
+        if (useFirework == true){
+            ammoText.text = currAmmoF + "/" + maxAmmoF;
         }
     }
 
@@ -273,7 +309,7 @@ public class MouseLook : MonoBehaviour
         RaycastHit mHit;
         currAmmoM--;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.1f, 0f), out mHit, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out mHit, dist))
         {
             Debug.Log(mHit.transform.name);
             EnemyHealth enemyHealth = mHit.transform.GetComponent<EnemyHealth>();
@@ -289,7 +325,7 @@ public class MouseLook : MonoBehaviour
     {
         RaycastHit kHit;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.1f, 0f), out kHit, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out kHit, dist))
         {
             Debug.Log(kHit.transform.name);
             EnemyHealth enemyHealth = kHit.transform.GetComponent<EnemyHealth>();
@@ -305,6 +341,12 @@ public class MouseLook : MonoBehaviour
         currAmmoG--;
         GameObject grenadeInstance = Instantiate(grenade, cam.transform.position, cam.transform.rotation);
         grenadeInstance.GetComponent<Rigidbody>().AddForce(cam.transform.forward * dist, ForceMode.Impulse);
+    }
+
+    void ShootFireworkk(){
+        currAmmoF--;
+        Instantiate(firework, cam.transform.position, Quaternion.identity);
+        firework.GetComponent<Rigidbody>().AddForce(cam.transform.forward * 7f, ForceMode.Impulse);
     }
 
     IEnumerator reload(){
