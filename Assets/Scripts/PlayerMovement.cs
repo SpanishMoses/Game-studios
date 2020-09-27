@@ -97,6 +97,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         healthText.text = "Health: " + health;
+
+        if (health <= 0){
+            StartCoroutine(respawnTimer());
+            health = 5;
+        }
     }
 
     public IEnumerator Dash()
