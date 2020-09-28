@@ -16,7 +16,7 @@ public class EnemyShoot : MonoBehaviour
     void Start()
     {
         mov = GetComponent<EnemyMove>();
-        
+        timeBetweenShots = Random.Range(2, 6);
     }
 
     // Update is called once per frame
@@ -27,6 +27,7 @@ public class EnemyShoot : MonoBehaviour
             shootTime += Time.deltaTime;
             if (shootTime >= timeBetweenShots){
                 shootTime = 0;
+                timeBetweenShots = Random.Range(2, 6);
                 Instantiate(bullet, parent.transform.position, Quaternion.identity);
             }
         }

@@ -14,7 +14,7 @@ public class EnemyMove : MonoBehaviour
 
     private Transform playerLoc;
 
-    NavMeshAgent navMeshAgent;
+    public NavMeshAgent navMeshAgent;
 
     public bool locActive;
     public bool backUp;

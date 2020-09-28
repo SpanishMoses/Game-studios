@@ -21,6 +21,8 @@ public class EnemyHealth : MonoBehaviour
 
     //public ArrayedEnemy array;
     public EnemySpawner enemySpawn;
+    public EnemyMove enemyMove;
+    public EnemyShoot enemyShoot;
 
     private void Update()
     {
@@ -34,11 +36,15 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0f && partOfArray == false)
         {
             Debug.Log("dead");
-            Destroy(gameObject);
+            StartCoroutine(startNormalDeath());
+            enemyMove.navMeshAgent.speed = 0;
+            enemyShoot.enabled = false;
         }
             if (health <= 0 && partOfArray == true){
             StartCoroutine(startDeath());
             Debug.Log("started");
+            enemyMove.navMeshAgent.speed = 0;
+            enemyShoot.enabled = false;
         }
     }
 
@@ -47,6 +53,13 @@ public class EnemyHealth : MonoBehaviour
         animator.SetTrigger("IsDead");
         yield return new WaitForSeconds(1f);
         enemySpawn.deductEnemy(amountTaken);
+        Destroy(gameObject);
+    }
+
+    IEnumerator startNormalDeath(){
+        collid.enabled = false;
+        animator.SetTrigger("IsDead");
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }
