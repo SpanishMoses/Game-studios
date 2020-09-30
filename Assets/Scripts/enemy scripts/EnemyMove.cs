@@ -16,6 +16,8 @@ public class EnemyMove : MonoBehaviour
 
     public NavMeshAgent navMeshAgent;
 
+    public Animator animator;
+
     public bool locActive;
     public bool backUp;
 

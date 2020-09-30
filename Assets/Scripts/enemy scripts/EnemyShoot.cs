@@ -12,6 +12,8 @@ public class EnemyShoot : MonoBehaviour
     public float shootTime;
     public float timeBetweenShots;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class EnemyShoot : MonoBehaviour
             if (shootTime >= timeBetweenShots){
                 shootTime = 0;
                 timeBetweenShots = Random.Range(2, 6);
-                Instantiate(bullet, parent.transform.position, Quaternion.identity);
+                shoot();
             }
         }
     }
@@ -38,11 +40,11 @@ public class EnemyShoot : MonoBehaviour
         
     }
 
-    /*IEnumerator shoot(){
-        yield return new WaitForSeconds(6);
-        
-        StartCoroutine(shoot());
-    }*/
+    private void shoot() 
+    {
+        animator.SetTrigger("IsShooting");
+        Instantiate(bullet, parent.transform.position, Quaternion.identity);
+    }
 
     
 
