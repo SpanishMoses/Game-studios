@@ -16,7 +16,7 @@ public class EnemyMove : MonoBehaviour
 
     public NavMeshAgent navMeshAgent;
 
-    public Animator animator;
+    private Animator animator;
 
     public bool locActive;
     public bool backUp;
@@ -26,6 +26,7 @@ public class EnemyMove : MonoBehaviour
     {
         playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         navMeshAgent = this.GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         
 
     }
@@ -56,6 +57,18 @@ public class EnemyMove : MonoBehaviour
         {
             AwayDestination();
         }
+
+        //Is idle
+        if (navMeshAgent.speed <= 0)
+        {
+            animator.SetBool("IsMoving", false); ;
+        }
+
+        //Is running
+        if (navMeshAgent.speed > 0)
+        {
+            animator.SetBool("IsMoving", true); ;
+        }
     }
 
     private void FixedUpdate()
@@ -67,7 +80,7 @@ public class EnemyMove : MonoBehaviour
         if (playerLoc.transform.position != null){
             Vector3 targetVector = playerLoc.transform.position;
             navMeshAgent.SetDestination(targetVector);
-        }
+        } 
     }
 
     void AwayDestination()

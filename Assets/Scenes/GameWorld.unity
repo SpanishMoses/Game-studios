@@ -2903,6 +2903,7 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   locActive: 0
   rb: {fileID: 263219819}
+  gnome: {fileID: 0}
 --- !u!54 &263219819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17997,6 +17998,7 @@ MonoBehaviour:
   damage: 1
   shootTime: 0
   timeBetweenShots: 6
+  animator: {fileID: 0}
 --- !u!114 &1091727938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18013,6 +18015,7 @@ MonoBehaviour:
   backUpDist: 8
   speed: 3.5
   navMeshAgent: {fileID: 0}
+  animator: {fileID: 0}
   locActive: 0
   backUp: 0
 --- !u!195 &1091727939
