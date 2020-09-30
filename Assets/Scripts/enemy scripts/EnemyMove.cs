@@ -11,6 +11,8 @@ public class EnemyMove : MonoBehaviour
     public float playerDist;
     public float backUpDist;
     public float speed;
+    
+    public GameObject spawnEffect;
 
     private Transform playerLoc;
 
@@ -29,6 +31,11 @@ public class EnemyMove : MonoBehaviour
         animator = GetComponent<Animator>();
         
 
+    }
+
+    void Awake()
+    {
+        Instantiate(spawnEffect, transform.position, transform.rotation);
     }
 
     private void Update()

@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 1695245701007994853
     second: Shotgun_Idle_1
+  - first:
+      213: -7284431882908467891
+    second: Shotgun_Idle_0
+  - first:
+      213: -3875052879918618738
+    second: Shotgun_Idle_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -38,7 +44,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -110,10 +116,10 @@ TextureImporter:
       name: Shotgun_Idle_0
       rect:
         serializedVersion: 2
-        x: 17
+        x: 0
         y: 64
-        width: 25
-        height: 22
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19bb78d01bcd3c7a0800000000000000
-      internalID: -6357995595922687087
+      spriteID: d4df5bc0ccf78ea90800000000000000
+      internalID: -7284431882908467891
       vertices: []
       indices: 
       edges: []
@@ -131,10 +137,10 @@ TextureImporter:
       name: Shotgun_Idle_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 0
-        width: 26
-        height: 23
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,8 +148,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5efe697bbf8b68710800000000000000
-      internalID: 1695245701007994853
+      spriteID: e87a896cfeb093ac0800000000000000
+      internalID: -3875052879918618738
       vertices: []
       indices: 
       edges: []

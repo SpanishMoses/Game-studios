@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
+    public GameObject spitEffect;
     public GameObject bullet;
     EnemyMove mov;
     public GameObject parent;
@@ -43,6 +44,7 @@ public class EnemyShoot : MonoBehaviour
     private void shoot() 
     {
         animator.SetTrigger("IsShooting");
+        Instantiate(spitEffect, parent.transform.position, Quaternion.identity);
         Instantiate(bullet, parent.transform.position, Quaternion.identity);
     }
 

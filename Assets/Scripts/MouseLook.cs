@@ -15,6 +15,8 @@ public class MouseLook : MonoBehaviour
 
     public Transform playerBody;
 
+    public Animator anim;
+
     float xRotation = 0f;
 
     public GameObject cam;
@@ -174,6 +176,7 @@ public class MouseLook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0) && usePistol == true && shootReady == true && currAmmoP <= maxAmmoP && currAmmoP > 0){
             ShootPistol();
+            anim.SetTrigger("PistolShoot");
             StartCoroutine(reload());
         }
 
