@@ -72,11 +72,7 @@ public class UndergroundEnemy : MonoBehaviour
                     locActive = false;
                     navMeshAgent.speed = 0;
                     StartCoroutine(beginFollow());
-                    GameObject life = Instantiate(gnome, spawnPoint.position, Quaternion.identity);
-                    EnemyHealth myLife = life.GetComponent<EnemyHealth>();
-                if (myLife.health <= 0){
-                    Destroy(gameObject);
-                }
+                Instantiate(gnome, spawnPoint.position, Quaternion.identity);
             }
         }
 

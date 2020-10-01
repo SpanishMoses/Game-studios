@@ -2954,10 +2954,12 @@ MonoBehaviour:
   health: 5
   minHealth: 0
   amountTaken: 1
-  parent: {fileID: 0}
+  parent: {fileID: 263219814}
   collid: {fileID: 263219817}
   animator: {fileID: 263219816}
   enemySpawn: {fileID: 0}
+  enemyMove: {fileID: 0}
+  enemyShoot: {fileID: 0}
 --- !u!4 &263219823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7387750312513737434, guid: 5515556052e401645baac8d00036f4ff, type: 3}
@@ -18116,6 +18118,8 @@ MonoBehaviour:
   collid: {fileID: 0}
   animator: {fileID: 0}
   enemySpawn: {fileID: 0}
+  enemyMove: {fileID: 0}
+  enemyShoot: {fileID: 0}
 --- !u!114 &1091727937
 MonoBehaviour:
   m_ObjectHideFlags: 0

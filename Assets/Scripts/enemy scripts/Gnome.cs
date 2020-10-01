@@ -28,6 +28,15 @@ public class Gnome : MonoBehaviour
         if (alreadyDead == false){
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            PlayerMovement playerMovement = collision.transform.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.TakeDamage(1f);
+            }
+        }
     }
 
     IEnumerator startNormalDeath()
