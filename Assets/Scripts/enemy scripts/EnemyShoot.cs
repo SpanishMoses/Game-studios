@@ -15,6 +15,8 @@ public class EnemyShoot : MonoBehaviour
 
     public Animator animator;
 
+    public EnemyHealth health;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,11 @@ public class EnemyShoot : MonoBehaviour
                 timeBetweenShots = Random.Range(2, 4);
                 shoot();
             }
+        }
+
+        if (health.health <= 0){
+            mov.locActive = false;
+            mov.backUp = false;
         }
     }
 

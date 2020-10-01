@@ -8,6 +8,9 @@ public class UndergroundEnemy : MonoBehaviour
     public float playerDist;
     public float speed;
 
+    public float spawnTime;
+    public float maxSpawnTime;
+
     //for spherecast
     public float radius;
 
@@ -24,13 +27,15 @@ public class UndergroundEnemy : MonoBehaviour
 
     public GameObject gnome;
 
+    public Transform spawnPoint;
+
+    public Gnome myGnome;
+
     // Start is called before the first frame update
     void Start()
     {
         playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         navMeshAgent = this.GetComponent<NavMeshAgent>();
-
-
     }
 
     private void Update()
@@ -51,14 +56,31 @@ public class UndergroundEnemy : MonoBehaviour
         foreach (Collider near in colliders)
         {
             PlayerMovement player = near.GetComponent<PlayerMovement>();
-           if (player != null){
-                gnome.SetActive(true);
-                Debug.Log("i found you");
+            if (player != null) {
                 locActive = false;
-                navMeshAgent.speed = 0;
-                StartCoroutine(beginFollow());
+
+
+            
+        }
+    }
+
+        if (locActive == false){
+        spawnTime += Time.deltaTime;
+                if (spawnTime >= maxSpawnTime){
+                    Debug.Log("i found you");
+                    spawnTime = 0;
+                    locActive = false;
+                    navMeshAgent.speed = 0;
+                    StartCoroutine(beginFollow());
+                    GameObject life = Instantiate(gnome, spawnPoint.position, Quaternion.identity);
+                    EnemyHealth myLife = life.GetComponent<EnemyHealth>();
+                if (myLife.health <= 0){
+                    Destroy(gameObject);
+                }
             }
         }
+
+        
     }
 
 
@@ -73,8 +95,8 @@ public class UndergroundEnemy : MonoBehaviour
     }
 
     IEnumerator beginFollow(){
+        
         yield return new WaitForSeconds(5f);
-        gnome.SetActive(false);
         locActive = true;
         navMeshAgent.speed = 3.5f;
     }

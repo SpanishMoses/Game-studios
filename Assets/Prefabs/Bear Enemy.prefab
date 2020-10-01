@@ -143,6 +143,7 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   locActive: 0
   backUp: 0
+  health: {fileID: 7387750312513737436}
 --- !u!114 &7387750312513737437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +163,7 @@ MonoBehaviour:
   shootTime: 0
   timeBetweenShots: 6
   animator: {fileID: 7387750312513737428}
+  health: {fileID: 7387750312513737436}
 --- !u!114 &7387750312513737436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +184,6 @@ MonoBehaviour:
   collid: {fileID: 7387750312513737411}
   animator: {fileID: 7387750312513737428}
   enemySpawn: {fileID: 0}
-  enemyMove: {fileID: 7387750312513737438}
   enemyShoot: {fileID: 7387750312513737437}
 --- !u!65 &7387750312513737411
 BoxCollider:
