@@ -387,9 +387,7 @@ public class MouseLook : MonoBehaviour
     }
 
     void ThrowGrenade(){
-        currAmmoG--;
-        GameObject grenadeInstance = Instantiate(grenade, cam.transform.position, cam.transform.rotation);
-        grenadeInstance.GetComponent<Rigidbody>().AddForce(cam.transform.forward * dist, ForceMode.Impulse);
+        StartCoroutine(BeginThrow());
     }
 
     void ShootFireworkk(){
@@ -409,5 +407,12 @@ public class MouseLook : MonoBehaviour
         shootReady = false;
         yield return new WaitForSeconds(0.5f);
         shootReady = true;
+    }
+
+    IEnumerator BeginThrow(){
+        yield return new WaitForSeconds(0.5f);
+        currAmmoG--;
+        GameObject grenadeInstance = Instantiate(grenade, cam.transform.position, cam.transform.rotation);
+        grenadeInstance.GetComponent<Rigidbody>().AddForce(cam.transform.forward * dist, ForceMode.Impulse);
     }
 }
