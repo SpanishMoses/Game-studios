@@ -57,7 +57,7 @@ public class TextManager : MonoBehaviour
     }
 
     IEnumerator whipe(){
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         pixie.SetActive(false);
         textBox.SetActive(false);
     }
