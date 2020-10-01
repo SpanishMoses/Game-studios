@@ -26,7 +26,6 @@ public class NextSentence : MonoBehaviour
         if (other.gameObject.tag == "Player"){
             textMan.NextSentence();
             gameObject.SetActive(false);
-            player.cantMove = true;
         }
     }
 }
