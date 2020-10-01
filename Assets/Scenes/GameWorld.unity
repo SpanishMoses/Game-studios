@@ -8650,7 +8650,7 @@ GameObject:
   - component: {fileID: 729005914}
   - component: {fileID: 729005913}
   m_Layer: 0
-  m_Name: Pistol
+  m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9597,6 +9597,10 @@ PrefabInstance:
     - target: {fileID: 7387750312513737410, guid: 5515556052e401645baac8d00036f4ff, type: 3}
       propertyPath: m_Name
       value: underground enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7387750312513737410, guid: 5515556052e401645baac8d00036f4ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7387750312513737434, guid: 5515556052e401645baac8d00036f4ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10725,6 +10729,7 @@ GameObject:
   - component: {fileID: 854584384}
   - component: {fileID: 854584383}
   - component: {fileID: 854584382}
+  - component: {fileID: 854584385}
   m_Layer: 12
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10761,6 +10766,7 @@ MonoBehaviour:
   mouseSensitivity: 800
   playerBody: {fileID: 914114989}
   anim: {fileID: 729005914}
+  camAnim: {fileID: 854584385}
   cam: {fileID: 854584380}
   dist: 100
   damage: 1
@@ -10838,6 +10844,25 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!95 &854584385
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854584380}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f25f504e83103d249b9ed96d0773ed56, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &869954523
 GameObject:
   m_ObjectHideFlags: 0
@@ -26209,6 +26234,7 @@ GameObject:
   - component: {fileID: 1817990111}
   - component: {fileID: 1817990110}
   - component: {fileID: 1817990109}
+  - component: {fileID: 1817990112}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -26294,12 +26320,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817990108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.8, y: 115, z: 130.79114}
-  m_LocalScale: {x: 80, y: 80, z: 1}
+  m_LocalPosition: {x: 4.8, y: 288.3, z: 130.79114}
+  m_LocalScale: {x: 120, y: 120, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1817990112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817990108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a7fba994f8a5e478aaa0fdbf4d1b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1822538478
 GameObject:
   m_ObjectHideFlags: 0

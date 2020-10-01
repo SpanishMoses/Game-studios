@@ -16,6 +16,7 @@ public class MouseLook : MonoBehaviour
     public Transform playerBody;
 
     public Animator anim;
+    public Animator camAnim;
 
     float xRotation = 0f;
 
@@ -87,6 +88,7 @@ public class MouseLook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha1)){
             Debug.Log("usePistol");
+            anim.SetTrigger("Switch_Pistol");
             usePistol = true;
             useShotgun = false;
             useMachineGun = false;
@@ -102,6 +104,7 @@ public class MouseLook : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha2))
         {
             Debug.Log("useshotgun");
+            anim.SetTrigger("Switch_Shotgun");
             useShotgun = true;
             usePistol = false;
             useMachineGun = false;
@@ -177,18 +180,22 @@ public class MouseLook : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && usePistol == true && shootReady == true && currAmmoP <= maxAmmoP && currAmmoP > 0){
             ShootPistol();
             anim.SetTrigger("PistolShoot");
+            camAnim.SetTrigger("camShake1");
             StartCoroutine(reload());
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && useShotgun == true && shootReady == true && currAmmoS <= maxAmmoS && currAmmoS > 0)
         {
             shootShotgun();
+            anim.SetTrigger("ShotgunShoot");
+            camAnim.SetTrigger("camShake2");
             StartCoroutine(reload());
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && useMachineGun == true && shootReady == true && currAmmoM <= maxAmmoM && currAmmoM > 0 && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
+            camAnim.SetTrigger("camShake3");
             ShootMachineGun();
         }
 
