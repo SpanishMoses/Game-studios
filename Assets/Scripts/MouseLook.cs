@@ -254,6 +254,30 @@ public class MouseLook : MonoBehaviour
         if (useFirework == true){
             ammoText.text = currAmmoF + "/" + maxAmmoF;
         }
+
+        if (currAmmoP >= maxAmmoP){
+            currAmmoP = maxAmmoP;
+        }
+
+        if (currAmmoS >= maxAmmoS)
+        {
+            currAmmoS = maxAmmoS;
+        }
+
+        if (currAmmoM >= maxAmmoM)
+        {
+            currAmmoM = maxAmmoM;
+        }
+
+        if (currAmmoG >= maxAmmoG)
+        {
+            currAmmoG = maxAmmoG;
+        }
+
+        if (currAmmoF >= maxAmmoF)
+        {
+            currAmmoF = maxAmmoF;
+        }
     }
 
     void ShootPistol(){
