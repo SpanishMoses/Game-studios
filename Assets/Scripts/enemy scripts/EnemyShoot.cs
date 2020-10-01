@@ -36,11 +36,6 @@ public class EnemyShoot : MonoBehaviour
                 shoot();
             }
         }
-
-        if (health.health <= 0){
-            mov.locActive = false;
-            mov.backUp = false;
-        }
     }
 
     private void FixedUpdate()

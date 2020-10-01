@@ -78,10 +78,6 @@ public class EnemyMove : MonoBehaviour
         {
             animator.SetBool("IsMoving", true); ;
         }
-
-        if (health.health <= 0){
-            navMeshAgent.speed = 0;
-        }
     }
 
     private void FixedUpdate()

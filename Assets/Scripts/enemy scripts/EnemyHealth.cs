@@ -21,8 +21,8 @@ public class EnemyHealth : MonoBehaviour
 
     //public ArrayedEnemy array;
     public EnemySpawner enemySpawn;
-    //public EnemyMove enemyMove;
-    //public EnemyShoot enemyShoot;
+    public EnemyMove enemyMove;
+    public EnemyShoot enemyShoot;
 
     private void Update()
     {
@@ -37,14 +37,14 @@ public class EnemyHealth : MonoBehaviour
         {
             Debug.Log("dead");
             StartCoroutine(startNormalDeath());
-            //enemyMove.navMeshAgent.speed = 0;
-            //enemyShoot.enabled = false;
+            enemyMove.navMeshAgent.speed = 0;
+            enemyShoot.enabled = false;
         }
             if (health <= 0 && partOfArray == true){
             StartCoroutine(startDeath());
             Debug.Log("started");
-            //enemyMove.navMeshAgent.speed = 0;
-            //enemyShoot.enabled = false;
+            enemyMove.navMeshAgent.speed = 0;
+            enemyShoot.enabled = false;
         }
     }
 
