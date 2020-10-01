@@ -17,6 +17,7 @@ public class MouseLook : MonoBehaviour
 
     public Animator anim;
     public Animator camAnim;
+    public Animator crosshairAnim;
 
     float xRotation = 0f;
 
@@ -180,6 +181,7 @@ public class MouseLook : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && usePistol == true && shootReady == true && currAmmoP <= maxAmmoP && currAmmoP > 0){
             ShootPistol();
             anim.SetTrigger("PistolShoot");
+            crosshairAnim.SetTrigger("Expand");
             camAnim.SetTrigger("camShake1");
             StartCoroutine(reload());
         }
@@ -188,6 +190,7 @@ public class MouseLook : MonoBehaviour
         {
             shootShotgun();
             anim.SetTrigger("ShotgunShoot");
+            crosshairAnim.SetTrigger("Expand");
             camAnim.SetTrigger("camShake2");
             StartCoroutine(reload());
         }
@@ -195,6 +198,7 @@ public class MouseLook : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && useMachineGun == true && shootReady == true && currAmmoM <= maxAmmoM && currAmmoM > 0 && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
+            crosshairAnim.SetTrigger("Expand");
             camAnim.SetTrigger("camShake3");
             ShootMachineGun();
         }

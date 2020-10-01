@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
 
+    public Animator camAnim;
+
     public float defaultSpeed = 12f;
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -94,6 +96,15 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Dash());
                 StartCoroutine(DashRecharge());
             }
+        }
+
+        //Controls camera bob while moving and jumping
+        if (velocity.x <= 0 && velocity.z <=0)
+        {
+            camAnim.SetBool("IsMoving", false);
+        } else
+        {
+            camAnim.SetBool("IsMoving", true);
         }
 
         healthText.text = "Health: " + health;
