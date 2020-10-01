@@ -63,6 +63,8 @@ public class MouseLook : MonoBehaviour
     public Text ammoText;
 
     public GameObject blood;
+    public GameObject impact;
+    public GameObject shell;
 
     public GameObject grenade;
     public GameObject firework;
@@ -192,6 +194,7 @@ public class MouseLook : MonoBehaviour
             anim.SetTrigger("ShotgunShoot");
             crosshairAnim.SetTrigger("Expand");
             camAnim.SetTrigger("camShake2");
+            Instantiate(shell, transform.position, transform.rotation);
             StartCoroutine(reload());
         }
 
@@ -259,6 +262,7 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, dist))
         {
             Debug.Log(hit.transform.name);
+            Instantiate(impact, hit.point, Quaternion.identity);
             EnemyHealth enemyHealth = hit.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null){
                 enemyHealth.TakeDamage(damage);
@@ -278,6 +282,7 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out sHit, dist))
         {
             Debug.Log(sHit.transform.name);
+            Instantiate(impact, sHit.point, Quaternion.identity);
             EnemyHealth enemyHealth = sHit.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
@@ -289,6 +294,7 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.2f, 0f, 0f), out sHit2, dist))
         {
             Debug.Log(sHit2.transform.name);
+            Instantiate(impact, sHit2.point, Quaternion.identity);
             EnemyHealth enemyHealth = sHit2.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
@@ -300,6 +306,7 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, .1f, 0f), out sHit3, dist))
         {
             Debug.Log(sHit3.transform.name);
+            Instantiate(impact, sHit3.point, Quaternion.identity);
             EnemyHealth enemyHealth = sHit3.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
@@ -311,6 +318,7 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.1f, 0f), out sHit4, dist))
         {
             Debug.Log(sHit4.transform.name);
+            Instantiate(impact, sHit4.point, Quaternion.identity);
             EnemyHealth enemyHealth = sHit4.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
@@ -327,6 +335,7 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out mHit, dist))
         {
             Debug.Log(mHit.transform.name);
+            Instantiate(impact, mHit.point, Quaternion.identity);
             EnemyHealth enemyHealth = mHit.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
@@ -343,6 +352,7 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out kHit, dist))
         {
             Debug.Log(kHit.transform.name);
+            Instantiate(impact, kHit.point, Quaternion.identity);
             EnemyHealth enemyHealth = kHit.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {

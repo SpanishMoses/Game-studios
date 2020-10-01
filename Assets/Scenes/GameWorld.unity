@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  m_AmbientSkyColor: {r: 0.7075472, g: 0.3964934, b: 0.6261727, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1.6
   m_AmbientMode: 3
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.4511214, g: 0.5156847, b: 0.6792453, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -10733,6 +10733,8 @@ MonoBehaviour:
   shootReady: 0
   ammoText: {fileID: 499910278}
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
+  impact: {fileID: 4738052880662677020, guid: 36aa7e35003522348940264f59bc4080, type: 3}
+  shell: {fileID: 1969163310703086288, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
   grenade: {fileID: 7690083196142004104, guid: 8983329f183a86d43b49422d2904633e, type: 3}
   firework: {fileID: 8610411357180702853, guid: d5d7ed91f848f4b429091202f40e49ee, type: 3}
 --- !u!81 &854584383
@@ -26288,7 +26290,7 @@ Transform:
   m_GameObject: {fileID: 1817990108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.8, y: 288.3, z: 130.79114}
-  m_LocalScale: {x: 120, y: 120, z: 1}
+  m_LocalScale: {x: 220, y: 220, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 51
@@ -40305,6 +40307,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6f3f207da0ce2740b30f246aa587977, type: 3}
+--- !u!1001 &2094346870363409552
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1969163310703086288, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_Name
+      value: ShotgunShell
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670835834838152584, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670835834838152584, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670835834838152584, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 128.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670835834838152584, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670835834838152584, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670835834838152584, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670835834838152584, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670835834838152584, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_RootOrder
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670835834838152584, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670835834838152584, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670835834838152584, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
 --- !u!1001 &2111376356259153305
 PrefabInstance:
   m_ObjectHideFlags: 0
