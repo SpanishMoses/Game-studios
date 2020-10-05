@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject player;
     public GameObject checkpoint;
 
+    public GameObject dropSahdow;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -107,7 +109,8 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(respawnTimer());
             health = 5;
         }
-    }
+        
+        }
 
     public IEnumerator Dash()
     {
