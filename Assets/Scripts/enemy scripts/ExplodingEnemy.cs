@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMove : MonoBehaviour
+public class ExplodingEnemy : MonoBehaviour
 {
-    //help from https://www.youtube.com/watch?v=NGGoOa4BpmY
-    //backing up from https://www.youtube.com/watch?v=Zjlg9F3FRJs&ab_channel=Jayanam
-
     public float playerDist;
-    public float backUpDist;
+    public float blowUpDist;
     public float speed;
+
+    public float radius;
+    public float damage;
 
     public GameObject spawnEffect;
 
@@ -21,7 +21,6 @@ public class EnemyMove : MonoBehaviour
     private Animator animator;
 
     public bool locActive;
-    public bool backUp;
 
     public EnemyHealth health;
 
@@ -31,7 +30,7 @@ public class EnemyMove : MonoBehaviour
         playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        
+
 
     }
 
@@ -45,26 +44,16 @@ public class EnemyMove : MonoBehaviour
         if (Vector2.Distance(transform.position, playerLoc.transform.position) < playerDist)
         {
             locActive = true;
-            backUp = false;
         }
 
-            if (Vector2.Distance(transform.position, playerLoc.transform.position) < backUpDist)
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) < blowUpDist)
         {
-            backUp = true;
-            locActive = false;
+            StartCoroutine(beignBlowUp());
         }
 
-        if (backUp == false){
-            locActive = true;
-        }
-
-        if (locActive == true && backUp == false)
+        if (locActive == true)
         {
             SetDestination();
-        }
-        if (backUp == true && locActive == false)
-        {
-            AwayDestination();
         }
 
         //Is idle
@@ -78,34 +67,53 @@ public class EnemyMove : MonoBehaviour
         {
             animator.SetBool("IsMoving", true); ;
         }
+
+        if (health.health <= 0){
+            StartCoroutine(beignBlowUp());
+        }
     }
 
     private void FixedUpdate()
     {
-        
+
     }
 
-    void SetDestination(){
-        if (playerLoc.transform.position != null){
-            Vector3 targetVector = playerLoc.transform.position;
-            navMeshAgent.SetDestination(targetVector);
-        } 
-    }
-
-    void AwayDestination()
+    void SetDestination()
     {
-        /*if (playerLoc.transform.position != null)
+        if (playerLoc.transform.position != null)
         {
             Vector3 targetVector = playerLoc.transform.position;
             navMeshAgent.SetDestination(targetVector);
-        }*/
-
-        float distance = Vector3.Distance(transform.position, playerLoc.transform.position);
-
-        if (distance < backUpDist){
-            Vector3 dirToPlayer = transform.position - playerLoc.transform.position;
-            Vector3 newPos = transform.position + dirToPlayer * 2;
-            navMeshAgent.SetDestination(newPos);
         }
+    }
+
+    void detonation(){
+        navMeshAgent.speed = 0;
+        navMeshAgent.angularSpeed = 0;
+        navMeshAgent.acceleration = 0;
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+
+        foreach (Collider near in colliders)
+        {
+            EnemyHealth enemyHealth = near.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damage);
+            }
+
+            PlayerMovement playerMove = near.GetComponent<PlayerMovement>();
+            if (playerMove != null){
+                playerMove.TakeDamage(damage);
+            }
+        }
+
+        Destroy(gameObject);
+    }
+    
+    IEnumerator beignBlowUp(){
+        yield return new WaitForSeconds(1f);
+        detonation();
+        health.collid.enabled = true;
     }
 }
