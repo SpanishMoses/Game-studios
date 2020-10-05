@@ -20,6 +20,10 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 12f;
     public float gravity = -9.81f;
 
+    public float time;
+    public float maxTime;
+    public bool pressedJump;
+
     public Transform groundCheck;
     public float groundDistance = 0.4f; 
     public LayerMask groundMask;
@@ -54,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         cantMove = false;
 
         damagePic.SetActive(false);
+        pressedJump = true;
     }
 
     // Update is called once per frame
@@ -65,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
         if(isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            pressedJump = false;
+            time = 0;
         }
 
         if (cantMove == false){ 
@@ -76,10 +83,26 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
 
         //Jump
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && pressedJump == false)
         {
             velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
+                pressedJump = true;
         }
+
+        if (pressedJump == false && isGrounded == false){
+                time += Time.deltaTime;
+                if (time <= maxTime){
+                    if (Input.GetButtonDown("Jump") && pressedJump == false)
+                    {
+                        velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
+                        pressedJump = true;
+                        time = 0;
+                    } else if ( time >= maxTime){
+                        pressedJump = true;
+                        time = 0;
+                    }
+                }
+            }
 
         velocity.y += gravity * Time.deltaTime;
 
