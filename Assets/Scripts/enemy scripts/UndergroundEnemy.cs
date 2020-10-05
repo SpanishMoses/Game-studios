@@ -19,8 +19,6 @@ public class UndergroundEnemy : MonoBehaviour
 
     private Transform playerLoc;
 
-    public NavMeshAgent navMeshAgent;
-
     public bool locActive;
 
     public Rigidbody rb;
@@ -35,33 +33,24 @@ public class UndergroundEnemy : MonoBehaviour
     void Start()
     {
         playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        navMeshAgent = this.GetComponent<NavMeshAgent>();
+        locActive = true;
     }
 
     private void Update()
     {
-        if (Vector2.Distance(transform.position, playerLoc.transform.position) < playerDist)
-        {
-            locActive = true;
-        }
-
-
-        if (locActive == true)
-        {
-            SetDestination();
-        }
+        
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach (Collider near in colliders)
         {
             PlayerMovement player = near.GetComponent<PlayerMovement>();
-            if (player != null) {
+            if (player != null)
+            {
                 locActive = false;
-
-
-            
-        }
+            }
+            else
+                locActive = true;
     }
 
         if (locActive == false){
@@ -70,30 +59,18 @@ public class UndergroundEnemy : MonoBehaviour
                     Debug.Log("i found you");
                     spawnTime = 0;
                     locActive = false;
-                    navMeshAgent.speed = 0;
-                    StartCoroutine(beginFollow());
-                Instantiate(gnome, spawnPoint.position, Quaternion.identity);
+                spawnGnome();
             }
         }
 
         
     }
 
-
-
-    void SetDestination()
+    void spawnGnome()
     {
-        if (playerLoc.transform.position != null)
-        {
-            Vector3 targetVector = playerLoc.transform.position;
-            navMeshAgent.SetDestination(targetVector);
-        }
+        Instantiate(gnome, spawnPoint.position, Quaternion.identity);
     }
 
-    IEnumerator beginFollow(){
-        
-        yield return new WaitForSeconds(5f);
-        locActive = true;
-        navMeshAgent.speed = 3.5f;
-    }
+
+
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 167203546123975272}
   - component: {fileID: 7583002660520811095}
   - component: {fileID: 5943145944412026387}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: gnome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,6 +137,8 @@ MonoBehaviour:
   collid: {fileID: 7583002660520811095}
   animator: {fileID: 5943145944412026387}
   enemySpawn: {fileID: 0}
+  enemyMove: {fileID: 0}
+  enemyShoot: {fileID: 0}
 --- !u!65 &7583002660520811095
 BoxCollider:
   m_ObjectHideFlags: 0
