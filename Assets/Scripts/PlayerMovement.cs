@@ -132,7 +132,14 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(respawnTimer());
             health = 5;
         }
-        
+        RaycastHit ray;
+
+        if (Physics.Raycast(transform.position, -transform.up, out ray))
+        {
+            if (ray.collider != null){
+                 dropSahdow.transform.position = ray.point;
+            }
+        }
         }
 
     public IEnumerator Dash()
