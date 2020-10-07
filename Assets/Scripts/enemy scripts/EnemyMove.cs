@@ -14,7 +14,7 @@ public class EnemyMove : MonoBehaviour
 
     public GameObject spawnEffect;
 
-    private Transform playerLoc;
+    public Transform playerLoc;
 
     public NavMeshAgent navMeshAgent;
 
