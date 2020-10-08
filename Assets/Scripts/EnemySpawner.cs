@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject door;
+    public GameObject[] door;
     public GameObject[] enemies;
 
     public bool activated;
@@ -27,7 +27,10 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         if (enemiesSpawned <= 0){
-            door.SetActive(false);
+            for (int i = 0; i < door.Length; i++){
+                door[i].SetActive(false);
+            }
+            
         }
     }
 

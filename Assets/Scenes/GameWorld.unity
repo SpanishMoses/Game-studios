@@ -28797,7 +28797,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff54e89592f975449a308c294cb975e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 239937005}
+  door:
+  - {fileID: 239937005}
   enemies:
   - {fileID: 1193926414}
   - {fileID: 699685893}
@@ -29207,7 +29208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff54e89592f975449a308c294cb975e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 711846884}
+  door:
+  - {fileID: 711846884}
   enemies:
   - {fileID: 1170884947}
   - {fileID: 1803433252}
