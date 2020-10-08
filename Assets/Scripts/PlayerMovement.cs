@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float timeBetweenDashes = 1f;
     private bool canDash = true;
+    [SerializeField] ParticleSystem DashEffect;
 
     Vector3 velocity;
     bool isGrounded;
@@ -111,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
             //Dash
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
             {
+                DashEffect.Play();
                 canDash = false;
                 StartCoroutine(Dash());
                 StartCoroutine(DashRecharge());
