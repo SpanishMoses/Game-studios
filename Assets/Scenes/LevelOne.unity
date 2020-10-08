@@ -31636,6 +31636,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7387750312513737435, guid: 5515556052e401645baac8d00036f4ff, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 619471299}
     - target: {fileID: 7387750312513737436, guid: 5515556052e401645baac8d00036f4ff, type: 3}
       propertyPath: enemySpawn
       value: 
@@ -52756,6 +52760,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7387750312513737435, guid: 5515556052e401645baac8d00036f4ff, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 619471299}
     - target: {fileID: 7387750312513737436, guid: 5515556052e401645baac8d00036f4ff, type: 3}
       propertyPath: enemySpawn
       value: 
@@ -59103,6 +59111,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7387750312513737435, guid: 5515556052e401645baac8d00036f4ff, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 1305196281}
+    - target: {fileID: 7387750312513737436, guid: 5515556052e401645baac8d00036f4ff, type: 3}
+      propertyPath: enemySpawn
+      value: 
+      objectReference: {fileID: 1305196281}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5515556052e401645baac8d00036f4ff, type: 3}
 --- !u!1 &1897868977 stripped
