@@ -292,6 +292,11 @@ public class MouseLook : MonoBehaviour
                 enemyHealth.TakeDamage(damage);
                 Instantiate(blood, hit.point, Quaternion.identity);
             }
+            PointGiver point = hit.transform.GetComponent<PointGiver>();
+            if (point != null){
+                point.GivePoint(point.targetPoints);
+                Debug.Log("Got some points");
+            }
         }
     }
 
@@ -313,6 +318,11 @@ public class MouseLook : MonoBehaviour
                 enemyHealth.TakeDamage(damage);
                 Instantiate(blood, sHit.point, Quaternion.identity);
             }
+            PointGiver point = sHit.transform.GetComponent<PointGiver>();
+            if (point != null)
+            {
+                point.GivePoint(point.targetPoints);
+            }
         }
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.2f, 0f, 0f), out sHit2, dist))
@@ -324,6 +334,11 @@ public class MouseLook : MonoBehaviour
             {
                 enemyHealth.TakeDamage(damage);
                 Instantiate(blood, sHit2.point, Quaternion.identity);
+            }
+            PointGiver point = sHit2.transform.GetComponent<PointGiver>();
+            if (point != null)
+            {
+                point.GivePoint(point.targetPoints);
             }
         }
 
@@ -337,6 +352,11 @@ public class MouseLook : MonoBehaviour
                 enemyHealth.TakeDamage(damage);
                 Instantiate(blood, sHit3.point, Quaternion.identity);
             }
+            PointGiver point = sHit3.transform.GetComponent<PointGiver>();
+            if (point != null)
+            {
+                point.GivePoint(point.targetPoints);
+            }
         }
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.1f, 0f), out sHit4, dist))
@@ -348,6 +368,11 @@ public class MouseLook : MonoBehaviour
             {
                 enemyHealth.TakeDamage(damage);
                 Instantiate(blood, sHit4.point, Quaternion.identity);
+            }
+            PointGiver point = sHit4.transform.GetComponent<PointGiver>();
+            if (point != null)
+            {
+                point.GivePoint(point.targetPoints);
             }
         }
     }
@@ -366,6 +391,11 @@ public class MouseLook : MonoBehaviour
                 enemyHealth.TakeDamage(damage);
                 Instantiate(blood, mHit.point, Quaternion.identity);
             }
+            PointGiver point = mHit.transform.GetComponent<PointGiver>();
+            if (point != null)
+            {
+                point.GivePoint(point.targetPoints);
+            }
         }
     }
 
@@ -382,6 +412,11 @@ public class MouseLook : MonoBehaviour
             {
                 enemyHealth.TakeDamage(damage);
                 Instantiate(blood, kHit.point, Quaternion.identity);
+            }
+            PointGiver point = kHit.transform.GetComponent<PointGiver>();
+            if (point != null)
+            {
+                point.GivePoint(point.targetPoints);
             }
         }
     }
