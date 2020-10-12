@@ -52,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject dropSahdow;
 
+    public PointManager point;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -60,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         damagePic.SetActive(false);
         pressedJump = true;
+        point = GameObject.FindGameObjectWithTag("PointManager").GetComponent<PointManager>();
     }
 
     // Update is called once per frame
@@ -227,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(flashHit());
         if (health <= 0f)
         {
-            Debug.Log("dead");
+            StartCoroutine(respawnTimer());
         }
     }
 
@@ -246,6 +249,7 @@ public class PlayerMovement : MonoBehaviour
         deadScreen.SetActive(true);
         yield return new WaitForSeconds(1f);
         deadScreen.SetActive(false);
+        point.totalPoints -= 50;
         respawn();
     }
 
