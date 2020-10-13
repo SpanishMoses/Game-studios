@@ -173,6 +173,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Get"){
+            mouse.shootEnabled = true;
+        }
+
         if (other.gameObject.tag == "Checkpoint"){
             checkpoint = other.gameObject;
         }

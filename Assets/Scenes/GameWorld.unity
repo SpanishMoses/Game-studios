@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 10302155}
   m_Layer: 0
   m_Name: text trigger (7)
-  m_TagString: Untagged
+  m_TagString: Get
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17168,6 +17168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571c3783fbe019e48bb3cdbcb246dde8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootEnabled: 0
+  weapons: {fileID: 729005911}
+  crossHair: {fileID: 1533055423}
   mouseSensitivity: 4
   playerBody: {fileID: 914114989}
   anim: {fileID: 729005914}
@@ -18266,6 +18269,7 @@ MonoBehaviour:
   player: {fileID: 914114985}
   checkpoint: {fileID: 0}
   dropSahdow: {fileID: 1189033109}
+  point: {fileID: 0}
 --- !u!143 &914114988
 CharacterController:
   m_ObjectHideFlags: 0

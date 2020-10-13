@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MouseLook : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class MouseLook : MonoBehaviour
     //shotgun code from https://www.youtube.com/watch?v=1gPLfY93JHk&ab_channel=FPSBuilders
     //grenade throw from https://www.youtube.com/watch?v=sglRyWQh79g&ab_channel=FPSBuilders
     //help from https://www.youtube.com/watch?v=wZ2UUOC17AY&ab_channel=Dave%2FGameDevelopment
+
+    public bool shootEnabled;
+    public GameObject weapons;
+    public GameObject crossHair;
 
     public float mouseSensitivity = 100f;
 
@@ -75,6 +80,10 @@ public class MouseLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         shootReady = true;
         usePistol = true;
+        if ((SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")))
+        {
+            shootEnabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -89,194 +98,213 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
 
-        if (Input.GetKey(KeyCode.Alpha1)){
-            Debug.Log("usePistol");
-            anim.SetTrigger("Switch_Pistol");
-            usePistol = true;
-            useShotgun = false;
-            useMachineGun = false;
-            useKnife = false;
-            useGrenade = false;
-            useFirework = false;
-            damage = 2;
-            reloadTime = 0.5f;
-            dist = 50f;
-            //ammoText.text = currAmmoP + "/" + maxAmmoP;
+        if (shootEnabled == false){
+            weapons.SetActive(false);
+            crossHair.SetActive(false);
         }
 
-        if (Input.GetKey(KeyCode.Alpha2))
+        if (shootEnabled == true)
         {
-            Debug.Log("useshotgun");
-            anim.SetTrigger("Switch_Shotgun");
-            useShotgun = true;
-            usePistol = false;
-            useMachineGun = false;
-            useKnife = false;
-            useGrenade = false;
-            useFirework = false;
-            damage = 4;
-            reloadTime = 1f;
-            dist = 30f;
-            //ammoText.text = currAmmoS + "/" + maxAmmoS;
-        }
+            weapons.SetActive(true);
+            crossHair.SetActive(true);
+            if (Input.GetKey(KeyCode.Alpha1))
+            {
+                Debug.Log("usePistol");
+                anim.SetTrigger("Switch_Pistol");
+                usePistol = true;
+                useShotgun = false;
+                useMachineGun = false;
+                useKnife = false;
+                useGrenade = false;
+                useFirework = false;
+                damage = 2;
+                reloadTime = 0.5f;
+                dist = 50f;
+                //ammoText.text = currAmmoP + "/" + maxAmmoP;
+            }
 
-        if (Input.GetKey(KeyCode.Alpha3))
-        {
-            Debug.Log("usemachinegun");
-            useShotgun = false;
-            usePistol = false;
-            useMachineGun = true;
-            useKnife = false;
-            useGrenade = false;
-            useFirework = false;
-            damage = 1;
-            reloadTime = 1f;
-            dist = 50f;
-            //ammoText.text = currAmmoS + "/" + maxAmmoS;
-        }
+            if (Input.GetKey(KeyCode.Alpha2))
+            {
+                Debug.Log("useshotgun");
+                anim.SetTrigger("Switch_Shotgun");
+                useShotgun = true;
+                usePistol = false;
+                useMachineGun = false;
+                useKnife = false;
+                useGrenade = false;
+                useFirework = false;
+                damage = 4;
+                reloadTime = 1f;
+                dist = 30f;
+                //ammoText.text = currAmmoS + "/" + maxAmmoS;
+            }
 
-        if (Input.GetKey(KeyCode.Alpha4))
-        {
-            Debug.Log("useknife");
-            useShotgun = false;
-            usePistol = false;
-            useMachineGun = false;
-            useKnife = true;
-            useGrenade = false;
-            useFirework = false;
-            damage = 3;
-            reloadTime = 1f;
-            dist = 5;
-            //ammoText.text = currAmmoS + "/" + maxAmmoS;
-        }
+            if (Input.GetKey(KeyCode.Alpha3))
+            {
+                Debug.Log("usemachinegun");
+                useShotgun = false;
+                usePistol = false;
+                useMachineGun = true;
+                useKnife = false;
+                useGrenade = false;
+                useFirework = false;
+                damage = 1;
+                reloadTime = 1f;
+                dist = 50f;
+                //ammoText.text = currAmmoS + "/" + maxAmmoS;
+            }
 
-        if (Input.GetKey(KeyCode.Alpha5))
-        {
-            Debug.Log("usegrenade");
-            useShotgun = false;
-            usePistol = false;
-            useMachineGun = false;
-            useKnife = false;
-            useGrenade = true;
-            useFirework = false;
-            damage = 3;
-            reloadTime = 1f;
-            dist = 20f;
-            //ammoText.text = currAmmoS + "/" + maxAmmoS;
-        }
+            if (Input.GetKey(KeyCode.Alpha4))
+            {
+                Debug.Log("useknife");
+                useShotgun = false;
+                usePistol = false;
+                useMachineGun = false;
+                useKnife = true;
+                useGrenade = false;
+                useFirework = false;
+                damage = 3;
+                reloadTime = 1f;
+                dist = 5;
+                //ammoText.text = currAmmoS + "/" + maxAmmoS;
+            }
 
-        if (Input.GetKey(KeyCode.Alpha6))
-        {
-            Debug.Log("usefirework");
-            useShotgun = false;
-            usePistol = false;
-            useMachineGun = false;
-            useKnife = false;
-            useGrenade = false;
-            useFirework = true;
-            damage = 3;
-            reloadTime = 4f;
-            dist = 20f;
-            //ammoText.text = currAmmoS + "/" + maxAmmoS;
-        }
+            if (Input.GetKey(KeyCode.Alpha5))
+            {
+                Debug.Log("usegrenade");
+                useShotgun = false;
+                usePistol = false;
+                useMachineGun = false;
+                useKnife = false;
+                useGrenade = true;
+                useFirework = false;
+                damage = 3;
+                reloadTime = 1f;
+                dist = 20f;
+                //ammoText.text = currAmmoS + "/" + maxAmmoS;
+            }
 
-        if (Input.GetKey(KeyCode.Mouse0) && usePistol == true && shootReady == true && currAmmoP <= maxAmmoP && currAmmoP > 0){
-            ShootPistol();
-            anim.SetTrigger("PistolShoot");
-            crosshairAnim.SetTrigger("Expand");
-            camAnim.SetTrigger("camShake1");
-            StartCoroutine(reload());
-        }
+            if (Input.GetKey(KeyCode.Alpha6))
+            {
+                Debug.Log("usefirework");
+                useShotgun = false;
+                usePistol = false;
+                useMachineGun = false;
+                useKnife = false;
+                useGrenade = false;
+                useFirework = true;
+                damage = 3;
+                reloadTime = 4f;
+                dist = 20f;
+                //ammoText.text = currAmmoS + "/" + maxAmmoS;
+            }
 
-        if (Input.GetKey(KeyCode.Mouse0) && useShotgun == true && shootReady == true && currAmmoS <= maxAmmoS && currAmmoS > 0)
-        {
-            shootShotgun();
-            anim.SetTrigger("ShotgunShoot");
-            crosshairAnim.SetTrigger("Expand");
-            camAnim.SetTrigger("camShake2");
-            Instantiate(shell, transform.position, transform.rotation);
-            StartCoroutine(reload());
-        }
+            if (Input.GetKey(KeyCode.Mouse0) && usePistol == true && shootReady == true && currAmmoP <= maxAmmoP && currAmmoP > 0)
+            {
+                ShootPistol();
+                anim.SetTrigger("PistolShoot");
+                crosshairAnim.SetTrigger("Expand");
+                camAnim.SetTrigger("camShake1");
+                StartCoroutine(reload());
+            }
 
-        if (Input.GetKey(KeyCode.Mouse0) && useMachineGun == true && shootReady == true && currAmmoM <= maxAmmoM && currAmmoM > 0 && Time.time >= nextTimeToFire)
-        {
-            nextTimeToFire = Time.time + 1f / fireRate;
-            crosshairAnim.SetTrigger("Expand");
-            camAnim.SetTrigger("camShake3");
-            ShootMachineGun();
-        }
+            if (Input.GetKey(KeyCode.Mouse0) && useShotgun == true && shootReady == true && currAmmoS <= maxAmmoS && currAmmoS > 0)
+            {
+                shootShotgun();
+                anim.SetTrigger("ShotgunShoot");
+                crosshairAnim.SetTrigger("Expand");
+                camAnim.SetTrigger("camShake2");
+                Instantiate(shell, transform.position, transform.rotation);
+                StartCoroutine(reload());
+            }
 
-        if (Input.GetKey(KeyCode.Mouse0) && useKnife == true && shootReady == true)
-        {
-            StabKnife();
-            StartCoroutine(reload());
-        }
+            if (Input.GetKey(KeyCode.Mouse0) && useMachineGun == true && shootReady == true && currAmmoM <= maxAmmoM && currAmmoM > 0 && Time.time >= nextTimeToFire)
+            {
+                nextTimeToFire = Time.time + 1f / fireRate;
+                crosshairAnim.SetTrigger("Expand");
+                camAnim.SetTrigger("camShake3");
+                ShootMachineGun();
+            }
 
-        if (Input.GetKey(KeyCode.Mouse0) && useGrenade == true && shootReady == true && currAmmoG <= maxAmmoG && currAmmoG > 0)
-        {
-            ThrowGrenade();
-            StartCoroutine(reload());
-        }
+            if (Input.GetKey(KeyCode.Mouse0) && useKnife == true && shootReady == true)
+            {
+                StabKnife();
+                StartCoroutine(reload());
+            }
 
-        if (Input.GetKey(KeyCode.Mouse0) && useFirework == true && shootReady == true && currAmmoF <= maxAmmoF && currAmmoF > 0)
-        {
-            ShootFireworkk();
-            StartCoroutine(reload());
-        }
+            if (Input.GetKey(KeyCode.Mouse0) && useGrenade == true && shootReady == true && currAmmoG <= maxAmmoG && currAmmoG > 0)
+            {
+                ThrowGrenade();
+                StartCoroutine(reload());
+            }
 
-        if (Input.GetKey(KeyCode.Mouse0) && shootReady == true && currAmmoP == 0)
-        {
-            Debug.Log("no ammo");
-        }
+            if (Input.GetKey(KeyCode.Mouse0) && useFirework == true && shootReady == true && currAmmoF <= maxAmmoF && currAmmoF > 0)
+            {
+                ShootFireworkk();
+                StartCoroutine(reload());
+            }
 
-        //ammo text scripts
-        //used for changing the text to accomadate what type of gun you're using
-        if (usePistol == true){
-            ammoText.text = currAmmoP + "/" + maxAmmoP;
-        }
+            if (Input.GetKey(KeyCode.Mouse0) && shootReady == true && currAmmoP == 0)
+            {
+                Debug.Log("no ammo");
+            }
 
-        if (useShotgun == true){
-            ammoText.text = currAmmoS + "/" + maxAmmoS;
-        }
+            //ammo text scripts
+            //used for changing the text to accomadate what type of gun you're using
+            if (usePistol == true)
+            {
+                ammoText.text = currAmmoP + "/" + maxAmmoP;
+            }
 
-        if (useMachineGun == true){
-            ammoText.text = currAmmoM + "/" + maxAmmoM;
-        }
+            if (useShotgun == true)
+            {
+                ammoText.text = currAmmoS + "/" + maxAmmoS;
+            }
 
-        if (useKnife == true){
-            ammoText.text = "Stab away";
-        }
+            if (useMachineGun == true)
+            {
+                ammoText.text = currAmmoM + "/" + maxAmmoM;
+            }
 
-        if (useGrenade == true){
-            ammoText.text = currAmmoG + "/" + maxAmmoG;
-        }
+            if (useKnife == true)
+            {
+                ammoText.text = "Stab away";
+            }
 
-        if (useFirework == true){
-            ammoText.text = currAmmoF + "/" + maxAmmoF;
-        }
+            if (useGrenade == true)
+            {
+                ammoText.text = currAmmoG + "/" + maxAmmoG;
+            }
 
-        if (currAmmoP >= maxAmmoP){
-            currAmmoP = maxAmmoP;
-        }
+            if (useFirework == true)
+            {
+                ammoText.text = currAmmoF + "/" + maxAmmoF;
+            }
 
-        if (currAmmoS >= maxAmmoS)
-        {
-            currAmmoS = maxAmmoS;
-        }
+            if (currAmmoP >= maxAmmoP)
+            {
+                currAmmoP = maxAmmoP;
+            }
 
-        if (currAmmoM >= maxAmmoM)
-        {
-            currAmmoM = maxAmmoM;
-        }
+            if (currAmmoS >= maxAmmoS)
+            {
+                currAmmoS = maxAmmoS;
+            }
 
-        if (currAmmoG >= maxAmmoG)
-        {
-            currAmmoG = maxAmmoG;
-        }
+            if (currAmmoM >= maxAmmoM)
+            {
+                currAmmoM = maxAmmoM;
+            }
 
-        if (currAmmoF >= maxAmmoF)
-        {
-            currAmmoF = maxAmmoF;
+            if (currAmmoG >= maxAmmoG)
+            {
+                currAmmoG = maxAmmoG;
+            }
+
+            if (currAmmoF >= maxAmmoF)
+            {
+                currAmmoF = maxAmmoF;
+            }
         }
     }
 
@@ -450,4 +478,6 @@ public class MouseLook : MonoBehaviour
         GameObject grenadeInstance = Instantiate(grenade, cam.transform.position, cam.transform.rotation);
         grenadeInstance.GetComponent<Rigidbody>().AddForce(cam.transform.forward * dist, ForceMode.Impulse);
     }
+
+    
 }
