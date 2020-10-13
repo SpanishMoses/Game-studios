@@ -39,7 +39,8 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     public bool cantMove;
     public bool canRespawn;
-    
+    public bool isDead;
+
     public float health;
     public float amount = 1f;
 
@@ -134,8 +135,8 @@ public class PlayerMovement : MonoBehaviour
         healthText.text = "Health: " + health;
 
         if (health <= 0){
-            StartCoroutine(respawnTimer());
-            health = 5;
+            //StartCoroutine(respawnTimer());
+            //health = 5;
         }
         RaycastHit ray;
 
@@ -144,6 +145,13 @@ public class PlayerMovement : MonoBehaviour
             if (ray.collider != null){
                  dropSahdow.transform.position = ray.point;
             }
+        }
+
+        if (isDead == true && Input.GetKey(KeyCode.Mouse0)){
+            Time.timeScale = 1f;
+            health = 5;
+            point.totalPoints -= 50;
+            isDead = false;
         }
         }
 
@@ -234,7 +242,8 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(flashHit());
         if (health <= 0f)
         {
-            StartCoroutine(respawnTimer());
+            Time.timeScale = 0f;
+            isDead = true;
         }
     }
 

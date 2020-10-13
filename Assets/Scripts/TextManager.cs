@@ -23,6 +23,7 @@ public class TextManager : MonoBehaviour
     private PlayerMovement player;
 
     RectTransform rect;
+    public GameObject killText;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,7 @@ public class TextManager : MonoBehaviour
             
         } else if (sentenceNum == 9){
             player.cantMove = true;
+            killText.SetActive(true);
             if (text.text == sentences[index] && sentenceNum == 9 && Input.GetKey(KeyCode.Mouse0)){
                 player.cantMove = false;
                 anim.SetBool("MousClick", true);
@@ -60,6 +62,7 @@ public class TextManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         pixie.SetActive(false);
         textBox.SetActive(false);
+        killText.SetActive(false);
     }
 
     public IEnumerator Type()

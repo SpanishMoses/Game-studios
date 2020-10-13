@@ -74,6 +74,8 @@ public class MouseLook : MonoBehaviour
     public GameObject grenade;
     public GameObject firework;
 
+    public PlayerMovement play;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,24 +91,28 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        if (play.isDead == false)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
-
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            playerBody.Rotate(Vector3.up * mouseX);
+        }
         if (shootEnabled == false){
             weapons.SetActive(false);
             crossHair.SetActive(false);
+            ammoText.enabled = false;
         }
 
         if (shootEnabled == true)
         {
             weapons.SetActive(true);
             crossHair.SetActive(true);
+            ammoText.enabled = true;
             if (Input.GetKey(KeyCode.Alpha1))
             {
                 Debug.Log("usePistol");
