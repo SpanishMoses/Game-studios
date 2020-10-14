@@ -89,6 +89,14 @@ public class MouseLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         shootReady = true;
         usePistol = true;
+        useShotgun = false;
+        useMachineGun = false;
+        useKnife = false;
+        useGrenade = false;
+        useFirework = false;
+        damage = 2;
+        reloadTime = 0.3f;
+        dist = 50f;
         if ((SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")))
         {
             shootEnabled = false;
@@ -140,7 +148,7 @@ public class MouseLook : MonoBehaviour
                 useGrenade = false;
                 useFirework = false;
                 damage = 2;
-                reloadTime = 0.5f;
+                reloadTime = 0.3f;
                 dist = 50f;
                 //ammoText.text = currAmmoP + "/" + maxAmmoP;
             }
@@ -506,7 +514,7 @@ public class MouseLook : MonoBehaviour
 
     IEnumerator reload(){
         shootReady = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(reloadTime);
         shootReady = true;
     }
 
