@@ -76,6 +76,11 @@ public class MouseLook : MonoBehaviour
 
     public PlayerMovement play;
 
+    /*public bool shotGunBool;
+    PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
+    public int value;
+    value = shotGunBool ? 1 : 0;*/
+
     // Start is called before the first frame update
     void Start()
     {
