@@ -85,6 +85,8 @@ public class MouseLook : MonoBehaviour
         if ((SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")))
         {
             shootEnabled = false;
+        } else {
+            shootEnabled = true;
         }
     }
 
