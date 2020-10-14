@@ -187,6 +187,11 @@ public class PlayerMovement : MonoBehaviour
             mouse.shootEnabled = true;
         }
 
+        if (other.gameObject.tag == "Shotgun"){
+            mouse.shotGunBool = true;
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.tag == "Checkpoint"){
             checkpoint = other.gameObject;
         }

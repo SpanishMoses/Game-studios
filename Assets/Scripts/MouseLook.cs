@@ -11,6 +11,7 @@ public class MouseLook : MonoBehaviour
     //shotgun code from https://www.youtube.com/watch?v=1gPLfY93JHk&ab_channel=FPSBuilders
     //grenade throw from https://www.youtube.com/watch?v=sglRyWQh79g&ab_channel=FPSBuilders
     //help from https://www.youtube.com/watch?v=wZ2UUOC17AY&ab_channel=Dave%2FGameDevelopment
+    // player prefs help from https://www.youtube.com/watch?v=ETXPdH4QHKA&ab_channel=GameDevSpecialist
 
     public bool shootEnabled;
     public GameObject weapons;
@@ -76,8 +77,9 @@ public class MouseLook : MonoBehaviour
 
     public PlayerMovement play;
 
-    /*public bool shotGunBool;
-    PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
+    public bool shotGunBool;
+    
+    /*PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
     public int value;
     value = shotGunBool ? 1 : 0;*/
 
@@ -93,6 +95,10 @@ public class MouseLook : MonoBehaviour
         } else {
             shootEnabled = true;
         }
+
+        shotGunBool = PlayerPrefs.GetInt("EnableShotgun", 0) > 0;
+
+
     }
 
     // Update is called once per frame
@@ -109,6 +115,9 @@ public class MouseLook : MonoBehaviour
             transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             playerBody.Rotate(Vector3.up * mouseX);
         }
+
+        
+
         if (shootEnabled == false){
             weapons.SetActive(false);
             crossHair.SetActive(false);
@@ -136,7 +145,7 @@ public class MouseLook : MonoBehaviour
                 //ammoText.text = currAmmoP + "/" + maxAmmoP;
             }
 
-            if (Input.GetKey(KeyCode.Alpha2))
+            if (Input.GetKey(KeyCode.Alpha2) && PlayerPrefs.GetInt("EnableShotgun") != 0)
             {
                 Debug.Log("useshotgun");
                 anim.SetTrigger("Switch_Shotgun");
@@ -321,6 +330,20 @@ public class MouseLook : MonoBehaviour
                 currAmmoF = maxAmmoF;
             }
         }
+        int shotGunEnable;
+        shotGunEnable = shotGunBool? 1 : 0; 
+
+        if (shotGunBool == true){
+            PlayerPrefs.SetInt("EnableShotgun", 1);
+        } else {
+            PlayerPrefs.SetInt("EnableShotgun", 0);
+        }
+        
+
+        if (Input.GetKey(KeyCode.M)){
+            PlayerPrefs.DeleteAll();
+        }
+
     }
 
     void ShootPistol(){
