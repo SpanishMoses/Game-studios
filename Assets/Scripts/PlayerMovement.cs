@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     public Text healthText;
     public GameObject damagePic;
     public GameObject deadScreen;
+    public GameObject deadText;
 
     public GameObject player;
     public GameObject checkpoint;
@@ -152,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
             health = 5;
             point.totalPoints -= 50;
             isDead = false;
+            deadText.SetActive(false);
         }
         }
 
@@ -244,6 +246,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Time.timeScale = 0f;
             isDead = true;
+            deadText.SetActive(true);
         }
     }
 
