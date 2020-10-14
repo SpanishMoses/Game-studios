@@ -29355,11 +29355,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!95 &808270505 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7997200904646466718, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
-  m_PrefabInstance: {fileID: 1963100916}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &815148932 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8148977265490306281, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
@@ -54258,7 +54253,7 @@ PrefabInstance:
     - target: {fileID: 7997200904646466785, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 808270505}
+      objectReference: {fileID: 1982686503}
     - target: {fileID: 7997200904646466785, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: crosshairAnim
       value: 
@@ -54545,6 +54540,11 @@ NavMeshObstacle:
 --- !u!1 &1982686500 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7787872129662131143, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 863931535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1982686503 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7787872129662131146, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
   m_PrefabInstance: {fileID: 863931535}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1985773062 stripped

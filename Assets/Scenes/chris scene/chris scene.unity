@@ -1180,7 +1180,7 @@ PrefabInstance:
     - target: {fileID: 7997200904646466785, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 1521384878}
+      objectReference: {fileID: 1473067670}
     - target: {fileID: 7997200904646466785, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: crosshairAnim
       value: 
@@ -1585,6 +1585,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7787872129662131143, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
   m_PrefabInstance: {fileID: 979781592}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1473067670 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7787872129662131146, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 979781592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1474665680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,11 +1685,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474665680}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!95 &1521384878 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7997200904646466718, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
-  m_PrefabInstance: {fileID: 1058448352}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1527422039 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7787872129474698521, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
