@@ -155,6 +155,7 @@ public class MouseLook : MonoBehaviour
             if (Input.GetKey(KeyCode.Alpha3))
             {
                 Debug.Log("usemachinegun");
+                anim.SetTrigger("Switch_Rifle");
                 useShotgun = false;
                 usePistol = false;
                 useMachineGun = true;
@@ -234,6 +235,7 @@ public class MouseLook : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0) && useMachineGun == true && shootReady == true && currAmmoM <= maxAmmoM && currAmmoM > 0 && Time.time >= nextTimeToFire)
             {
                 nextTimeToFire = Time.time + 1f / fireRate;
+                anim.SetTrigger("RifleShoot");
                 crosshairAnim.SetTrigger("Expand");
                 camAnim.SetTrigger("camShake3");
                 ShootMachineGun();
