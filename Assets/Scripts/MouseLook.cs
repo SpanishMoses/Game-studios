@@ -78,7 +78,9 @@ public class MouseLook : MonoBehaviour
     public PlayerMovement play;
 
     public bool shotGunBool;
-    
+
+    public LayerMask layers;
+
     /*PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
     public int value;
     value = shotGunBool ? 1 : 0;*/
@@ -357,7 +359,7 @@ public class MouseLook : MonoBehaviour
     void ShootPistol(){
         RaycastHit hit;
         currAmmoP--;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, dist, layers))
         {
             Debug.Log(hit.transform.name);
             Instantiate(impact, hit.point, Quaternion.identity);
@@ -382,7 +384,7 @@ public class MouseLook : MonoBehaviour
         RaycastHit sHit4;
         currAmmoS--;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out sHit, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out sHit, dist, layers))
         {
             Debug.Log(sHit.transform.name);
             Instantiate(impact, sHit.point, Quaternion.identity);
@@ -399,7 +401,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.2f, 0f, 0f), out sHit2, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.2f, 0f, 0f), out sHit2, dist, layers))
         {
             Debug.Log(sHit2.transform.name);
             Instantiate(impact, sHit2.point, Quaternion.identity);
@@ -416,7 +418,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, .1f, 0f), out sHit3, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, .1f, 0f), out sHit3, dist, layers))
         {
             Debug.Log(sHit3.transform.name);
             Instantiate(impact, sHit3.point, Quaternion.identity);
@@ -433,7 +435,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.1f, 0f), out sHit4, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.1f, 0f), out sHit4, dist, layers))
         {
             Debug.Log(sHit4.transform.name);
             Instantiate(impact, sHit4.point, Quaternion.identity);
@@ -455,7 +457,7 @@ public class MouseLook : MonoBehaviour
         RaycastHit mHit;
         currAmmoM--;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out mHit, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out mHit, dist, layers))
         {
             Debug.Log(mHit.transform.name);
             Instantiate(impact, mHit.point, Quaternion.identity);
@@ -477,7 +479,7 @@ public class MouseLook : MonoBehaviour
     {
         RaycastHit kHit;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out kHit, dist))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out kHit, dist, layers))
         {
             Debug.Log(kHit.transform.name);
             Instantiate(impact, kHit.point, Quaternion.identity);
@@ -503,7 +505,7 @@ public class MouseLook : MonoBehaviour
         currAmmoF--;
         RaycastHit fHit;
         Vector3 targetPoint;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out fHit)){
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out fHit, layers)){
             targetPoint = fHit.point;
             Vector3 direction = targetPoint - cam.transform.position;
             GameObject bullet = Instantiate(firework, cam.transform.position, Quaternion.identity);
