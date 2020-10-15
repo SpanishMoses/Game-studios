@@ -74,7 +74,7 @@ public class ChargingEnemy : MonoBehaviour
     }
 
     void charge(){
-        target = new Vector3(playerLoc.position.x, playerLoc.position.y, playerLoc.position.z);
+        target = new Vector3(playerLoc.position.x, transform.position.y, playerLoc.position.z);
         
 
 
