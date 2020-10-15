@@ -16,10 +16,15 @@ public class ChargingEnemy : MonoBehaviour
     public float time;
     public float timeBetweenCharges;
 
+    public float chargeTime;
+    public float MaxTime;
+
     public bool locActive;
     public bool isCharging;
 
     private Animator animator;
+
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -47,18 +52,19 @@ public class ChargingEnemy : MonoBehaviour
                 time = 0;
                 locActive = false;
                 speed = 20;
-                
-                
+                isCharging = true;
+
             }
         }
 
         if (isCharging == true){
             animator.SetBool("IsMoving", true);
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            if (transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z)
-            {
+            chargeTime += Time.deltaTime;
+            if (chargeTime >= MaxTime){
                 isCharging = false;
                 speed = 0;
+                chargeTime = 0;
                 Debug.Log("made it");
                 locActive = true;
             }
@@ -67,13 +73,22 @@ public class ChargingEnemy : MonoBehaviour
 
     void charge(){
         target = new Vector3(playerLoc.position.x, playerLoc.position.y, playerLoc.position.z);
-        isCharging = true;
+        
 
 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Wall")
+        {
+            isCharging = false;
+            speed = 0;
+            chargeTime = 0;
+            Debug.Log("made it");
+            locActive = true;
+        }
+
         if (collision.gameObject.tag == "Player" && isCharging == true)
             {
                 PlayerMovement playerMovement = collision.transform.GetComponent<PlayerMovement>();
