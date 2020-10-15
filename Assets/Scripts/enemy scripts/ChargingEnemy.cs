@@ -19,11 +19,14 @@ public class ChargingEnemy : MonoBehaviour
     public bool locActive;
     public bool isCharging;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         isCharging = false;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +39,7 @@ public class ChargingEnemy : MonoBehaviour
 
         if (locActive == true && isCharging == false)
         {
+            animator.SetBool("IsMoving", false); ;
             time += Time.deltaTime;
             if (time >= timeBetweenCharges)
             {
@@ -49,6 +53,7 @@ public class ChargingEnemy : MonoBehaviour
         }
 
         if (isCharging == true){
+            animator.SetBool("IsMoving", true);
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
             if (transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z)
             {
