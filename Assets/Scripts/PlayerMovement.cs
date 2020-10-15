@@ -264,7 +264,8 @@ public class PlayerMovement : MonoBehaviour
             if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld"))
             SceneManager.LoadScene("LevelOneLoadScreen");
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelOne"))
-                SceneManager.LoadScene("main menu");
+                Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("main menu");
         }
     }
 

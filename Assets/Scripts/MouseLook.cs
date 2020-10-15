@@ -85,10 +85,14 @@ public class MouseLook : MonoBehaviour
     public int value;
     value = shotGunBool ? 1 : 0;*/
 
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         shootReady = true;
         usePistol = true;
         useShotgun = false;
