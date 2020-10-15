@@ -132,12 +132,17 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Controls camera bob while moving and jumping
-        if (velocity.x <= 0 && velocity.z <=0)
-        {
-            camAnim.SetBool("IsMoving", false);
-        } else
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             camAnim.SetBool("IsMoving", true);
+        } else 
+        {
+            camAnim.SetBool("IsMoving", false);
+        }
+
+        if (isGrounded == false)
+        {
+            camAnim.SetBool("IsMoving", false);
         }
 
         healthText.text = "Health: " + health;
