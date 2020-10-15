@@ -261,7 +261,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (other.gameObject.tag == "End"){
-            StartCoroutine(restartlevel());
+            if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld"))
+            SceneManager.LoadScene("LevelOneLoadScreen");
         }
     }
 
