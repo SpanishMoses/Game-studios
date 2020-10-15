@@ -85,13 +85,15 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+            if (onLadder == false)
+            {
+                Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
-
+                controller.Move(move * speed * Time.deltaTime);
+            }
             if (onLadder == true){
                 Vector3 moveUp = transform.up * z;
-                controller.Move(moveUp * speed * Time.deltaTime);
+                controller.Move(transform.up * speed * Time.deltaTime);
             }
 
         //Jump
@@ -201,6 +203,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Ladder"){
             onLadder = true;
+        }
+
+        if (other.gameObject.tag == "LadderTop"){
+            onLadder = false;
         }
 
         if (other.gameObject.tag == "Shotgun"){
