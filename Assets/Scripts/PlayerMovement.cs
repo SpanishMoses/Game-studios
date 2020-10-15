@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     public bool cantMove;
     public bool canRespawn;
     public bool isDead;
+    public bool onLadder;
 
     public float health;
     public float amount = 1f;
@@ -80,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
             time = 0;
         }
 
-        if (cantMove == false){ 
+        if (cantMove == false || onLadder == false){ 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -88,8 +89,13 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
+            if (onLadder == true){
+                Vector3 moveUp = transform.up * z;
+                controller.Move(moveUp * speed * Time.deltaTime);
+            }
+
         //Jump
-        if (Input.GetButtonDown("Jump") && isGrounded && pressedJump == false)
+        if (Input.GetButtonDown("Jump") && isGrounded && pressedJump == false && onLadder == false)
         {
             velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
                 pressedJump = true;
@@ -97,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (pressedJump == false && isGrounded == false){
                 time += Time.deltaTime;
-                if (time <= maxTime){
+                if (time <= maxTime && onLadder == false){
                     if (Input.GetButtonDown("Jump") && pressedJump == false)
                     {
                         velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
@@ -109,9 +115,10 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
             }
-
-        velocity.y += gravity * Time.deltaTime;
-
+            if (onLadder == false)
+            {
+                velocity.y += gravity * Time.deltaTime;
+            }
         controller.Move(velocity * Time.deltaTime);
 
             //Dash
@@ -192,6 +199,10 @@ public class PlayerMovement : MonoBehaviour
             mouse.shootEnabled = true;
         }
 
+        if (other.gameObject.tag == "Ladder"){
+            onLadder = true;
+        }
+
         if (other.gameObject.tag == "Shotgun"){
             mouse.shotGunBool = true;
             Destroy(other.gameObject);
@@ -245,6 +256,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "End"){
             StartCoroutine(restartlevel());
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Ladder"){
+            onLadder = false;
         }
     }
 
