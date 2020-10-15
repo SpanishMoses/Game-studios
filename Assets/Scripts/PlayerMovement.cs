@@ -263,6 +263,8 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "End"){
             if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld"))
             SceneManager.LoadScene("LevelOneLoadScreen");
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelOne"))
+                SceneManager.LoadScene("main menu");
         }
     }
 
