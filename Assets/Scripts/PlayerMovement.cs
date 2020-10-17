@@ -41,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
     public bool canRespawn;
     public bool isDead;
     public bool onLadder;
+    public bool paused;
+    public bool freezeMouse;
 
     public float health;
     public float amount = 1f;
@@ -54,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject checkpoint;
 
     public GameObject dropSahdow;
+    public GameObject resumeButt;
+    public GameObject quitButt;
 
     public PointManager point;
 
@@ -167,9 +171,28 @@ public class PlayerMovement : MonoBehaviour
             health = 5;
             point.totalPoints -= 50;
             isDead = false;
+            freezeMouse = false;
             deadText.SetActive(false);
         }
+
+        if (Input.GetKey(KeyCode.Escape)){
+            Time.timeScale = 0f;
+            paused = true;
+            freezeMouse = true;
+            resumeButt.SetActive(true);
+            quitButt.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+        } 
         }
+
+    public void ResumeGame(){
+        paused = false;
+        freezeMouse = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        resumeButt.SetActive(false);
+        quitButt.SetActive(false);
+        Time.timeScale = 1f;
+    }
 
     public IEnumerator Dash()
     {
@@ -284,6 +307,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Time.timeScale = 0f;
             isDead = true;
+            freezeMouse = true;
             deadText.SetActive(true);
         }
     }

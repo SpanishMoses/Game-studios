@@ -7,6 +7,7 @@ public class ButtonManager : MonoBehaviour
 {
     public void SinglePlayerbutton(string newGameLevel)
     {
+        Time.timeScale = 1f;
         StartCoroutine(loadlevel());
         IEnumerator loadlevel()
         {
