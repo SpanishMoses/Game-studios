@@ -27,6 +27,8 @@ public class MouseLook : MonoBehaviour
 
     float xRotation = 0f;
 
+    public int currWeapon;
+
     public GameObject cam;
     Vector3 camInitialPosition;
     public float dist;
@@ -103,6 +105,7 @@ public class MouseLook : MonoBehaviour
         damage = 2;
         reloadTime = 0.3f;
         dist = 50f;
+        currWeapon = 1;
         if ((SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")))
         {
             shootEnabled = false;
@@ -143,7 +146,23 @@ public class MouseLook : MonoBehaviour
             weapons.SetActive(true);
             crossHair.SetActive(true);
             ammoText.enabled = true;
-            if (Input.GetKey(KeyCode.Alpha1))
+
+            float w = Input.GetAxis("Mouse ScrollWheel");
+            if (w > 0f){
+                currWeapon = currWeapon + 1;
+            } else if (w < 0f){
+                currWeapon = currWeapon - 1;
+            }
+
+            if (currWeapon < 1){
+                currWeapon = 6;
+            }
+
+            if (currWeapon > 6){
+                currWeapon = 1;
+            }
+
+            if (Input.GetKey(KeyCode.Alpha1) || currWeapon == 1)
             {
                 Debug.Log("usePistol");
                 anim.SetTrigger("Switch_Pistol");
@@ -156,10 +175,11 @@ public class MouseLook : MonoBehaviour
                 damage = 2;
                 reloadTime = 0.3f;
                 dist = 50f;
+                currWeapon = 1;
                 //ammoText.text = currAmmoP + "/" + maxAmmoP;
             }
 
-            if (Input.GetKey(KeyCode.Alpha2) && PlayerPrefs.GetInt("EnableShotgun") != 0)
+            if (Input.GetKey(KeyCode.Alpha2) && PlayerPrefs.GetInt("EnableShotgun") != 0 || currWeapon == 2)
             {
                 Debug.Log("useshotgun");
                 anim.SetTrigger("Switch_Shotgun");
@@ -172,10 +192,11 @@ public class MouseLook : MonoBehaviour
                 damage = 4;
                 reloadTime = 1f;
                 dist = 30f;
+                currWeapon = 2;
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
-            if (Input.GetKey(KeyCode.Alpha3))
+            if (Input.GetKey(KeyCode.Alpha3) || currWeapon == 3)
             {
                 Debug.Log("usemachinegun");
                 anim.SetTrigger("Switch_Rifle");
@@ -188,10 +209,11 @@ public class MouseLook : MonoBehaviour
                 damage = 1;
                 reloadTime = 1f;
                 dist = 50f;
+                currWeapon = 3;
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
-            if (Input.GetKey(KeyCode.Alpha4))
+            if (Input.GetKey(KeyCode.Alpha4) || currWeapon == 4)
             {
                 Debug.Log("useknife");
                 useShotgun = false;
@@ -203,10 +225,11 @@ public class MouseLook : MonoBehaviour
                 damage = 3;
                 reloadTime = 1f;
                 dist = 5;
+                currWeapon = 4;
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
-            if (Input.GetKey(KeyCode.Alpha5))
+            if (Input.GetKey(KeyCode.Alpha5) || currWeapon == 5)
             {
                 Debug.Log("usegrenade");
                 useShotgun = false;
@@ -218,10 +241,11 @@ public class MouseLook : MonoBehaviour
                 damage = 3;
                 reloadTime = 1f;
                 dist = 20f;
+                currWeapon = 5;
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
-            if (Input.GetKey(KeyCode.Alpha6))
+            if (Input.GetKey(KeyCode.Alpha6) || currWeapon == 6)
             {
                 Debug.Log("usefirework");
                 useShotgun = false;
@@ -233,6 +257,7 @@ public class MouseLook : MonoBehaviour
                 damage = 3;
                 reloadTime = 4f;
                 dist = 20f;
+                currWeapon = 6;
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
