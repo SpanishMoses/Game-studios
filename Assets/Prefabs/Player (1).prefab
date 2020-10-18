@@ -70,7 +70,7 @@ MonoBehaviour:
   camAnim: {fileID: 7997200904646466718}
   defaultSpeed: 12
   speed: 12
-  gravity: -30
+  gravity: -20
   time: 0
   maxTime: 233.98
   pressedJump: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
-  jumpHight: 3
+  jumpHight: 2
   dashForce: 80
   dashDuration: 0.1
   timeBetweenDashes: 1
@@ -87,6 +87,9 @@ MonoBehaviour:
   cantMove: 0
   canRespawn: 0
   isDead: 0
+  onLadder: 0
+  paused: 0
+  freezeMouse: 0
   health: 5
   amount: 1
   healthText: {fileID: 0}
@@ -96,6 +99,8 @@ MonoBehaviour:
   player: {fileID: 7997200904571926902}
   checkpoint: {fileID: 0}
   dropSahdow: {fileID: 0}
+  resumeButt: {fileID: 0}
+  quitButt: {fileID: 0}
   point: {fileID: 0}
 --- !u!1 &7997200904609477335
 GameObject:
@@ -5074,6 +5079,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   camAnim: {fileID: 7997200904646466718}
   crosshairAnim: {fileID: 0}
+  currWeapon: 0
   cam: {fileID: 7997200904646466787}
   dist: 100
   damage: 1
@@ -5103,6 +5109,10 @@ MonoBehaviour:
   grenade: {fileID: 7690083196142004104, guid: 8983329f183a86d43b49422d2904633e, type: 3}
   firework: {fileID: 8610411357180702853, guid: d5d7ed91f848f4b429091202f40e49ee, type: 3}
   play: {fileID: 7997200904571926900}
+  shotGunBool: 0
+  layers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!95 &7997200904646466718
 Animator:
   serializedVersion: 3

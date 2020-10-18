@@ -91,9 +91,9 @@ public class PlayerMovement : MonoBehaviour
 
             if (onLadder == false)
             {
-                Vector3 move = transform.right * x + transform.forward * z;
+                Vector3 move = transform.right * x * speed + transform.forward * z * speed + transform.up * velocity.y;
 
-                controller.Move(move * speed * Time.deltaTime);
+                controller.Move(move * Time.deltaTime);
             }
             if (onLadder == true){
                 Vector3 moveUp = transform.up * z;
