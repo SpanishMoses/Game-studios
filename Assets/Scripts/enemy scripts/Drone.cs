@@ -11,6 +11,17 @@ public class Drone : MonoBehaviour
     private Vector3 movementDirection;
     private Vector3 movementPerSecond;
 
+
+    public GameObject spawnEffect;
+
+    public EnemyHealth health;
+    public DroneShoot shoot;
+
+    void Awake()
+    {
+        Instantiate(spawnEffect, transform.position, transform.rotation);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +38,10 @@ public class Drone : MonoBehaviour
         }
         transform.position = new Vector3(transform.position.x + (movementPerSecond.x * Time.deltaTime),
     transform.position.y + (movementPerSecond.y * Time.deltaTime), transform.position.z + (movementPerSecond.z * Time.deltaTime));
+
+        if (health.health <= 0){
+            shoot.enabled = false;
+        }
     }
 
     void calcuateNewMovementVector()
@@ -38,7 +53,7 @@ public class Drone : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        calcuateNewMovementVector();
+        characterVelocity = -characterVelocity;
     }
 }
 
