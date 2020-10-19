@@ -26,7 +26,12 @@ public class ChargingEnemy : MonoBehaviour
 
     public Rigidbody rb;
 
+    public GameObject spawnEffect;
 
+    void Awake()
+    {
+        Instantiate(spawnEffect, transform.position, transform.rotation);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -82,15 +87,15 @@ public class ChargingEnemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Wall")
-        {
+        /*if (collision.gameObject.tag == "Wall")
+        {*/
             isCharging = false;
             speed = 0;
             chargeTime = 0;
             Debug.Log("made it");
             locActive = true;
-        }
-
+        /*}
+        */
         if (collision.gameObject.tag == "Player" && isCharging == true)
             {
                 PlayerMovement playerMovement = collision.transform.GetComponent<PlayerMovement>();
