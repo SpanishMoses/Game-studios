@@ -153,9 +153,9 @@ MonoBehaviour:
   playerDist: 50
   speed: 3
   time: 0
-  timeBetweenCharges: 6
+  timeBetweenCharges: 2
   chargeTime: 0
-  MaxTime: 3
+  MaxTime: 2
   locActive: 0
   isCharging: 0
   rb: {fileID: 3744357652960032895}
@@ -246,7 +246,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3744357652960032891}
   m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 0.31999996
+  m_Radius: 0.12
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

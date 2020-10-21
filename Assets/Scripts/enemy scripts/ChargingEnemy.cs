@@ -89,7 +89,7 @@ public class ChargingEnemy : MonoBehaviour
     {
         /*if (collision.gameObject.tag == "Wall")
         {*/
-            isCharging = false;
+            /*isCharging = false;
             speed = 0;
             chargeTime = 0;
             Debug.Log("made it");
@@ -103,7 +103,13 @@ public class ChargingEnemy : MonoBehaviour
                 {
                     playerMovement.TakeDamage(1f);
                 }
-            }
+            } else{
+            isCharging = false;
+            speed = 0;
+            chargeTime = 0;
+            Debug.Log("made it");
+            locActive = true;
+        }
     }
 }
 
