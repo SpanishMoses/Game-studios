@@ -17,6 +17,8 @@ public class BossDrone : MonoBehaviour
     public float deathTime;
     public float maxDeathTime;
 
+    public Boss boss;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +33,28 @@ public class BossDrone : MonoBehaviour
             transform.RotateAround(Boss.transform.position, Vector3.up, 20 * Time.deltaTime);
         }
 
-        if (stopped == true){
+        if (stopped == true && boss.staggered == false){
             deathTime += Time.deltaTime;
             if (deathTime >= maxDeathTime){
                 deathTime = 0;
                 stopped = false;
                 health = 5;
             }
+        }
+
+        if (boss.staggered == true && stopped == true)
+        {
+            maxDeathTime = 10;
+            deathTime += Time.deltaTime;
+            if (deathTime >= maxDeathTime)
+            {
+                deathTime = 0;
+                stopped = false;
+                health = 5;
+            }
+        }
+        else if (boss.staggered == false){
+            maxDeathTime = 5;
         }
 
         if (health <= minHealth)

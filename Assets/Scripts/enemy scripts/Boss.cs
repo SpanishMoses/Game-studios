@@ -26,9 +26,9 @@ public class Boss : MonoBehaviour
     void Update()
     {
         for (int i = 0; i < drones.Length; i++){
-            if (drones[i].GetComponent<BossDrone>().stopped == true){
-                collid.enabled = true;
-                drones[i].GetComponent<BossDrone>().deathTime = 0;
+            if (drones[0].GetComponent<BossDrone>().stopped == true && drones[1].GetComponent<BossDrone>().stopped == true)
+            {
+                collid.enabled = true;               
                 mov.locActive = false;
                 staggered = true;
             }

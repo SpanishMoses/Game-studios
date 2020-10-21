@@ -35,6 +35,8 @@ public class DroneShoot : MonoBehaviour
                 shoot();
             }
         
+            
+
     }
 
     private void FixedUpdate()
