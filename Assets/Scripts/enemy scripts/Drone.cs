@@ -10,7 +10,8 @@ public class Drone : MonoBehaviour
     public float characterVelocity;
     private Vector3 movementDirection;
     private Vector3 movementPerSecond;
-
+    private Transform playerLoc;
+    public bool farAway;
 
     public GameObject spawnEffect;
 
@@ -25,19 +26,38 @@ public class Drone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        latestDirectionChangeTime = 0f;
+        //latestDirectionChangeTime = 0f;
+        playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - latestDirectionChangeTime > directionChangeTime)
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) > 10)
         {
-            latestDirectionChangeTime = Time.time;
-            calcuateNewMovementVector();
+            farAway = true;
         }
-        transform.position = new Vector3(transform.position.x + (movementPerSecond.x * Time.deltaTime),
-    transform.position.y + (movementPerSecond.y * Time.deltaTime), transform.position.z + (movementPerSecond.z * Time.deltaTime));
+
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) < 10)
+        {
+            farAway = false;
+        }
+
+        if (farAway == true){
+            transform.position = Vector3.MoveTowards(transform.position, playerLoc.position, characterVelocity * Time.deltaTime);
+        }
+
+        if (farAway == false){
+            if (Time.time - latestDirectionChangeTime > directionChangeTime)
+            {
+                latestDirectionChangeTime = Time.time;
+                calcuateNewMovementVector();
+            }
+            transform.position = new Vector3(transform.position.x + (movementPerSecond.x * Time.deltaTime),
+        transform.position.y + (movementPerSecond.y * Time.deltaTime), transform.position.z + (movementPerSecond.z * Time.deltaTime));
+        }
+
+        
 
         if (health.health <= 0){
             shoot.enabled = false;
@@ -53,7 +73,8 @@ public class Drone : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        characterVelocity = -characterVelocity;
+        latestDirectionChangeTime = Time.time;
+        calcuateNewMovementVector();
     }
 }
 
