@@ -442,7 +442,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.3f, 0f, 0f), out sHit2, dist, layers))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.3f, 0f, -.3f), out sHit2, dist, layers))
         {
             Debug.Log(sHit2.transform.name);
             Instantiate(impact, sHit2.point, Quaternion.identity);
@@ -511,11 +511,11 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(.3f, 0f, 0f), out sHit5, dist, layers))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(.3f, 0f, .3f), out sHit5, dist, layers))
         {
             Debug.Log(sHit5.transform.name);
             Instantiate(impact, sHit5.point, Quaternion.identity);
-            EnemyHealth enemyHealth = sHit2.transform.GetComponent<EnemyHealth>();
+            EnemyHealth enemyHealth = sHit5.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damage);
