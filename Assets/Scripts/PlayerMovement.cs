@@ -284,11 +284,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (other.gameObject.tag == "End"){
-            if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld"))
-            SceneManager.LoadScene("LevelOneLoadScreen");
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld"))
+            {
+                SceneManager.LoadScene("LevelOneLoadScreen");
+            }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelOne"))
+            {
                 Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("main menu");
+                SceneManager.LoadScene("main menu");
+            }
         }
     }
 

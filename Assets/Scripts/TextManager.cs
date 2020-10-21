@@ -43,9 +43,11 @@ public class TextManager : MonoBehaviour
             
         } else if (sentenceNum == 9){
             player.cantMove = true;
+            player.speed = 0;
             killText.SetActive(true);
             if (text.text == sentences[index] && sentenceNum == 9 && Input.GetKey(KeyCode.Mouse0)){
                 player.cantMove = false;
+                player.speed = 12;
                 anim.SetBool("MousClick", true);
                 StartCoroutine(whipe());
                 sentenceNum++;
