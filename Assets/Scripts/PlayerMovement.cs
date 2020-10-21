@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Text healthText;
     public GameObject damagePic;
+    public GameObject gainHealthPic;
     public GameObject deadScreen;
     public GameObject deadText;
 
@@ -250,6 +251,7 @@ public class PlayerMovement : MonoBehaviour
             Consumables consume = other.transform.GetComponent<Consumables>();
             if (consume != null && consume.isHealth == true){
                 health += consume.amount;
+                StartCoroutine(flashGainHealth());
                 Destroy(other.gameObject);
             }
             
@@ -320,6 +322,12 @@ public class PlayerMovement : MonoBehaviour
         damagePic.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         damagePic.SetActive(false);
+    }
+
+    IEnumerator flashGainHealth(){
+        gainHealthPic.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        gainHealthPic.SetActive(false);
     }
 
     void respawn(){

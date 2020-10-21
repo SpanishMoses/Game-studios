@@ -44545,6 +44545,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+--- !u!1 &7787872129313055889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3903052935326487647, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 7787872129313055888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7997200905404248287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44628,6 +44633,10 @@ PrefabInstance:
       propertyPath: gravity
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: gainHealthPic
+      value: 
+      objectReference: {fileID: 7787872129313055889}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)
