@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     public Text healthText;
     public GameObject damagePic;
     public GameObject gainHealthPic;
+    public GameObject gainAmmoPic;
     public GameObject deadScreen;
     public GameObject deadText;
 
@@ -260,27 +261,32 @@ public class PlayerMovement : MonoBehaviour
                 {
                     mouse.currAmmoP += consume.amount;
                     Destroy(other.gameObject);
+                    StartCoroutine(flashAmmo());
                 }
 
                 if (mouse.useShotgun == true){
                     mouse.currAmmoS += consume.amount;
                     Destroy(other.gameObject);
+                    StartCoroutine(flashAmmo());
                 }
 
                 if (mouse.useMachineGun == true){
                     mouse.currAmmoM += consume.amount;
                     Destroy(other.gameObject);
+                    StartCoroutine(flashAmmo());
                 }
 
                 if (mouse.useGrenade == true){
                     mouse.currAmmoG += consume.amount;
                     Destroy(other.gameObject);
+                    StartCoroutine(flashAmmo());
                 }
 
                 if (mouse.useFirework == true)
                 {
                     mouse.currAmmoF= consume.amount;
                     Destroy(other.gameObject);
+                    StartCoroutine(flashAmmo());
                 }
             }
         }
@@ -328,6 +334,12 @@ public class PlayerMovement : MonoBehaviour
         gainHealthPic.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         gainHealthPic.SetActive(false);
+    }
+
+    IEnumerator flashAmmo(){
+        gainAmmoPic.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        gainAmmoPic.SetActive(false);
     }
 
     void respawn(){

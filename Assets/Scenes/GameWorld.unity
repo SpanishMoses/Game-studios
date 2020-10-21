@@ -24923,6 +24923,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8016271603441680444, guid: ccdc5c7ebf1ba1244b521038a9335b53, type: 3}
   m_PrefabInstance: {fileID: 1466387031}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1470290929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7001378166297873689, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 7787872129313055888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1474323213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44637,6 +44642,10 @@ PrefabInstance:
       propertyPath: gainHealthPic
       value: 
       objectReference: {fileID: 7787872129313055889}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: gainAmmoPic
+      value: 
+      objectReference: {fileID: 1470290929}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)

@@ -61,6 +61,7 @@ public class Drone : MonoBehaviour
 
         if (health.health <= 0){
             shoot.enabled = false;
+            characterVelocity = 0;
         }
     }
 

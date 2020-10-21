@@ -42492,6 +42492,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7126730898913609261, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_Color.r
+      value: 0.99178326
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126730898913609261, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126730898913609261, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7787872129350017557, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 43.44995
@@ -72047,6 +72059,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7387750312513737410, guid: 5515556052e401645baac8d00036f4ff, type: 3}
   m_PrefabInstance: {fileID: 1832272972}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1832730443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7001378166297873689, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 863931535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1833326289 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8340104197009201092, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
@@ -76194,6 +76211,10 @@ PrefabInstance:
       propertyPath: gainHealthPic
       value: 
       objectReference: {fileID: 863931536}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: gainAmmoPic
+      value: 
+      objectReference: {fileID: 1832730443}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)
