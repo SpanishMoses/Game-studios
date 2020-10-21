@@ -416,6 +416,7 @@ public class MouseLook : MonoBehaviour
         RaycastHit sHit2;
         RaycastHit sHit3;
         RaycastHit sHit4;
+        RaycastHit sHit5;
         currAmmoS--;
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out sHit, dist, layers))
@@ -441,7 +442,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.2f, 0f, 0f), out sHit2, dist, layers))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.3f, 0f, 0f), out sHit2, dist, layers))
         {
             Debug.Log(sHit2.transform.name);
             Instantiate(impact, sHit2.point, Quaternion.identity);
@@ -464,7 +465,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, .1f, 0f), out sHit3, dist, layers))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, .3f, 0f), out sHit3, dist, layers))
         {
             Debug.Log(sHit3.transform.name);
             Instantiate(impact, sHit3.point, Quaternion.identity);
@@ -487,7 +488,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.1f, 0f), out sHit4, dist, layers))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.3f, 0f), out sHit4, dist, layers))
         {
             Debug.Log(sHit4.transform.name);
             Instantiate(impact, sHit4.point, Quaternion.identity);
@@ -507,6 +508,29 @@ public class MouseLook : MonoBehaviour
             {
                 bossDrone.TakeDamage(damage);
                 Instantiate(blood, sHit4.point, Quaternion.identity);
+            }
+        }
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(.3f, 0f, 0f), out sHit5, dist, layers))
+        {
+            Debug.Log(sHit5.transform.name);
+            Instantiate(impact, sHit5.point, Quaternion.identity);
+            EnemyHealth enemyHealth = sHit2.transform.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damage);
+                Instantiate(blood, sHit5.point, Quaternion.identity);
+            }
+            PointGiver point = sHit5.transform.GetComponent<PointGiver>();
+            if (point != null)
+            {
+                point.GivePoint(point.targetPoints);
+            }
+            BossDrone bossDrone = sHit5.transform.GetComponent<BossDrone>();
+            if (bossDrone != null)
+            {
+                bossDrone.TakeDamage(damage);
+                Instantiate(blood, sHit5.point, Quaternion.identity);
             }
         }
     }
