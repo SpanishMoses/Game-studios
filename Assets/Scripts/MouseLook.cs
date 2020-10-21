@@ -402,6 +402,11 @@ public class MouseLook : MonoBehaviour
                 point.GivePoint(point.targetPoints);
                 Debug.Log("Got some points");
             }
+            BossDrone bossDrone = hit.transform.GetComponent<BossDrone>();
+            if (bossDrone != null){
+                bossDrone.TakeDamage(damage);
+                Instantiate(blood, hit.point, Quaternion.identity);
+            }
         }
     }
 
@@ -428,6 +433,12 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
             }
+            BossDrone bossDrone = sHit.transform.GetComponent<BossDrone>();
+            if (bossDrone != null)
+            {
+                bossDrone.TakeDamage(damage);
+                Instantiate(blood, sHit.point, Quaternion.identity);
+            }
         }
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.2f, 0f, 0f), out sHit2, dist, layers))
@@ -444,6 +455,12 @@ public class MouseLook : MonoBehaviour
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
+            }
+            BossDrone bossDrone = sHit2.transform.GetComponent<BossDrone>();
+            if (bossDrone != null)
+            {
+                bossDrone.TakeDamage(damage);
+                Instantiate(blood, sHit2.point, Quaternion.identity);
             }
         }
 
@@ -462,6 +479,12 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
             }
+            BossDrone bossDrone = sHit3.transform.GetComponent<BossDrone>();
+            if (bossDrone != null)
+            {
+                bossDrone.TakeDamage(damage);
+                Instantiate(blood, sHit3.point, Quaternion.identity);
+            }
         }
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.1f, 0f), out sHit4, dist, layers))
@@ -478,6 +501,12 @@ public class MouseLook : MonoBehaviour
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
+            }
+            BossDrone bossDrone = sHit4.transform.GetComponent<BossDrone>();
+            if (bossDrone != null)
+            {
+                bossDrone.TakeDamage(damage);
+                Instantiate(blood, sHit4.point, Quaternion.identity);
             }
         }
     }
@@ -501,6 +530,12 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
             }
+            BossDrone bossDrone = mHit.transform.GetComponent<BossDrone>();
+            if (bossDrone != null)
+            {
+                bossDrone.TakeDamage(damage);
+                Instantiate(blood, mHit.point, Quaternion.identity);
+            }
         }
     }
 
@@ -522,6 +557,12 @@ public class MouseLook : MonoBehaviour
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
+            }
+            BossDrone bossDrone = kHit.transform.GetComponent<BossDrone>();
+            if (bossDrone != null)
+            {
+                bossDrone.TakeDamage(damage);
+                Instantiate(blood, kHit.point, Quaternion.identity);
             }
         }
     }
