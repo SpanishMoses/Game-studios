@@ -148,9 +148,9 @@ public class MouseLook : MonoBehaviour
             ammoText.enabled = true;
 
             float w = Input.GetAxis("Mouse ScrollWheel");
-            if (w > 0f){
+            if (w < 0f){
                 currWeapon = currWeapon + 1;
-            } else if (w < 0f){
+            } else if (w > 0f){
                 currWeapon = currWeapon - 1;
             }
 
@@ -223,7 +223,7 @@ public class MouseLook : MonoBehaviour
                 useGrenade = false;
                 useFirework = false;
                 damage = 3;
-                reloadTime = 1f;
+                reloadTime = 0.25f;
                 dist = 5;
                 currWeapon = 4;
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;

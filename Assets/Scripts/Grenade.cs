@@ -30,6 +30,12 @@ public class Grenade : MonoBehaviour
             if (enemyHealth != null){
                 enemyHealth.TakeDamage(damage);
             }
+            PointGiver point = near.GetComponent<PointGiver>();
+            if (point != null)
+            {
+                point.GivePoint(point.targetPoints);
+                Debug.Log("Got some points");
+            }
         }
 
         Destroy(gameObject);
