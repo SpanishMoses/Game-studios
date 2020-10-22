@@ -11,6 +11,8 @@ public class EnemyBasicBullet : MonoBehaviour
 
     public float speed;
 
+    public ParticleSystem impactEffect;
+
     private Transform player;
     private Vector3 target;
 
@@ -43,6 +45,7 @@ public class EnemyBasicBullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("yer");
+        Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
 
         if (collision.gameObject.tag == "Player"){
