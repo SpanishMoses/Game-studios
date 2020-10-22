@@ -216,6 +216,7 @@ public class MouseLook : MonoBehaviour
             if (Input.GetKey(KeyCode.Alpha4) || currWeapon == 4)
             {
                 Debug.Log("useknife");
+                anim.SetTrigger("Switch_Shiv");
                 useShotgun = false;
                 usePistol = false;
                 useMachineGun = false;
@@ -292,6 +293,9 @@ public class MouseLook : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0) && useKnife == true && shootReady == true)
             {
                 StabKnife();
+                anim.SetTrigger("ShivShoot");
+                crosshairAnim.SetTrigger("Expand");
+                camAnim.SetTrigger("camShake3");
                 StartCoroutine(reload());
             }
 
