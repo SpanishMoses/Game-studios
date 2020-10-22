@@ -445,7 +445,7 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.3f, 0f, -.3f), out sHit2, dist, layers))
         {
             Debug.Log(sHit2.transform.name);
-            Instantiate(impact, sHit2.point, Quaternion.identity);
+            Instantiate(impact, sHit2.point, Quaternion.LookRotation(sHit2.normal));
             EnemyHealth enemyHealth = sHit2.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
@@ -514,7 +514,7 @@ public class MouseLook : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(.3f, 0f, .3f), out sHit5, dist, layers))
         {
             Debug.Log(sHit5.transform.name);
-            Instantiate(impact, sHit5.point, Quaternion.identity);
+            Instantiate(impact, sHit5.point, Quaternion.LookRotation(sHit5.normal));
             EnemyHealth enemyHealth = sHit5.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
