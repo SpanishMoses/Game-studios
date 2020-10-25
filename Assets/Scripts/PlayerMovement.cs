@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //knockback help from https://answers.unity.com/questions/242648/force-on-character-controller-knockback.html
+
     public UnityEngine.CharacterController controller;
 
     public static PlayerMovement instance;
@@ -62,6 +64,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject quitButt;
 
     public PointManager point;
+
+    float mass = 3.0F; // defines the character mass
+    Vector3 impact = Vector3.zero;
 
     private void Awake()
     {
@@ -184,8 +189,17 @@ public class PlayerMovement : MonoBehaviour
             resumeButt.SetActive(true);
             quitButt.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
-        } 
         }
+
+        if (impact.magnitude > 0.2F) controller.Move(impact * Time.deltaTime);
+        impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
+    }
+
+    public void AddImpact(Vector3 dir, float force){
+        dir.Normalize();
+        if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground
+        impact += dir.normalized * force / mass;
+    }
 
     public void ResumeGame(){
         paused = false;

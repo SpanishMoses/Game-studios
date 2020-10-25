@@ -66,7 +66,7 @@ public class ChargingEnemy : MonoBehaviour
 
         if (isCharging == true){
             animator.SetBool("IsMoving", true);
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            transform.position += normalizeDirection * speed * Time.deltaTime;
             chargeTime += Time.deltaTime;
             if (chargeTime >= MaxTime){
                 isCharging = false;
@@ -80,9 +80,8 @@ public class ChargingEnemy : MonoBehaviour
 
     void charge(){
         target = new Vector3(playerLoc.position.x, transform.position.y, playerLoc.position.z);
+        normalizeDirection = (target - transform.position).normalized;
         
-
-
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -102,7 +101,16 @@ public class ChargingEnemy : MonoBehaviour
                 if (playerMovement != null)
                 {
                     playerMovement.TakeDamage(1f);
-                }
+                isCharging = false;
+                speed = 0;
+                chargeTime = 0;
+                Debug.Log("made it");
+                locActive = true;
+                Vector3 direction = collision.transform.position - transform.position;
+                direction.y = 0;
+                playerMovement.AddImpact(direction, 50f);
+            }
+            
             } else{
             isCharging = false;
             speed = 0;
