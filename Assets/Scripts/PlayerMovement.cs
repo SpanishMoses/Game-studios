@@ -173,13 +173,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (isDead == true && Input.GetKey(KeyCode.Mouse0)){
+        if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true){
             Time.timeScale = 1f;
             health = 5;
             point.totalPoints -= 50;
             isDead = false;
             freezeMouse = false;
             deadText.SetActive(false);
+            mouse.unpaused = false;
         }
 
         if (Input.GetKey(KeyCode.Escape)){
@@ -334,6 +335,7 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(flashHit());
         if (health <= 0f)
         {
+            mouse.unpaused = false;
             Time.timeScale = 0f;
             isDead = true;
             freezeMouse = true;

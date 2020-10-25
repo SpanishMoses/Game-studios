@@ -33,12 +33,12 @@ public class Drone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, playerLoc.transform.position) > 10)
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) > 5)
         {
             farAway = true;
         }
 
-        if (Vector2.Distance(transform.position, playerLoc.transform.position) < 10)
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) < 5)
         {
             farAway = false;
         }
