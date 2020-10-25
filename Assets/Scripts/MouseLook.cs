@@ -83,6 +83,8 @@ public class MouseLook : MonoBehaviour
 
     public LayerMask layers;
 
+    public bool unpaused;
+
     /*PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
     public int value;
     value = shotGunBool ? 1 : 0;*/
@@ -133,7 +135,9 @@ public class MouseLook : MonoBehaviour
             playerBody.Rotate(Vector3.up * mouseX);
         }
 
-        
+        if (Input.GetKeyUp(KeyCode.Mouse0)){
+            unpaused = true;
+        }
 
         if (shootEnabled == false){
             weapons.SetActive(false);
@@ -262,7 +266,7 @@ public class MouseLook : MonoBehaviour
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
-            if (Input.GetKey(KeyCode.Mouse0) && usePistol == true && shootReady == true && currAmmoP <= maxAmmoP && currAmmoP > 0)
+            if (Input.GetKey(KeyCode.Mouse0) && usePistol == true && shootReady == true && currAmmoP <= maxAmmoP && currAmmoP > 0 && unpaused == true)
             {
                 ShootPistol();
                 anim.SetTrigger("PistolShoot");
@@ -271,7 +275,7 @@ public class MouseLook : MonoBehaviour
                 StartCoroutine(reload());
             }
 
-            if (Input.GetKey(KeyCode.Mouse0) && useShotgun == true && shootReady == true && currAmmoS <= maxAmmoS && currAmmoS > 0)
+            if (Input.GetKey(KeyCode.Mouse0) && useShotgun == true && shootReady == true && currAmmoS <= maxAmmoS && currAmmoS > 0 && unpaused == true)
             {
                 shootShotgun();
                 anim.SetTrigger("ShotgunShoot");
@@ -281,7 +285,7 @@ public class MouseLook : MonoBehaviour
                 StartCoroutine(reload());
             }
 
-            if (Input.GetKey(KeyCode.Mouse0) && useMachineGun == true && shootReady == true && currAmmoM <= maxAmmoM && currAmmoM > 0 && Time.time >= nextTimeToFire)
+            if (Input.GetKey(KeyCode.Mouse0) && useMachineGun == true && shootReady == true && currAmmoM <= maxAmmoM && currAmmoM > 0 && Time.time >= nextTimeToFire && unpaused == true)
             {
                 nextTimeToFire = Time.time + 1f / fireRate;
                 anim.SetTrigger("RifleShoot");
@@ -290,7 +294,7 @@ public class MouseLook : MonoBehaviour
                 ShootMachineGun();
             }
 
-            if (Input.GetKey(KeyCode.Mouse0) && useKnife == true && shootReady == true)
+            if (Input.GetKey(KeyCode.Mouse0) && useKnife == true && shootReady == true && unpaused == true)
             {
                 StabKnife();
                 anim.SetTrigger("ShivShoot");
@@ -299,13 +303,13 @@ public class MouseLook : MonoBehaviour
                 StartCoroutine(reload());
             }
 
-            if (Input.GetKey(KeyCode.Mouse0) && useGrenade == true && shootReady == true && currAmmoG <= maxAmmoG && currAmmoG > 0)
+            if (Input.GetKey(KeyCode.Mouse0) && useGrenade == true && shootReady == true && currAmmoG <= maxAmmoG && currAmmoG > 0 && unpaused == true)
             {
                 ThrowGrenade();
                 StartCoroutine(reload());
             }
 
-            if (Input.GetKey(KeyCode.Mouse0) && useFirework == true && shootReady == true && currAmmoF <= maxAmmoF && currAmmoF > 0)
+            if (Input.GetKey(KeyCode.Mouse0) && useFirework == true && shootReady == true && currAmmoF <= maxAmmoF && currAmmoF > 0 && unpaused == true)
             {
                 ShootFireworkk();
                 StartCoroutine(reload());
@@ -623,7 +627,5 @@ public class MouseLook : MonoBehaviour
         currAmmoG--;
         GameObject grenadeInstance = Instantiate(grenade, cam.transform.position, cam.transform.rotation);
         grenadeInstance.GetComponent<Rigidbody>().AddForce(cam.transform.forward * dist, ForceMode.Impulse);
-    }
-
-    
+    }  
 }

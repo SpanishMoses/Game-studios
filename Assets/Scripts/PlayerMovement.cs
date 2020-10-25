@@ -183,6 +183,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.Escape)){
+            mouse.unpaused = false;
             Time.timeScale = 0f;
             paused = true;
             freezeMouse = true;
@@ -208,6 +209,8 @@ public class PlayerMovement : MonoBehaviour
         resumeButt.SetActive(false);
         quitButt.SetActive(false);
         Time.timeScale = 1f;
+        
+        
     }
 
     public IEnumerator Dash()

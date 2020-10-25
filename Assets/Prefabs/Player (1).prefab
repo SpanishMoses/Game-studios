@@ -94,6 +94,8 @@ MonoBehaviour:
   amount: 1
   healthText: {fileID: 0}
   damagePic: {fileID: 0}
+  gainHealthPic: {fileID: 0}
+  gainAmmoPic: {fileID: 0}
   deadScreen: {fileID: 0}
   deadText: {fileID: 0}
   player: {fileID: 7997200904571926902}
@@ -5113,6 +5115,7 @@ MonoBehaviour:
   layers:
     serializedVersion: 2
     m_Bits: 0
+  unpaused: 1
 --- !u!95 &7997200904646466718
 Animator:
   serializedVersion: 3
