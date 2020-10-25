@@ -431,6 +431,7 @@ public class MouseLook : MonoBehaviour
         {
             Debug.Log(sHit.transform.name);
             Instantiate(impact, sHit.point, Quaternion.identity);
+            Debug.DrawRay(transform.position, cam.transform.forward, Color.green);
             EnemyHealth enemyHealth = sHit.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
@@ -450,7 +451,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.3f, 0f, -.3f), out sHit2, dist, layers))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(-.2f, 0f, -.2f), out sHit2, dist, layers))
         {
             Debug.Log(sHit2.transform.name);
             Instantiate(impact, sHit2.point, Quaternion.LookRotation(sHit2.normal));
@@ -473,7 +474,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, .3f, 0f), out sHit3, dist, layers))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, .2f, 0f), out sHit3, dist, layers))
         {
             Debug.Log(sHit3.transform.name);
             Instantiate(impact, sHit3.point, Quaternion.identity);
@@ -496,7 +497,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.3f, 0f), out sHit4, dist, layers))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(0f, -.2f, 0f), out sHit4, dist, layers))
         {
             Debug.Log(sHit4.transform.name);
             Instantiate(impact, sHit4.point, Quaternion.identity);
@@ -519,7 +520,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(.3f, 0f, .3f), out sHit5, dist, layers))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward + new Vector3(.2f, 0f, .2f), out sHit5, dist, layers))
         {
             Debug.Log(sHit5.transform.name);
             Instantiate(impact, sHit5.point, Quaternion.LookRotation(sHit5.normal));
