@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
 
     public GameObject parent;
 
-    public BoxCollider collid;
+    public Collider collid;
 
     public Animator animator;
 
