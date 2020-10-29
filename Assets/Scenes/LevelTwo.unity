@@ -45935,6 +45935,10 @@ PrefabInstance:
       propertyPath: enemySpawn
       value: 
       objectReference: {fileID: 2001516293}
+    - target: {fileID: 332369652815477457, guid: 08f4b7bd76befe34bb1674626550efa7, type: 3}
+      propertyPath: collid
+      value: 
+      objectReference: {fileID: 1224304713}
     - target: {fileID: 332369652815477460, guid: 08f4b7bd76befe34bb1674626550efa7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.487152
@@ -45989,6 +45993,11 @@ Transform:
 --- !u!1 &1224304711 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 332369652815477449, guid: 08f4b7bd76befe34bb1674626550efa7, type: 3}
+  m_PrefabInstance: {fileID: 1224304709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1224304713 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 1387661755571422473, guid: 08f4b7bd76befe34bb1674626550efa7, type: 3}
   m_PrefabInstance: {fileID: 1224304709}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1224972375
