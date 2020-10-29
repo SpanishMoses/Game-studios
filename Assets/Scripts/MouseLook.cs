@@ -67,7 +67,9 @@ public class MouseLook : MonoBehaviour
     private float nextTimeToFire = 0f;
 
     public bool shootReady;
-
+    public bool grenadeReady;
+    public bool fireWorkReady;
+    
     public Text ammoText;
 
     public GameObject blood;
@@ -98,6 +100,8 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         shootReady = true;
+        grenadeReady = true;
+        fireWorkReady = true;
         usePistol = true;
         useShotgun = false;
         useMachineGun = false;
@@ -303,16 +307,16 @@ public class MouseLook : MonoBehaviour
                 StartCoroutine(reload());
             }
 
-            if (Input.GetKey(KeyCode.Mouse0) && useGrenade == true && shootReady == true && currAmmoG <= maxAmmoG && currAmmoG > 0 && unpaused == true)
+            if (Input.GetKey(KeyCode.Mouse0) && useGrenade == true && grenadeReady == true && currAmmoG <= maxAmmoG && currAmmoG > 0 && unpaused == true)
             {
                 ThrowGrenade();
-                StartCoroutine(reload());
+                StartCoroutine(reloadGrenade());
             }
 
-            if (Input.GetKey(KeyCode.Mouse0) && useFirework == true && shootReady == true && currAmmoF <= maxAmmoF && currAmmoF > 0 && unpaused == true)
+            if (Input.GetKey(KeyCode.Mouse0) && useFirework == true && fireWorkReady == true && currAmmoF <= maxAmmoF && currAmmoF > 0 && unpaused == true)
             {
                 ShootFireworkk();
-                StartCoroutine(reload());
+                StartCoroutine(reloadFireWork());
             }
 
             if (Input.GetKey(KeyCode.Mouse0) && shootReady == true && currAmmoP == 0)
@@ -621,6 +625,20 @@ public class MouseLook : MonoBehaviour
         shootReady = false;
         yield return new WaitForSeconds(reloadTime);
         shootReady = true;
+    }
+
+    IEnumerator reloadGrenade()
+    {
+        grenadeReady = false;
+        yield return new WaitForSeconds(reloadTime);
+        grenadeReady = true;
+    }
+
+    IEnumerator reloadFireWork()
+    {
+        fireWorkReady = false;
+        yield return new WaitForSeconds(reloadTime);
+        fireWorkReady = true;
     }
 
     IEnumerator BeginThrow(){
