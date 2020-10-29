@@ -198,7 +198,7 @@ public class MouseLook : MonoBehaviour
                 useGrenade = false;
                 useFirework = false;
                 damage = 4;
-                reloadTime = 1f;
+                reloadTime = 0.5f;
                 dist = 30f;
                 currWeapon = 2;
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
