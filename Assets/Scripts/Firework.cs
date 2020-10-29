@@ -8,6 +8,8 @@ public class Firework : MonoBehaviour
     public float damage = 10f;
     public float speed = 7f;
 
+    public GameObject effect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,7 @@ public class Firework : MonoBehaviour
                 Debug.Log("Got some points");
             }
         }
-
+        Instantiate(effect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }
