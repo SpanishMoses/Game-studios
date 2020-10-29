@@ -15,4 +15,8 @@ public class ButtonManager : MonoBehaviour
             SceneManager.LoadScene(newGameLevel);
         }
     }
+
+    public void resetScore(){
+        PlayerPrefs.SetInt("Current_Score", 0);
+    }
 }
