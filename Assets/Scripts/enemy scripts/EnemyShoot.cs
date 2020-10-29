@@ -19,6 +19,8 @@ public class EnemyShoot : MonoBehaviour
 
     public bool startShootAnyways;
 
+    public bool alreadyShoot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,7 @@ public class EnemyShoot : MonoBehaviour
                 shootTime = 0;
                 timeBetweenShots = Random.Range(2, 4);
                 shoot();
+                StartCoroutine(shootStop());
             }
         }
     }
@@ -55,7 +58,11 @@ public class EnemyShoot : MonoBehaviour
         Instantiate(bullet, parent.transform.position, Quaternion.identity);
     }
 
-    
+    IEnumerator shootStop(){
+        alreadyShoot = true;
+        yield return new WaitForSeconds(0.5f);
+        alreadyShoot = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

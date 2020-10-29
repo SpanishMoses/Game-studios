@@ -24,6 +24,7 @@ public class EnemyMove : MonoBehaviour
     public bool backUp;
 
     public EnemyHealth health;
+    public EnemyShoot shoot;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +78,16 @@ public class EnemyMove : MonoBehaviour
         if (navMeshAgent.speed > 0)
         {
             animator.SetBool("IsMoving", true); ;
+        }
+
+        if (shoot.alreadyShoot == true){
+            
+            speed = 0;
+        }
+
+        if (shoot.alreadyShoot == false){
+            
+            speed = 3.5f;
         }
     }
 

@@ -307,6 +307,7 @@ MonoBehaviour:
   locActive: 0
   backUp: 0
   health: {fileID: 3403842977151912147}
+  shoot: {fileID: 5443037403398029714}
 --- !u!114 &5443037403398029714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +329,7 @@ MonoBehaviour:
   animator: {fileID: 3403842977151912144}
   health: {fileID: 3403842977151912147}
   startShootAnyways: 0
+  alreadyShoot: 0
 --- !u!212 &786967171
 SpriteRenderer:
   m_ObjectHideFlags: 0
