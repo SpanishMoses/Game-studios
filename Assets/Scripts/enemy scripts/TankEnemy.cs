@@ -6,6 +6,7 @@ public class TankEnemy : MonoBehaviour
 {
     public EnemyMove enemy;
     public GameObject rumbling;
+    public Transform spawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +22,9 @@ public class TankEnemy : MonoBehaviour
 
     void sendWave(){
         Vector3 direction = enemy.playerLoc.position - transform.position;
-        GameObject grenadeInstance = Instantiate(rumbling, transform.position, Quaternion.identity);
+        GameObject grenadeInstance = Instantiate(rumbling, spawnPoint.transform.position, Quaternion.identity);
         grenadeInstance.transform.forward = direction.normalized;
-        grenadeInstance.GetComponent<Rigidbody>().AddForce(direction.normalized * 10f, ForceMode.Impulse);
+        grenadeInstance.GetComponent<Rigidbody>().AddForce(direction.normalized * 25f, ForceMode.Impulse);
     }
 
     IEnumerator send(){

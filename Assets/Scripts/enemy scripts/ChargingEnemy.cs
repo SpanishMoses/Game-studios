@@ -53,6 +53,7 @@ public class ChargingEnemy : MonoBehaviour
         {
             animator.SetBool("IsMoving", false); ;
             time += Time.deltaTime;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             if (time >= timeBetweenCharges)
             {
                 charge();
@@ -60,7 +61,8 @@ public class ChargingEnemy : MonoBehaviour
                 locActive = false;
                 speed = 20;
                 isCharging = true;
-
+                rb.constraints = RigidbodyConstraints.None;
+                rb.constraints = RigidbodyConstraints.FreezePositionY;
             }
         }
 
