@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0, g: 0.37706995, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 0.5981132, b: 0.9615759, a: 1}
   m_AmbientEquatorColor: {r: 0.96288353, g: 0.5803922, b: 1, a: 1}
   m_AmbientGroundColor: {r: 1, g: 0, b: 0.056886673, a: 1}
   m_AmbientIntensity: 1.6
-  m_AmbientMode: 1
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.4511214, g: 0.5156847, b: 0.6792453, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -13512,7 +13512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &994119725
 Light:
   m_ObjectHideFlags: 0
@@ -19557,6 +19557,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   health: {fileID: 0}
   startShootAnyways: 0
+  alreadyShoot: 0
 --- !u!114 &1091727938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19578,6 +19579,7 @@ MonoBehaviour:
   locActive: 0
   backUp: 0
   health: {fileID: 0}
+  shoot: {fileID: 0}
 --- !u!195 &1091727939
 NavMeshAgent:
   m_ObjectHideFlags: 0
