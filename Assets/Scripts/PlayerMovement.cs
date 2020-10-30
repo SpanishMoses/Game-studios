@@ -275,37 +275,15 @@ public class PlayerMovement : MonoBehaviour
             }
             
             if (consume != null && consume.isAmmo == true){
-                if (mouse.usePistol == true)
-                {
+                
                     mouse.currAmmoP += consume.amount;
-                    Destroy(other.gameObject);
-                    StartCoroutine(flashAmmo());
-                }
-
-                if (mouse.useShotgun == true){
                     mouse.currAmmoS += consume.amount;
-                    Destroy(other.gameObject);
-                    StartCoroutine(flashAmmo());
-                }
-
-                if (mouse.useMachineGun == true){
                     mouse.currAmmoM += consume.amount;
-                    Destroy(other.gameObject);
-                    StartCoroutine(flashAmmo());
-                }
-
-                if (mouse.useGrenade == true){
                     mouse.currAmmoG += consume.amount;
+                    mouse.currAmmoF = consume.amount;
                     Destroy(other.gameObject);
                     StartCoroutine(flashAmmo());
-                }
-
-                if (mouse.useFirework == true)
-                {
-                    mouse.currAmmoF= consume.amount;
-                    Destroy(other.gameObject);
-                    StartCoroutine(flashAmmo());
-                }
+                
             }
         }
 
@@ -375,6 +353,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1f);
         deadScreen.SetActive(false);
         point.totalPoints -= 50;
+        health -= 1;
         respawn();
     }
 
