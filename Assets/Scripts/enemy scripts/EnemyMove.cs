@@ -81,13 +81,13 @@ public class EnemyMove : MonoBehaviour
         }
 
         if (shoot.alreadyShoot == true){
-            
-            speed = 0;
+            navMeshAgent.SetDestination(transform.position);
+
         }
 
         if (shoot.alreadyShoot == false){
+            SetDestination();
             
-            speed = 3.5f;
         }
     }
 
