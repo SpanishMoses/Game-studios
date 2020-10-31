@@ -24,9 +24,9 @@ public class ChargingEnemy : MonoBehaviour
 
     private Animator animator;
 
-    public Rigidbody rb;
-
     public GameObject spawnEffect;
+
+    public NavMeshAgent navMeshAgent;
 
     void Awake()
     {
@@ -39,6 +39,7 @@ public class ChargingEnemy : MonoBehaviour
         playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         isCharging = false;
         animator = GetComponent<Animator>();
+        navMeshAgent = this.GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -53,22 +54,26 @@ public class ChargingEnemy : MonoBehaviour
         {
             animator.SetBool("IsMoving", false); ;
             time += Time.deltaTime;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            //rb.constraints = RigidbodyConstraints.FreezeAll;
             if (time >= timeBetweenCharges)
             {
-                charge();
+                //charge();
                 time = 0;
                 locActive = false;
                 speed = 20;
                 isCharging = true;
-                rb.constraints = RigidbodyConstraints.None;
-                rb.constraints = RigidbodyConstraints.FreezePositionY;
+                //rb.constraints = RigidbodyConstraints.None;
+                //rb.constraints = RigidbodyConstraints.FreezePositionY;
             }
         }
 
         if (isCharging == true){
             animator.SetBool("IsMoving", true);
-            transform.position += normalizeDirection * speed * Time.deltaTime;
+            if (playerLoc.transform.position != null)
+            {
+                Vector3 targetVector = playerLoc.transform.position;
+                navMeshAgent.SetDestination(targetVector);
+            }
             chargeTime += Time.deltaTime;
             if (chargeTime >= MaxTime){
                 isCharging = false;
@@ -76,6 +81,8 @@ public class ChargingEnemy : MonoBehaviour
                 chargeTime = 0;
                 Debug.Log("made it");
                 locActive = true;
+                navMeshAgent.velocity = Vector3.zero;
+                navMeshAgent.SetDestination(transform.position);
             }
         }
     }
@@ -109,8 +116,8 @@ public class ChargingEnemy : MonoBehaviour
                 Debug.Log("made it");
                 locActive = true;
                 Vector3 direction = collision.transform.position - transform.position;
-                direction.y = 0;
-                playerMovement.AddImpact(direction, 50f);
+                navMeshAgent.SetDestination(transform.position);
+                playerMovement.AddImpact(direction, 200f);
             }
             
             } else{
@@ -119,6 +126,8 @@ public class ChargingEnemy : MonoBehaviour
             chargeTime = 0;
             Debug.Log("made it");
             locActive = true;
+            Vector3 direction = collision.transform.position - transform.position;
+            navMeshAgent.SetDestination(transform.position);
         }
     }
 }
