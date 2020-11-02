@@ -46,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
     public bool paused;
     public bool freezeMouse;
 
-    public float health;
+    public int health;
+    public int maxHealth;
     public int amount = 1;
 
     public Text healthText;
@@ -73,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         cantMove = false;
-
+        health = PlayerPrefs.GetInt("Curr_Health", 50);
         damagePic.SetActive(false);
         pressedJump = true;
         point = GameObject.FindGameObjectWithTag("PointManager").GetComponent<PointManager>();
@@ -82,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerPrefs.SetInt("Curr_Health", health);
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -311,9 +313,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
         health -= amount;
+        PlayerPrefs.SetInt("Curr_Health", health);
         StartCoroutine(flashHit());
         if (health <= 0f)
         {

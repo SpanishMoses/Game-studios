@@ -51,7 +51,7 @@ public class EnemyBasicBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player"){
             PlayerMovement playerMovement = collision.transform.GetComponent<PlayerMovement>();
             if (playerMovement != null){
-                playerMovement.TakeDamage(1f);
+                playerMovement.TakeDamage(1);
             }
         }
 

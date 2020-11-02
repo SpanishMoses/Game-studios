@@ -25,7 +25,7 @@ public class Rumble : MonoBehaviour
             PlayerMovement playerMovement = collision.transform.GetComponent<PlayerMovement>();
             if (playerMovement != null)
             {
-                playerMovement.TakeDamage(1f);
+                playerMovement.TakeDamage(1);
             }
         }
     }

@@ -10,7 +10,7 @@ public class ExplodingEnemy : MonoBehaviour
     public float speed;
 
     public float radius;
-    public float damage;
+    public int damage;
 
     public GameObject spawnEffect;
 
