@@ -36,24 +36,24 @@ public class MouseLook : MonoBehaviour
     public float reloadTime;
 
     //pistol ammo
-    public float currAmmoP;
-    public float maxAmmoP;
+    public int currAmmoP;
+    public int maxAmmoP;
 
     //Shotgun Ammo
-    public float currAmmoS;
-    public float maxAmmoS;
+    public int currAmmoS;
+    public int maxAmmoS;
 
     //machineGun Ammo
-    public float currAmmoM;
-    public float maxAmmoM;
+    public int currAmmoM;
+    public int maxAmmoM;
 
     //grenade ammo
-    public float currAmmoG;
-    public float maxAmmoG;
+    public int currAmmoG;
+    public int maxAmmoG;
 
     //firework ammo
-    public float currAmmoF;
-    public float maxAmmoF;
+    public int currAmmoF;
+    public int maxAmmoF;
 
     public bool usePistol;
     public bool useShotgun;
@@ -112,6 +112,11 @@ public class MouseLook : MonoBehaviour
         reloadTime = 0.3f;
         dist = 50f;
         currWeapon = 1;
+        currAmmoP = PlayerPrefs.GetInt("Pistol_Ammo", 0);
+        currAmmoS = PlayerPrefs.GetInt("Shotgun_Ammo", 40);
+        currAmmoM = PlayerPrefs.GetInt("Machinegun_Ammo", 120);
+        currAmmoG = PlayerPrefs.GetInt("Grenade_Ammo", 6);
+        currAmmoF = PlayerPrefs.GetInt("Firework_Ammo", 8);
         if ((SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")))
         {
             shootEnabled = false;
@@ -400,6 +405,7 @@ public class MouseLook : MonoBehaviour
     void ShootPistol(){
         RaycastHit hit;
         currAmmoP--;
+        PlayerPrefs.SetInt("Pistol_Ammo", currAmmoP);
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, dist, layers))
         {
             Debug.Log(hit.transform.name);
@@ -430,6 +436,7 @@ public class MouseLook : MonoBehaviour
         RaycastHit sHit4;
         RaycastHit sHit5;
         currAmmoS--;
+        PlayerPrefs.SetInt("Shotgun_Ammo", currAmmoS);
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out sHit, dist, layers))
         {
@@ -551,7 +558,7 @@ public class MouseLook : MonoBehaviour
     void ShootMachineGun(){
         RaycastHit mHit;
         currAmmoM--;
-
+        PlayerPrefs.SetInt("Machinegun_Ammo", currAmmoM);
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out mHit, dist, layers))
         {
             Debug.Log(mHit.transform.name);
@@ -610,6 +617,7 @@ public class MouseLook : MonoBehaviour
 
     void ShootFireworkk(){
         currAmmoF--;
+        PlayerPrefs.SetInt("Firework_Ammo", currAmmoM);
         RaycastHit fHit;
         Vector3 targetPoint;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out fHit, layers)){
@@ -644,6 +652,7 @@ public class MouseLook : MonoBehaviour
     IEnumerator BeginThrow(){
         yield return new WaitForSeconds(0.5f);
         currAmmoG--;
+        PlayerPrefs.SetInt("Grenade_Ammo", currAmmoM);
         GameObject grenadeInstance = Instantiate(grenade, cam.transform.position, cam.transform.rotation);
         grenadeInstance.GetComponent<Rigidbody>().AddForce(cam.transform.forward * dist, ForceMode.Impulse);
     }  

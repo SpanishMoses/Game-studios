@@ -90,7 +90,7 @@ MonoBehaviour:
   onLadder: 0
   paused: 0
   freezeMouse: 0
-  health: 5
+  health: 100
   amount: 1
   healthText: {fileID: 0}
   damagePic: {fileID: 0}
@@ -5104,6 +5104,8 @@ MonoBehaviour:
   useFirework: 0
   fireRate: 7
   shootReady: 0
+  grenadeReady: 0
+  fireWorkReady: 0
   ammoText: {fileID: 0}
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   impact: {fileID: 4738052880662677020, guid: 36aa7e35003522348940264f59bc4080, type: 3}

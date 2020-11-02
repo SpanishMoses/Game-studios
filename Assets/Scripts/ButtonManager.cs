@@ -18,5 +18,10 @@ public class ButtonManager : MonoBehaviour
 
     public void resetScore(){
         PlayerPrefs.SetInt("Current_Score", 0);
+        PlayerPrefs.GetInt("Pistol_Ammo", 0);
+        PlayerPrefs.GetInt("Shotgun_Ammo", 40);
+        PlayerPrefs.GetInt("Machinegun_Ammo", 120);
+        PlayerPrefs.GetInt("Grenade_Ammo", 6);
+        PlayerPrefs.GetInt("Firework_Ammo", 8);
     }
 }

@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     public bool freezeMouse;
 
     public float health;
-    public float amount = 1f;
+    public int amount = 1;
 
     public Text healthText;
     public GameObject damagePic;

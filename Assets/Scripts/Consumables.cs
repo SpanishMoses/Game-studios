@@ -5,7 +5,7 @@ using UnityEngine;
 public class Consumables : MonoBehaviour
 {
 
-    public float amount;
+    public int amount;
 
     public bool isAmmo;
     public bool isHealth;
