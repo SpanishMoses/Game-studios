@@ -35,19 +35,11 @@ public class Drone : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, playerLoc.transform.position) > 5)
         {
-            farAway = true;
+            transform.position = Vector3.MoveTowards(transform.position, playerLoc.position, characterVelocity * Time.deltaTime);
         }
 
         if (Vector2.Distance(transform.position, playerLoc.transform.position) < 5)
         {
-            farAway = false;
-        }
-
-        if (farAway == true){
-            transform.position = Vector3.MoveTowards(transform.position, playerLoc.position, characterVelocity * Time.deltaTime);
-        }
-
-        if (farAway == false){
             if (Time.time - latestDirectionChangeTime > directionChangeTime)
             {
                 latestDirectionChangeTime = Time.time;
