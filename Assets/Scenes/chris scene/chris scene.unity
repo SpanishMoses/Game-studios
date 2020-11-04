@@ -389,6 +389,7 @@ MonoBehaviour:
   locActive: 0
   backUp: 0
   health: {fileID: 0}
+  shoot: {fileID: 0}
 --- !u!114 &161379258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,6 +411,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   health: {fileID: 0}
   startShootAnyways: 0
+  alreadyShoot: 0
 --- !u!114 &161379259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,6 +610,7 @@ MonoBehaviour:
   animator: {fileID: 253341559}
   health: {fileID: 253341560}
   startShootAnyways: 0
+  alreadyShoot: 0
 --- !u!114 &253341562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,6 +632,7 @@ MonoBehaviour:
   locActive: 0
   backUp: 0
   health: {fileID: 253341560}
+  shoot: {fileID: 0}
 --- !u!195 &253341563
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1179,6 +1183,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+--- !u!1 &979781593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7001378166297873689, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 979781592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &979781594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3903052935326487647, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 979781592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1021943466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1319,6 +1333,14 @@ PrefabInstance:
       propertyPath: quitButt
       value: 
       objectReference: {fileID: 1927726873}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: gainHealthPic
+      value: 
+      objectReference: {fileID: 979781594}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: gainAmmoPic
+      value: 
+      objectReference: {fileID: 979781593}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)
