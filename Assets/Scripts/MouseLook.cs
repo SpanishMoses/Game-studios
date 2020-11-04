@@ -395,9 +395,13 @@ public class MouseLook : MonoBehaviour
             PlayerPrefs.SetInt("EnableShotgun", 0);
         }
         
-
+        //testing purposes
         if (Input.GetKey(KeyCode.M)){
-            PlayerPrefs.DeleteAll();
+            currAmmoM = 120;
+            currAmmoP = 100;
+            currAmmoS = 40;
+            currAmmoG = 8;
+            currAmmoF = 6;
         }
 
     }
