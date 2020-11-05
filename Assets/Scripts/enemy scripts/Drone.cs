@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Drone : MonoBehaviour
 {
+    public Rigidbody rb;
 
     private float latestDirectionChangeTime;
     private readonly float directionChangeTime = 2f;
@@ -54,6 +55,7 @@ public class Drone : MonoBehaviour
         if (health.health <= 0){
             shoot.enabled = false;
             characterVelocity = 0;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 
