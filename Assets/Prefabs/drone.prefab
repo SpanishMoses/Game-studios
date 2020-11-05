@@ -124,10 +124,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3403842977151912148}
-  - component: {fileID: 3403842977151912153}
   - component: {fileID: 3403842977151912146}
   - component: {fileID: 3403842977151912149}
   - component: {fileID: 3403842977151912147}
+  - component: {fileID: 927143007604561144}
   - component: {fileID: 3403842977151912144}
   - component: {fileID: 1078547375}
   - component: {fileID: 4331592592604853874}
@@ -151,25 +151,12 @@ Transform:
   m_GameObject: {fileID: 3403842977151912152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.8719199, y: 6.71, z: 135.5412}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 708504279}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3403842977151912153
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3403842977151912152}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2.93, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3403842977151912146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,11 +207,24 @@ MonoBehaviour:
   minHealth: 0
   amountTaken: 1
   parent: {fileID: 3403842977151912152}
-  collid: {fileID: 3403842977151912153}
+  collid: {fileID: 927143007604561144}
   animator: {fileID: 3403842977151912144}
   enemySpawn: {fileID: 0}
   enemyMove: {fileID: -2523470118489310395}
   enemyShoot: {fileID: 5443037403398029714}
+--- !u!135 &927143007604561144
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403842977151912152}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.75
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &3403842977151912144
 Animator:
   serializedVersion: 3
@@ -256,8 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41831bc6403bd254cb3439a2b80ed6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spitEffect: {fileID: 9040418206911511468, guid: 91b1253eeded5c1409f99121695dc03d, type: 3}
-  bullet: {fileID: 6815061795980144998, guid: e1249597c4a84274891abe1f16e96f18, type: 3}
+  spitEffect: {fileID: 305000678807030122, guid: df0217b53f39241458b0703fbd469af1, type: 3}
+  bullet: {fileID: 6815061795980144998, guid: 0a40590a0caea4e45b9aa7b811e86532, type: 3}
   parent: {fileID: 708504278}
   damage: 1
   shootTime: 0
