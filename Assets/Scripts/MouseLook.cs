@@ -87,6 +87,14 @@ public class MouseLook : MonoBehaviour
 
     public bool unpaused;
 
+    public AudioClip pistolShoot;
+    public AudioClip pistolClick;
+    public AudioClip knifeSwing;
+    public AudioClip knifeStab;
+
+    public AudioSource weaponShoot;
+    public AudioSource secondarySound;
+
     /*PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
     public int value;
     value = shotGunBool ? 1 : 0;*/
@@ -189,6 +197,7 @@ public class MouseLook : MonoBehaviour
                 reloadTime = 0.3f;
                 dist = 50f;
                 currWeapon = 1;
+                weaponShoot.clip = pistolShoot;
                 //ammoText.text = currAmmoP + "/" + maxAmmoP;
             }
 
@@ -240,6 +249,8 @@ public class MouseLook : MonoBehaviour
                 reloadTime = 0.25f;
                 dist = 5;
                 currWeapon = 4;
+                weaponShoot.clip = knifeSwing;
+                secondarySound.clip = knifeStab;
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
@@ -281,6 +292,7 @@ public class MouseLook : MonoBehaviour
                 anim.SetTrigger("PistolShoot");
                 crosshairAnim.SetTrigger("Expand");
                 camAnim.SetTrigger("camShake1");
+                weaponShoot.Play();
                 StartCoroutine(reload());
             }
 
@@ -309,6 +321,7 @@ public class MouseLook : MonoBehaviour
                 anim.SetTrigger("ShivShoot");
                 crosshairAnim.SetTrigger("Expand");
                 camAnim.SetTrigger("camShake3");
+                weaponShoot.Play();
                 StartCoroutine(reload());
             }
 
@@ -598,6 +611,7 @@ public class MouseLook : MonoBehaviour
             EnemyHealth enemyHealth = kHit.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
+                secondarySound.Play();
                 enemyHealth.TakeDamage(damage);
                 Instantiate(blood, kHit.point, Quaternion.identity);
                 if (enemyHealth.health <= 0){

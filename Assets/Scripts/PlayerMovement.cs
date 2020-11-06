@@ -69,6 +69,13 @@ public class PlayerMovement : MonoBehaviour
     float mass = 3.0F; // defines the character mass
     Vector3 impact = Vector3.zero;
 
+    public int hurtNum; 
+
+    public AudioClip hurt1;
+    public AudioClip hurt2;
+
+    public AudioSource sound;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -317,10 +324,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void selectHurtNum(){
+        hurtNum = Random.Range(1, 3);
+    }
+
     public void TakeDamage(int amount)
     {
         health -= amount;
         PlayerPrefs.SetInt("Curr_Health", health);
+        selectHurtNum();
+        if (hurtNum == 1){
+            sound.clip = hurt1;
+        }
+        if (hurtNum == 2){
+            sound.clip = hurt2;
+        }
+        sound.Play();
         StartCoroutine(flashHit());
         if (health <= 0f)
         {
