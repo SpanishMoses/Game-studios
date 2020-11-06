@@ -257,6 +257,7 @@ public class MouseLook : MonoBehaviour
             if (Input.GetKey(KeyCode.Alpha5) && play.freezeMouse == false || currWeapon == 5)
             {
                 Debug.Log("usegrenade");
+                anim.SetTrigger("Switch_Grenade");
                 useShotgun = false;
                 usePistol = false;
                 useMachineGun = false;
@@ -328,6 +329,8 @@ public class MouseLook : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0) && useGrenade == true && grenadeReady == true && currAmmoG <= maxAmmoG && currAmmoG > 0 && unpaused == true)
             {
                 ThrowGrenade();
+                anim.SetTrigger("GrenadeShoot");
+                crosshairAnim.SetTrigger("Expand");
                 StartCoroutine(reloadGrenade());
             }
 
