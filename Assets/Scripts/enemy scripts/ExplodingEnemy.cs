@@ -107,7 +107,7 @@ public class ExplodingEnemy : MonoBehaviour
                 playerMove.TakeDamage(damage);
             }
         }
-
+        
         Destroy(gameObject);
     }
     
@@ -115,5 +115,6 @@ public class ExplodingEnemy : MonoBehaviour
         yield return new WaitForSeconds(1f);
         detonation();
         health.collid.enabled = true;
+        health.health = 0;
     }
 }

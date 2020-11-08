@@ -44,6 +44,10 @@ public class EnemySpawner : MonoBehaviour
                 box.enabled = false;
                 //Destroy(gameObject);
             }
+            for (int i = 0; i < door.Length; i++)
+            {
+                door[i].SetActive(true);
+            }
         }
     }
 
