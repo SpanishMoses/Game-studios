@@ -34,12 +34,12 @@ public class Drone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, playerLoc.transform.position) > 5)
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) > 5 && health.health > 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, playerLoc.position, characterVelocity * Time.deltaTime);
         }
 
-        if (Vector2.Distance(transform.position, playerLoc.transform.position) < 5)
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) < 5 && health.health > 0)
         {
             if (Time.time - latestDirectionChangeTime > directionChangeTime)
             {

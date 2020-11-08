@@ -107,7 +107,7 @@ public class ExplodingEnemy : MonoBehaviour
                 playerMove.TakeDamage(damage);
             }
         }
-        
+        navMeshAgent.SetDestination(transform.position);
         Destroy(gameObject);
     }
     

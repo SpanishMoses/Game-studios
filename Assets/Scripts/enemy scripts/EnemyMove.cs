@@ -89,6 +89,10 @@ public class EnemyMove : MonoBehaviour
             SetDestination();
             
         }
+
+        if (health.health <= 0){
+            navMeshAgent.SetDestination(transform.position);
+        }
     }
 
     private void FixedUpdate()

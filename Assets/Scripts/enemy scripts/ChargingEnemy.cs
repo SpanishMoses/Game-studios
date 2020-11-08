@@ -27,7 +27,7 @@ public class ChargingEnemy : MonoBehaviour
     public GameObject spawnEffect;
 
     public NavMeshAgent navMeshAgent;
-
+    public EnemyHealth health;
     void Awake()
     {
         Instantiate(spawnEffect, transform.position, transform.rotation);
@@ -84,6 +84,10 @@ public class ChargingEnemy : MonoBehaviour
                 navMeshAgent.velocity = Vector3.zero;
                 navMeshAgent.SetDestination(transform.position);
             }
+        }
+
+        if (health.health <= 0){
+            navMeshAgent.SetDestination(transform.position);
         }
     }
 
