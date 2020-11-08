@@ -109,6 +109,7 @@ MonoBehaviour:
   hurtNum: 0
   hurt1: {fileID: 8300000, guid: d83e7957fba1a1644b9f7525b63f5224, type: 3}
   hurt2: {fileID: 8300000, guid: 29f9d293f17f0f747a3b455c6641b5f2, type: 3}
+  dashNoise: {fileID: 8300000, guid: 028de4cccb07e054d82dbdaeb0c20d2d, type: 3}
   sound: {fileID: 5277950087755630345}
 --- !u!82 &5277950087755630345
 AudioSource:
@@ -5226,6 +5227,7 @@ MonoBehaviour:
   pistolClick: {fileID: 8300000, guid: bb683e0432664eb419548719b8911284, type: 3}
   knifeSwing: {fileID: 8300000, guid: 7523d0ae081520e43be59a5cc2b1df95, type: 3}
   knifeStab: {fileID: 8300000, guid: 6dda35b5d20353e4cb8304749c9b09fc, type: 3}
+  shotGunBlast: {fileID: 8300000, guid: 9c5a7bae5eaac1c498176f4a041b26b4, type: 3}
   weaponShoot: {fileID: 4913947592025779583}
   secondarySound: {fileID: 829486098176042518}
 --- !u!95 &7997200904646466718

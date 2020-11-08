@@ -91,6 +91,8 @@ public class MouseLook : MonoBehaviour
     public AudioClip pistolClick;
     public AudioClip knifeSwing;
     public AudioClip knifeStab;
+    public AudioClip shotGunBlast;
+
 
     public AudioSource weaponShoot;
     public AudioSource secondarySound;
@@ -215,6 +217,7 @@ public class MouseLook : MonoBehaviour
                 reloadTime = 0.5f;
                 dist = 30f;
                 currWeapon = 2;
+                weaponShoot.clip = shotGunBlast;
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
@@ -303,6 +306,7 @@ public class MouseLook : MonoBehaviour
                 anim.SetTrigger("ShotgunShoot");
                 crosshairAnim.SetTrigger("Expand");
                 camAnim.SetTrigger("camShake2");
+                weaponShoot.Play();
                 Instantiate(shell, transform.position, transform.rotation);
                 StartCoroutine(reload());
             }

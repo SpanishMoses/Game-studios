@@ -24,6 +24,10 @@ public class EnemyHealth : MonoBehaviour
     public EnemyMove enemyMove;
     public EnemyShoot enemyShoot;
 
+    public AudioClip deathNoise;
+
+    public AudioSource death;
+
     private void Update()
     {
         if (health <= minHealth){
@@ -39,12 +43,16 @@ public class EnemyHealth : MonoBehaviour
             StartCoroutine(startNormalDeath());
             enemyMove.navMeshAgent.speed = 0;
             enemyShoot.enabled = false;
+            death.clip = deathNoise;
+            death.Play();
         }
             if (health <= 0 && partOfArray == true){
             StartCoroutine(startDeath());
             Debug.Log("started");
             enemyMove.navMeshAgent.speed = 0;
             enemyShoot.enabled = false;
+            death.clip = deathNoise;
+            death.Play();
         }
     }
 

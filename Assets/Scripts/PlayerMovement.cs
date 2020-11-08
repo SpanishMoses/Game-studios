@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioClip hurt1;
     public AudioClip hurt2;
+    public AudioClip dashNoise;
 
     public AudioSource sound;
 
@@ -148,6 +149,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 DashEffect.Play();
                 canDash = false;
+                sound.clip = dashNoise;
+                sound.Play();
                 StartCoroutine(Dash());
                 StartCoroutine(DashRecharge());
             }
