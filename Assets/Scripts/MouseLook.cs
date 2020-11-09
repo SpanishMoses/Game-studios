@@ -659,9 +659,9 @@ public class MouseLook : MonoBehaviour
                 enemyHealth.TakeDamage(damage);
                 Instantiate(blood, kHit.point, Quaternion.identity);
                 if (enemyHealth.health <= 0){
-                    currAmmoP += 10;
+                    /*currAmmoP += 10;
                     currAmmoS += 5;
-                    currAmmoM += 10;
+                    currAmmoM += 10;*/
                 }
             }
             PointGiver point = kHit.transform.GetComponent<PointGiver>();

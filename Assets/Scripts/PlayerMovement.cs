@@ -308,6 +308,21 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (other.gameObject.tag == "PistolAmmo"){
+            mouse.currAmmoP += 2;
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "ShotGunAmmo"){
+            mouse.currAmmoS += 2;
+            Destroy(other.gameObject);
+        }
+        
+        if (other.gameObject.tag == "MachineGunAmmo"){
+            mouse.currAmmoM += 2;
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.tag == "End"){
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld"))
             {
@@ -322,6 +337,14 @@ public class PlayerMovement : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
                 SceneManager.LoadScene("main menu");
             }
+        }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.gameObject.tag == "PistolAmmo"){
+            mouse.currAmmoP += 2;
+            
         }
     }
 
