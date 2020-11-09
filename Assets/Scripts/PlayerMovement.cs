@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     //knockback help from https://answers.unity.com/questions/242648/force-on-character-controller-knockback.html
+    //footstep noise help from https://www.youtube.com/watch?v=ih8gyGeC7xs&ab_channel=EYEmaginary
 
     public UnityEngine.CharacterController controller;
 
@@ -120,10 +121,17 @@ public class PlayerMovement : MonoBehaviour
                 controller.Move(transform.up * speed * Time.deltaTime);
             }
 
-           
+           if (controller.isGrounded == true && controller.velocity.magnitude > 2f && moveNoise.isPlaying == false){
+                moveNoise.Play();
+            }
 
-        //Jump
-        if (Input.GetButtonDown("Jump") && isGrounded && pressedJump == false && onLadder == false)
+            if (controller.isGrounded == true && controller.velocity.magnitude < 2f && moveNoise.isPlaying == true)
+            {
+                moveNoise.Stop();
+            }
+
+            //Jump
+            if (Input.GetButtonDown("Jump") && isGrounded && pressedJump == false && onLadder == false)
         {
             velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
                 pressedJump = true;

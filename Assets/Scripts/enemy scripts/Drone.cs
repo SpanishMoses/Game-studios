@@ -50,7 +50,10 @@ public class Drone : MonoBehaviour
         transform.position.y + (movementPerSecond.y * Time.deltaTime), transform.position.z + (movementPerSecond.z * Time.deltaTime));
         }
 
-        
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) > 50 && health.health > 0)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, playerLoc.position, characterVelocity * Time.deltaTime);
+        }
 
         if (health.health <= 0){
             shoot.enabled = false;
