@@ -5006,6 +5006,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3744357652960032892, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 114013795}
     - target: {fileID: 3744357652960032893, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
       propertyPath: enemySpawn
       value: 
@@ -5058,6 +5062,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4949326467131979856, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
 --- !u!1 &114013785 stripped
@@ -5070,6 +5078,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3744357652960032899, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
   m_PrefabInstance: {fileID: 114013784}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &114013795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3744357652960032893, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+  m_PrefabInstance: {fileID: 114013784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114013785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19dab9ab2442114e8ab04547611773c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &114219323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28962,6 +28981,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6280157591442075566, guid: 83a2e6dfb7425fe4595fe3ecc76c9de0, type: 3}
+--- !u!114 &665309913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7787872130326623526, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 1622440129}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &665602559 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5774582508115098286, guid: 83a2e6dfb7425fe4595fe3ecc76c9de0, type: 3}
@@ -62123,7 +62153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalPoints: 0
-  pointText: {fileID: 0}
+  pointText: {fileID: 665309913}
 --- !u!4 &1106962481
 Transform:
   m_ObjectHideFlags: 0
@@ -102680,6 +102710,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7614781457003351789, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614781457003351789, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7997200904571926898, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.27

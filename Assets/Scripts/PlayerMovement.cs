@@ -74,9 +74,10 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip hurt1;
     public AudioClip hurt2;
     public AudioClip dashNoise;
+    public AudioClip moving;
 
     public AudioSource sound;
-
+    public AudioSource moveNoise;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -86,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         damagePic.SetActive(false);
         pressedJump = true;
         point = GameObject.FindGameObjectWithTag("PointManager").GetComponent<PointManager>();
+        moveNoise.clip = moving;
     }
 
     // Update is called once per frame
@@ -111,11 +113,14 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 move = transform.right * x * speed + transform.forward * z * speed + transform.up * velocity.y;
 
                 controller.Move(move * Time.deltaTime);
+                
             }
             if (onLadder == true){
                 Vector3 moveUp = transform.up * z;
                 controller.Move(transform.up * speed * Time.deltaTime);
             }
+
+           
 
         //Jump
         if (Input.GetButtonDown("Jump") && isGrounded && pressedJump == false && onLadder == false)

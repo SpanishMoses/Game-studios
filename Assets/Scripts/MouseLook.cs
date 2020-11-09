@@ -199,7 +199,12 @@ public class MouseLook : MonoBehaviour
                 reloadTime = 0.3f;
                 dist = 50f;
                 currWeapon = 1;
-                weaponShoot.clip = pistolShoot;
+                if (currAmmoP > 0){
+                    weaponShoot.clip = pistolShoot;
+                }
+                if (currAmmoP == 0){
+                    weaponShoot.clip = pistolClick;
+                }
                 //ammoText.text = currAmmoP + "/" + maxAmmoP;
             }
 
@@ -290,7 +295,7 @@ public class MouseLook : MonoBehaviour
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
-            if (Input.GetKey(KeyCode.Mouse0) && usePistol == true && shootReady == true && currAmmoP <= maxAmmoP && currAmmoP > 0 && unpaused == true)
+            if (Input.GetKey(KeyCode.Mouse0) && usePistol == true && shootReady == true && currAmmoP > 0 && unpaused == true)
             {
                 ShootPistol();
                 anim.SetTrigger("PistolShoot");
@@ -300,7 +305,13 @@ public class MouseLook : MonoBehaviour
                 StartCoroutine(reload());
             }
 
-            if (Input.GetKey(KeyCode.Mouse0) && useShotgun == true && shootReady == true && currAmmoS <= maxAmmoS && currAmmoS > 0 && unpaused == true)
+            if (currAmmoP == 0 && Input.GetKey(KeyCode.Mouse0) && shootReady == true && usePistol == true && unpaused == true)
+            {
+                //weaponShoot.clip = pistolClick;
+                weaponShoot.Play();
+                StartCoroutine(reload());
+            }
+                if (Input.GetKey(KeyCode.Mouse0) && useShotgun == true && shootReady == true && currAmmoS <= maxAmmoS && currAmmoS > 0 && unpaused == true)
             {
                 shootShotgun();
                 anim.SetTrigger("ShotgunShoot");
@@ -406,6 +417,32 @@ public class MouseLook : MonoBehaviour
                 currAmmoF = maxAmmoF;
             }
         }
+
+        if (currAmmoP < 0)
+        {
+            currAmmoP = 0;
+        }
+
+        if (currAmmoS < 0)
+        {
+            currAmmoS = 0;
+        }
+
+        if (currAmmoM < 0)
+        {
+            currAmmoM = 0;
+        }
+
+        if (currAmmoG < 0)
+        {
+            currAmmoG = 0;
+        }
+
+        if (currAmmoF < 0)
+        {
+            currAmmoF = 0;
+        }
+
         int shotGunEnable;
         shotGunEnable = shotGunBool? 1 : 0; 
 
