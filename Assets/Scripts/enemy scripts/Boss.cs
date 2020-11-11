@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    
+    public GameObject rumbling;
     public GameObject[] drones;
+    public GameObject spawnPoint;
 
     public BoxCollider collid;
     public EnemyShoot shoot;
@@ -15,11 +16,16 @@ public class Boss : MonoBehaviour
     public float staggerTime;
     public float maxStaggerTime;
 
+    public bool canRumble;
+    public float rumbleTime;
+    public float maxRumbleTime;
+
     public int dronesStaggared;
 
     // Start is called before the first frame update
     void Start()
     {
+        canRumble = true;
         collid.enabled = false;
         for (int i = 0; i < drones.Length; i++)
         {
@@ -43,7 +49,17 @@ public class Boss : MonoBehaviour
                 collid.enabled = true;
                 mov.locActive = false;
                 shoot.enabled = false;
+                canRumble = false;
+                rumbleTime = 0;
                 StartCoroutine(resetDrones());
+            }
+        }
+
+        if (canRumble == true){
+            rumbleTime += Time.deltaTime;
+            if (rumbleTime >= maxRumbleTime){
+                sendWave();
+                rumbleTime = 0;
             }
         }
 
@@ -68,9 +84,19 @@ public class Boss : MonoBehaviour
         dronesStaggared -= num;
     }
 
+    void sendWave()
+    {
+        Vector3 direction = mov.playerLoc.position - transform.position;
+        GameObject grenadeInstance = Instantiate(rumbling, spawnPoint.transform.position, Quaternion.identity);
+        grenadeInstance.transform.forward = direction.normalized;
+        grenadeInstance.GetComponent<Rigidbody>().AddForce(direction.normalized * 25f, ForceMode.Impulse);
+    }
+
     IEnumerator resetDrones(){
         drones[0].GetComponent<BossDrone>().deathTime = 0;
         drones[1].GetComponent<BossDrone>().deathTime = 0;
         yield return new WaitForSeconds(0.01f);
     }
+
+    
 }
