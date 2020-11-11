@@ -33,28 +33,34 @@ public class BossDrone : MonoBehaviour
             transform.RotateAround(Boss.transform.position, Vector3.up, 20 * Time.deltaTime);
         }
 
+        if (boss.staggered == true){
+            maxDeathTime = 10;
+        }
+
+        if (boss.staggered == false){
+            maxDeathTime = 5;
+        }
+
         if (stopped == true && boss.staggered == false){
             deathTime += Time.deltaTime;
             if (deathTime >= maxDeathTime){
                 deathTime = 0;
                 stopped = false;
                 health = 5;
+                boss.Add(1);
             }
         }
 
         if (boss.staggered == true && stopped == true)
         {
-            maxDeathTime = 10;
             deathTime += Time.deltaTime;
             if (deathTime >= maxDeathTime)
             {
                 deathTime = 0;
                 stopped = false;
                 health = 5;
+                boss.Add(1);
             }
-        }
-        else if (boss.staggered == false){
-            maxDeathTime = 5;
         }
 
         if (health <= minHealth)
@@ -69,6 +75,7 @@ public class BossDrone : MonoBehaviour
         if (health <= 0f)
         {
             stopped = true;
+            boss.Sub(1);
         }
     }
     }

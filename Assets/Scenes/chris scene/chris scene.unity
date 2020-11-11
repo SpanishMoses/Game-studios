@@ -434,6 +434,8 @@ MonoBehaviour:
   enemySpawn: {fileID: 0}
   enemyMove: {fileID: 0}
   enemyShoot: {fileID: 0}
+  deathNoise: {fileID: 0}
+  death: {fileID: 0}
 --- !u!65 &161379261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -580,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partOfArray: 0
-  health: 50
+  health: 700
   minHealth: 0
   amountTaken: 1
   parent: {fileID: 253341554}
@@ -589,6 +591,8 @@ MonoBehaviour:
   enemySpawn: {fileID: 0}
   enemyMove: {fileID: 253341562}
   enemyShoot: {fileID: 253341561}
+  deathNoise: {fileID: 0}
+  death: {fileID: 0}
 --- !u!114 &253341561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,7 +636,7 @@ MonoBehaviour:
   locActive: 0
   backUp: 0
   health: {fileID: 253341560}
-  shoot: {fileID: 0}
+  shoot: {fileID: 253341561}
 --- !u!195 &253341563
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -676,6 +680,7 @@ MonoBehaviour:
   staggered: 0
   staggerTime: 0
   maxStaggerTime: 10
+  dronesStaggared: 0
 --- !u!1 &368000386
 GameObject:
   m_ObjectHideFlags: 0
