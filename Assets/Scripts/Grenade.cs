@@ -10,6 +10,8 @@ public class Grenade : MonoBehaviour
     public float radius = 10f;
     public float damage = 10f;
 
+    public GameObject effect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class Grenade : MonoBehaviour
             }
         }
 
+        Instantiate(effect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }
