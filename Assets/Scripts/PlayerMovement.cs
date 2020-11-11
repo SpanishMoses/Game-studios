@@ -291,6 +291,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Shotgun"){
             mouse.shotGunBool = true;
+            mouse.currWeapon = 2;
             Destroy(other.gameObject);
         }
 
