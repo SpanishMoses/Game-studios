@@ -70,12 +70,19 @@ public class PlayerMovement : MonoBehaviour
     float mass = 3.0F; // defines the character mass
     Vector3 impact = Vector3.zero;
 
-    public int hurtNum; 
+    public int hurtNum;
+
+    public int chooseNewNoise;
 
     public AudioClip hurt1;
     public AudioClip hurt2;
     public AudioClip dashNoise;
-    public AudioClip moving;
+    public AudioClip moving1;
+    public AudioClip moving2;
+    public AudioClip moving3;
+    public AudioClip moving4;
+    public AudioClip moving5;
+    public AudioClip moving6;
 
     public AudioSource sound;
     public AudioSource moveNoise;
@@ -88,7 +95,8 @@ public class PlayerMovement : MonoBehaviour
         damagePic.SetActive(false);
         pressedJump = true;
         point = GameObject.FindGameObjectWithTag("PointManager").GetComponent<PointManager>();
-        moveNoise.clip = moving;
+        //moveNoise.clip = moving;
+        newWalk();
     }
 
     // Update is called once per frame
@@ -427,5 +435,33 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1f);
         deadScreen.SetActive(false);
         SceneManager.LoadScene("GameWorld");
+    }
+
+    public void newWalk(){
+        chooseNewNoise = Random.Range(1, 6);
+
+        if (chooseNewNoise == 1){
+            moveNoise.clip = moving1;
+        }
+        if (chooseNewNoise == 2)
+        {
+            moveNoise.clip = moving2;
+        }
+        if (chooseNewNoise == 3)
+        {
+            moveNoise.clip = moving3;
+        }
+        if (chooseNewNoise == 4)
+        {
+            moveNoise.clip = moving4;
+        }
+        if (chooseNewNoise == 5)
+        {
+            moveNoise.clip = moving5;
+        }
+        if (chooseNewNoise == 6)
+        {
+            moveNoise.clip = moving6;
+        }
     }
 }

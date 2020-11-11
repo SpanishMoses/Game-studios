@@ -722,5 +722,9 @@ public class MouseLook : MonoBehaviour
         PlayerPrefs.SetInt("Grenade_Ammo", currAmmoM);
         GameObject grenadeInstance = Instantiate(grenade, cam.transform.position, cam.transform.rotation);
         grenadeInstance.GetComponent<Rigidbody>().AddForce(cam.transform.forward * dist, ForceMode.Impulse);
-    }  
+    }
+    
+    public void newSound(){
+        play.newWalk();
+    }
 }
