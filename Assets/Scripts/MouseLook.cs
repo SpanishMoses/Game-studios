@@ -282,6 +282,7 @@ public class MouseLook : MonoBehaviour
             if (Input.GetKey(KeyCode.Alpha6) && play.freezeMouse == false || currWeapon == 6)
             {
                 Debug.Log("usefirework");
+                anim.SetTrigger("Switch_Firework");
                 useShotgun = false;
                 usePistol = false;
                 useMachineGun = false;
@@ -352,6 +353,9 @@ public class MouseLook : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0) && useFirework == true && fireWorkReady == true && currAmmoF <= maxAmmoF && currAmmoF > 0 && unpaused == true)
             {
                 ShootFireworkk();
+                anim.SetTrigger("FireworkShoot");
+                crosshairAnim.SetTrigger("Expand");
+                camAnim.SetTrigger("camShake2");
                 StartCoroutine(reloadFireWork());
             }
 
