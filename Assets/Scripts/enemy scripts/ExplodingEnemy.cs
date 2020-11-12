@@ -24,6 +24,8 @@ public class ExplodingEnemy : MonoBehaviour
 
     public EnemyHealth health;
 
+    public GameObject effect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -108,6 +110,7 @@ public class ExplodingEnemy : MonoBehaviour
             }
         }
         navMeshAgent.SetDestination(transform.position);
+        Instantiate(effect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
     
