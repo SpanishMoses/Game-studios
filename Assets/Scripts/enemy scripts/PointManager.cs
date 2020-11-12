@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PointManager : MonoBehaviour
 {
 
     public int totalPoints;
-    public Text pointText;
+    public TMP_Text pointText;
 
     // Start is called before the first frame update
     void Start()

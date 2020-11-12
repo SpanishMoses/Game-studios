@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     public int maxHealth;
     public int amount = 1;
 
-    public Text healthText;
+    public TMP_Text healthText;
     public GameObject damagePic;
     public GameObject gainHealthPic;
     public GameObject gainAmmoPic;

@@ -4359,17 +4359,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371277084}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &375372169 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7787872129474698521, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
-  m_PrefabInstance: {fileID: 7787872129313055888}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &377863518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6097,17 +6086,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6650452326471031950, guid: 28eb1a609a2fd15448d3bc89bc0f2937, type: 3}
   m_PrefabInstance: {fileID: 485906584}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &499910278 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7787872129350017558, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
-  m_PrefabInstance: {fileID: 7787872129313055888}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &510878802
 GameObject:
   m_ObjectHideFlags: 0
@@ -19536,6 +19514,8 @@ MonoBehaviour:
   enemySpawn: {fileID: 0}
   enemyMove: {fileID: 0}
   enemyShoot: {fileID: 0}
+  deathNoise: {fileID: 0}
+  death: {fileID: 0}
 --- !u!114 &1091727937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20031,17 +20011,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127316393}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1133957558 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7787872130326623526, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
-  m_PrefabInstance: {fileID: 7787872129313055888}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1134792554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25659,7 +25628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalPoints: 0
-  pointText: {fileID: 1133957558}
+  pointText: {fileID: 7787872129313055890}
 --- !u!4 &1520624913
 Transform:
   m_ObjectHideFlags: 0
@@ -44565,6 +44534,39 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3903052935326487647, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
   m_PrefabInstance: {fileID: 7787872129313055888}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7787872129313055890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 189455509801420634, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 7787872129313055888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7787872129313055891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6889765633809813000, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 7787872129313055888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7787872129313055892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4677035808633622678, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 7787872129313055888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7997200905404248287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44619,7 +44621,7 @@ PrefabInstance:
     - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: healthText
       value: 
-      objectReference: {fileID: 375372169}
+      objectReference: {fileID: 7787872129313055891}
     - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: damagePic
       value: 
@@ -44679,7 +44681,7 @@ PrefabInstance:
     - target: {fileID: 7997200904646466785, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: ammoText
       value: 
-      objectReference: {fileID: 499910278}
+      objectReference: {fileID: 7787872129313055892}
     - target: {fileID: 7997200904646466785, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: layers.m_Bits
       value: 32567

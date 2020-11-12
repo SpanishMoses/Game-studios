@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MouseLook : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class MouseLook : MonoBehaviour
     public bool grenadeReady;
     public bool fireWorkReady;
     
-    public Text ammoText;
+    public TMP_Text ammoText;
 
     public GameObject blood;
     public GameObject impact;
