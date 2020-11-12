@@ -352,6 +352,10 @@ public class PlayerMovement : MonoBehaviour
                 SceneManager.LoadScene("LevelTwoLoadScreen");
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelTwo")){
+                SceneManager.LoadScene("LevelThreeLoadScreen");
+            }
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
+            {
                 Cursor.lockState = CursorLockMode.None;
                 SceneManager.LoadScene("main menu");
             }
