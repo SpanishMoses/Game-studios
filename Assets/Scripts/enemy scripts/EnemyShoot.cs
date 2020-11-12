@@ -60,7 +60,7 @@ public class EnemyShoot : MonoBehaviour
 
     IEnumerator shootStop(){
         alreadyShoot = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         alreadyShoot = false;
     }
 

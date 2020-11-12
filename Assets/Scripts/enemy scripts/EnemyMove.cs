@@ -81,12 +81,12 @@ public class EnemyMove : MonoBehaviour
         }
 
         if (shoot.alreadyShoot == true){
-            navMeshAgent.SetDestination(transform.position);
+            navMeshAgent.isStopped = true;
 
         }
 
         if (shoot.alreadyShoot == false){
-            SetDestination();
+            navMeshAgent.isStopped = false;
             
         }
 

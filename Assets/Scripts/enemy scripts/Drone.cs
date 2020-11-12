@@ -7,7 +7,7 @@ public class Drone : MonoBehaviour
     public Rigidbody rb;
 
     private float latestDirectionChangeTime;
-    private readonly float directionChangeTime = 2f;
+    private readonly float directionChangeTime = 0.5f;
     public float characterVelocity;
     private Vector3 movementDirection;
     private Vector3 movementPerSecond;
