@@ -75,6 +75,7 @@ public class MouseLook : MonoBehaviour
     public GameObject blood;
     public GameObject impact;
     public GameObject shell;
+    public GameObject ammoEffect;
 
     public GameObject grenade;
     public GameObject firework;
@@ -668,6 +669,7 @@ public class MouseLook : MonoBehaviour
                     currAmmoM += 5;
                     currAmmoF += 1;
                     currAmmoG += 1;
+                    Instantiate(ammoEffect, kHit.point, Quaternion.identity);
                 }
             }
             PointGiver point = kHit.transform.GetComponent<PointGiver>();
