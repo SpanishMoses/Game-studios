@@ -22,6 +22,9 @@ public class ExplodingEnemy : MonoBehaviour
 
     public bool locActive;
 
+    public bool deductExplode;
+
+    public EnemySpawner enemySpawn;
     public EnemyHealth health;
 
     public GameObject effect;
@@ -71,7 +74,7 @@ public class ExplodingEnemy : MonoBehaviour
         }
 
         if (health.health <= 0){
-            StartCoroutine(beignBlowUp());
+            StartCoroutine(beignBlowUpNew());
         }
     }
 
@@ -111,13 +114,52 @@ public class ExplodingEnemy : MonoBehaviour
         }
         navMeshAgent.SetDestination(transform.position);
         Instantiate(effect, transform.position, transform.rotation);
+        if (deductExplode == true)
+        {
+            enemySpawn.deductEnemy(1);
+        }
         Destroy(gameObject);
     }
-    
+
+    void detonationNew()
+    {
+        navMeshAgent.speed = 0;
+        navMeshAgent.angularSpeed = 0;
+        navMeshAgent.acceleration = 0;
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+
+        foreach (Collider near in colliders)
+        {
+            EnemyHealth enemyHealth = near.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damage);
+            }
+
+            PlayerMovement playerMove = near.GetComponent<PlayerMovement>();
+            if (playerMove != null)
+            {
+                playerMove.TakeDamage(damage);
+            }
+        }
+        navMeshAgent.SetDestination(transform.position);
+        Instantiate(effect, transform.position, transform.rotation);
+        Destroy(gameObject);
+    }
+
     IEnumerator beignBlowUp(){
         yield return new WaitForSeconds(1f);
         detonation();
         health.collid.enabled = true;
         health.health = 0;
     }
+    IEnumerator beignBlowUpNew()
+    {
+        yield return new WaitForSeconds(1f);
+        detonationNew();
+        health.collid.enabled = true;
+        health.health = 0;
+    }
+
 }
