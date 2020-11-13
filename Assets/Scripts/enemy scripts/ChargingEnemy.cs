@@ -121,7 +121,7 @@ public class ChargingEnemy : MonoBehaviour
                 locActive = true;
                 Vector3 direction = collision.transform.position - transform.position;
                 navMeshAgent.SetDestination(transform.position);
-                playerMovement.AddImpact(direction, 200f);
+                playerMovement.AddImpact(direction, 100f);
             }
             
             } else{

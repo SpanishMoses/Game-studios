@@ -2554,6 +2554,7 @@ GameObject:
   - component: {fileID: 239937008}
   - component: {fileID: 239937007}
   - component: {fileID: 239937006}
+  - component: {fileID: 239937010}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -2637,6 +2638,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &239937010
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239937005}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 1.65}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &244544266
 GameObject:
   m_ObjectHideFlags: 0
@@ -9064,6 +9081,7 @@ GameObject:
   - component: {fileID: 711846887}
   - component: {fileID: 711846886}
   - component: {fileID: 711846885}
+  - component: {fileID: 711846889}
   m_Layer: 0
   m_Name: Gate 2
   m_TagString: Untagged
@@ -9147,6 +9165,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &711846889
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711846884}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 2.27}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &712015976
 GameObject:
   m_ObjectHideFlags: 0
