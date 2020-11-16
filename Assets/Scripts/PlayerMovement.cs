@@ -78,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip hurt1;
     public AudioClip hurt2;
     public AudioClip dashNoise;
+    public AudioClip jumpNoise;
     public AudioClip moving1;
     public AudioClip moving2;
     public AudioClip moving3;
@@ -87,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource sound;
     public AudioSource moveNoise;
+    public AudioSource jumping;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -95,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
         health = PlayerPrefs.GetInt("Curr_Health", 50);
         damagePic.SetActive(false);
         pressedJump = true;
+        jumping.clip = jumpNoise;
         point = GameObject.FindGameObjectWithTag("PointManager").GetComponent<PointManager>();
         //moveNoise.clip = moving;
         newWalk();
@@ -144,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
                 pressedJump = true;
+                jumping.Play();
         }
 
         if (pressedJump == false && isGrounded == false){
