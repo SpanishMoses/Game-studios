@@ -9,6 +9,7 @@ public class Consumables : MonoBehaviour
 
     public bool isAmmo;
     public bool isHealth;
+    public bool isKey;
 
     // Start is called before the first frame update
     void Start()

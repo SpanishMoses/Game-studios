@@ -1325,6 +1325,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7387750312513737410, guid: 5515556052e401645baac8d00036f4ff, type: 3}
   m_PrefabInstance: {fileID: 35739626}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &37208021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2183928486145568037, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 511888334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &37208023 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5901619330605656404, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 511888334}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37208021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &37270580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6806917897543925442, guid: 2f14224bfe77e6e42886d4b3165598a3, type: 3}
@@ -30768,6 +30784,14 @@ PrefabInstance:
       propertyPath: gainAmmoPic
       value: 
       objectReference: {fileID: 511888344}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: keysRequiredText
+      value: 
+      objectReference: {fileID: 37208023}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: keyText
+      value: 
+      objectReference: {fileID: 37208021}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)

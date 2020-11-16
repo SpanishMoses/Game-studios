@@ -59,12 +59,17 @@ public class PlayerMovement : MonoBehaviour
     public GameObject deadScreen;
     public GameObject deadText;
 
+    public GameObject keyText;
+    public TMP_Text keysRequiredText;
+
     public GameObject player;
     public GameObject checkpoint;
 
     public GameObject dropSahdow;
     public GameObject resumeButt;
     public GameObject quitButt;
+
+    public int KeyAmount;
 
     public PointManager point;
 
@@ -329,6 +334,11 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(flashAmmo());
                 
             }
+
+            if (consume != null && consume.isKey == true){
+                KeyAmount += consume.amount;
+                Destroy(other.gameObject);
+            }
         }
 
         if (other.gameObject.tag == "PistolAmmo"){
@@ -365,6 +375,17 @@ public class PlayerMovement : MonoBehaviour
                 SceneManager.LoadScene("main menu");
             }
         }
+
+        if (other.gameObject.tag == "Door"){
+            LockedDoors door = other.transform.GetComponent<LockedDoors>();
+            if (KeyAmount < door.keysRequired){
+                keyText.SetActive(true);
+                keysRequiredText.text = "Need " + (door.keysRequired -= KeyAmount) + " more to unlock";
+            }
+            if (KeyAmount == door.keysRequired){
+                Destroy(other.gameObject);
+            }
+        }
     }
 
     private void OnParticleCollision(GameObject other)
@@ -379,6 +400,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Ladder"){
             onLadder = false;
+        }
+        if (other.gameObject.tag == "Door"){
+            keyText.SetActive(false);
         }
     }
 
