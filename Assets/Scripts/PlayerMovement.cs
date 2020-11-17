@@ -391,8 +391,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         if (other.gameObject.tag == "PistolAmmo"){
-            mouse.currAmmoP += 2;
-            
+            TakeDamage(1);
+            Destroy(other.gameObject);
         }
     }
 
