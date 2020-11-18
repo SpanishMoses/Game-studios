@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossDrone : MonoBehaviour
 {
-
+    public SphereCollider sphere;
     public GameObject Boss;
 
     public float health;
@@ -30,7 +30,7 @@ public class BossDrone : MonoBehaviour
     {
         if (stopped == false)
         {
-            transform.RotateAround(Boss.transform.position, Vector3.up, 20 * Time.deltaTime);
+            transform.RotateAround(Boss.transform.position, Vector3.up, 50 * Time.deltaTime);
         }
 
         if (boss.staggered == true){
@@ -48,6 +48,7 @@ public class BossDrone : MonoBehaviour
                 stopped = false;
                 health = 5;
                 boss.Add(1);
+                sphere.enabled = true;
             }
         }
 
@@ -60,6 +61,7 @@ public class BossDrone : MonoBehaviour
                 stopped = false;
                 health = 5;
                 boss.Add(1);
+                sphere.enabled = true;
             }
         }
 
@@ -76,6 +78,7 @@ public class BossDrone : MonoBehaviour
         {
             stopped = true;
             boss.Sub(1);
+            sphere.enabled = false;
         }
     }
     }
