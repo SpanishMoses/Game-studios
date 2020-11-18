@@ -310,6 +310,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Checkpoint"){
             checkpoint = other.gameObject;
+            CheckPoints check = other.transform.GetComponent<CheckPoints>();
+            check.Save();
         }
 
         if (other.gameObject.tag == "Pit"){

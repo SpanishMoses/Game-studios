@@ -222,7 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c42181a7fffe81c48ab4f237be222e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: []
 --- !u!4 &20660845
 Transform:
   m_ObjectHideFlags: 0
@@ -22324,6 +22323,7 @@ GameObject:
   - component: {fileID: 1277124095}
   - component: {fileID: 1277124094}
   - component: {fileID: 1277124093}
+  - component: {fileID: 1277124098}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Checkpoint
@@ -22423,6 +22423,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1277124098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277124092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bd45f4e2bf01443a0661215f8e8696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1286813418
 PrefabInstance:
   m_ObjectHideFlags: 0
