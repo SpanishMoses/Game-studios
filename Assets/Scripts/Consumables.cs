@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Consumables : MonoBehaviour
 {
+    public List list;
 
     public int amount;
 
@@ -14,7 +15,7 @@ public class Consumables : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        list = GameObject.FindGameObjectWithTag("MyList").GetComponent<List>();
     }
 
     // Update is called once per frame

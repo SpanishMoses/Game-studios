@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement instance;
 
     public MouseLook mouse;
+    public List list;
 
     private Rigidbody rb;
 
@@ -107,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
         point = GameObject.FindGameObjectWithTag("PointManager").GetComponent<PointManager>();
         //moveNoise.clip = moving;
         newWalk();
+        list = GameObject.FindGameObjectWithTag("MyList").GetComponent<List>();
     }
 
     // Update is called once per frame
@@ -320,7 +322,8 @@ public class PlayerMovement : MonoBehaviour
             if (consume != null && consume.isHealth == true){
                 health += consume.amount;
                 StartCoroutine(flashGainHealth());
-                Destroy(other.gameObject);
+                other.gameObject.SetActive(false);
+                list.objects.Add(other.gameObject);
             }
             
             if (consume != null && consume.isAmmo == true){
@@ -330,14 +333,16 @@ public class PlayerMovement : MonoBehaviour
                     mouse.currAmmoM += consume.amount;
                     mouse.currAmmoG += consume.amount;
                     mouse.currAmmoF = consume.amount;
-                    Destroy(other.gameObject);
-                    StartCoroutine(flashAmmo());
+                other.gameObject.SetActive(false);
+                list.objects.Add(other.gameObject);
+                StartCoroutine(flashAmmo());
                 
             }
 
             if (consume != null && consume.isKey == true){
                 KeyAmount += consume.amount;
-                Destroy(other.gameObject);
+                other.gameObject.SetActive(false);
+                list.objects.Add(other.gameObject);
             }
         }
 
