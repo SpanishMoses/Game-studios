@@ -36,6 +36,9 @@ public class Boss : MonoBehaviour
     public Transform playerLoc;
     public NavMeshAgent navMeshAgent;
 
+    public bool resetDrones;
+    public bool enableReset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,9 +73,13 @@ public class Boss : MonoBehaviour
                 //mov.locActive = false;
                 canRumble = false;
                 rumbleTime = 0;
-                StartCoroutine(resetDrones());
+                //StartCoroutine(resetDrones());
             }
         }
+
+        /*if (dronesStaggared > 0){
+            SetDestination();
+        }*/
 
         if (canRumble == true){
             rumbleTime += Time.deltaTime;
@@ -83,15 +90,23 @@ public class Boss : MonoBehaviour
         }
 
         if (staggered == true){
+            navMeshAgent.SetDestination(transform.position);
             staggerTime += Time.deltaTime;
             if (staggerTime >= maxStaggerTime){
                 staggered = false;
                 staggerTime = 0;
                 //mov.locActive = true;
                 collid.enabled = false;
-                //dronesStaggared = drones.Length;
+                SetDestination();
+                resetDrones = true;
+                dronesStaggared = drones.Length;
             }
         }
+
+        if (resetDrones == true){
+            StartCoroutine(reset());
+        }
+
         shootTime += Time.deltaTime;
         if (shootTime >= timeBetweenShots)
         {
@@ -139,11 +154,9 @@ public class Boss : MonoBehaviour
         GameObject grenadeInstance = Instantiate(rumbling, spawnPoint.transform.position, Quaternion.identity);
     }
 
-    IEnumerator resetDrones(){
-        drones[0].GetComponent<BossDrone>().deathTime = 0;
-        drones[1].GetComponent<BossDrone>().deathTime = 0;
-        dronesStaggared = drones.Length;
+    IEnumerator reset(){
         yield return new WaitForSeconds(0.01f);
+        resetDrones = false;
     }
 
     

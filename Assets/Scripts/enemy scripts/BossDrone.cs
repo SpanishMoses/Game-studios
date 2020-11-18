@@ -14,8 +14,7 @@ public class BossDrone : MonoBehaviour
 
     public bool stopped;
 
-    public float deathTime;
-    public float maxDeathTime;
+    public bool quickTime;
 
     public Boss boss;
 
@@ -33,11 +32,13 @@ public class BossDrone : MonoBehaviour
             transform.RotateAround(Boss.transform.position, Vector3.up, 50 * Time.deltaTime);
         }
 
-        if (boss.staggered == true){
-            maxDeathTime = 10;
+        
+
+        if (quickTime == true){
+            //StartCoroutine(resetTime());
         }
 
-        if (boss.staggered == false){
+        /*if (boss.staggered == false){
             maxDeathTime = 5;
         }
 
@@ -50,20 +51,22 @@ public class BossDrone : MonoBehaviour
                 boss.Add(1);
                 sphere.enabled = true;
             }
+        }*/
+
+
+        if (boss.resetDrones == true){
+            StartCoroutine(enableReset());
         }
 
-        if (boss.staggered == true && stopped == true)
-        {
-            deathTime += Time.deltaTime;
-            if (deathTime >= maxDeathTime)
+            if (boss.staggerTime >= boss.maxStaggerTime)
             {
-                deathTime = 0;
+            Debug.Log("yay");
                 stopped = false;
                 health = 5;
                 boss.Add(1);
                 sphere.enabled = true;
             }
-        }
+        
 
         if (health <= minHealth)
         {
@@ -81,4 +84,12 @@ public class BossDrone : MonoBehaviour
             sphere.enabled = false;
         }
     }
+
+    IEnumerator enableReset(){
+        yield return new WaitForSeconds(0.01f);
+        stopped = false;
+        health = 5;        
+        sphere.enabled = true;
+    }
+
     }
