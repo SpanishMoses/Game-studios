@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Boss : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class Boss : MonoBehaviour
 
     public Animator animator;
 
+    public Transform playerLoc;
+    public NavMeshAgent navMeshAgent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,11 +46,16 @@ public class Boss : MonoBehaviour
             dronesStaggared = drones.Length;
         }
         timeBetweenShots = Random.Range(2, 4);
+        playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        navMeshAgent = this.GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        SetDestination();
+
         for (int i = 0; i < drones.Length; i++){
             /*if (drones[0].GetComponent<BossDrone>().stopped == true && drones[1].GetComponent<BossDrone>().stopped == true)
             {
@@ -93,7 +102,16 @@ public class Boss : MonoBehaviour
         }
     }
 
-    private void shoot()
+    void SetDestination()
+    {
+        if (playerLoc.transform.position != null)
+        {
+            Vector3 targetVector = playerLoc.transform.position;
+            navMeshAgent.SetDestination(targetVector);
+        }
+    }
+
+        private void shoot()
     {
         animator.SetTrigger("IsShooting");
         Instantiate(spitEffect, parent.transform.position, Quaternion.identity);
