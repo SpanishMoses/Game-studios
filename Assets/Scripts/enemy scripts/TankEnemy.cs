@@ -23,8 +23,8 @@ public class TankEnemy : MonoBehaviour
     void sendWave(){
         Vector3 direction = enemy.playerLoc.position - transform.position;
         GameObject grenadeInstance = Instantiate(rumbling, spawnPoint.transform.position, Quaternion.identity);
-        grenadeInstance.transform.forward = direction.normalized;
-        grenadeInstance.GetComponent<Rigidbody>().AddForce(direction.normalized * 25f, ForceMode.Impulse);
+        //grenadeInstance.transform.forward = direction.normalized;
+        //grenadeInstance.GetComponent<Rigidbody>().AddForce(direction.normalized * 25f, ForceMode.Impulse);
     }
 
     IEnumerator send(){
