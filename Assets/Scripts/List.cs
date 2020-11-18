@@ -5,7 +5,8 @@ using UnityEngine;
 public class List : MonoBehaviour
 {
     // code help from https://www.youtube.com/watch?v=p-KjunKkuJw&ab_channel=GameDevHQ
-    public List<GameObject> objects { get; set; } = new List<GameObject>();
+    public List<GameObject> objects = new List<GameObject>();
+    [SerializeField]
 
     private void Awake()
     {
