@@ -16,6 +16,7 @@ public class Boss : MonoBehaviour
     public GameObject bullet;
     public GameObject parent;
 
+    public bool canShoot;
     public bool alreadyShoot;
 
     public bool staggered;
@@ -43,6 +44,7 @@ public class Boss : MonoBehaviour
     void Start()
     {
         canRumble = true;
+        canShoot = true;
         collid.enabled = false;
         for (int i = 0; i < drones.Length; i++)
         {
@@ -72,7 +74,9 @@ public class Boss : MonoBehaviour
                 collid.enabled = true;
                 //mov.locActive = false;
                 canRumble = false;
+                canShoot = false;
                 rumbleTime = 0;
+                shootTime = 0;
                 //StartCoroutine(resetDrones());
             }
         }
@@ -99,6 +103,8 @@ public class Boss : MonoBehaviour
                 collid.enabled = false;
                 SetDestination();
                 resetDrones = true;
+                canShoot = true;
+                canRumble = true;
                 dronesStaggared = drones.Length;
             }
         }
@@ -107,13 +113,15 @@ public class Boss : MonoBehaviour
             StartCoroutine(reset());
         }
 
+        if (canShoot == true){ 
         shootTime += Time.deltaTime;
-        if (shootTime >= timeBetweenShots)
-        {
-            shootTime = 0;
-            timeBetweenShots = Random.Range(2, 4);
-            shoot();
-            StartCoroutine(shootStop());
+            if (shootTime >= timeBetweenShots)
+            {
+                shootTime = 0;
+                timeBetweenShots = Random.Range(2, 4);
+                shoot();
+                StartCoroutine(shootStop());
+            }
         }
     }
 
