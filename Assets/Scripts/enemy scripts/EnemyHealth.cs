@@ -7,6 +7,9 @@ public class EnemyHealth : MonoBehaviour
     //hit scan help from https://www.youtube.com/watch?v=THnivyG0Mvo&ab_channel=Brackeys
 
     public bool partOfArray;
+    public bool specialDrop;
+
+    public GameObject weapon;
 
     public float health;
     public float minHealth;
@@ -81,6 +84,11 @@ public class EnemyHealth : MonoBehaviour
         }
         if (partOfArray == true){
             enemySpawn.deductEnemy(amountTaken);
+            Destroy(gameObject);
+        }
+        if (specialDrop == true){
+            enemySpawn.deductEnemy(amountTaken);
+            Instantiate(weapon, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
