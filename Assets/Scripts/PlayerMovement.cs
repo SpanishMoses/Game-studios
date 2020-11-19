@@ -308,6 +308,34 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.gameObject.tag == "Rifle")
+        {
+            mouse.machineGunBool = true;
+            mouse.currWeapon = 3;
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Knife")
+        {
+            mouse.knifeBool = true;
+            mouse.currWeapon = 4;
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Grenade")
+        {
+            mouse.grenadeBool = true;
+            mouse.currWeapon = 5;
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "FireWork")
+        {
+            mouse.fireWorkBool = true;
+            mouse.currWeapon = 5;
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.tag == "Checkpoint"){
             checkpoint = other.gameObject;
             /*CheckPoints check = other.transform.GetComponent<CheckPoints>();

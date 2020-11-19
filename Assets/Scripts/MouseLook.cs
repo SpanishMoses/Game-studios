@@ -84,6 +84,10 @@ public class MouseLook : MonoBehaviour
     public PlayerMovement play;
 
     public bool shotGunBool;
+    public bool machineGunBool;
+    public bool knifeBool;
+    public bool grenadeBool;
+    public bool fireWorkBool;
 
     public LayerMask layers;
 
@@ -137,7 +141,16 @@ public class MouseLook : MonoBehaviour
         }
 
         shotGunBool = PlayerPrefs.GetInt("EnableShotgun", 0) > 0;
+        machineGunBool = PlayerPrefs.GetInt("EnableMachineGun", 0) > 0;
+        knifeBool = PlayerPrefs.GetInt("EnableKnife", 0) > 0;
+        grenadeBool = PlayerPrefs.GetInt("EnableGrenade", 0) > 0;
+        fireWorkBool = PlayerPrefs.GetInt("EnableFireWork", 0) > 0;
 
+        /*machineGunBool = false;
+        shotGunBool = false;
+        knifeBool = false;
+        grenadeBool = false;
+        fireWorkBool = false;*/
 
     }
 
@@ -210,7 +223,7 @@ public class MouseLook : MonoBehaviour
                 //ammoText.text = currAmmoP + "/" + maxAmmoP;
             }
 
-            if (Input.GetKey(KeyCode.Alpha2) && PlayerPrefs.GetInt("EnableShotgun") != 0 && play.freezeMouse == false || currWeapon == 2)
+            if (Input.GetKey(KeyCode.Alpha2) && PlayerPrefs.GetInt("EnableShotgun") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableShotgun") != 0 && play.freezeMouse == false && currWeapon == 2)
             {
                 Debug.Log("useshotgun");
                 anim.SetTrigger("Switch_Shotgun");
@@ -228,7 +241,7 @@ public class MouseLook : MonoBehaviour
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
-            if (Input.GetKey(KeyCode.Alpha3) && play.freezeMouse == false || currWeapon == 3)
+            if (Input.GetKey(KeyCode.Alpha3) && PlayerPrefs.GetInt("EnableMachineGun") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableMachineGun") != 0 && play.freezeMouse == false && currWeapon == 3)
             {
                 Debug.Log("usemachinegun");
                 anim.SetTrigger("Switch_Rifle");
@@ -246,7 +259,7 @@ public class MouseLook : MonoBehaviour
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
-            if (Input.GetKey(KeyCode.Alpha4) && play.freezeMouse == false || currWeapon == 4)
+            if (Input.GetKey(KeyCode.Alpha4) && PlayerPrefs.GetInt("EnableKnife") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableKnife") != 0 && play.freezeMouse == false && currWeapon == 4)
             {
                 Debug.Log("useknife");
                 anim.SetTrigger("Switch_Shiv");
@@ -265,7 +278,7 @@ public class MouseLook : MonoBehaviour
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
-            if (Input.GetKey(KeyCode.Alpha5) && play.freezeMouse == false || currWeapon == 5)
+            if (Input.GetKey(KeyCode.Alpha5) && PlayerPrefs.GetInt("EnableGrenade") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableGrenade") != 0 && play.freezeMouse == false && currWeapon == 5)
             {
                 Debug.Log("usegrenade");
                 anim.SetTrigger("Switch_Grenade");
@@ -282,7 +295,7 @@ public class MouseLook : MonoBehaviour
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
-            if (Input.GetKey(KeyCode.Alpha6) && play.freezeMouse == false || currWeapon == 6)
+            if (Input.GetKey(KeyCode.Alpha6) && PlayerPrefs.GetInt("EnableFireWork") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableFireWork") != 0 && play.freezeMouse == false && currWeapon == 6)
             {
                 Debug.Log("usefirework");
                 anim.SetTrigger("Switch_Firework");
@@ -459,7 +472,52 @@ public class MouseLook : MonoBehaviour
         } else {
             PlayerPrefs.SetInt("EnableShotgun", 0);
         }
-        
+
+
+        int machineGunEnable;
+        machineGunEnable = machineGunBool ? 1 : 0;
+
+        if (machineGunBool == true){
+            PlayerPrefs.SetInt("EnableMachineGun", 1);
+        }else
+        {
+            PlayerPrefs.SetInt("EnableMachineGun", 0);
+        }
+
+
+        int knifeEnable;
+        knifeEnable = knifeBool ? 1 : 0;
+
+        if (knifeBool == true){
+            PlayerPrefs.SetInt("EnableKnife", 1);
+        }
+        else{
+            PlayerPrefs.SetInt("EnableKnife", 0);
+        }
+
+
+        int grenadeEnable;
+        grenadeEnable = grenadeBool ? 1 : 0;
+
+        if (grenadeBool == true){
+            PlayerPrefs.SetInt("EnableGrenade", 1);
+        }else
+        {
+            PlayerPrefs.SetInt("EnableGrenade", 0);
+        }
+
+
+        int fireWorkEnable;
+        fireWorkEnable = fireWorkBool ? 1 : 0;
+
+        if (fireWorkBool == true){
+            PlayerPrefs.SetInt("EnableFireWork", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("EnableFireWork", 0);
+        }
+
         //testing purposes
         if (Input.GetKey(KeyCode.M)){
             currAmmoM = 120;

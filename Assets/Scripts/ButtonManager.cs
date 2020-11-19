@@ -24,5 +24,12 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("Grenade_Ammo", 6);
         PlayerPrefs.SetInt("Firework_Ammo", 8);
         PlayerPrefs.SetInt("Curr_Health", 50);
+
+        PlayerPrefs.SetInt("EnableShotgun", 0);
+        PlayerPrefs.SetInt("EnableMachineGun", 0);
+        PlayerPrefs.SetInt("EnableKnife", 0);
+        PlayerPrefs.SetInt("EnableGrenade", 0);
+        PlayerPrefs.SetInt("EnableFireWork", 0);
+        
     }
 }
