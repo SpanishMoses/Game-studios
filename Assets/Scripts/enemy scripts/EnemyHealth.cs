@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -90,6 +91,15 @@ public class EnemyHealth : MonoBehaviour
             enemySpawn.deductEnemy(amountTaken);
             Instantiate(weapon, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
+    }
+
+    public void EndGame(){
+        Destroy(gameObject);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("main menu");
         }
     }
 }
