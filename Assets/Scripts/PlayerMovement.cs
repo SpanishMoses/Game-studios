@@ -226,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
         if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true){
             Time.timeScale = 1f;
             health = 50;
-            point.totalPoints -= 50;
+            point.totalPoints -= 1000;
             isDead = false;
             freezeMouse = false;
             deadText.SetActive(false);
@@ -374,6 +374,16 @@ public class PlayerMovement : MonoBehaviour
                 other.gameObject.SetActive(false);
                 list.objects.Add(other.gameObject);
             }
+
+            if (consume != null && consume.isRocket == true){
+                mouse.currAmmoF += consume.amount;
+                Destroy(other.gameObject);
+            }
+
+            if (consume != null && consume.isGrenade == true){
+                mouse.currAmmoG += consume.amount;
+                Destroy(other.gameObject);
+            }
         }
 
         if (other.gameObject.tag == "PistolAmmo"){
@@ -436,7 +446,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         if (other.gameObject.tag == "PistolAmmo"){
-            TakeDamage(1);
+            TakeDamage(10);
             Destroy(other.gameObject);
         }
     }

@@ -274,7 +274,7 @@ public class MouseLook : MonoBehaviour
                 useKnife = false;
                 useGrenade = false;
                 useFirework = false;
-                damage = 1;
+                damage = 2;
                 reloadTime = 1f;
                 dist = 50f;
                 currWeapon = 3;              
@@ -321,7 +321,7 @@ public class MouseLook : MonoBehaviour
                 useKnife = false;
                 useGrenade = true;
                 useFirework = false;
-                damage = 3;
+                damage = 10;
                 reloadTime = 1f;
                 dist = 20f;
                 currWeapon = 5;
@@ -338,7 +338,7 @@ public class MouseLook : MonoBehaviour
                 useKnife = false;
                 useGrenade = false;
                 useFirework = true;
-                damage = 3;
+                damage = 10;
                 reloadTime = 1f;
                 dist = 20f;
                 currWeapon = 6;

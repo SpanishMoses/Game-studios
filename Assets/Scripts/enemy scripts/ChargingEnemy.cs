@@ -113,7 +113,7 @@ public class ChargingEnemy : MonoBehaviour
                 PlayerMovement playerMovement = collision.transform.GetComponent<PlayerMovement>();
                 if (playerMovement != null)
                 {
-                    playerMovement.TakeDamage(1);
+                    playerMovement.TakeDamage(8);
                 isCharging = false;
                 speed = 0;
                 chargeTime = 0;
