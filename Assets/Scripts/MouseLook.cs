@@ -98,7 +98,9 @@ public class MouseLook : MonoBehaviour
     public AudioClip knifeSwing;
     public AudioClip knifeStab;
     public AudioClip shotGunBlast;
+    public AudioClip shotGunClick;
     public AudioClip machineGunShoot;
+    public AudioClip machineGunLastShot;
 
     public AudioSource weaponShoot;
     public AudioSource secondarySound;
@@ -250,8 +252,15 @@ public class MouseLook : MonoBehaviour
                 damage = 4;
                 reloadTime = 0.5f;
                 dist = 30f;
-                currWeapon = 2;
-                weaponShoot.clip = shotGunBlast;
+                currWeapon = 2;           
+                if (currAmmoS > 0)
+                {
+                    weaponShoot.clip = shotGunBlast;
+                }
+                if (currAmmoS == 0)
+                {
+                    weaponShoot.clip = shotGunClick;
+                }
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
@@ -268,8 +277,18 @@ public class MouseLook : MonoBehaviour
                 damage = 1;
                 reloadTime = 1f;
                 dist = 50f;
-                currWeapon = 3;
-                weaponShoot.clip = machineGunShoot;
+                currWeapon = 3;              
+                if (currAmmoM > 0)
+                {
+                    weaponShoot.clip = machineGunShoot;
+                }
+                if (currAmmoM == 1)
+                {
+                    weaponShoot.clip = machineGunLastShot;
+                }
+                if (currAmmoM == 0){
+                    weaponShoot.clip = pistolClick;
+                }
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
@@ -353,6 +372,13 @@ public class MouseLook : MonoBehaviour
                 StartCoroutine(reload());
             }
 
+            if (currAmmoS == 0 && Input.GetKey(KeyCode.Mouse0) && shootReady == true && useShotgun == true && unpaused == true)
+            {
+                //weaponShoot.clip = pistolClick;
+                weaponShoot.Play();
+                StartCoroutine(reload());
+            }
+
             if (Input.GetKey(KeyCode.Mouse0) && useMachineGun == true && shootReady == true && currAmmoM <= maxAmmoM && currAmmoM > 0 && Time.time >= nextTimeToFire && unpaused == true)
             {
                 nextTimeToFire = Time.time + 1f / fireRate;
@@ -361,6 +387,13 @@ public class MouseLook : MonoBehaviour
                 camAnim.SetTrigger("camShake3");
                 weaponShoot.Play();
                 ShootMachineGun();
+            }
+
+            if (currAmmoM == 0 && Input.GetKey(KeyCode.Mouse0) && shootReady == true && useMachineGun == true && unpaused == true)
+            {
+                //weaponShoot.clip = pistolClick;
+                weaponShoot.Play();
+                StartCoroutine(reload());
             }
 
             if (Input.GetKey(KeyCode.Mouse0) && useKnife == true && shootReady == true && unpaused == true)
@@ -557,8 +590,8 @@ public class MouseLook : MonoBehaviour
             currAmmoM = 120;
             currAmmoP = 100;
             currAmmoS = 40;
-            currAmmoG = 8;
-            currAmmoF = 6;
+            currAmmoG = 6;
+            currAmmoF = 8;
         }
 
     }

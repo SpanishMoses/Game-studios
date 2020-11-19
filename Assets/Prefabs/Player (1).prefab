@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 7997200904571926899}
   mouse: {fileID: 7997200904646466785}
+  list: {fileID: 0}
   camAnim: {fileID: 7997200904646466718}
   defaultSpeed: 12
   speed: 12
@@ -102,11 +103,14 @@ MonoBehaviour:
   gainAmmoPic: {fileID: 0}
   deadScreen: {fileID: 0}
   deadText: {fileID: 0}
+  keyText: {fileID: 0}
+  keysRequiredText: {fileID: 0}
   player: {fileID: 7997200904571926902}
   checkpoint: {fileID: 0}
   dropSahdow: {fileID: 0}
   resumeButt: {fileID: 0}
   quitButt: {fileID: 0}
+  KeyAmount: 0
   point: {fileID: 0}
   hurtNum: 0
   chooseNewNoise: 0
@@ -5424,6 +5428,10 @@ MonoBehaviour:
   firework: {fileID: 8610411357180702853, guid: d5d7ed91f848f4b429091202f40e49ee, type: 3}
   play: {fileID: 7997200904571926900}
   shotGunBool: 0
+  machineGunBool: 0
+  knifeBool: 0
+  grenadeBool: 0
+  fireWorkBool: 0
   layers:
     serializedVersion: 2
     m_Bits: 28471
@@ -5433,9 +5441,22 @@ MonoBehaviour:
   knifeSwing: {fileID: 8300000, guid: 7523d0ae081520e43be59a5cc2b1df95, type: 3}
   knifeStab: {fileID: 8300000, guid: 6dda35b5d20353e4cb8304749c9b09fc, type: 3}
   shotGunBlast: {fileID: 8300000, guid: 9c5a7bae5eaac1c498176f4a041b26b4, type: 3}
+  shotGunClick: {fileID: 8300000, guid: 33a6c2f4498211947ae5673bf14be80d, type: 3}
   machineGunShoot: {fileID: 8300000, guid: 127168c5584fb7e48b60b8b15b5e0f9d, type: 3}
+  machineGunLastShot: {fileID: 8300000, guid: 1ebd826256690464f9c5c475d4733f4f, type: 3}
   weaponShoot: {fileID: 4913947592025779583}
   secondarySound: {fileID: 829486098176042518}
+  pistolHud: {fileID: 0}
+  shotGunHud: {fileID: 0}
+  machineGunHud: {fileID: 0}
+  knifeHud: {fileID: 0}
+  grenadeHud: {fileID: 0}
+  fireWorkHud: {fileID: 0}
+  pistolSlide: {fileID: 0}
+  shotGunSlide: {fileID: 0}
+  machineGunSlide: {fileID: 0}
+  grenadeSlide: {fileID: 0}
+  fireWorkSlide: {fileID: 0}
 --- !u!95 &7997200904646466718
 Animator:
   serializedVersion: 3
