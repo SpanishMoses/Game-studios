@@ -48,9 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1ee81622530a74e8d7dc6e3445854b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 2
+  list: {fileID: 0}
+  amount: 20
   isAmmo: 0
   isHealth: 1
+  isKey: 0
 --- !u!23 &2111376356277406614
 MeshRenderer:
   m_ObjectHideFlags: 0

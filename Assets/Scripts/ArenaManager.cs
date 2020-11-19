@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ArenaManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class ArenaManager : MonoBehaviour
     public bool currentlyRound;
     public bool spawnersInactive;
 
+    public TMP_Text roundText;
+    public GameObject randomTextObj;
+    public TMP_Text randomText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +27,7 @@ public class ArenaManager : MonoBehaviour
         maxSpawns = 10;
         currentlyRound = true;
         spawnersInactive = false;
+        randomTextObj.SetActive(false);
         //enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
@@ -60,10 +66,12 @@ public class ArenaManager : MonoBehaviour
             }
         }
 
-        if (maxSpawns == 0 & spawnersInactive == true && currentlyRound == true){
+        if (enemiesSpawned == 0 & spawnersInactive == true && currentlyRound == true){
             currentlyRound = false;
             StartCoroutine(newRound());
         }
+
+        roundText.text = "Round: " + round;
     }
 
     IEnumerator newRound(){
@@ -78,5 +86,12 @@ public class ArenaManager : MonoBehaviour
             enemySpawners[i].SetActive(true);
 
         }
+        yield return new WaitForSeconds(0.5f);
+        randomTextObj.SetActive(true);
+        randomText.text = "Get Ready";
+        yield return new WaitForSeconds(1f);
+        randomText.text = "SLAUGHTER";
+        yield return new WaitForSeconds(1f);
+        randomTextObj.SetActive(false);
     }
 }
