@@ -406,9 +406,14 @@ public class PlayerMovement : MonoBehaviour
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
             {
-                Cursor.lockState = CursorLockMode.None;
-                SceneManager.LoadScene("main menu");
+                SceneManager.LoadScene("LevelFourLoadScreen");
             }
+        }
+
+        if (other.gameObject.tag == "Final"){
+            GameObject spot = GameObject.FindGameObjectWithTag("Checkpoint");
+            player.transform.position = spot.transform.position;
+            Physics.SyncTransforms();
         }
 
         if (other.gameObject.tag == "Door"){
