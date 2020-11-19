@@ -103,6 +103,19 @@ public class MouseLook : MonoBehaviour
     public AudioSource weaponShoot;
     public AudioSource secondarySound;
 
+    public GameObject pistolHud;
+    public GameObject shotGunHud;
+    public GameObject machineGunHud;
+    public GameObject knifeHud;
+    public GameObject grenadeHud;
+    public GameObject fireWorkHud;
+
+    public Slider pistolSlide;
+    public Slider shotGunSlide;
+    public Slider machineGunSlide;
+    public Slider grenadeSlide;
+    public Slider fireWorkSlide;
+
     /*PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
     public int value;
     value = shotGunBool ? 1 : 0;*/
@@ -181,6 +194,7 @@ public class MouseLook : MonoBehaviour
 
         if (shootEnabled == true)
         {
+            pistolHud.SetActive(true);
             weapons.SetActive(true);
             crossHair.SetActive(true);
             ammoText.enabled = true;
@@ -469,6 +483,7 @@ public class MouseLook : MonoBehaviour
 
         if (shotGunBool == true){
             PlayerPrefs.SetInt("EnableShotgun", 1);
+            shotGunHud.SetActive(true);
         } else {
             PlayerPrefs.SetInt("EnableShotgun", 0);
         }
@@ -479,6 +494,7 @@ public class MouseLook : MonoBehaviour
 
         if (machineGunBool == true){
             PlayerPrefs.SetInt("EnableMachineGun", 1);
+            machineGunHud.SetActive(true);
         }else
         {
             PlayerPrefs.SetInt("EnableMachineGun", 0);
@@ -490,6 +506,7 @@ public class MouseLook : MonoBehaviour
 
         if (knifeBool == true){
             PlayerPrefs.SetInt("EnableKnife", 1);
+            knifeHud.SetActive(true);
         }
         else{
             PlayerPrefs.SetInt("EnableKnife", 0);
@@ -501,6 +518,7 @@ public class MouseLook : MonoBehaviour
 
         if (grenadeBool == true){
             PlayerPrefs.SetInt("EnableGrenade", 1);
+            grenadeHud.SetActive(true);
         }else
         {
             PlayerPrefs.SetInt("EnableGrenade", 0);
@@ -512,11 +530,27 @@ public class MouseLook : MonoBehaviour
 
         if (fireWorkBool == true){
             PlayerPrefs.SetInt("EnableFireWork", 1);
+            fireWorkHud.SetActive(true);
         }
         else
         {
             PlayerPrefs.SetInt("EnableFireWork", 0);
         }
+
+        pistolSlide.maxValue = maxAmmoP;
+        pistolSlide.value = currAmmoP;
+
+        shotGunSlide.maxValue = maxAmmoS;
+        shotGunSlide.value = currAmmoS;
+
+        machineGunSlide.maxValue = maxAmmoM;
+        machineGunSlide.value = currAmmoM;
+
+        grenadeSlide.maxValue = maxAmmoG;
+        grenadeSlide.value = currAmmoG;
+
+        fireWorkSlide.maxValue = maxAmmoF;
+        fireWorkSlide.value = currAmmoF;
 
         //testing purposes
         if (Input.GetKey(KeyCode.M)){
