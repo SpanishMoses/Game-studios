@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TextManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class TextManager : MonoBehaviour
     public GameObject reticle;
     public float speed = 0.5f;
 
-    public Text text;
+    public TMP_Text text;
     public string[] sentences;
     public int index;
     public float typingSpeed;
