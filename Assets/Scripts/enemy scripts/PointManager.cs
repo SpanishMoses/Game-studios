@@ -6,7 +6,7 @@ using TMPro;
 
 public class PointManager : MonoBehaviour
 {
-
+    private int high;
     public int totalPoints;
     public TMP_Text pointText;
 
@@ -14,7 +14,7 @@ public class PointManager : MonoBehaviour
     void Start()
     {
         totalPoints = PlayerPrefs.GetInt("Current_Score", 0);
-        int currentPoints = PlayerPrefs.GetInt("high_score", 0);
+        high = PlayerPrefs.GetInt("high_score", 0);
         
     }
 
@@ -23,6 +23,11 @@ public class PointManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Current_Score", totalPoints);
         pointText.text = "Score:" + totalPoints;
+
+        if (totalPoints > high){
+            high = totalPoints;
+            PlayerPrefs.SetInt("high_score", high);
+        }
 
     }
 }

@@ -21,6 +21,7 @@ public class ItemSpawners : MonoBehaviour
     {
         itemNum = Random.Range(0, 4);
         beginSpawn = true;
+        maxSpawnTime = Random.Range(10, 20);
     }
 
     // Update is called once per frame
@@ -42,14 +43,15 @@ public class ItemSpawners : MonoBehaviour
                 }
                 if (itemNum == 3)
                 {
-                    Instantiate(health, spawnPos.position, Quaternion.identity);
+                    Instantiate(ammo, spawnPos.position, Quaternion.identity);
                 }
                 if (itemNum == 4)
                 {
-                    Instantiate(health, spawnPos.position, Quaternion.identity);
+                    Instantiate(ammo, spawnPos.position, Quaternion.identity);
                 }
                 spawnTime = 0;
                 itemNum = Random.Range(0, 4);
+                maxSpawnTime = Random.Range(10, 20);
                 beginSpawn = false;
             }
         }

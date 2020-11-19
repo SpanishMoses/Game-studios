@@ -17,6 +17,7 @@ public class ButtonManager : MonoBehaviour
     }
 
     public void resetScore(){
+        PlayerPrefs.SetInt("Curr_Health", 50);
         PlayerPrefs.SetInt("Current_Score", 0);
         PlayerPrefs.SetInt("Pistol_Ammo", 0);
         PlayerPrefs.SetInt("Shotgun_Ammo", 40);
@@ -31,5 +32,22 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("EnableGrenade", 0);
         PlayerPrefs.SetInt("EnableFireWork", 0);
         
+    }
+
+    public void arenaEnter(){
+        PlayerPrefs.SetInt("Curr_Health", 100);
+        PlayerPrefs.SetInt("Current_Score", 0);
+        PlayerPrefs.SetInt("Pistol_Ammo", 100);
+        PlayerPrefs.SetInt("Shotgun_Ammo", 40);
+        PlayerPrefs.SetInt("Machinegun_Ammo", 120);
+        PlayerPrefs.SetInt("Grenade_Ammo", 6);
+        PlayerPrefs.SetInt("Firework_Ammo", 8);
+        PlayerPrefs.SetInt("Curr_Health", 50);
+
+        PlayerPrefs.SetInt("EnableShotgun", 1);
+        PlayerPrefs.SetInt("EnableMachineGun", 1);
+        PlayerPrefs.SetInt("EnableKnife", 1);
+        PlayerPrefs.SetInt("EnableGrenade", 1);
+        PlayerPrefs.SetInt("EnableFireWork", 1);
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ArenaManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class ArenaManager : MonoBehaviour
     public TMP_Text roundText;
     public GameObject randomTextObj;
     public TMP_Text randomText;
+
+    public PlayerMovement player;
 
     // Start is called before the first frame update
     void Start()
@@ -72,11 +75,16 @@ public class ArenaManager : MonoBehaviour
         }
 
         roundText.text = "Round: " + round;
+
+        if (player.health <= 0){
+            SceneManager.LoadScene("MainMenuLoadScene");
+        }
+
     }
 
     IEnumerator newRound(){
         //set all enemy spawners inactive
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         //set all enemy spanwers active
         round += 1;
         spawnersInactive = false;
