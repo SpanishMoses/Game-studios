@@ -115,10 +115,9 @@ public class EnemyHealth : MonoBehaviour
 
     public void EndGame(){
         Destroy(gameObject);
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
-        {
+        
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("main menu");
-        }
+        
     }
 }
