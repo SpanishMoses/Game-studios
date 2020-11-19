@@ -143,9 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1ee81622530a74e8d7dc6e3445854b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  list: {fileID: 0}
   amount: 15
   isAmmo: 1
   isHealth: 0
+  isKey: 0
 --- !u!23 &412740961166910719
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -214,7 +216,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.98, y: 2.98, z: 2.45}
+  m_Size: {x: 3.98, y: 3.33, z: 1.72}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &412740961166910715
 MeshFilter:

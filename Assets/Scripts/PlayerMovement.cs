@@ -393,6 +393,11 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+
+        if (other.gameObject.tag == "ItemSpawn"){
+            ItemSpawners item = other.transform.GetComponent<ItemSpawners>();
+            item.beginSpawn = true;
+        }
     }
 
     private void OnParticleCollision(GameObject other)
