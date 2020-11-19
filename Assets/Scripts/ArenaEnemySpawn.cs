@@ -56,7 +56,7 @@ public class ArenaEnemySpawn : MonoBehaviour
             }
             maxSpawnTime = Random.Range(10, 20);
             spawnTime = 0;
-            arena.enemiesSpawned += 1;
+            //arena.enemiesSpawned += 1;
             randomNum();
         }
     }

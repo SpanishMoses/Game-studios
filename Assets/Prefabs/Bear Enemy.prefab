@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 3712773173942233828}
   m_Layer: 9
   m_Name: Bear Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partOfArray: 0
+  specialDrop: 0
+  weapon: {fileID: 0}
   health: 5
   minHealth: 0
   amountTaken: 1

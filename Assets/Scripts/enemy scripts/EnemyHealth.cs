@@ -64,20 +64,20 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    IEnumerator startDeath(){
+    /*IEnumerator startDeath(){
         collid.enabled = false;
         //animator.SetTrigger("IsDead");
         yield return new WaitForSeconds(1f);
         enemySpawn.deductEnemy(amountTaken);
         Destroy(gameObject);
-    }
+    }*/
 
-    IEnumerator startNormalDeath(){
+    /*IEnumerator startNormalDeath(){
         collid.enabled = false;
         //animator.SetTrigger("IsDead");
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
-    }
+    }*/
 
     public void StartDeath(){
         if (partOfArray == false){
@@ -88,6 +88,25 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
         }
         if (specialDrop == true){
+            enemySpawn.deductEnemy(amountTaken);
+            Instantiate(weapon, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+    public void StartWispDeath()
+    {
+        if (partOfArray == false)
+        {
+            Destroy(gameObject);
+        }
+        if (partOfArray == true)
+        {
+            enemySpawn.deductEnemy(amountTaken);
+            Destroy(gameObject);
+        }
+        if (specialDrop == true)
+        {
             enemySpawn.deductEnemy(amountTaken);
             Instantiate(weapon, transform.position, Quaternion.identity);
             Destroy(gameObject);

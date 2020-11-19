@@ -95,12 +95,14 @@ public class Boss : MonoBehaviour
 
         if (staggered == true){
             navMeshAgent.SetDestination(transform.position);
+            animator.SetBool("IsHurt", true);
             staggerTime += Time.deltaTime;
             if (staggerTime >= maxStaggerTime){
                 staggered = false;
                 staggerTime = 0;
                 //mov.locActive = true;
                 collid.enabled = false;
+                animator.SetBool("IsHurt", false);
                 SetDestination();
                 resetDrones = true;
                 canShoot = true;
