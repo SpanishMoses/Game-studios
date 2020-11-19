@@ -11,6 +11,7 @@ public class ArenaManager : MonoBehaviour
     public GameObject[] enemies;
 
     public int round;
+    private int highRound;
     public int maxSpawns;
     public int enemiesSpawned;
 
@@ -31,6 +32,8 @@ public class ArenaManager : MonoBehaviour
         currentlyRound = true;
         spawnersInactive = false;
         randomTextObj.SetActive(false);
+        round = PlayerPrefs.GetInt("Current_Round", 1);
+        highRound = PlayerPrefs.GetInt("high_wave", 0);
         //enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
@@ -80,6 +83,11 @@ public class ArenaManager : MonoBehaviour
             SceneManager.LoadScene("MainMenuLoadScene");
         }
 
+        PlayerPrefs.SetInt("Current_Round", round);
+        if (round > highRound){
+            highRound = round;
+            PlayerPrefs.SetInt("high_wave", highRound);
+        }
     }
 
     IEnumerator newRound(){

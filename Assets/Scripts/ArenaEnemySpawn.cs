@@ -22,7 +22,7 @@ public class ArenaEnemySpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxSpawnTime = Random.Range(10, 20);
+        maxSpawnTime = Random.Range(5, 10);
         randomNum();
     }
 
@@ -54,7 +54,7 @@ public class ArenaEnemySpawn : MonoBehaviour
             {
                 Instantiate(basic, spawnPt.position, Quaternion.identity);
             }
-            maxSpawnTime = Random.Range(10, 20);
+            maxSpawnTime = Random.Range(5, 10);
             spawnTime = 0;
             //arena.enemiesSpawned += 1;
             randomNum();
