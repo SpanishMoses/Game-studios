@@ -14,6 +14,7 @@ public class TextManager : MonoBehaviour
     public GameObject textBox;
     public GameObject reticle;
     public float speed = 0.5f;
+    public GameObject music;
 
     public TMP_Text text;
     public string[] sentences;
@@ -49,6 +50,7 @@ public class TextManager : MonoBehaviour
             if (text.text == sentences[index] && sentenceNum == 9 && Input.GetKey(KeyCode.Mouse0)){
                 player.cantMove = false;
                 player.speed = 12;
+                music.SetActive(true);
                 anim.SetBool("MousClick", true);
                 StartCoroutine(whipe());
                 sentenceNum++;
