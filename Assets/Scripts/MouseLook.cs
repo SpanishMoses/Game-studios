@@ -148,7 +148,7 @@ public class MouseLook : MonoBehaviour
         currAmmoM = PlayerPrefs.GetInt("Machinegun_Ammo", 120);
         currAmmoG = PlayerPrefs.GetInt("Grenade_Ammo", 6);
         currAmmoF = PlayerPrefs.GetInt("Firework_Ammo", 8);
-        if ((SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld")))
+        if ((SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial Level")))
         {
             shootEnabled = false;
         } else {
