@@ -13,6 +13,9 @@ public class EnemySpawner : MonoBehaviour
 
     public BoxCollider box;
 
+    public bool spawnPortal;
+    public GameObject portal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,9 @@ public class EnemySpawner : MonoBehaviour
         if (enemiesSpawned <= 0){
             for (int i = 0; i < door.Length; i++){
                 door[i].SetActive(false);
+                if (spawnPortal == true){
+                    portal.SetActive(true);
+                }
             }
             
         }

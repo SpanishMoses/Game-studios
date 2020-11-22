@@ -397,7 +397,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (other.gameObject.tag == "End"){
-            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameWorld"))
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial Level"))
             {
                 SceneManager.LoadScene("LevelOneLoadScreen");
             }
