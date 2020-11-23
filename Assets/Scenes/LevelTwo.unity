@@ -3895,8 +3895,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95699666}
   m_LocalRotation: {x: -0, y: -0.0000009685754, z: -0, w: 1}
-  m_LocalPosition: {x: -39.35, y: -24.112, z: -17.23}
-  m_LocalScale: {x: 51.239513, y: 40.04997, z: 16.970533}
+  m_LocalPosition: {x: -56.557, y: -24.112, z: -17.23}
+  m_LocalScale: {x: 16.82649, y: 40.04997, z: 16.970533}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 46
@@ -8980,6 +8980,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 235402947}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &235402947
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15156,6 +15158,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 388374884}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &388374884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15531,6 +15535,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 394537419}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &394537419
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21978,6 +21984,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 520462443}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &520462443
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39960,6 +39968,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 927268521}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &927268521
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41177,6 +41187,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 950339626}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &950339626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42573,6 +42585,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 989444083}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &989444083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45516,6 +45530,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1063089723}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1063089723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45766,6 +45782,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1067035844}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1067035844
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72452,6 +72470,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1676310241}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1676310241
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -73164,6 +73184,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1693125406}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1693125406
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -74541,6 +74563,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1715144216}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1715144216
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -77728,6 +77752,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1787618564}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1787618564
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79529,6 +79555,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1820629125}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1820629125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -80419,6 +80447,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1845699600}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1845699600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84187,6 +84217,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1930406059}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1930406059
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87851,6 +87883,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 2001516294}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &2001516294
 BoxCollider:
   m_ObjectHideFlags: 0
