@@ -21,12 +21,12 @@ public class ShockwaveExpand : MonoBehaviour
     void Update()
     {
         timeVar += Time.deltaTime;
-        if (timeVar > .2){
+        if (timeVar > 0.1){
             timeVar = 0;
             radius += 1f;
         }
         ParticleSystem.ShapeModule psShape = part.shape;
         psShape.radius = radius;
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 5f);
     }
 }
