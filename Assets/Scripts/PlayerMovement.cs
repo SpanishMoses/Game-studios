@@ -478,13 +478,17 @@ public class PlayerMovement : MonoBehaviour
         }
         sound.Play();
         StartCoroutine(flashHit());
-        if (health <= 0f)
+        if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("LevelThree"))
         {
             mouse.unpaused = false;
             Time.timeScale = 0f;
             isDead = true;
             freezeMouse = true;
             deadText.SetActive(true);
+        }
+        if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
+        {
+            SceneManager.LoadScene("main menu");
         }
     }
 
