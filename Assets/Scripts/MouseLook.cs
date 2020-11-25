@@ -220,52 +220,52 @@ public class MouseLook : MonoBehaviour
             }
 
             //scrolling up
-            if (currWeapon == 2 && PlayerPrefs.GetInt("EnableShotgun") == 0 && upChange == true){
+            if (currWeapon == 2 && shotGunBool == false && upChange == true){
                 currWeapon = currWeapon + 1;
             }
 
-            if (currWeapon == 3 && PlayerPrefs.GetInt("EnableMachineGun") == 0 && upChange == true)
+            if (currWeapon == 3 && machineGunBool == false && upChange == true)
             {
                 currWeapon = currWeapon + 1;
             }
 
-            if (currWeapon == 4 && PlayerPrefs.GetInt("EnableKnife") == 0 && upChange == true)
+            if (currWeapon == 4 && knifeBool == false && upChange == true)
             {
                 currWeapon = currWeapon + 1;
             }
 
-            if (currWeapon == 5 && PlayerPrefs.GetInt("EnableGrenade") == 0 && upChange == true)
+            if (currWeapon == 5 && grenadeBool == false && upChange == true)
             {
                 currWeapon = currWeapon + 1;
             }
 
-            if (currWeapon == 6 && PlayerPrefs.GetInt("EnableFireWork") == 0 && upChange == true)
+            if (currWeapon == 6 && fireWorkBool == false && upChange == true)
             {
                 currWeapon = currWeapon + 1;
             }
 
             //scrolling down
-            if (currWeapon == 2 && PlayerPrefs.GetInt("EnableShotgun") == 0 && upChange == false)
+            if (currWeapon == 2 && shotGunBool == false && upChange == false)
             {
                 currWeapon = currWeapon - 1;
             }
 
-            if (currWeapon == 3 && PlayerPrefs.GetInt("EnableMachineGun") == 0 && upChange == false)
+            if (currWeapon == 3 && machineGunBool == false && upChange == false)
             {
                 currWeapon = currWeapon - 1;
             }
 
-            if (currWeapon == 4 && PlayerPrefs.GetInt("EnableKnife") == 0 && upChange == false)
+            if (currWeapon == 4 && knifeBool == false  && upChange == false)
             {
                 currWeapon = currWeapon - 1;
             }
 
-            if (currWeapon == 5 && PlayerPrefs.GetInt("EnableGrenade") == 0 && upChange == false)
+            if (currWeapon == 5 && grenadeBool == false && upChange == false)
             {
                 currWeapon = currWeapon - 1;
             }
 
-            if (currWeapon == 6 && PlayerPrefs.GetInt("EnableFireWork") == 0 && upChange == false)
+            if (currWeapon == 6 && fireWorkBool == false && upChange == false)
             {
                 currWeapon = currWeapon - 1;
             }

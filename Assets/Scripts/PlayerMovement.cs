@@ -303,6 +303,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Shotgun"){
             mouse.shotGunBool = true;
             mouse.currWeapon = 2;
+            mouse.useShotgun = true;
             Destroy(other.gameObject);
         }
 
@@ -310,6 +311,7 @@ public class PlayerMovement : MonoBehaviour
         {
             mouse.machineGunBool = true;
             mouse.currWeapon = 3;
+            mouse.useMachineGun = true;
             Destroy(other.gameObject);
         }
 
@@ -317,6 +319,7 @@ public class PlayerMovement : MonoBehaviour
         {
             mouse.knifeBool = true;
             mouse.currWeapon = 4;
+            mouse.useKnife = true;
             Destroy(other.gameObject);
         }
 
@@ -324,13 +327,15 @@ public class PlayerMovement : MonoBehaviour
         {
             mouse.grenadeBool = true;
             mouse.currWeapon = 5;
+            mouse.useGrenade = true;
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "FireWork")
         {
             mouse.fireWorkBool = true;
-            mouse.currWeapon = 5;
+            mouse.currWeapon = 6;
+            mouse.useFirework = true;
             Destroy(other.gameObject);
         }
 

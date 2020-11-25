@@ -3813,7 +3813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f939a20a0b8180f4eb69c57dc12d843c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixie: {fileID: 0}
+  pixie: {fileID: 540820987}
   textMan: {fileID: 802174467}
 --- !u!65 &571024500
 BoxCollider:
@@ -58017,6 +58017,7 @@ MonoBehaviour:
   typingSpeed: 0.0001
   sentenceNum: 0
   killText: {fileID: 2061332535}
+  myMusic: {fileID: 0}
 --- !u!4 &802174468
 Transform:
   m_ObjectHideFlags: 0

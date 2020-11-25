@@ -27,6 +27,8 @@ public class TextManager : MonoBehaviour
     RectTransform rect;
     public GameObject killText;
 
+    public MusicManager myMusic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class TextManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         anim = pixie.gameObject.GetComponent<Animator>();
         rect = pixie.gameObject.GetComponent<RectTransform>();
+        myMusic = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
     }
 
     // Update is called once per frame
@@ -52,6 +55,8 @@ public class TextManager : MonoBehaviour
                 player.speed = 12;
                 music.SetActive(true);
                 anim.SetBool("MousClick", true);
+                myMusic.mus.clip = myMusic.tut;
+                myMusic.mus.Play();
                 StartCoroutine(whipe());
                 sentenceNum++;
             }
