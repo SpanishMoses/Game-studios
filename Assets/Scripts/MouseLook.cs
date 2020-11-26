@@ -102,6 +102,8 @@ public class MouseLook : MonoBehaviour
     public AudioClip shotGunClick;
     public AudioClip machineGunShoot;
     public AudioClip machineGunLastShot;
+    public AudioClip machineGunClick;
+    public AudioClip rocketLauncherShoot;
 
     public AudioSource weaponShoot;
     public AudioSource secondarySound;
@@ -340,7 +342,7 @@ public class MouseLook : MonoBehaviour
                 }
                 if (currAmmoM == 1)
                 {
-                    weaponShoot.clip = machineGunLastShot;
+                    weaponShoot.clip = machineGunClick;
                 }
                 if (currAmmoM == 0){
                     weaponShoot.clip = pistolClick;
@@ -398,6 +400,10 @@ public class MouseLook : MonoBehaviour
                 reloadTime = 1f;
                 dist = 20f;
                 currWeapon = 6;
+                if (currAmmoF > 0)
+                {
+                    weaponShoot.clip = rocketLauncherShoot;
+                }
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
@@ -476,6 +482,7 @@ public class MouseLook : MonoBehaviour
                 anim.SetTrigger("FireworkShoot");
                 crosshairAnim.SetTrigger("Expand");
                 camAnim.SetTrigger("camShake2");
+                weaponShoot.Play();
                 StartCoroutine(reloadFireWork());
             }
 

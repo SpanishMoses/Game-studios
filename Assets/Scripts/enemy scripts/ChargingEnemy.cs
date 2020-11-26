@@ -28,6 +28,10 @@ public class ChargingEnemy : MonoBehaviour
 
     public NavMeshAgent navMeshAgent;
     public EnemyHealth health;
+
+    public AudioSource charging;
+    public AudioSource windSound;
+
     void Awake()
     {
         Instantiate(spawnEffect, transform.position, transform.rotation);
@@ -52,7 +56,8 @@ public class ChargingEnemy : MonoBehaviour
 
         if (locActive == true && isCharging == false)
         {
-            animator.SetBool("IsMoving", false); ;
+            animator.SetBool("IsMoving", false);
+            windSound.Play();
             time += Time.deltaTime;
             //rb.constraints = RigidbodyConstraints.FreezeAll;
             if (time >= timeBetweenCharges)
@@ -69,6 +74,7 @@ public class ChargingEnemy : MonoBehaviour
 
         if (isCharging == true){
             animator.SetBool("IsMoving", true);
+            charging.Play();
             if (playerLoc.transform.position != null)
             {
                 Vector3 targetVector = playerLoc.transform.position;
@@ -78,6 +84,7 @@ public class ChargingEnemy : MonoBehaviour
             if (chargeTime >= MaxTime){
                 isCharging = false;
                 speed = 0;
+                charging.Stop();
                 chargeTime = 0;
                 Debug.Log("made it");
                 locActive = true;

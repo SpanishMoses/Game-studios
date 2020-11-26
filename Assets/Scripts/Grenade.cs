@@ -12,6 +12,8 @@ public class Grenade : MonoBehaviour
 
     public GameObject effect;
 
+    public AudioSource hit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,11 @@ public class Grenade : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        hit.Play();
     }
 
     void Explode(){

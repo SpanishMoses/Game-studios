@@ -70,7 +70,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 7997200904571926899}
   mouse: {fileID: 7997200904646466785}
-  list: {fileID: 0}
   camAnim: {fileID: 7997200904646466718}
   defaultSpeed: 12
   speed: 12
@@ -5395,6 +5394,7 @@ MonoBehaviour:
   camAnim: {fileID: 7997200904646466718}
   crosshairAnim: {fileID: 0}
   currWeapon: 0
+  upChange: 0
   cam: {fileID: 7997200904646466787}
   dist: 100
   damage: 1
@@ -5444,6 +5444,8 @@ MonoBehaviour:
   shotGunClick: {fileID: 8300000, guid: 33a6c2f4498211947ae5673bf14be80d, type: 3}
   machineGunShoot: {fileID: 8300000, guid: 127168c5584fb7e48b60b8b15b5e0f9d, type: 3}
   machineGunLastShot: {fileID: 8300000, guid: 1ebd826256690464f9c5c475d4733f4f, type: 3}
+  machineGunClick: {fileID: 8300000, guid: 37340b0d84dc24a46aae1a0f7cdc25b1, type: 3}
+  rocketLauncherShoot: {fileID: 8300000, guid: 17a059a336f9f3c49b9e3d47e156e3c0, type: 3}
   weaponShoot: {fileID: 4913947592025779583}
   secondarySound: {fileID: 829486098176042518}
   pistolHud: {fileID: 0}
