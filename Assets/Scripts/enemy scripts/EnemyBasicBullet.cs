@@ -52,6 +52,7 @@ public class EnemyBasicBullet : MonoBehaviour
             PlayerMovement playerMovement = collision.transform.GetComponent<PlayerMovement>();
             if (playerMovement != null){
                 playerMovement.TakeDamage(4);
+                playerMovement.ShakeIt();
             }
         }
 

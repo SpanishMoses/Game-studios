@@ -13,6 +13,7 @@ public class MouseLook : MonoBehaviour
     //grenade throw from https://www.youtube.com/watch?v=sglRyWQh79g&ab_channel=FPSBuilders
     //help from https://www.youtube.com/watch?v=wZ2UUOC17AY&ab_channel=Dave%2FGameDevelopment
     // player prefs help from https://www.youtube.com/watch?v=ETXPdH4QHKA&ab_channel=GameDevSpecialist
+    //shake code from https://www.youtube.com/watch?v=kzHHAdvVkto
 
     public bool shootEnabled;
     public GameObject weapons;
@@ -120,6 +121,11 @@ public class MouseLook : MonoBehaviour
     public Slider machineGunSlide;
     public Slider grenadeSlide;
     public Slider fireWorkSlide;
+
+    Vector3 ghostInitialPosition;
+    float shakeTime = 0.05f;
+    float shakeAmount = 5f;
+    public GameObject ghost;
 
     /*PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
     public int value;
@@ -894,5 +900,28 @@ public class MouseLook : MonoBehaviour
     
     public void newSound(){
         play.newWalk();
+    }
+
+    public void ShakeIt()
+    {
+        ghostInitialPosition = ghost.transform.position;
+        InvokeRepeating("StartGhostShaking", 0f, 0.005f);
+        Invoke("StopGhostShaking", shakeTime);
+    }
+
+    void StartGhostShaking()
+    {
+        float ghostShakingOffsetX = Random.value * shakeAmount * 2 - shakeAmount;
+        float ghostShakingOffsetY = Random.value * shakeAmount * 2 - shakeAmount;
+        Vector3 ghostIntermadiatePosition = ghost.transform.position;
+        ghostIntermadiatePosition.x += ghostShakingOffsetX;
+        ghostIntermadiatePosition.y += ghostShakingOffsetY;
+        ghost.transform.position = ghostIntermadiatePosition;
+    }
+
+    void StopGhostShaking()
+    {
+        CancelInvoke("StartGhostShaking");
+        ghost.transform.position = ghostInitialPosition;
     }
 }

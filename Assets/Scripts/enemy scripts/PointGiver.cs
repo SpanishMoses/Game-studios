@@ -17,6 +17,7 @@ public class PointGiver : MonoBehaviour
 
     public void GivePoint(int points) {
         mainPoint.totalPoints += points;
+        mainPoint.ShakeIt();
     }
         public void TakeDamage(float amount)
         {

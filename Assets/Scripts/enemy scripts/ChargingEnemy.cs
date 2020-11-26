@@ -122,6 +122,7 @@ public class ChargingEnemy : MonoBehaviour
                 if (playerMovement != null)
                 {
                     playerMovement.TakeDamage(8);
+                playerMovement.ShakeIt();
                 isCharging = false;
                 speed = 0;
                 chargeTime = 0;

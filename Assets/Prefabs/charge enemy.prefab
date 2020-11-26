@@ -41,10 +41,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665158231376067533}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7700231, y: 0.43301636, z: 2}
+  m_Size: {x: 1.7700231, y: 0.43301636, z: 1.08}
   m_Center: {x: 0, y: -1.9471323, z: 0}
 --- !u!114 &1472667849811807204
 MonoBehaviour:
@@ -226,7 +226,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3100001, y: 0.5889176, z: 1.63}
+  m_Size: {x: 0.18, y: 0.56, z: 0.76}
   m_Center: {x: 0, y: 0.013697369, z: 0}
 --- !u!114 &3744357652960032892
 MonoBehaviour:
@@ -351,7 +351,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.507
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -470,7 +470,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d65f51a8741cbd64fa1342e4fffb91dc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.524
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -566,7 +566,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 780ace116f8e61047b9e1d29739fcf94, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.501
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -707,10 +707,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3907006671973228752}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.8746071, y: 1.8829501, z: 2}
+  m_Size: {x: 1.8746071, y: 1.8829501, z: 1.08}
   m_Center: {x: 0.24163333, y: 1.0745541, z: 0}
 --- !u!114 &6493097788593991042
 MonoBehaviour:
@@ -786,11 +786,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7746238114183913061}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.7584472, y: 1.7194997, z: 2}
-  m_Center: {x: -0.08274502, y: -0.82231957, z: 0}
+  m_Size: {x: 3.7584634, y: 1.8121531, z: 1.08}
+  m_Center: {x: -0.08274496, y: -0.776001, z: 0}
 --- !u!114 &3063206186395419021
 MonoBehaviour:
   m_ObjectHideFlags: 0

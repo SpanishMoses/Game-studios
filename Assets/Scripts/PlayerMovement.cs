@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //knockback help from https://answers.unity.com/questions/242648/force-on-character-controller-knockback.html
     //footstep noise help from https://www.youtube.com/watch?v=ih8gyGeC7xs&ab_channel=EYEmaginary
+    //shake code from https://www.youtube.com/watch?v=kzHHAdvVkto
 
     public UnityEngine.CharacterController controller;
 
@@ -94,6 +95,11 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource sound;
     public AudioSource moveNoise;
     public AudioSource jumping;
+
+    Vector3 ghostInitialPosition;
+    float shakeTime = 0.05f;
+    float shakeAmount = 5f;
+    public GameObject ghost;
 
     private void Awake()
     {
@@ -354,6 +360,7 @@ public class PlayerMovement : MonoBehaviour
             Consumables consume = other.transform.GetComponent<Consumables>();
             if (consume != null && consume.isHealth == true){
                 health += consume.amount;
+                ShakeIt();
                 StartCoroutine(flashGainHealth());
                 Destroy(other.gameObject);
             }
@@ -366,6 +373,7 @@ public class PlayerMovement : MonoBehaviour
                     mouse.currAmmoG += consume.amount;
                     mouse.currAmmoF = consume.amount;
                 Destroy(other.gameObject);
+                mouse.ShakeIt();
                 StartCoroutine(flashAmmo());
                 
             }
@@ -448,6 +456,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "PistolAmmo"){
             TakeDamage(10);
             Destroy(other.gameObject);
+            ShakeIt();
         }
     }
 
@@ -478,7 +487,7 @@ public class PlayerMovement : MonoBehaviour
         }
         sound.Play();
         StartCoroutine(flashHit());
-        if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("LevelThree"))
+        if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Arena"))
         {
             mouse.unpaused = false;
             Time.timeScale = 0f;
@@ -529,6 +538,29 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1f);
         deadScreen.SetActive(false);
         SceneManager.LoadScene("GameWorld");
+    }
+
+    public void ShakeIt()
+    {
+        ghostInitialPosition = ghost.transform.position;
+        InvokeRepeating("StartGhostShaking", 0f, 0.005f);
+        Invoke("StopGhostShaking", shakeTime);
+    }
+
+    void StartGhostShaking()
+    {
+        float ghostShakingOffsetX = Random.value * amount * 2 - shakeAmount;
+        float ghostShakingOffsetY = Random.value * amount * 2 - shakeAmount;
+        Vector3 ghostIntermadiatePosition = ghost.transform.position;
+        ghostIntermadiatePosition.x += ghostShakingOffsetX;
+        ghostIntermadiatePosition.y += ghostShakingOffsetY;
+        ghost.transform.position = ghostIntermadiatePosition;
+    }
+
+    void StopGhostShaking()
+    {
+        CancelInvoke("StartGhostShaking");
+        ghost.transform.position = ghostInitialPosition;
     }
 
     public void newWalk(){

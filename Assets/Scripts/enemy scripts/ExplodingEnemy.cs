@@ -111,6 +111,7 @@ public class ExplodingEnemy : MonoBehaviour
             PlayerMovement playerMove = near.GetComponent<PlayerMovement>();
             if (playerMove != null){
                 playerMove.TakeDamage(damage);
+                playerMove.ShakeIt();
             }
         }
         navMeshAgent.SetDestination(transform.position);
@@ -142,6 +143,7 @@ public class ExplodingEnemy : MonoBehaviour
             if (playerMove != null)
             {
                 playerMove.TakeDamage(damage);
+                playerMove.ShakeIt();
             }
         }
         navMeshAgent.SetDestination(transform.position);
