@@ -31,15 +31,12 @@ public class Firework : MonoBehaviour
 
         foreach (Collider near in colliders)
         {
-            EnemyHealth enemyHealth = near.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
-            }
+            
             PointGiver point = near.GetComponent<PointGiver>();
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
+                point.TakeDamage(damage);
                 Debug.Log("Got some points");
             }
         }

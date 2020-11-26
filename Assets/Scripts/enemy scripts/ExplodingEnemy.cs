@@ -103,10 +103,9 @@ public class ExplodingEnemy : MonoBehaviour
 
         foreach (Collider near in colliders)
         {
-            EnemyHealth enemyHealth = near.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
+            PointGiver point = near.GetComponent<PointGiver>();
+            if (point != null){
+                point.TakeDamage(damage);
             }
 
             PlayerMovement playerMove = near.GetComponent<PlayerMovement>();
@@ -133,10 +132,10 @@ public class ExplodingEnemy : MonoBehaviour
 
         foreach (Collider near in colliders)
         {
-            EnemyHealth enemyHealth = near.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
+            PointGiver point = near.GetComponent<PointGiver>();
+            if (point != null)
             {
-                enemyHealth.TakeDamage(damage);
+                point.TakeDamage(damage);
             }
 
             PlayerMovement playerMove = near.GetComponent<PlayerMovement>();

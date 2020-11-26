@@ -114,7 +114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 23
   impactEffect: {fileID: 305000678807030120, guid: 49e4b1c093dde744084db69a521bae95, type: 3}
-  sound: {fileID: 3760617776998679077}
 --- !u!54 &6030262312338725608
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -250,7 +249,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 135c235d210700945a3a4526247e80c2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.519
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -294,7 +293,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

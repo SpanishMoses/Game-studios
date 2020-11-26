@@ -7,13 +7,45 @@ public class PointGiver : MonoBehaviour
     public BoxCollider collid;
     public PointManager mainPoint;
     public int targetPoints;
+    public EnemyHealth health;
+    public bool isHead;
 
     private void Awake()
     {
         mainPoint = GameObject.FindGameObjectWithTag("PointManager").GetComponent<PointManager>();
     }
 
-    public void GivePoint(int points){
+    public void GivePoint(int points) {
         mainPoint.totalPoints += points;
     }
-}
+        public void TakeDamage(float amount)
+        {
+            health.health -= amount;
+        if (isHead == true){
+            health.health -= amount * 2;
+        }
+        if (health.health <= 0f && health.partOfArray == false)
+        {
+            Debug.Log("dead");
+            //StartCoroutine(startNormalDeath());
+            health.animator.SetTrigger("IsDead");
+            health.enemyMove.navMeshAgent.speed = 0;
+            health.enemyShoot.enabled = false;
+            collid.enabled = false;
+            health.death.clip = health.deathNoise;
+            health.death.Play();
+        }
+        if (health.health <= 0 && health.partOfArray == true)
+        {
+            //StartCoroutine(startDeath());
+            health.animator.SetTrigger("IsDead");
+            Debug.Log("started");
+            health.enemyMove.navMeshAgent.speed = 0;
+            health.enemyShoot.enabled = false;
+            collid.enabled = false;
+            health.death.clip = health.deathNoise;
+            health.death.Play();
+        }
+    }
+    }
+

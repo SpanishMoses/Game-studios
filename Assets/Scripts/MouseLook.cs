@@ -667,14 +667,11 @@ public class MouseLook : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
             Instantiate(impact, hit.point, Quaternion.identity);
-            EnemyHealth enemyHealth = hit.transform.GetComponent<EnemyHealth>();
-            if (enemyHealth != null){
-                enemyHealth.TakeDamage(damage);
-                Instantiate(blood, hit.point, Quaternion.identity);
-            }
             PointGiver point = hit.transform.GetComponent<PointGiver>();
             if (point != null){
                 point.GivePoint(point.targetPoints);
+                point.TakeDamage(damage);
+                Instantiate(blood, hit.point, Quaternion.identity);
                 Debug.Log("Got some points");
             }
             BossDrone bossDrone = hit.transform.GetComponent<BossDrone>();
@@ -700,16 +697,12 @@ public class MouseLook : MonoBehaviour
             Debug.Log(sHit.transform.name);
             Instantiate(impact, sHit.point, Quaternion.identity);
             Debug.DrawRay(transform.position, cam.transform.forward, Color.green);
-            EnemyHealth enemyHealth = sHit.transform.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
-                Instantiate(blood, sHit.point, Quaternion.identity);
-            }
             PointGiver point = sHit.transform.GetComponent<PointGiver>();
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
+                point.TakeDamage(damage);
+                Instantiate(blood, sHit.point, Quaternion.identity);
             }
             BossDrone bossDrone = sHit.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
@@ -723,16 +716,12 @@ public class MouseLook : MonoBehaviour
         {
             Debug.Log(sHit2.transform.name);
             Instantiate(impact, sHit2.point, Quaternion.LookRotation(sHit2.normal));
-            EnemyHealth enemyHealth = sHit2.transform.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
-                Instantiate(blood, sHit2.point, Quaternion.identity);
-            }
             PointGiver point = sHit2.transform.GetComponent<PointGiver>();
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
+                point.TakeDamage(damage);
+                Instantiate(blood, sHit2.point, Quaternion.identity);
             }
             BossDrone bossDrone = sHit2.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
@@ -746,16 +735,12 @@ public class MouseLook : MonoBehaviour
         {
             Debug.Log(sHit3.transform.name);
             Instantiate(impact, sHit3.point, Quaternion.identity);
-            EnemyHealth enemyHealth = sHit3.transform.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
-                Instantiate(blood, sHit3.point, Quaternion.identity);
-            }
             PointGiver point = sHit3.transform.GetComponent<PointGiver>();
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
+                point.TakeDamage(damage);
+                Instantiate(blood, sHit3.point, Quaternion.identity);
             }
             BossDrone bossDrone = sHit3.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
@@ -769,16 +754,12 @@ public class MouseLook : MonoBehaviour
         {
             Debug.Log(sHit4.transform.name);
             Instantiate(impact, sHit4.point, Quaternion.identity);
-            EnemyHealth enemyHealth = sHit4.transform.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
-                Instantiate(blood, sHit4.point, Quaternion.identity);
-            }
             PointGiver point = sHit4.transform.GetComponent<PointGiver>();
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
+                point.TakeDamage(damage);
+                Instantiate(blood, sHit4.point, Quaternion.identity);
             }
             BossDrone bossDrone = sHit4.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
@@ -792,16 +773,12 @@ public class MouseLook : MonoBehaviour
         {
             Debug.Log(sHit5.transform.name);
             Instantiate(impact, sHit5.point, Quaternion.LookRotation(sHit5.normal));
-            EnemyHealth enemyHealth = sHit5.transform.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
-                Instantiate(blood, sHit5.point, Quaternion.identity);
-            }
             PointGiver point = sHit5.transform.GetComponent<PointGiver>();
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
+                point.TakeDamage(damage);
+                Instantiate(blood, sHit5.point, Quaternion.identity);
             }
             BossDrone bossDrone = sHit5.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
@@ -820,16 +797,12 @@ public class MouseLook : MonoBehaviour
         {
             Debug.Log(mHit.transform.name);
             Instantiate(impact, mHit.point, Quaternion.identity);
-            EnemyHealth enemyHealth = mHit.transform.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(damage);
-                Instantiate(blood, mHit.point, Quaternion.identity);
-            }
             PointGiver point = mHit.transform.GetComponent<PointGiver>();
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
+                point.TakeDamage(damage);
+                Instantiate(blood, mHit.point, Quaternion.identity);
             }
             BossDrone bossDrone = mHit.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
@@ -848,13 +821,14 @@ public class MouseLook : MonoBehaviour
         {
             Debug.Log(kHit.transform.name);
             Instantiate(impact, kHit.point, Quaternion.identity);
-            EnemyHealth enemyHealth = kHit.transform.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
+            PointGiver point = kHit.transform.GetComponent<PointGiver>();
+            if (point != null)
             {
-                secondarySound.Play();
-                enemyHealth.TakeDamage(damage);
+                point.GivePoint(point.targetPoints);
+                point.TakeDamage(damage);
                 Instantiate(blood, kHit.point, Quaternion.identity);
-                if (enemyHealth.health <= 0){
+                if (point.health.health <= 0)
+                {
                     currAmmoP += 5;
                     currAmmoS += 2;
                     currAmmoM += 5;
@@ -862,11 +836,6 @@ public class MouseLook : MonoBehaviour
                     currAmmoG += 1;
                     Instantiate(ammoEffect, kHit.point, Quaternion.identity);
                 }
-            }
-            PointGiver point = kHit.transform.GetComponent<PointGiver>();
-            if (point != null)
-            {
-                point.GivePoint(point.targetPoints);
             }
             BossDrone bossDrone = kHit.transform.GetComponent<BossDrone>();
             if (bossDrone != null)

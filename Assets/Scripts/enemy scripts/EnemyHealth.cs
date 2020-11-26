@@ -37,32 +37,10 @@ public class EnemyHealth : MonoBehaviour
         if (health <= minHealth){
             health = minHealth;
         }
+        
     }
 
-    public void TakeDamage(float amount){
-        health -= amount;
-        if (health <= 0f && partOfArray == false)
-        {
-            Debug.Log("dead");
-            //StartCoroutine(startNormalDeath());
-            animator.SetTrigger("IsDead");
-            enemyMove.navMeshAgent.speed = 0;
-            enemyShoot.enabled = false;
-            collid.enabled = false;
-            death.clip = deathNoise;
-            death.Play();
-        }
-            if (health <= 0 && partOfArray == true){
-            //StartCoroutine(startDeath());
-            animator.SetTrigger("IsDead");
-            Debug.Log("started");
-            enemyMove.navMeshAgent.speed = 0;
-            enemyShoot.enabled = false;
-            collid.enabled = false;
-            death.clip = deathNoise;
-            death.Play();
-        }
-    }
+    
 
     /*IEnumerator startDeath(){
         collid.enabled = false;
