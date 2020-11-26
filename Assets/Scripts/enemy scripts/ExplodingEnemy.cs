@@ -29,6 +29,8 @@ public class ExplodingEnemy : MonoBehaviour
 
     public GameObject effect;
 
+    public AudioSource fuse;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,7 @@ public class ExplodingEnemy : MonoBehaviour
         if (Vector2.Distance(transform.position, playerLoc.transform.position) < playerDist)
         {
             locActive = true;
+            fuse.Play();
         }
 
         if (Vector2.Distance(transform.position, playerLoc.transform.position) < blowUpDist)

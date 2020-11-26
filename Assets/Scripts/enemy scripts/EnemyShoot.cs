@@ -21,6 +21,8 @@ public class EnemyShoot : MonoBehaviour
 
     public bool alreadyShoot;
 
+    public AudioSource shootSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,7 @@ public class EnemyShoot : MonoBehaviour
     private void shoot() 
     {
         animator.SetTrigger("IsShooting");
+        shootSound.Play();
         Instantiate(spitEffect, parent.transform.position, Quaternion.identity);
         Instantiate(bullet, parent.transform.position, Quaternion.identity);
     }

@@ -19,6 +19,8 @@ public class Drone : MonoBehaviour
     public EnemyHealth health;
     public DroneShoot shoot;
 
+    public AudioSource dead;
+
     void Awake()
     {
         Instantiate(spawnEffect, transform.position, transform.rotation);
@@ -58,6 +60,7 @@ public class Drone : MonoBehaviour
         if (health.health <= 0){
             shoot.enabled = false;
             characterVelocity = 0;
+            dead.Play();
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }

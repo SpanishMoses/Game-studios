@@ -7753,6 +7753,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 210309179}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &210309179
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29086,6 +29088,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 400105028}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &400105028
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31610,6 +31614,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 478773979}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &478773979
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31989,6 +31995,7 @@ GameObject:
   - component: {fileID: 492376803}
   - component: {fileID: 492376802}
   - component: {fileID: 492376801}
+  - component: {fileID: 492376805}
   m_Layer: 0
   m_Name: Portal
   m_TagString: End
@@ -32094,6 +32101,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 102
   m_LocalEulerAnglesHint: {x: 0, y: 90.76, z: 0}
+--- !u!82 &492376805
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492376800}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a9500f45924dd114b9bc50b593e83be9, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.728
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 44
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &493255100 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6901327454040716228, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
@@ -35711,6 +35814,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 619471300}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &619471300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41901,6 +42006,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 821205277}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &821205277
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -56514,6 +56621,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1305196282}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1305196282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64561,6 +64670,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1555094172}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1555094172
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72688,6 +72799,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1793579137}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1793579137
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -77148,6 +77261,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1933109492}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1933109492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -78451,6 +78566,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 1967623772}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &1967623772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -80129,6 +80246,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 2032947319}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &2032947319
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -80696,6 +80815,8 @@ MonoBehaviour:
   activated: 1
   enemiesSpawned: 0
   box: {fileID: 2048860933}
+  spawnPortal: 0
+  portal: {fileID: 0}
 --- !u!65 &2048860933
 BoxCollider:
   m_ObjectHideFlags: 0

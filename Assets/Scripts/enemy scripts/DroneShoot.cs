@@ -16,6 +16,8 @@ public class DroneShoot : MonoBehaviour
 
     public EnemyHealth health;
 
+    public AudioSource shootSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,7 @@ public class DroneShoot : MonoBehaviour
     private void shoot()
     {
         animator.SetTrigger("IsShooting");
+        shootSound.Play();
         Instantiate(spitEffect, parent.transform.position, Quaternion.identity);
         Instantiate(bullet, parent.transform.position, Quaternion.identity);
     }
