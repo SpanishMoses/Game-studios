@@ -60,7 +60,7 @@ public class Drone : MonoBehaviour
         if (health.health <= 0){
             shoot.enabled = false;
             characterVelocity = 0;
-            dead.Play();
+
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
@@ -76,6 +76,10 @@ public class Drone : MonoBehaviour
     {
         latestDirectionChangeTime = Time.time;
         calcuateNewMovementVector();
+    }
+
+    public void deathNoise(){
+        dead.Play();
     }
 }
 

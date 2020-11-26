@@ -57,7 +57,7 @@ public class ChargingEnemy : MonoBehaviour
         if (locActive == true && isCharging == false)
         {
             animator.SetBool("IsMoving", false);
-            windSound.Play();
+            
             time += Time.deltaTime;
             //rb.constraints = RigidbodyConstraints.FreezeAll;
             if (time >= timeBetweenCharges)
@@ -66,6 +66,7 @@ public class ChargingEnemy : MonoBehaviour
                 time = 0;
                 locActive = false;
                 speed = 20;
+                windSound.Play();
                 isCharging = true;
                 //rb.constraints = RigidbodyConstraints.None;
                 //rb.constraints = RigidbodyConstraints.FreezePositionY;
@@ -84,7 +85,7 @@ public class ChargingEnemy : MonoBehaviour
             if (chargeTime >= MaxTime){
                 isCharging = false;
                 speed = 0;
-                charging.Stop();
+                
                 chargeTime = 0;
                 Debug.Log("made it");
                 locActive = true;

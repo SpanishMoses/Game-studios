@@ -51,7 +51,6 @@ public class ExplodingEnemy : MonoBehaviour
         if (Vector2.Distance(transform.position, playerLoc.transform.position) < playerDist)
         {
             locActive = true;
-            fuse.Play();
         }
 
         if (Vector2.Distance(transform.position, playerLoc.transform.position) < blowUpDist)
@@ -163,6 +162,10 @@ public class ExplodingEnemy : MonoBehaviour
         detonationNew();
         health.collid.enabled = true;
         health.health = 0;
+    }
+
+    public void lightfuse(){
+        fuse.Play();
     }
 
 }
