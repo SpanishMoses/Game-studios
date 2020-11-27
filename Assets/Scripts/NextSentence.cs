@@ -9,6 +9,8 @@ public class NextSentence : MonoBehaviour
     public TextManager textMan;
     private PlayerMovement player;
 
+    public bool hit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +25,16 @@ public class NextSentence : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player"){
-            textMan.NextSentence();
-            gameObject.SetActive(false);
+        if (other.gameObject.tag == "Player" && hit == false){
+            textMan.text.text = "";
+            hit = true;
+            //gameObject.SetActive(false);
+            StartCoroutine(Next());
         }
+    }
+
+    IEnumerator Next(){
+        yield return new WaitForSeconds(0.5f);
+        textMan.NextSentence();
     }
 }

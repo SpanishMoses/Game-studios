@@ -19,6 +19,6 @@ public class MusicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DontDestroyOnLoad(this.gameObject);
+        
     }
 }
