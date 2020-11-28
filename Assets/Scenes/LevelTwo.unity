@@ -74316,6 +74316,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1050521981}
     m_Modifications:
+    - target: {fileID: 4366379285596053522, guid: bd957312f4fc98c4fa9f5ebdfa4b71d4, type: 3}
+      propertyPath: enemySpawn
+      value: 
+      objectReference: {fileID: 950339625}
+    - target: {fileID: 4366379285596053522, guid: bd957312f4fc98c4fa9f5ebdfa4b71d4, type: 3}
+      propertyPath: deductExplode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6493892797810561505, guid: bd957312f4fc98c4fa9f5ebdfa4b71d4, type: 3}
       propertyPath: m_Enabled
       value: 1

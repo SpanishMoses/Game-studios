@@ -35,6 +35,13 @@ public class EnemySpawner : MonoBehaviour
                 if (spawnPortal == true){
                     portal.SetActive(true);
                 }
+                for (int l = 0; l < enemies.Length; l++)
+                {
+                    if (enemies[l] == null)
+                    {
+                        door[i].SetActive(false);
+                    }
+                }
             }
             
         }
