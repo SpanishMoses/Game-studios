@@ -21,7 +21,7 @@ public class ItemSpawners : MonoBehaviour
     {
         itemNum = Random.Range(0, 4);
         beginSpawn = true;
-        maxSpawnTime = Random.Range(10, 20);
+        maxSpawnTime = Random.Range(10, 15);
     }
 
     // Update is called once per frame

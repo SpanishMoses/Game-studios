@@ -236,6 +236,7 @@ public class PlayerMovement : MonoBehaviour
             freezeMouse = false;
             deadText.SetActive(false);
             mouse.unpaused = false;
+            ghost.transform.position = ghostInitialPosition;
         }
 
         if (Input.GetKey(KeyCode.Escape)){
@@ -501,6 +502,7 @@ public class PlayerMovement : MonoBehaviour
         if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
         {
             SceneManager.LoadScene("main menu");
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
