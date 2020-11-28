@@ -19,7 +19,7 @@ public class MouseLook : MonoBehaviour
     public GameObject weapons;
     public GameObject crossHair;
 
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity = 100;
 
     public Transform playerBody;
 
@@ -152,6 +152,7 @@ public class MouseLook : MonoBehaviour
         reloadTime = 0.3f;
         dist = 50f;
         currWeapon = 1;
+        mouseSensitivity = PlayerPrefs.GetFloat("Sense", 4);
         currAmmoP = PlayerPrefs.GetInt("Pistol_Ammo", 0);
         currAmmoS = PlayerPrefs.GetInt("Shotgun_Ammo", 40);
         currAmmoM = PlayerPrefs.GetInt("Machinegun_Ammo", 120);

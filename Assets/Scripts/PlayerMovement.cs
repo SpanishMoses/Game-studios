@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject dropSahdow;
     public GameObject resumeButt;
     public GameObject quitButt;
+    public GameObject settingsButt;
 
     public int KeyAmount;
 
@@ -244,6 +245,7 @@ public class PlayerMovement : MonoBehaviour
             freezeMouse = true;
             resumeButt.SetActive(true);
             quitButt.SetActive(true);
+            settingsButt.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
         }
 
@@ -263,6 +265,7 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         resumeButt.SetActive(false);
         quitButt.SetActive(false);
+        settingsButt.SetActive(false);
         Time.timeScale = 1f;
         
         
