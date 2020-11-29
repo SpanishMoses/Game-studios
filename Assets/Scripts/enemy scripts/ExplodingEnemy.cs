@@ -112,6 +112,7 @@ public class ExplodingEnemy : MonoBehaviour
             if (playerMove != null){
                 playerMove.TakeDamage(damage);
                 playerMove.ShakeIt();
+                playerMove.mouse.camAnim.SetTrigger("camShake2");
             }
         }
         navMeshAgent.SetDestination(transform.position);
@@ -144,6 +145,7 @@ public class ExplodingEnemy : MonoBehaviour
             {
                 playerMove.TakeDamage(damage);
                 playerMove.ShakeIt();
+                playerMove.mouse.camAnim.SetTrigger("camShake2");
             }
         }
         navMeshAgent.SetDestination(transform.position);

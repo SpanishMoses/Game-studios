@@ -43,6 +43,11 @@ public class Grenade : MonoBehaviour
                 point.TakeDamage(damage);
                 Debug.Log("Got some points");
             }
+            PlayerMovement playerMove = near.GetComponent<PlayerMovement>();
+            if (playerMove != null)
+            {
+                playerMove.mouse.camAnim.SetTrigger("camShake2");
+            }
         }
 
         Instantiate(effect, transform.position, transform.rotation);
