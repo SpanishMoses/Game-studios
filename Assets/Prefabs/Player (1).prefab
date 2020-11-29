@@ -109,6 +109,7 @@ MonoBehaviour:
   dropSahdow: {fileID: 0}
   resumeButt: {fileID: 0}
   quitButt: {fileID: 0}
+  settingsButt: {fileID: 0}
   KeyAmount: 0
   point: {fileID: 0}
   hurtNum: 0
@@ -126,6 +127,7 @@ MonoBehaviour:
   sound: {fileID: 5277950087755630345}
   moveNoise: {fileID: 7614781457003351789}
   jumping: {fileID: -7716338958077030471}
+  ghost: {fileID: 0}
 --- !u!82 &5277950087755630345
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5459,6 +5461,7 @@ MonoBehaviour:
   machineGunSlide: {fileID: 0}
   grenadeSlide: {fileID: 0}
   fireWorkSlide: {fileID: 0}
+  ghost: {fileID: 0}
 --- !u!95 &7997200904646466718
 Animator:
   serializedVersion: 3
@@ -5490,7 +5493,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.501
+  m_Volume: 0.223
   m_Pitch: 1
   Loop: 0
   Mute: 0
