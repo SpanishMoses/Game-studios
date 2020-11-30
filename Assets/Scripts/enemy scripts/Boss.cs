@@ -40,6 +40,9 @@ public class Boss : MonoBehaviour
     public bool resetDrones;
     public bool enableReset;
 
+    public float radius;
+    public bool expandDong;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +61,24 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) < 5 && staggered == false)
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+
+            foreach (Collider near in colliders)
+            {
+
+                PlayerMovement playerMove = near.GetComponent<PlayerMovement>();
+                if (playerMove != null)
+                {
+                    playerMove.TakeDamage(10);
+                    playerMove.ShakeIt();
+                    playerMove.mouse.camAnim.SetTrigger("camShake2");
+                    Vector3 direction = playerMove.transform.position - transform.position;
+                    playerMove.AddImpact(direction, 300f);
+                }
+            }
+        }
 
         SetDestination();
 
@@ -115,6 +136,12 @@ public class Boss : MonoBehaviour
             StartCoroutine(reset());
         }
 
+        if (expandDong == true){
+            
+
+            
+        }
+
         if (canShoot == true){ 
         shootTime += Time.deltaTime;
             if (shootTime >= timeBetweenShots)
@@ -169,5 +196,10 @@ public class Boss : MonoBehaviour
         resetDrones = false;
     }
 
-    
+    IEnumerator shove()
+    {
+        expandDong = true;
+        yield return new WaitForSeconds(0.5f);
+        expandDong = false;
+    }
 }
