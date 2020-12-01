@@ -49,5 +49,7 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("EnableKnife", 1);
         PlayerPrefs.SetInt("EnableGrenade", 1);
         PlayerPrefs.SetInt("EnableFireWork", 1);
+
+        PlayerPrefs.SetInt("Current_Round", 1);
     }
 }
