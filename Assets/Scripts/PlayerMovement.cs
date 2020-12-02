@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject player;
     public GameObject checkpoint;
+    public GameObject miniCheckPoint;
 
     public GameObject dropSahdow;
     public GameObject resumeButt;
@@ -77,6 +78,20 @@ public class PlayerMovement : MonoBehaviour
 
     float mass = 3.0F; // defines the character mass
     Vector3 impact = Vector3.zero;
+
+    //reloading player things
+    public float pointX;
+    public float pointY;
+    public float pointZ;
+    public Scene curScene;
+    public string sceneName;
+    public int priorHealth;
+    public int priorPistolAmmo;
+    public int priorShotGunAmmo;
+    public int priorMachineGunAmmo;
+    public int priorGrenadeAmmo;
+    public int priorFireWorkAmmo;
+    public int priorPoints;
 
     public int hurtNum;
 
@@ -114,6 +129,11 @@ public class PlayerMovement : MonoBehaviour
         point = GameObject.FindGameObjectWithTag("PointManager").GetComponent<PointManager>();
         //moveNoise.clip = moving;
         newWalk();
+
+        //player.transform.position = new Vector3(pointX, pointY, pointZ);
+        ResetPos();
+        curScene = SceneManager.GetActiveScene();
+        sceneName = curScene.name;
     }
 
     // Update is called once per frame
@@ -230,13 +250,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true){
             Time.timeScale = 1f;
-            health = 50;
+            /*health = 50;
             point.totalPoints -= 1000;
             isDead = false;
             freezeMouse = false;
             deadText.SetActive(false);
             mouse.unpaused = false;
-            ghost.transform.position = ghostInitialPosition;
+            ghost.transform.position = ghostInitialPosition;*/
+            SceneManager.LoadScene(sceneName);
         }
 
         if (Input.GetKey(KeyCode.Escape)){
@@ -350,9 +371,36 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (other.gameObject.tag == "Checkpoint"){
-            checkpoint = other.gameObject;
+            //checkpoint = other.gameObject;
+            pointX = gameObject.transform.position.x;
+            pointY = gameObject.transform.position.y;
+            pointZ = gameObject.transform.position.z;
+            float positionX = pointX;
+            float positionY = pointY;
+            float positionZ = pointZ;
+            priorHealth = health;
+            priorPistolAmmo = mouse.currAmmoP;
+            priorShotGunAmmo = mouse.currAmmoS;
+            priorMachineGunAmmo = mouse.currAmmoM;
+            priorGrenadeAmmo = mouse.currAmmoG;
+            priorFireWorkAmmo = mouse.currAmmoF;
+            priorPoints = point.totalPoints;
+            PlayerPrefs.SetFloat("CheckPointX", positionX);
+            PlayerPrefs.SetFloat("CheckPointY", positionY);
+            PlayerPrefs.SetFloat("CheckPointZ", positionZ);
+            PlayerPrefs.SetInt("PriorH", priorHealth);
+            PlayerPrefs.SetInt("PriorP", priorPistolAmmo);
+            PlayerPrefs.SetInt("PriorS", priorShotGunAmmo);
+            PlayerPrefs.SetInt("PriorM", priorMachineGunAmmo);
+            PlayerPrefs.SetInt("PriorG", priorGrenadeAmmo);
+            PlayerPrefs.SetInt("PriorF", priorFireWorkAmmo);
+            PlayerPrefs.SetInt("PriorScore", priorPoints);
             /*CheckPoints check = other.transform.GetComponent<CheckPoints>();
             check.Save();*/
+        }
+
+        if (other.gameObject.tag == "MiniCheck"){
+            checkpoint = other.gameObject;
         }
 
         if (other.gameObject.tag == "Pit"){
@@ -414,6 +462,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (other.gameObject.tag == "End"){
+            priorHealth = health;
+            priorPistolAmmo = mouse.currAmmoP;
+            priorShotGunAmmo = mouse.currAmmoS;
+            priorMachineGunAmmo = mouse.currAmmoM;
+            priorGrenadeAmmo = mouse.currAmmoG;
+            priorFireWorkAmmo = mouse.currAmmoF;
+            priorPoints = point.totalPoints;
+            PlayerPrefs.SetInt("PriorH", priorHealth);
+            PlayerPrefs.SetInt("PriorP", priorPistolAmmo);
+            PlayerPrefs.SetInt("PriorS", priorShotGunAmmo);
+            PlayerPrefs.SetInt("PriorM", priorMachineGunAmmo);
+            PlayerPrefs.SetInt("PriorG", priorGrenadeAmmo);
+            PlayerPrefs.SetInt("PriorF", priorFireWorkAmmo);
+            PlayerPrefs.SetInt("PriorScore", priorPoints);
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial Level"))
             {
                 SceneManager.LoadScene("LevelOneLoadScreen");
@@ -504,6 +566,33 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene("main menu");
             Cursor.lockState = CursorLockMode.None;
         }
+    }
+
+    void ResetPos(){
+
+        /*pointX = PlayerPrefs.GetFloat("CheckPointX");
+        pointY = PlayerPrefs.GetFloat("CheckPointY");
+        pointZ = PlayerPrefs.GetFloat("CheckPointZ");*/
+        pointX = PlayerPrefs.GetFloat("CheckPointX");
+        pointY = PlayerPrefs.GetFloat("CheckPointY");
+        pointZ = PlayerPrefs.GetFloat("CheckPointZ");
+        priorHealth = PlayerPrefs.GetInt("PriorH");
+        priorPistolAmmo = PlayerPrefs.GetInt("PriorP");
+        priorShotGunAmmo = PlayerPrefs.GetInt("PriorS");
+        priorMachineGunAmmo = PlayerPrefs.GetInt("PriorM");
+        priorGrenadeAmmo = PlayerPrefs.GetInt("PriorG");
+        priorFireWorkAmmo = PlayerPrefs.GetInt("PriorF");
+        priorPoints = PlayerPrefs.GetInt("PriorScore");
+        health = priorHealth;
+        mouse.currAmmoP = priorPistolAmmo;
+        mouse.currAmmoS = priorShotGunAmmo;
+        mouse.currAmmoM = priorMachineGunAmmo;
+        mouse.currAmmoG = priorGrenadeAmmo;
+        mouse.currAmmoF = priorFireWorkAmmo;
+        point.totalPoints = priorPoints;
+        player.transform.position = new Vector3(pointX, pointY, pointZ);
+        
+        
     }
 
     IEnumerator flashHit(){

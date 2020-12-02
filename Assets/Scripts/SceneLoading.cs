@@ -10,12 +10,17 @@ public class SceneLoading : MonoBehaviour
 
     public Image progressBar;
     public string newLevel;
-
+    public float positionX;
+    public float positionY;
+    public float positionZ;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(LoadAsyncOperation(newLevel));
+        PlayerPrefs.SetFloat("CheckPointX", positionX);
+        PlayerPrefs.SetFloat("CheckPointY", positionY);
+        PlayerPrefs.SetFloat("CheckPointZ", positionZ);
     }
 
     IEnumerator LoadAsyncOperation(string newGameLevel)

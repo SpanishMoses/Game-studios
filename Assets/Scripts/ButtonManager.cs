@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    public float positionX;
+    public float positionY;
+    public float positionZ;
+
     public void SinglePlayerbutton(string newGameLevel)
     {
         Time.timeScale = 1f;
@@ -13,6 +17,16 @@ public class ButtonManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             SceneManager.LoadScene(newGameLevel);
+            PlayerPrefs.SetFloat("CheckPointX", positionX);
+            PlayerPrefs.SetFloat("CheckPointY", positionY);
+            PlayerPrefs.SetFloat("CheckPointZ", positionZ);
+            PlayerPrefs.SetInt("PriorH", 50);
+            PlayerPrefs.SetInt("PriorP", 0);
+            PlayerPrefs.SetInt("PriorS", 40);
+            PlayerPrefs.SetInt("PriorM", 120);
+            PlayerPrefs.SetInt("PriorG", 6);
+            PlayerPrefs.SetInt("PriorF", 8);
+            PlayerPrefs.SetInt("PriorScore", 0);
         }
     }
 
