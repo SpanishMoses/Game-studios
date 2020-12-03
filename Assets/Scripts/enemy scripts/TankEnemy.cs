@@ -9,6 +9,10 @@ public class TankEnemy : MonoBehaviour
     public Transform spawnPoint;
     public Animator anim;
 
+    public AudioSource windUp;
+    public AudioClip windUpNoise;
+    public AudioClip groundPoundNoise;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +37,15 @@ public class TankEnemy : MonoBehaviour
         //sendWave();
         anim.SetTrigger("Shockwave");
         StartCoroutine(send());
+    }
+
+    public void wind(){
+        windUp.clip = windUpNoise;
+        windUp.Play();
+    }
+
+    public void pound(){
+        windUp.clip = groundPoundNoise;
+        windUp.Play();
     }
 }

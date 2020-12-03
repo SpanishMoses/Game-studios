@@ -76,6 +76,12 @@ public class PlayerMovement : MonoBehaviour
 
     public PointManager point;
 
+    public AudioClip ammoPickup;
+    public AudioClip healthPickup;
+    public AudioClip weaponPickup;
+    public AudioClip keyPickup;
+    public AudioSource pickups;
+
     float mass = 3.0F; // defines the character mass
     Vector3 impact = Vector3.zero;
 
@@ -336,6 +342,8 @@ public class PlayerMovement : MonoBehaviour
             mouse.shotGunBool = true;
             mouse.currWeapon = 2;
             mouse.useShotgun = true;
+            pickups.clip = weaponPickup;
+            pickups.Play();
             Destroy(other.gameObject);
         }
 
@@ -344,6 +352,8 @@ public class PlayerMovement : MonoBehaviour
             mouse.machineGunBool = true;
             mouse.currWeapon = 3;
             mouse.useMachineGun = true;
+            pickups.clip = weaponPickup;
+            pickups.Play();
             Destroy(other.gameObject);
         }
 
@@ -352,6 +362,8 @@ public class PlayerMovement : MonoBehaviour
             mouse.knifeBool = true;
             mouse.currWeapon = 4;
             mouse.useKnife = true;
+            pickups.clip = weaponPickup;
+            pickups.Play();
             Destroy(other.gameObject);
         }
 
@@ -360,6 +372,8 @@ public class PlayerMovement : MonoBehaviour
             mouse.grenadeBool = true;
             mouse.currWeapon = 5;
             mouse.useGrenade = true;
+            pickups.clip = weaponPickup;
+            pickups.Play();
             Destroy(other.gameObject);
         }
 
@@ -368,6 +382,8 @@ public class PlayerMovement : MonoBehaviour
             mouse.fireWorkBool = true;
             mouse.currWeapon = 6;
             mouse.useFirework = true;
+            pickups.clip = weaponPickup;
+            pickups.Play();
             Destroy(other.gameObject);
         }
 
@@ -413,6 +429,8 @@ public class PlayerMovement : MonoBehaviour
             Consumables consume = other.transform.GetComponent<Consumables>();
             if (consume != null && consume.isHealth == true){
                 health += consume.amount;
+                pickups.clip = healthPickup;
+                pickups.Play();
                 ShakeIt();
                 StartCoroutine(flashGainHealth());
                 Destroy(other.gameObject);
@@ -426,6 +444,8 @@ public class PlayerMovement : MonoBehaviour
                     mouse.currAmmoG += consume.amount;
                     mouse.currAmmoF = consume.amount;
                 Destroy(other.gameObject);
+                pickups.clip = ammoPickup;
+                pickups.Play();
                 mouse.ShakeIt();
                 StartCoroutine(flashAmmo());
                 
