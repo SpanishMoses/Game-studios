@@ -496,7 +496,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (other.gameObject.tag == "Final"){
-            GameObject spot = GameObject.FindGameObjectWithTag("Checkpoint");
+            GameObject spot = GameObject.FindGameObjectWithTag("MiniCheck");
             player.transform.position = spot.transform.position;
             Physics.SyncTransforms();
         }

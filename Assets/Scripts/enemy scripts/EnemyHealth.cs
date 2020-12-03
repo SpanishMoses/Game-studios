@@ -12,6 +12,8 @@ public class EnemyHealth : MonoBehaviour
 
     public GameObject weapon;
 
+    public GameObject[] parts;
+
     public float health;
     public float minHealth;
 
@@ -38,6 +40,12 @@ public class EnemyHealth : MonoBehaviour
             health = minHealth;
         }
         
+        if (health <= 0f){
+            for (int i = 0; i < parts.Length; i++){
+                parts[i].SetActive(false);
+            }
+        }
+
     }
 
     
