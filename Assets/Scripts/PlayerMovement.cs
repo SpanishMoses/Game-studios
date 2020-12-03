@@ -285,11 +285,12 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene(sceneName);
         }
 
-        if (Input.GetKey(KeyCode.Escape)){
+        if (Input.GetKey(KeyCode.Escape) && paused == false){
             mouse.unpaused = false;
             Time.timeScale = 0f;
             paused = true;
             freezeMouse = true;
+            //mouse.shootReady = false;
             resumeButt.SetActive(true);
             quitButt.SetActive(true);
             settingsButt.SetActive(true);
@@ -316,7 +317,7 @@ public class PlayerMovement : MonoBehaviour
         settingsButt.SetActive(false);
         respawnButt.SetActive(false);
         Time.timeScale = 1f;
-        
+        mouse.unpaused = true;
         
     }
 
@@ -707,6 +708,7 @@ public class PlayerMovement : MonoBehaviour
 
     void respawn(){
         player.transform.position = checkpoint.transform.position;
+        player.transform.rotation = checkpoint.transform.rotation;
         Physics.SyncTransforms();
     }
 
