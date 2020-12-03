@@ -112,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource moveNoise;
     public AudioSource jumping;
 
+    public Transform healthPos;
     Vector3 ghostInitialPosition;
     float shakeTime = 0.05f;
     float shakeAmount = 5f;
@@ -636,7 +637,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ShakeIt()
     {
-        ghostInitialPosition = ghost.transform.position;
+        //ghostInitialPosition = ghost.transform.position;
         InvokeRepeating("StartGhostShaking", 0f, 0.005f);
         Invoke("StopGhostShaking", shakeTime);
     }
@@ -654,7 +655,7 @@ public class PlayerMovement : MonoBehaviour
     void StopGhostShaking()
     {
         CancelInvoke("StartGhostShaking");
-        ghost.transform.position = ghostInitialPosition;
+        ghost.transform.position = healthPos.position;
     }
 
     public void newWalk(){

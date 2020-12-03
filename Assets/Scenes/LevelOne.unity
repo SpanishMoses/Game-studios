@@ -2736,6 +2736,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1598575061290416837, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
+--- !u!224 &71124002 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 749343777527752870, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 863931535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &72006389 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 40988276372725595, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
@@ -79515,6 +79520,10 @@ PrefabInstance:
       propertyPath: settingsButt
       value: 
       objectReference: {fileID: 1172083899}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: healthPos
+      value: 
+      objectReference: {fileID: 71124002}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)
