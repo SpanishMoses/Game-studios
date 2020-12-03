@@ -8,12 +8,14 @@ public class PauseButtons : MonoBehaviour
     public GameObject resumeButt;
     public GameObject pauseButt;
     public GameObject settingsButt;
+    public GameObject restartButt;
 
     public void getSettings(){
         settingsMen.SetActive(true);
         resumeButt.SetActive(false);
         pauseButt.SetActive(false);
         settingsButt.SetActive(false);
+        restartButt.SetActive(false);
     }
 
     public void exitSettings(){
@@ -21,5 +23,6 @@ public class PauseButtons : MonoBehaviour
         resumeButt.SetActive(true);
         pauseButt.SetActive(true);
         settingsButt.SetActive(true);
+        restartButt.SetActive(true);
     }
 }

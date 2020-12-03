@@ -60000,6 +60000,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2980011567210181783, guid: 032757c053d9564459b519c4eb73cac2, type: 3}
   m_PrefabInstance: {fileID: 987749081}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1024257593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6616732815696474330, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 2061332521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1033882248
 GameObject:
   m_ObjectHideFlags: 0
@@ -62506,6 +62511,10 @@ PrefabInstance:
       propertyPath: dangerScreen
       value: 
       objectReference: {fileID: 2061332559}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: respawnButt
+      value: 
+      objectReference: {fileID: 1024257593}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -67938,6 +67947,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5962897489141952222, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517983498854183605, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1383710895}
+    - target: {fileID: 6517983498854183605, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: respawnTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616732815696474330, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7085708638494041757, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -67948,7 +67973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7513004467867134447, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 116
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 7513004467867134447, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_SizeDelta.y

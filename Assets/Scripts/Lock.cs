@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Lock : MonoBehaviour
 {
-
+    public AudioSource good;
     public bool unlocked;
     public int keysRequired;
+    public SpriteRenderer rend;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,8 @@ public class Lock : MonoBehaviour
             {
                 play.KeyAmount -= 1;
                 unlocked = true;
+                rend.color = Color.black;
+                good.Play();
             }
         }
     }

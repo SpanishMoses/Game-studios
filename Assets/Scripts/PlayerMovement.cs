@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject resumeButt;
     public GameObject quitButt;
     public GameObject settingsButt;
+    public GameObject respawnButt;
 
     public int KeyAmount;
 
@@ -193,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
                 jumping.Play();
         }
 
-        if (pressedJump == false && isGrounded == false){
+            if (pressedJump == false && isGrounded == false && isDead == false){
                 time += Time.deltaTime;
                 if (time <= maxTime && onLadder == false){
                     if (Input.GetButtonDown("Jump") && pressedJump == false)
@@ -292,6 +293,7 @@ public class PlayerMovement : MonoBehaviour
             resumeButt.SetActive(true);
             quitButt.SetActive(true);
             settingsButt.SetActive(true);
+            respawnButt.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
         }
 
@@ -312,9 +314,15 @@ public class PlayerMovement : MonoBehaviour
         resumeButt.SetActive(false);
         quitButt.SetActive(false);
         settingsButt.SetActive(false);
+        respawnButt.SetActive(false);
         Time.timeScale = 1f;
         
         
+    }
+
+    public void respawnTime(){
+        SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
     }
 
     public IEnumerator Dash()
@@ -618,6 +626,7 @@ public class PlayerMovement : MonoBehaviour
             isDead = true;
             freezeMouse = true;
             deadText.SetActive(true);
+            canDash = false;
             cam.transform.position = groundCheck.position;
         }
         if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
@@ -629,6 +638,7 @@ public class PlayerMovement : MonoBehaviour
             cantMove = true;
             speed = 0;
             freezeMouse = true;
+            canDash = false;
             StartCoroutine(sendBack());
         }
     }
