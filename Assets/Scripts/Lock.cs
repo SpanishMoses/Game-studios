@@ -8,6 +8,7 @@ public class Lock : MonoBehaviour
     public bool unlocked;
     public int keysRequired;
     public SpriteRenderer rend;
+    public Sprite unlockedVer;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,9 @@ public class Lock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (unlocked == true){
+            rend.sprite = unlockedVer;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
