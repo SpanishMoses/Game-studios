@@ -22732,6 +22732,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5962897489141952222, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
   m_PrefabInstance: {fileID: 511888334}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &511888360 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 749343777527752870, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 511888334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &512405896 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3078089889733719319, guid: 2f14224bfe77e6e42886d4b3165598a3, type: 3}
@@ -36430,6 +36435,10 @@ PrefabInstance:
       propertyPath: settingsButt
       value: 
       objectReference: {fileID: 511888359}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: healthPos
+      value: 
+      objectReference: {fileID: 511888360}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)
