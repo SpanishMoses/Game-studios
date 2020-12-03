@@ -47165,7 +47165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 722936964421982949, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 864305034155825840, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: mouse
@@ -47341,7 +47341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969956366114145506, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
@@ -47546,6 +47546,11 @@ GameObject:
 --- !u!224 &651108852 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 749343777527752870, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 651108821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &651108853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5421136428886655923, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
   m_PrefabInstance: {fileID: 651108821}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &662068552
@@ -48520,6 +48525,10 @@ PrefabInstance:
       propertyPath: healthPos
       value: 
       objectReference: {fileID: 651108852}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: dangerScreen
+      value: 
+      objectReference: {fileID: 651108853}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)

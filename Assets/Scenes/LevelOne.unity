@@ -44285,6 +44285,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7787872130326623525, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
   m_PrefabInstance: {fileID: 863931535}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &863931553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5421136428886655923, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 863931535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &866694183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5774970288954368735, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
@@ -79524,6 +79529,10 @@ PrefabInstance:
       propertyPath: healthPos
       value: 
       objectReference: {fileID: 71124002}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: dangerScreen
+      value: 
+      objectReference: {fileID: 863931553}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)

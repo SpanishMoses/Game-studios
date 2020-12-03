@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator camAnim;
 
+    public GameObject cam;
+
     public float defaultSpeed = 12f;
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -59,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject gainAmmoPic;
     public GameObject deadScreen;
     public GameObject deadText;
+    public GameObject dangerScreen;
 
     public GameObject keyText;
     public TMP_Text keysRequiredText;
@@ -220,6 +223,14 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Dash());
                 StartCoroutine(DashRecharge());
             }
+        }
+
+        if (health < 30){
+            dangerScreen.SetActive(true);
+        }
+
+        if (health >= 30){
+            dangerScreen.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.L)){
@@ -598,17 +609,34 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(flashHit());
         if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Arena"))
         {
-            mouse.unpaused = false;
-            Time.timeScale = 0f;
+            mouse.unpaused = true;
+            //Time.timeScale = 0f;
+            mouse.shootEnabled = false;
+            damagePic.SetActive(true);
+            cantMove = true;
+            speed = 0;
             isDead = true;
             freezeMouse = true;
             deadText.SetActive(true);
+            cam.transform.position = groundCheck.position;
         }
         if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
         {
-            SceneManager.LoadScene("main menu");
-            Cursor.lockState = CursorLockMode.None;
+            
+            mouse.unpaused = true;
+            mouse.shootEnabled = false;
+            damagePic.SetActive(true);
+            cantMove = true;
+            speed = 0;
+            freezeMouse = true;
+            StartCoroutine(sendBack());
         }
+    }
+
+    IEnumerator sendBack(){
+        yield return new WaitForSeconds(2);
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("main menu");
     }
 
     void ResetPos(){

@@ -4009,7 +4009,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560436549}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -62330,7 +62330,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375548241}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -62502,6 +62502,10 @@ PrefabInstance:
       propertyPath: healthPos
       value: 
       objectReference: {fileID: 2061332558}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: dangerScreen
+      value: 
+      objectReference: {fileID: 2061332559}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -68545,6 +68549,11 @@ GameObject:
 --- !u!224 &2061332558 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 749343777527752870, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 2061332521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2061332559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5421136428886655923, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
   m_PrefabInstance: {fileID: 2061332521}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2069784114
