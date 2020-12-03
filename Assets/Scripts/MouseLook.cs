@@ -203,9 +203,9 @@ public class MouseLook : MonoBehaviour
             playerBody.Rotate(Vector3.up * mouseX);
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0)){
+        /*if (Input.GetKeyUp(KeyCode.Mouse0)){
             unpaused = true;
-        }
+        }*/
 
         if (shootEnabled == false){
             weapons.SetActive(false);
