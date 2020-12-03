@@ -567,9 +567,11 @@ public class PlayerMovement : MonoBehaviour
                 keyText.SetActive(true);
                 keysRequiredText.text = "Need " + (door.keysRequired -= KeyAmount) + " more to unlock";
             }
-            if (KeyAmount == door.keysRequired){
+            if (KeyAmount >= door.keysRequired && door.unlocked == false){
                 door.unlocked = true;
                 KeyAmount--;
+                pickups.clip = keyPickup;
+                pickups.Play();
             }
         }
 
