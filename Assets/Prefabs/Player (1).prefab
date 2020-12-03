@@ -145,6 +145,7 @@ MonoBehaviour:
   resumeButt: {fileID: 0}
   quitButt: {fileID: 0}
   settingsButt: {fileID: 0}
+  respawnButt: {fileID: 0}
   KeyAmount: 0
   point: {fileID: 0}
   ammoPickup: {fileID: 8300000, guid: 915cdefe4496db3479db695f11c7186a, type: 3}
@@ -386,13 +387,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.646
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 245
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -488,7 +489,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 119
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

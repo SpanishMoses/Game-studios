@@ -121,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource sound;
     public AudioSource moveNoise;
     public AudioSource jumping;
+    public float pitch;
 
     public Transform healthPos;
     Vector3 ghostInitialPosition;
@@ -192,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
                 pressedJump = true;
                 jumping.Play();
+                setPitch();
         }
 
             if (pressedJump == false && isGrounded == false && isDead == false){
@@ -324,6 +326,11 @@ public class PlayerMovement : MonoBehaviour
     public void respawnTime(){
         SceneManager.LoadScene(sceneName);
         Time.timeScale = 1f;
+    }
+
+    public void setPitch(){
+        pitch = Random.Range(0.5f, 1.5f);
+        jumping.pitch = pitch;
     }
 
     public IEnumerator Dash()
