@@ -10,6 +10,8 @@ public class Grenade : MonoBehaviour
     public float radius = 10f;
     public float damage = 10f;
 
+    public GameObject blood;
+
     public GameObject effect;
 
     public AudioSource hit;
@@ -41,12 +43,19 @@ public class Grenade : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
+                Instantiate(blood, near.transform.position, Quaternion.identity);
                 Debug.Log("Got some points");
             }
             PlayerMovement playerMove = near.GetComponent<PlayerMovement>();
             if (playerMove != null)
             {
                 playerMove.mouse.camAnim.SetTrigger("camShake2");
+            }
+            BossDrone bossDrone = near.transform.GetComponent<BossDrone>();
+            if (bossDrone != null)
+            {
+                bossDrone.TakeDamage(damage);
+                Instantiate(blood, near.transform.position, Quaternion.identity);
             }
         }
 
