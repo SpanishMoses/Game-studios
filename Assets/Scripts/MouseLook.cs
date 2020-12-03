@@ -289,6 +289,7 @@ public class MouseLook : MonoBehaviour
             }
 
 
+
             //weapon switching logic
             if (Input.GetKey(KeyCode.Alpha1) && play.freezeMouse == false || currWeapon == 1)
             {
