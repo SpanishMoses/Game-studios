@@ -62498,6 +62498,10 @@ PrefabInstance:
       propertyPath: settingsButt
       value: 
       objectReference: {fileID: 2061332557}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: healthPos
+      value: 
+      objectReference: {fileID: 2061332558}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -68536,6 +68540,11 @@ GameObject:
 --- !u!1 &2061332557 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5962897489141952222, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 2061332521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2061332558 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 749343777527752870, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
   m_PrefabInstance: {fileID: 2061332521}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2069784114

@@ -131,6 +131,7 @@ MonoBehaviour:
   partOfArray: 0
   specialDrop: 0
   weapon: {fileID: 0}
+  endPortal: {fileID: 0}
   parts:
   - {fileID: 1137924860593609262}
   - {fileID: 1209954558737099493}
@@ -206,9 +207,13 @@ MonoBehaviour:
   rumbling: {fileID: 8848755053167775654, guid: 35e29c93f9c4a2246a5434d788ea6ad8, type: 3}
   spawnPoint: {fileID: 8585884081781861591}
   anim: {fileID: 332369652815477463}
+  isDead: 0
   windUp: {fileID: 4808816476716377910}
   windUpNoise: {fileID: 8300000, guid: 4dce13aa2facfc942abc91896a8c5e66, type: 3}
   groundPoundNoise: {fileID: 8300000, guid: e83f701d10cecfa4397d8bdf2d8c135b, type: 3}
+  health: {fileID: 332369652815477457}
+  time: 0
+  maxTime: 3
 --- !u!114 &8982888408107415885
 MonoBehaviour:
   m_ObjectHideFlags: 0

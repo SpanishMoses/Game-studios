@@ -9,20 +9,38 @@ public class TankEnemy : MonoBehaviour
     public Transform spawnPoint;
     public Animator anim;
 
+    public bool isDead;
+
     public AudioSource windUp;
     public AudioClip windUpNoise;
     public AudioClip groundPoundNoise;
 
+    public EnemyHealth health;
+
+    public float time;
+    public float maxTime;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(send());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+      if (health.health <= 0){
+            isDead = true;
+        }   
+
+      if (isDead == false){
+            time += Time.deltaTime;
+            if (time >= maxTime){
+                anim.SetTrigger("Shockwave");
+                time = 0;
+            }
+        }
+
     }
 
     public void sendWave(){
@@ -32,12 +50,12 @@ public class TankEnemy : MonoBehaviour
         //grenadeInstance.GetComponent<Rigidbody>().AddForce(direction.normalized * 25f, ForceMode.Impulse);
     }
 
-    IEnumerator send(){
+    /*IEnumerator send(){
         yield return new WaitForSeconds(3);
         //sendWave();
         anim.SetTrigger("Shockwave");
         StartCoroutine(send());
-    }
+    }*/
 
     public void wind(){
         windUp.clip = windUpNoise;

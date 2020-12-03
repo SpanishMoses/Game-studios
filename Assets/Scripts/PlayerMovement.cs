@@ -625,6 +625,12 @@ public class PlayerMovement : MonoBehaviour
         priorFireWorkAmmo = PlayerPrefs.GetInt("PriorF");
         priorPoints = PlayerPrefs.GetInt("PriorScore");
         health = priorHealth;
+        PlayerPrefs.SetInt("Current_Score", priorPoints);
+        PlayerPrefs.SetInt("Pistol_Ammo", priorPistolAmmo);
+        PlayerPrefs.SetInt("Shotgun_Ammo", priorShotGunAmmo);
+        PlayerPrefs.SetInt("Machinegun_Ammo", priorMachineGunAmmo);
+        PlayerPrefs.SetInt("Grenade_Ammo", priorGrenadeAmmo);
+        PlayerPrefs.SetInt("Firework_Ammo", priorFireWorkAmmo);
         mouse.currAmmoP = priorPistolAmmo;
         mouse.currAmmoS = priorShotGunAmmo;
         mouse.currAmmoM = priorMachineGunAmmo;
