@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public bool specialDrop;
 
     public GameObject weapon;
+    public GameObject endPortal;
 
     public GameObject[] parts;
 
@@ -101,9 +102,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void EndGame(){
         Destroy(gameObject);
-        
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("main menu");
+        endPortal.SetActive(true);
+            
         
     }
 }

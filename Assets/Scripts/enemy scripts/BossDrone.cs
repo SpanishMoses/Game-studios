@@ -18,6 +18,8 @@ public class BossDrone : MonoBehaviour
 
     public Boss boss;
 
+    public AudioSource noise;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +81,7 @@ public class BossDrone : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
+            noise.Play();
             stopped = true;
             boss.Sub(1);
             sphere.enabled = false;
@@ -88,7 +91,7 @@ public class BossDrone : MonoBehaviour
     IEnumerator enableReset(){
         yield return new WaitForSeconds(0.01f);
         stopped = false;
-        health = 5;        
+        health = 20;        
         sphere.enabled = true;
     }
 

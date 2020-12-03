@@ -222,6 +222,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.L)){
+            GameObject spot = GameObject.FindGameObjectWithTag("MiniCheck");
+            player.transform.position = spot.transform.position;
+            Physics.SyncTransforms();
+        }
+
         //Controls camera bob while moving and jumping
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
@@ -322,6 +328,14 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBetweenDashes);
         canDash = true;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Boss"){
+            Vector3 direction = collision.transform.position - transform.position;
+            AddImpact(direction, 300f);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -519,6 +533,11 @@ public class PlayerMovement : MonoBehaviour
             GameObject spot = GameObject.FindGameObjectWithTag("MiniCheck");
             player.transform.position = spot.transform.position;
             Physics.SyncTransforms();
+        }
+
+        if (other.gameObject.tag == "finish"){
+            SceneManager.LoadScene("main menu");
+            Cursor.lockState = CursorLockMode.None;
         }
 
         if (other.gameObject.tag == "Door"){

@@ -43,6 +43,13 @@ public class Boss : MonoBehaviour
     public float radius;
     public bool expandDong;
 
+
+    public AudioSource bossNoise;
+    public AudioClip spawnSound;
+    public AudioClip shootSound;
+    public AudioClip staggeredSound;
+    public AudioClip deathSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,13 +63,14 @@ public class Boss : MonoBehaviour
         timeBetweenShots = Random.Range(2, 4);
         playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         navMeshAgent = this.GetComponent<NavMeshAgent>();
+        bossNoise.clip = spawnSound;
+        bossNoise.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, playerLoc.transform.position) < 5 && staggered == false)
-        {
+        
             Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
             foreach (Collider near in colliders)
@@ -78,7 +86,7 @@ public class Boss : MonoBehaviour
                     playerMove.AddImpact(direction, 300f);
                 }
             }
-        }
+        
 
         SetDestination();
 
@@ -93,6 +101,8 @@ public class Boss : MonoBehaviour
             if (dronesStaggared == 0){
                 staggered = true;
                 collid.enabled = true;
+                bossNoise.clip = staggeredSound;
+                bossNoise.Play();
                 //mov.locActive = false;
                 canRumble = false;
                 canShoot = false;
@@ -165,6 +175,8 @@ public class Boss : MonoBehaviour
 
         private void shoot()
     {
+        bossNoise.clip = shootSound;
+        bossNoise.Play();
         animator.SetTrigger("IsShooting");
         Instantiate(spitEffect, parent.transform.position, Quaternion.identity);
         Instantiate(bullet, parent.transform.position, Quaternion.identity);
@@ -201,5 +213,10 @@ public class Boss : MonoBehaviour
         expandDong = true;
         yield return new WaitForSeconds(0.5f);
         expandDong = false;
+    }
+
+    void deadSound(){
+        bossNoise.clip = deathSound;
+        bossNoise.Play();
     }
 }
