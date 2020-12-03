@@ -78,6 +78,8 @@ public class MouseLook : MonoBehaviour
     public GameObject blood;
     public GameObject impact;
     public GameObject shell;
+    public GameObject rifleShell;
+    public GameObject shellEjectPt;
     public GameObject ammoEffect;
 
     public GameObject grenade;
@@ -437,7 +439,7 @@ public class MouseLook : MonoBehaviour
                 crosshairAnim.SetTrigger("Expand");
                 camAnim.SetTrigger("camShake2");
                 weaponShoot.Play();
-                Instantiate(shell, transform.position, transform.rotation);
+                Instantiate(shell, shellEjectPt.transform.position, transform.rotation);
                 StartCoroutine(reload());
             }
 
@@ -454,6 +456,7 @@ public class MouseLook : MonoBehaviour
                 anim.SetTrigger("RifleShoot");
                 crosshairAnim.SetTrigger("Expand");
                 camAnim.SetTrigger("camShake3");
+                Instantiate(rifleShell, shellEjectPt.transform.position, transform.rotation);
                 weaponShoot.Play();
                 ShootMachineGun();
             }

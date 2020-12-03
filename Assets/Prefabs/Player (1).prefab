@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6367317543166132023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7481424005390363719}
+  m_Layer: 0
+  m_Name: shell eject pt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7481424005390363719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6367317543166132023}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.01, y: 1.13, z: 1.46}
+  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_Children: []
+  m_Father: {fileID: 7997200904571926898}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7997200904571926902
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +65,7 @@ Transform:
   - {fileID: 7997200905138209505}
   - {fileID: 7997200904646466786}
   - {fileID: 7997200905455824641}
+  - {fileID: 7481424005390363719}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -106,12 +137,26 @@ MonoBehaviour:
   keysRequiredText: {fileID: 0}
   player: {fileID: 7997200904571926902}
   checkpoint: {fileID: 0}
+  miniCheckPoint: {fileID: 0}
   dropSahdow: {fileID: 0}
   resumeButt: {fileID: 0}
   quitButt: {fileID: 0}
   settingsButt: {fileID: 0}
   KeyAmount: 0
   point: {fileID: 0}
+  pointX: 0
+  pointY: 0
+  pointZ: 0
+  curScene:
+    m_Handle: 0
+  sceneName: 
+  priorHealth: 0
+  priorPistolAmmo: 0
+  priorShotGunAmmo: 0
+  priorMachineGunAmmo: 0
+  priorGrenadeAmmo: 0
+  priorFireWorkAmmo: 0
+  priorPoints: 0
   hurtNum: 0
   chooseNewNoise: 0
   hurt1: {fileID: 8300000, guid: d83e7957fba1a1644b9f7525b63f5224, type: 3}
@@ -127,6 +172,7 @@ MonoBehaviour:
   sound: {fileID: 5277950087755630345}
   moveNoise: {fileID: 7614781457003351789}
   jumping: {fileID: -7716338958077030471}
+  healthPos: {fileID: 0}
   ghost: {fileID: 0}
 --- !u!82 &5277950087755630345
 AudioSource:
@@ -5425,6 +5471,8 @@ MonoBehaviour:
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   impact: {fileID: 4738052880662677020, guid: 36aa7e35003522348940264f59bc4080, type: 3}
   shell: {fileID: 1969163310703086288, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
+  rifleShell: {fileID: 1969163310703086288, guid: 4ef38bcb717306743b2feed63d3e8293, type: 3}
+  shellEjectPt: {fileID: 6367317543166132023}
   ammoEffect: {fileID: 4738052880662677020, guid: 3d0afa1328389ee4d82baa439c797139, type: 3}
   grenade: {fileID: 7690083196142004104, guid: 8983329f183a86d43b49422d2904633e, type: 3}
   firework: {fileID: 8610411357180702853, guid: d5d7ed91f848f4b429091202f40e49ee, type: 3}
