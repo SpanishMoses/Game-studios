@@ -186,10 +186,10 @@ public class MouseLook : MonoBehaviour
     {
 
         //Death camera animation
-        if (play.health <= 0)
+        /*if (play.health <= 0)
         {
             camAnim.SetBool("IsDead", true);
-        }
+        }*/
 
         if (play.freezeMouse == false)
         {
