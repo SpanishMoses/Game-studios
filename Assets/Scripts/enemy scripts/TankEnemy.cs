@@ -21,7 +21,7 @@ public class TankEnemy : MonoBehaviour
         
     }
 
-    void sendWave(){
+    public void sendWave(){
         Vector3 direction = enemy.playerLoc.position - transform.position;
         GameObject grenadeInstance = Instantiate(rumbling, spawnPoint.transform.position, Quaternion.identity);
         //grenadeInstance.transform.forward = direction.normalized;
