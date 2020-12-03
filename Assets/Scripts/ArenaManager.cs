@@ -24,6 +24,13 @@ public class ArenaManager : MonoBehaviour
 
     public PlayerMovement player;
 
+    public AudioSource musicMan;
+    public AudioClip track1;
+    public AudioClip track2;
+    public AudioClip track3;
+    public AudioClip track4;
+    public int songNum;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +42,7 @@ public class ArenaManager : MonoBehaviour
         round = PlayerPrefs.GetInt("Current_Round", 1);
         highRound = PlayerPrefs.GetInt("high_wave", 0);
         //enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        chooseSong();
     }
 
     // Update is called once per frame
@@ -79,9 +87,9 @@ public class ArenaManager : MonoBehaviour
 
         roundText.text = "Round: " + round;
 
-        if (player.health <= 0){
-            SceneManager.LoadScene("MainMenuLoadScene");
-        }
+        /*if (player.health <= 0){
+            SceneManager.LoadScene("MainMenuLoadScreen");
+        }*/
 
         PlayerPrefs.SetInt("Current_Round", round);
         if (round > highRound){
@@ -109,5 +117,48 @@ public class ArenaManager : MonoBehaviour
         randomText.text = "SLAUGHTER";
         yield return new WaitForSeconds(1f);
         randomTextObj.SetActive(false);
+    }
+
+    public void chooseSong(){
+        songNum = Random.Range(1, 8);
+        if (songNum == 1){
+            musicMan.clip = track1;
+            musicMan.Play();
+        }
+        if (songNum == 2)
+        {
+            musicMan.clip = track1;
+            musicMan.Play();
+        }
+        if (songNum == 3)
+        {
+            musicMan.clip = track2;
+            musicMan.Play();
+        }
+        if (songNum == 4)
+        {
+            musicMan.clip = track2;
+            musicMan.Play();
+        }
+        if (songNum == 5)
+        {
+            musicMan.clip = track3;
+            musicMan.Play();
+        }
+        if (songNum == 6)
+        {
+            musicMan.clip = track3;
+            musicMan.Play();
+        }
+        if (songNum == 7)
+        {
+            musicMan.clip = track4;
+            musicMan.Play();
+        }
+        if (songNum == 8)
+        {
+            musicMan.clip = track4;
+            musicMan.Play();
+        }
     }
 }
