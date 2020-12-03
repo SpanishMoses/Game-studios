@@ -7,6 +7,7 @@ public class TankEnemy : MonoBehaviour
     public EnemyMove enemy;
     public GameObject rumbling;
     public Transform spawnPoint;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,8 @@ public class TankEnemy : MonoBehaviour
 
     IEnumerator send(){
         yield return new WaitForSeconds(3);
-        sendWave();
+        //sendWave();
+        anim.SetTrigger("Shockwave");
         StartCoroutine(send());
     }
 }
