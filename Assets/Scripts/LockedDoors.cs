@@ -5,7 +5,8 @@ using UnityEngine;
 public class LockedDoors : MonoBehaviour
 {
     public GameObject door;
-    public int keysRequired;
+    public GameObject door1;
+    public GameObject door2;
 
     // Start is called before the first frame update
     void Start()
@@ -16,10 +17,12 @@ public class LockedDoors : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (door1.GetComponent<Lock>().unlocked == true && door2.GetComponent<Lock>().unlocked == true){
+            door.SetActive(false);
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player"){
             PlayerMovement play = collision.transform.GetComponent<PlayerMovement>();
@@ -28,5 +31,5 @@ public class LockedDoors : MonoBehaviour
                 Debug.Log("collided");
             }
         }
-    }
+    }*/
 }

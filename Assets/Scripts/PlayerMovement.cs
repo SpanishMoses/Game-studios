@@ -522,7 +522,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (other.gameObject.tag == "Door"){
-            LockedDoors door = other.transform.GetComponent<LockedDoors>();
+            Lock door = other.transform.GetComponent<Lock>();
             if (KeyAmount < door.keysRequired){
                 keyText.SetActive(true);
                 keysRequiredText.text = "Need " + (door.keysRequired -= KeyAmount) + " more to unlock";
