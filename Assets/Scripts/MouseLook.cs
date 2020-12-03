@@ -184,6 +184,13 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Death camera animation
+        if (play.health <= 0)
+        {
+            camAnim.SetBool("IsDead", true);
+        }
+
         if (play.freezeMouse == false)
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
