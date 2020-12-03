@@ -528,7 +528,8 @@ public class PlayerMovement : MonoBehaviour
                 keysRequiredText.text = "Need " + (door.keysRequired -= KeyAmount) + " more to unlock";
             }
             if (KeyAmount == door.keysRequired){
-                Destroy(other.gameObject);
+                door.unlocked = true;
+                KeyAmount--;
             }
         }
 

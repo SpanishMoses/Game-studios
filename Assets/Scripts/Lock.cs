@@ -25,8 +25,9 @@ public class Lock : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             PlayerMovement play = collision.transform.GetComponent<PlayerMovement>();
-            if (play.KeyAmount == 1)
+            if (play.KeyAmount <= 1 && unlocked == false)
             {
+                play.KeyAmount -= 1;
                 unlocked = true;
             }
         }
