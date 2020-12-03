@@ -9,6 +9,10 @@ public class ButtonManager : MonoBehaviour
     public float positionY;
     public float positionZ;
 
+    public AudioSource noise;
+    public AudioClip hover;
+    public AudioClip enterSound;
+
     public void SinglePlayerbutton(string newGameLevel)
     {
         Time.timeScale = 1f;
@@ -65,5 +69,15 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("EnableFireWork", 1);
 
         PlayerPrefs.SetInt("Current_Round", 1);
+    }
+
+    public void hoverNow(){
+        noise.clip = hover;
+        noise.Play();
+    }
+
+    public void nowClick(){
+        noise.clip = enterSound;
+        noise.Play();
     }
 }

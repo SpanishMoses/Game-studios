@@ -467,6 +467,8 @@ public class PlayerMovement : MonoBehaviour
 
             if (consume != null && consume.isKey == true){
                 KeyAmount += consume.amount;
+                pickups.clip = keyPickup;
+                pickups.Play();
                 Destroy(other.gameObject);
             }
 
@@ -638,8 +640,11 @@ public class PlayerMovement : MonoBehaviour
         mouse.currAmmoF = priorFireWorkAmmo;
         point.totalPoints = priorPoints;
         player.transform.position = new Vector3(pointX, pointY, pointZ);
-        
-        
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
+        {
+            PlayerPrefs.SetInt("Pistol_Ammo", 100);
+        }
+
     }
 
     IEnumerator flashHit(){

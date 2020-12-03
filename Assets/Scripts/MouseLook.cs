@@ -843,6 +843,7 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
+                secondarySound.Play();
                 Instantiate(blood, kHit.point, Quaternion.identity);
                 if (point.health.health <= 0)
                 {
@@ -858,6 +859,7 @@ public class MouseLook : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
+                secondarySound.Play();
                 Instantiate(blood, kHit.point, Quaternion.identity);
             }
         }

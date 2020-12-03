@@ -231,6 +231,9 @@ MonoBehaviour:
   positionX: 0
   positionY: 0
   positionZ: 0
+  noise: {fileID: 336321654}
+  hover: {fileID: 8300000, guid: e4a7aac970e887c4b9b9fe72ffda6a2a, type: 3}
+  enterSound: {fileID: 8300000, guid: 267cee5fb0b787d468f290636875d003, type: 3}
 --- !u!114 &336321651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,9 +440,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 954994485}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 954994481}
+          m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+          m_MethodName: hoverNow
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -452,7 +455,19 @@ MonoBehaviour:
   - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 336321650}
+          m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+          m_MethodName: nowClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &406112663
 GameObject:
   m_ObjectHideFlags: 0
@@ -6193,6 +6208,9 @@ MonoBehaviour:
   positionX: 4.05
   positionY: 3.12
   positionZ: 73.95
+  noise: {fileID: 336321654}
+  hover: {fileID: 8300000, guid: e4a7aac970e887c4b9b9fe72ffda6a2a, type: 3}
+  enterSound: {fileID: 8300000, guid: 267cee5fb0b787d468f290636875d003, type: 3}
 --- !u!114 &954994482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6411,9 +6429,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 954994485}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 954994481}
+          m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+          m_MethodName: hoverNow
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6426,7 +6444,19 @@ MonoBehaviour:
   - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 954994481}
+          m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+          m_MethodName: nowClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &971628658
 GameObject:
   m_ObjectHideFlags: 0
@@ -6758,6 +6788,9 @@ MonoBehaviour:
   positionX: 10.9
   positionY: 5.55
   positionZ: 73.7
+  noise: {fileID: 336321654}
+  hover: {fileID: 8300000, guid: e4a7aac970e887c4b9b9fe72ffda6a2a, type: 3}
+  enterSound: {fileID: 8300000, guid: 267cee5fb0b787d468f290636875d003, type: 3}
 --- !u!114 &1605450680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6976,9 +7009,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 954994485}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 954994481}
+          m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+          m_MethodName: hoverNow
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6991,7 +7024,19 @@ MonoBehaviour:
   - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1605450679}
+          m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+          m_MethodName: nowClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1705710311
 GameObject:
   m_ObjectHideFlags: 0
