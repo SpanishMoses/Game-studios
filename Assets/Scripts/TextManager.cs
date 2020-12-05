@@ -93,7 +93,9 @@ public class TextManager : MonoBehaviour
             text.text = "";
             sentenceNum++;
             StartCoroutine(Type());
-
+        } else
+        {
+            text.text = "";
         }
     }
 }

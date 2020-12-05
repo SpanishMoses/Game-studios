@@ -380,6 +380,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (other.gameObject.tag == "Shotgun"){
+            mouse.wep.anim.SetTrigger("WeaponSwitch");
             mouse.shotGunBool = true;
             mouse.currWeapon = 2;
             mouse.useShotgun = true;
@@ -390,6 +391,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Rifle")
         {
+            mouse.wep.anim.SetTrigger("WeaponSwitch");
             mouse.machineGunBool = true;
             mouse.currWeapon = 3;
             mouse.useMachineGun = true;
@@ -400,6 +402,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Knife")
         {
+            mouse.wep.anim.SetTrigger("WeaponSwitch");
             mouse.knifeBool = true;
             mouse.currWeapon = 4;
             mouse.useKnife = true;
@@ -410,6 +413,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Grenade")
         {
+            mouse.wep.anim.SetTrigger("WeaponSwitch");
             mouse.grenadeBool = true;
             mouse.currWeapon = 5;
             mouse.useGrenade = true;
@@ -420,6 +424,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "FireWork")
         {
+            mouse.wep.anim.SetTrigger("WeaponSwitch");
             mouse.fireWorkBool = true;
             mouse.currWeapon = 6;
             mouse.useFirework = true;
