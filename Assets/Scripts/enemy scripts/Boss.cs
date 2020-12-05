@@ -8,6 +8,7 @@ public class Boss : MonoBehaviour
     public GameObject rumbling;
     public GameObject[] drones;
     public GameObject spawnPoint;
+    public GameObject noiseBlock;
 
     public BoxCollider collid;
     public EnemyMove mov;
@@ -101,8 +102,7 @@ public class Boss : MonoBehaviour
             if (dronesStaggared == 0){
                 staggered = true;
                 collid.enabled = true;
-                bossNoise.clip = staggeredSound;
-                bossNoise.Play();
+                noiseBlock.SetActive(true);
                 //mov.locActive = false;
                 canRumble = false;
                 canShoot = false;
@@ -138,6 +138,7 @@ public class Boss : MonoBehaviour
                 resetDrones = true;
                 canShoot = true;
                 canRumble = true;
+                noiseBlock.SetActive(false);
                 dronesStaggared = drones.Length;
             }
         }

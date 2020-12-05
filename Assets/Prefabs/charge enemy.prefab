@@ -204,6 +204,7 @@ MonoBehaviour:
   partOfArray: 0
   specialDrop: 0
   weapon: {fileID: 1280918458059091844, guid: 0486ee34cc2e65c489b65fd4471f5a99, type: 3}
+  endPortal: {fileID: 0}
   parts:
   - {fileID: 3907006671973228752}
   - {fileID: 7746238114183913061}
@@ -399,7 +400,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -518,7 +519,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.75
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -614,7 +615,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.75
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -375,6 +375,7 @@ MonoBehaviour:
   partOfArray: 0
   specialDrop: 0
   weapon: {fileID: 0}
+  endPortal: {fileID: 0}
   parts:
   - {fileID: 1106799023466133000}
   - {fileID: 2571454294734708412}
@@ -491,7 +492,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.75
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -587,7 +588,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.75
       inSlope: 0
       outSlope: 0
       tangentMode: 0

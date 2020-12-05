@@ -68,6 +68,7 @@ public class ChargingEnemy : MonoBehaviour
                 speed = 20;
                 windSound.Play();
                 isCharging = true;
+                charging.Play();
                 //rb.constraints = RigidbodyConstraints.None;
                 //rb.constraints = RigidbodyConstraints.FreezePositionY;
             }
@@ -75,7 +76,7 @@ public class ChargingEnemy : MonoBehaviour
 
         if (isCharging == true){
             animator.SetBool("IsMoving", true);
-            charging.Play();
+            
             if (playerLoc.transform.position != null)
             {
                 Vector3 targetVector = playerLoc.transform.position;
