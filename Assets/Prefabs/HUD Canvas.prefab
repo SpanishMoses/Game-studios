@@ -1440,6 +1440,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809d9725ebe9d5d448e7ea9c884d77d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouse: {fileID: 0}
+  anim: {fileID: 0}
+  switchWep: 0
+  justSwitched: 0
+  switchWepTime: 0
+  maxSwitch: 0.01
+  endSwitch: 0
 --- !u!1 &1455253095933583751
 GameObject:
   m_ObjectHideFlags: 0

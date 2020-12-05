@@ -15,6 +15,8 @@ public class MouseLook : MonoBehaviour
     // player prefs help from https://www.youtube.com/watch?v=ETXPdH4QHKA&ab_channel=GameDevSpecialist
     //shake code from https://www.youtube.com/watch?v=kzHHAdvVkto
 
+    public WeaponSwitch wep;
+
     public bool shootEnabled;
     public GameObject weapons;
     public GameObject crossHair;
@@ -222,11 +224,26 @@ public class MouseLook : MonoBehaviour
 
             float w = Input.GetAxis("Mouse ScrollWheel");
             if (w < 0f && play.freezeMouse == false){
-                currWeapon = currWeapon + 1;
+                //currWeapon = currWeapon + 1;
                 upChange = true;
+                wep.justSwitched = true;
+                if (wep.endSwitch == true){
+                    wep.endSwitch = false;
+                    currWeapon = currWeapon + 1;
+                    wep.anim.SetTrigger("WeaponSwitch");
+
+                }
             } else if (w > 0f && play.freezeMouse == false){
-                currWeapon = currWeapon - 1;
+                //currWeapon = currWeapon - 1;
                 upChange = false;
+                wep.justSwitched = true;
+                if (wep.endSwitch == true)
+                {
+                    wep.endSwitch = false;
+                    currWeapon = currWeapon - 1;
+                    wep.anim.SetTrigger("WeaponSwitch");
+
+                }
             }
 
             if (currWeapon < 1){
