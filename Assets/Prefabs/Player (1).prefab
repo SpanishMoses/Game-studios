@@ -154,6 +154,7 @@ MonoBehaviour:
   weaponPickup: {fileID: 8300000, guid: 0653a92fdc4869b468f132e8ffcdb0e2, type: 3}
   keyPickup: {fileID: 8300000, guid: f3c7d33a8a382384faab753268e1d42b, type: 3}
   pickups: {fileID: 7533758336592620477}
+  death: {fileID: 8300000, guid: 4fbbbf02396e1f5459d97ffc4a8720cf, type: 3}
   pointX: 0
   pointY: 0
   pointZ: 0
@@ -581,6 +582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ceb23fa8fe0caa4c84a2e16ca1bc18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dyn: {fileID: 0}
+  anim: {fileID: 0}
   music: {fileID: 0}
   enemies: []
   enemiesSpawned: 0

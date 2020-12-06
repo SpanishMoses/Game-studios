@@ -35,7 +35,7 @@ public class NextSentence : MonoBehaviour
 
     IEnumerator Next(){
         textMan.text.text = "";
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.05f);
         textMan.NextSentence();
     }
 }

@@ -85,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip weaponPickup;
     public AudioClip keyPickup;
     public AudioSource pickups;
+    public AudioClip death;
 
     float mass = 3.0F; // defines the character mass
     Vector3 impact = Vector3.zero;
@@ -632,6 +633,10 @@ public class PlayerMovement : MonoBehaviour
         }
         sound.Play();
         StartCoroutine(flashHit());
+        if (health <= 0){
+            sound.clip = death;
+            sound.Play();
+        }
         if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Arena"))
         {
             mouse.unpaused = true;
@@ -643,7 +648,7 @@ public class PlayerMovement : MonoBehaviour
             isDead = true;
             freezeMouse = true;
             deadText.SetActive(true);
-            canDash = false;
+            canDash = false;                      
             cam.transform.position = groundCheck.position;
         }
         if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
