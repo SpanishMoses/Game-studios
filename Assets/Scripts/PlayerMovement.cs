@@ -329,7 +329,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void setPitch(){
-        pitch = Random.Range(0.5f, 1.5f);
+        pitch = Random.Range(0.75f, 0.90f);
         jumping.pitch = pitch;
     }
 
