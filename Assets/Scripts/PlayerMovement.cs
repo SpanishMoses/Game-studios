@@ -438,6 +438,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Checkpoint"){
             //checkpoint = other.gameObject;
+            Physics.SyncTransforms();
             StartCoroutine(flashCheck());
             pickups.clip = checkNoise;
             pickups.Play();
