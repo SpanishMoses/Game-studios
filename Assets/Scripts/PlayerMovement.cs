@@ -280,6 +280,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true){
             Time.timeScale = 1f;
+            ResetPos();
             /*health = 50;
             point.totalPoints -= 1000;
             isDead = false;
@@ -328,6 +329,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void respawnTime(){
         SceneManager.LoadScene(sceneName);
+        ResetPos();
         Time.timeScale = 1f;
     }
 
