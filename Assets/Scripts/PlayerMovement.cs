@@ -567,6 +567,8 @@ public class PlayerMovement : MonoBehaviour
             GameObject spot = GameObject.FindGameObjectWithTag("MiniCheck");
             player.transform.position = spot.transform.position;
             Physics.SyncTransforms();
+            BossSpawner bossy = other.transform.GetComponent<BossSpawner>();
+            bossy.boss.SetActive(true);
         }
 
         if (other.gameObject.tag == "finish"){
