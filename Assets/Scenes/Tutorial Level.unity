@@ -62513,6 +62513,10 @@ PrefabInstance:
       propertyPath: respawnButt
       value: 
       objectReference: {fileID: 1024257593}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: checkText
+      value: 
+      objectReference: {fileID: 2061332561}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -68615,6 +68619,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809d9725ebe9d5d448e7ea9c884d77d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2061332561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2581621830880240836, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 2061332521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2069784114
 PrefabInstance:
   m_ObjectHideFlags: 0

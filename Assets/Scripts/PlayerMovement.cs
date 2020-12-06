@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject deadScreen;
     public GameObject deadText;
     public GameObject dangerScreen;
+    public GameObject checkText;
 
     public GameObject keyText;
     public TMP_Text keysRequiredText;
@@ -86,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip keyPickup;
     public AudioSource pickups;
     public AudioClip death;
+    public AudioClip checkNoise;
 
     float mass = 3.0F; // defines the character mass
     Vector3 impact = Vector3.zero;
@@ -436,6 +438,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Checkpoint"){
             //checkpoint = other.gameObject;
+            StartCoroutine(flashCheck());
+            pickups.clip = checkNoise;
+            pickups.Play();
             pointX = gameObject.transform.position.x;
             pointY = gameObject.transform.position.y;
             pointZ = gameObject.transform.position.z;
@@ -717,6 +722,12 @@ public class PlayerMovement : MonoBehaviour
         gainHealthPic.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         gainHealthPic.SetActive(false);
+    }
+
+    IEnumerator flashCheck(){
+        checkText.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        checkText.SetActive(false);
     }
 
     IEnumerator flashAmmo(){
