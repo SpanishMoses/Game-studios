@@ -12,6 +12,8 @@ public class WeaponSwitch : MonoBehaviour
     public float switchWepTime;
     public float maxSwitch;
 
+    public AudioSource switchNoise;
+
     public bool endSwitch;
     // Start is called before the first frame update
     void Start()
@@ -77,5 +79,7 @@ public class WeaponSwitch : MonoBehaviour
         }
     }
 
-    
+    public void playSound(){
+        switchNoise.Play();
+    }
 }

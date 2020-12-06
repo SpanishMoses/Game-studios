@@ -112,6 +112,7 @@ public class MouseLook : MonoBehaviour
 
     public AudioSource weaponShoot;
     public AudioSource secondarySound;
+    public AudioSource switchSound;
 
     public GameObject pistolHud;
     public GameObject shotGunHud;
@@ -231,7 +232,6 @@ public class MouseLook : MonoBehaviour
                     wep.endSwitch = false;
                     currWeapon = currWeapon + 1;
                     wep.anim.SetTrigger("WeaponSwitch");
-
                 }
             } else if (w > 0f && play.freezeMouse == false){
                 //currWeapon = currWeapon - 1;
@@ -242,7 +242,6 @@ public class MouseLook : MonoBehaviour
                     wep.endSwitch = false;
                     currWeapon = currWeapon - 1;
                     wep.anim.SetTrigger("WeaponSwitch");
-
                 }
             }
 
@@ -322,6 +321,7 @@ public class MouseLook : MonoBehaviour
                 reloadTime = 0.2f;
                 dist = 50f;
                 currWeapon = 1;
+                //switchSound.Play();
                 if (currAmmoP > 0){
                     weaponShoot.clip = pistolShoot;
                 }
@@ -344,7 +344,8 @@ public class MouseLook : MonoBehaviour
                 damage = 4;
                 reloadTime = 0.5f;
                 dist = 30f;
-                currWeapon = 2;           
+                currWeapon = 2;
+                //switchSound.Play();
                 if (currAmmoS > 0)
                 {
                     weaponShoot.clip = shotGunBlast;
@@ -369,7 +370,8 @@ public class MouseLook : MonoBehaviour
                 damage = 2;
                 reloadTime = 1f;
                 dist = 50f;
-                currWeapon = 3;              
+                currWeapon = 3;
+                //switchSound.Play();
                 if (currAmmoM > 0)
                 {
                     weaponShoot.clip = machineGunShoot;
@@ -398,6 +400,7 @@ public class MouseLook : MonoBehaviour
                 reloadTime = 0.25f;
                 dist = 5;
                 currWeapon = 4;
+                //switchSound.Play();
                 weaponShoot.clip = knifeSwing;
                 secondarySound.clip = knifeStab;
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
@@ -417,6 +420,7 @@ public class MouseLook : MonoBehaviour
                 reloadTime = 1f;
                 dist = 20f;
                 currWeapon = 5;
+                //switchSound.Play();
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
@@ -434,6 +438,7 @@ public class MouseLook : MonoBehaviour
                 reloadTime = 1f;
                 dist = 20f;
                 currWeapon = 6;
+                //switchSound.Play();
                 if (currAmmoF > 0)
                 {
                     weaponShoot.clip = rocketLauncherShoot;
