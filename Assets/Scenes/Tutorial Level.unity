@@ -60204,7 +60204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5355107021858536952, guid: dda6d90d22aeffc40a9ed0477b3bda7f, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5355107021858536952, guid: dda6d90d22aeffc40a9ed0477b3bda7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -68407,6 +68407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7787872130749548749, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7787872130749548785, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -69591,7 +69595,7 @@ Transform:
   - {fileID: 310422536}
   - {fileID: 2084164338}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2114229805
 PrefabInstance:
