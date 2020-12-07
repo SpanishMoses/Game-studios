@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70afe9e12c7a7ed47911bb608a23a8ff, type: 3}
   m_Name: SplitToning
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {r: 0.051886797, g: 0.72744966, b: 1, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
   highlights:
     m_OverrideState: 1
-    m_Value: {r: 0.5433428, g: 0.5637865, b: 0.6226415, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -90,17 +90,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
   m_Name: ShadowsMidtonesHighlights
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.67753065, y: 0.82121944, z: 1, w: 0}
+    m_Value: {x: 0.9976293, y: 1, z: 0.9911071, w: -0.27671754}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.702827, y: 0.86289996, z: 1, w: 0}
+    m_Value: {x: 0.9946057, y: 1, z: 0.98921716, w: -0.63931304}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 0.836049, y: 0.9107968, z: 1, w: 0}
+    m_Value: {x: 0.99657696, y: 0.98900265, z: 1, w: -0.019083971}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 11.11
+    m_Value: 5.49
     min: 0
   scatter:
     m_OverrideState: 1
