@@ -146,9 +146,41 @@ public class PlayerMovement : MonoBehaviour
         newWalk();
 
         //player.transform.position = new Vector3(pointX, pointY, pointZ);
-        ResetPos();
+        //ResetPos();
         curScene = SceneManager.GetActiveScene();
         sceneName = curScene.name;
+        /*pointX = PlayerPrefs.GetFloat("CheckPointX");
+        pointY = PlayerPrefs.GetFloat("CheckPointY");
+        pointZ = PlayerPrefs.GetFloat("CheckPointZ");*/
+        pointX = PlayerPrefs.GetFloat("CheckPointX");
+        pointY = PlayerPrefs.GetFloat("CheckPointY");
+        pointZ = PlayerPrefs.GetFloat("CheckPointZ");
+        priorHealth = PlayerPrefs.GetInt("PriorH");
+        priorPistolAmmo = PlayerPrefs.GetInt("PriorP");
+        priorShotGunAmmo = PlayerPrefs.GetInt("PriorS");
+        priorMachineGunAmmo = PlayerPrefs.GetInt("PriorM");
+        priorGrenadeAmmo = PlayerPrefs.GetInt("PriorG");
+        priorFireWorkAmmo = PlayerPrefs.GetInt("PriorF");
+        priorPoints = PlayerPrefs.GetInt("PriorScore");
+        health = priorHealth;
+        PlayerPrefs.SetInt("Current_Score", priorPoints);
+        PlayerPrefs.SetInt("Pistol_Ammo", priorPistolAmmo);
+        PlayerPrefs.SetInt("Shotgun_Ammo", priorShotGunAmmo);
+        PlayerPrefs.SetInt("Machinegun_Ammo", priorMachineGunAmmo);
+        PlayerPrefs.SetInt("Grenade_Ammo", priorGrenadeAmmo);
+        PlayerPrefs.SetInt("Firework_Ammo", priorFireWorkAmmo);
+        mouse.currAmmoP = priorPistolAmmo;
+        mouse.currAmmoS = priorShotGunAmmo;
+        mouse.currAmmoM = priorMachineGunAmmo;
+        mouse.currAmmoG = priorGrenadeAmmo;
+        mouse.currAmmoF = priorFireWorkAmmo;
+        point.totalPoints = priorPoints;
+        player.transform.position = new Vector3(pointX, pointY, pointZ);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
+        {
+            PlayerPrefs.SetInt("Pistol_Ammo", 100);
+        }
+        Physics.SyncTransforms();
     }
 
     // Update is called once per frame
