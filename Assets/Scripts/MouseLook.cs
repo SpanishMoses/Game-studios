@@ -87,6 +87,8 @@ public class MouseLook : MonoBehaviour
     public GameObject grenade;
     public GameObject firework;
 
+    public GameObject bulletHole;
+
     public PlayerMovement play;
 
     public bool shotGunBool;
@@ -707,6 +709,7 @@ public class MouseLook : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
             Instantiate(impact, hit.point, Quaternion.identity);
+            GameObject bH = Instantiate(bulletHole, hit.point, Quaternion.LookRotation(-hit.normal));
             PointGiver point = hit.transform.GetComponent<PointGiver>();
             if (point != null){
                 point.GivePoint(point.targetPoints);

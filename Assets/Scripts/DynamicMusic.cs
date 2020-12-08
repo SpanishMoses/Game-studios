@@ -9,6 +9,7 @@ public class DynamicMusic : MonoBehaviour
     public GameObject music;
     public GameObject[] enemies;
     public int enemiesSpawned;
+    public GameObject ambiance;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class DynamicMusic : MonoBehaviour
         anim = GameObject.FindGameObjectWithTag("Music").GetComponent<Animator>();
         dyn = GameObject.FindGameObjectWithTag("Player").GetComponent<DynamicMusic>();
         music.SetActive(false);
+        ambiance.SetActive(true);
     }
 
     // Update is called once per frame
@@ -27,12 +29,13 @@ public class DynamicMusic : MonoBehaviour
         if (enemiesSpawned > 0)
         {
             music.SetActive(true);
-            
+            ambiance.SetActive(false);
         }
 
         if (enemiesSpawned == 0)
         {
             anim.SetTrigger("Switch");
+            ambiance.SetActive(true);
         }
     }
 
