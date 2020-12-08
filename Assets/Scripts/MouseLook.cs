@@ -709,7 +709,7 @@ public class MouseLook : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
             Instantiate(impact, hit.point, Quaternion.identity);
-            GameObject bH = Instantiate(bulletHole, hit.point, Quaternion.LookRotation(-hit.normal));
+            //GameObject bH = Instantiate(bulletHole, hit.point, Quaternion.LookRotation(-hit.normal));
             PointGiver point = hit.transform.GetComponent<PointGiver>();
             if (point != null){
                 point.GivePoint(point.targetPoints);
