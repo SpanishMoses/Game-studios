@@ -613,7 +613,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (other.gameObject.tag == "finish"){
-            SceneManager.LoadScene("main menu");
+            SceneManager.LoadScene("credits");
             Cursor.lockState = CursorLockMode.None;
         }
 
