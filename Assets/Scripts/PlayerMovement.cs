@@ -610,6 +610,7 @@ public class PlayerMovement : MonoBehaviour
             Physics.SyncTransforms();
             BossSpawner bossy = other.transform.GetComponent<BossSpawner>();
             bossy.boss.SetActive(true);
+            bossy.boss.GetComponent<Boss>().healthSlide.SetActive(true);
         }
 
         if (other.gameObject.tag == "finish"){

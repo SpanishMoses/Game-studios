@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Boss : MonoBehaviour
 
     public BoxCollider collid;
     public EnemyMove mov;
+    public EnemyHealth health;
 
     public GameObject spitEffect;
     public GameObject bullet;
@@ -44,12 +46,19 @@ public class Boss : MonoBehaviour
     public float radius;
     public bool expandDong;
 
+    public GameObject healthSlide;
+    public Slider healthSlideReal;
 
     public AudioSource bossNoise;
     public AudioClip spawnSound;
     public AudioClip shootSound;
     public AudioClip staggeredSound;
     public AudioClip deathSound;
+
+    private void Awake()
+    {
+        healthSlide.SetActive(false);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -66,13 +75,18 @@ public class Boss : MonoBehaviour
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         bossNoise.clip = spawnSound;
         bossNoise.Play();
+        healthSlide = GameObject.FindGameObjectWithTag("BossHealth");
+        healthSlideReal = healthSlide.GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-            Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+
+        healthSlideReal.maxValue = 700;
+        healthSlideReal.value = health.health;
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
             foreach (Collider near in colliders)
             {
@@ -219,5 +233,6 @@ public class Boss : MonoBehaviour
     void deadSound(){
         bossNoise.clip = deathSound;
         bossNoise.Play();
+        healthSlide.SetActive(false);
     }
 }
