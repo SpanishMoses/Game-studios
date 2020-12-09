@@ -470,7 +470,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.tag == "Checkpoint"){
+        if (other.gameObject.tag == "Checkpoint" && other.gameObject.GetComponent<HitCheckPoint>().hit == false){
             //checkpoint = other.gameObject;
             Physics.SyncTransforms();
             StartCoroutine(flashCheck());
@@ -499,6 +499,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerPrefs.SetInt("PriorG", priorGrenadeAmmo);
             PlayerPrefs.SetInt("PriorF", priorFireWorkAmmo);
             PlayerPrefs.SetInt("PriorScore", priorPoints);
+            other.gameObject.GetComponent<HitCheckPoint>().hit = true;
             /*CheckPoints check = other.transform.GetComponent<CheckPoints>();
             check.Save();*/
         }

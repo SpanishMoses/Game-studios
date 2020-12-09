@@ -5024,12 +5024,13 @@ GameObject:
   - component: {fileID: 517161681}
   - component: {fileID: 517161680}
   - component: {fileID: 517161679}
+  - component: {fileID: 517161684}
   m_Layer: 15
   m_Name: check point (1)
   m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 0
 --- !u!54 &517161679
 Rigidbody:
@@ -5123,6 +5124,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &517161684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517161678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1303d368dc14e64d960984255576702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hit: 0
 --- !u!1 &517176793
 GameObject:
   m_ObjectHideFlags: 0
