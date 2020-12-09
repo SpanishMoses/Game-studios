@@ -40,6 +40,8 @@ public class MouseLook : MonoBehaviour
     public float damage;
     public float reloadTime;
 
+    public GameObject lastShot;
+
     //pistol ammo
     public int currAmmoP;
     public int maxAmmoP;
@@ -96,6 +98,8 @@ public class MouseLook : MonoBehaviour
     public bool knifeBool;
     public bool grenadeBool;
     public bool fireWorkBool;
+
+    public bool isShooting;
 
     public LayerMask layers;
 
@@ -378,12 +382,8 @@ public class MouseLook : MonoBehaviour
                 {
                     weaponShoot.clip = machineGunShoot;
                 }
-                if (currAmmoM == 1)
-                {
-                    weaponShoot.clip = machineGunClick;
-                }
                 if (currAmmoM == 0){
-                    weaponShoot.clip = pistolClick;
+                    weaponShoot.clip = machineGunClick;
                 }
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
@@ -491,6 +491,13 @@ public class MouseLook : MonoBehaviour
                 Instantiate(rifleShell, shellEjectPt.transform.position, transform.rotation);
                 weaponShoot.Play();
                 ShootMachineGun();
+                isShooting = true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.Mouse0) && isShooting == true)
+            {
+                Instantiate(lastShot, shellEjectPt.transform.position, transform.rotation);
+                isShooting = false;
             }
 
             if (currAmmoM == 0 && Input.GetKey(KeyCode.Mouse0) && shootReady == true && useMachineGun == true && unpaused == true)
