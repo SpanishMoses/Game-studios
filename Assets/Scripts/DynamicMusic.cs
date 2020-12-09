@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class DynamicMusic : MonoBehaviour
 {
+    public bool encounterBegan;
     public DynamicMusic dyn;
     public Animator anim;
     public GameObject music;
     public GameObject[] enemies;
     public int enemiesSpawned;
     public GameObject ambiance;
+    public Animator aAnim;
+    public AudioSource aMus;
+    public AudioSource bMus;
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +21,9 @@ public class DynamicMusic : MonoBehaviour
         music = GameObject.FindGameObjectWithTag("Music");
         anim = GameObject.FindGameObjectWithTag("Music").GetComponent<Animator>();
         dyn = GameObject.FindGameObjectWithTag("Player").GetComponent<DynamicMusic>();
-        music.SetActive(false);
-        ambiance.SetActive(true);
+        ambiance = GameObject.FindGameObjectWithTag("AMusic");
+        aAnim = GameObject.FindGameObjectWithTag("AMusic").GetComponent<Animator>();
+        bMus.mute = true;
     }
 
     // Update is called once per frame
@@ -28,14 +33,14 @@ public class DynamicMusic : MonoBehaviour
 
         if (enemiesSpawned > 0)
         {
-            music.SetActive(true);
-            ambiance.SetActive(false);
+            aMus.mute = true;
+            bMus.mute = false;
         }
 
         if (enemiesSpawned == 0)
         {
-            anim.SetTrigger("Switch");
-            ambiance.SetActive(true);
+            aMus.mute = false;
+            bMus.mute = true;
         }
     }
 
