@@ -10,7 +10,7 @@ public class Billboard : MonoBehaviour
     void Start()
     {
         theSR = GetComponent<SpriteRenderer>();
-        theSR.flipX = true;
+        theSR.flipX = false;
     }
 
     // Update is called once per frame
