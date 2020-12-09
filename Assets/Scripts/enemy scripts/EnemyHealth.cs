@@ -12,6 +12,8 @@ public class EnemyHealth : MonoBehaviour
 
     public GameObject weapon;
     public GameObject endPortal;
+    public GameObject bloodSplat;
+
 
     public GameObject[] parts;
 
@@ -86,17 +88,41 @@ public class EnemyHealth : MonoBehaviour
         if (partOfArray == false)
         {
             Destroy(gameObject);
+            RaycastHit ray;
+            if (Physics.Raycast(transform.position, -transform.up, out ray))
+            {
+                if (ray.collider != null)
+                {
+                    Instantiate(bloodSplat, ray.point + new Vector3(0, 0.2f, 0), Quaternion.LookRotation(-ray.normal));
+                }
+            }
         }
         if (partOfArray == true)
         {
             enemySpawn.deductEnemy(amountTaken);
             Destroy(gameObject);
+            RaycastHit ray;
+            if (Physics.Raycast(transform.position, -transform.up, out ray))
+            {
+                if (ray.collider != null)
+                {
+                    Instantiate(bloodSplat, ray.point + new Vector3(0, 0.2f, 0), Quaternion.LookRotation(-ray.normal));
+                }
+            }
         }
         if (specialDrop == true)
         {
             enemySpawn.deductEnemy(amountTaken);
             Instantiate(weapon, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            RaycastHit ray;
+            if (Physics.Raycast(transform.position, -transform.up, out ray))
+            {
+                if (ray.collider != null)
+                {
+                    Instantiate(bloodSplat, ray.point + new Vector3(0, 0.2f, 0), Quaternion.LookRotation(-ray.normal));
+                }
+            }
         }
     }
 

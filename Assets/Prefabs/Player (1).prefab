@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6367317543166132023}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.01, y: 1.13, z: 1.46}
+  m_LocalPosition: {x: 0.37, y: 1.13, z: 0.67}
   m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
   m_Children: []
   m_Father: {fileID: 7997200904571926898}
@@ -5578,6 +5578,7 @@ MonoBehaviour:
   dist: 100
   damage: 1
   reloadTime: 0
+  lastShot: {fileID: 0}
   currAmmoP: 50
   maxAmmoP: 100
   currAmmoS: 20
@@ -5614,6 +5615,7 @@ MonoBehaviour:
   knifeBool: 0
   grenadeBool: 0
   fireWorkBool: 0
+  isShooting: 0
   layers:
     serializedVersion: 2
     m_Bits: 28471
