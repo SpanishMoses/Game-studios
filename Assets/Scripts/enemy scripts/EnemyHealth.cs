@@ -120,7 +120,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 if (ray.collider != null)
                 {
-                    Instantiate(bloodSplat, ray.point + new Vector3(0, 0.2f, 0), Quaternion.LookRotation(-ray.normal));
+                    Instantiate(bloodSplat, ray.point + new Vector3(0, 0.05f, 0), Quaternion.LookRotation(-ray.normal));
                 }
             }
         }

@@ -25,12 +25,14 @@ public class SceneLoading : MonoBehaviour
 
     IEnumerator LoadAsyncOperation(string newGameLevel)
     {
+
+        yield return new WaitForSeconds(5f);
         AsyncOperation gameLevel = SceneManager.LoadSceneAsync(newGameLevel);
 
-        while (gameLevel.progress < 1){
+        /*while (gameLevel.progress < 1){
             progressBar.fillAmount = gameLevel.progress;
             yield return new WaitForEndOfFrame();
-        }
+        }*/
         
     }
 }

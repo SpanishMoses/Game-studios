@@ -223,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Jump
-            if (Input.GetButtonDown("Jump") && isGrounded && pressedJump == false && onLadder == false)
+            if (Input.GetButtonDown("Jump") && isGrounded && pressedJump == false && onLadder == false && isDead == false)
         {
             velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
                 pressedJump = true;
