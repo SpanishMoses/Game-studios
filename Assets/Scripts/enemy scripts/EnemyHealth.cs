@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
 
     public bool partOfArray;
     public bool specialDrop;
+    public bool splatBlood;
 
     public GameObject weapon;
     public GameObject endPortal;
@@ -88,12 +89,15 @@ public class EnemyHealth : MonoBehaviour
         if (partOfArray == false)
         {
             Destroy(gameObject);
-            RaycastHit ray;
-            if (Physics.Raycast(transform.position, -transform.up, out ray))
+            if (splatBlood == true)
             {
-                if (ray.collider != null)
+                RaycastHit ray;
+                if (Physics.Raycast(transform.position, -transform.up, out ray))
                 {
-                    Instantiate(bloodSplat, ray.point + new Vector3(0, 0.2f, 0), Quaternion.LookRotation(-ray.normal));
+                    if (ray.collider != null)
+                    {
+                        Instantiate(bloodSplat, ray.point + new Vector3(0, 0.2f, 0), Quaternion.LookRotation(-ray.normal));
+                    }
                 }
             }
         }
@@ -101,12 +105,15 @@ public class EnemyHealth : MonoBehaviour
         {
             enemySpawn.deductEnemy(amountTaken);
             Destroy(gameObject);
-            RaycastHit ray;
-            if (Physics.Raycast(transform.position, -transform.up, out ray))
+            if (splatBlood == true)
             {
-                if (ray.collider != null)
+                RaycastHit ray;
+                if (Physics.Raycast(transform.position, -transform.up, out ray))
                 {
-                    Instantiate(bloodSplat, ray.point + new Vector3(0, 0.2f, 0), Quaternion.LookRotation(-ray.normal));
+                    if (ray.collider != null)
+                    {
+                        Instantiate(bloodSplat, ray.point + new Vector3(0, 0.2f, 0), Quaternion.LookRotation(-ray.normal));
+                    }
                 }
             }
         }
@@ -115,12 +122,15 @@ public class EnemyHealth : MonoBehaviour
             enemySpawn.deductEnemy(amountTaken);
             Instantiate(weapon, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            RaycastHit ray;
-            if (Physics.Raycast(transform.position, -transform.up, out ray))
+            if (splatBlood == true)
             {
-                if (ray.collider != null)
+                RaycastHit ray;
+                if (Physics.Raycast(transform.position, -transform.up, out ray))
                 {
-                    Instantiate(bloodSplat, ray.point + new Vector3(0, 0.05f, 0), Quaternion.LookRotation(-ray.normal));
+                    if (ray.collider != null)
+                    {
+                        Instantiate(bloodSplat, ray.point + new Vector3(0, 0.05f, 0), Quaternion.LookRotation(-ray.normal));
+                    }
                 }
             }
         }
