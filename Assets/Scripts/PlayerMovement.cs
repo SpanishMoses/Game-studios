@@ -784,7 +784,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1f);
         deadScreen.SetActive(false);
         point.totalPoints -= 50;
-        health -= 1;
+        TakeDamage(2);
         respawn();
     }
 
