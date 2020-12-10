@@ -8,6 +8,8 @@ public class ItemSpawners : MonoBehaviour
 
     public GameObject health;
     public GameObject ammo;
+    public GameObject rocketAmmo;
+    public GameObject grenadeAmmo;
 
     public int itemNum;
 
@@ -19,7 +21,7 @@ public class ItemSpawners : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemNum = Random.Range(0, 4);
+        itemNum = Random.Range(0, 11);
         beginSpawn = true;
         maxSpawnTime = Random.Range(10, 15);
     }
@@ -49,8 +51,36 @@ public class ItemSpawners : MonoBehaviour
                 {
                     Instantiate(ammo, spawnPos.position, Quaternion.identity);
                 }
+                if (itemNum == 5)
+                {
+                    Instantiate(rocketAmmo, spawnPos.position, Quaternion.identity);
+                }
+                if (itemNum == 6)
+                {
+                    Instantiate(rocketAmmo, spawnPos.position, Quaternion.identity);
+                }
+                if (itemNum == 7)
+                {
+                    Instantiate(grenadeAmmo, spawnPos.position, Quaternion.identity);
+                }
+                if (itemNum == 8)
+                {
+                    Instantiate(grenadeAmmo, spawnPos.position, Quaternion.identity);
+                }
+                if (itemNum == 9)
+                {
+                    Instantiate(health, spawnPos.position, Quaternion.identity);
+                }
+                if (itemNum == 10)
+                {
+                    Instantiate(ammo, spawnPos.position, Quaternion.identity);
+                }
+                if (itemNum == 11)
+                {
+                    Instantiate(ammo, spawnPos.position, Quaternion.identity);
+                }
                 spawnTime = 0;
-                itemNum = Random.Range(0, 4);
+                itemNum = Random.Range(0, 11);
                 maxSpawnTime = Random.Range(10, 20);
                 beginSpawn = false;
             }
