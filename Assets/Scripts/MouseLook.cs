@@ -440,7 +440,7 @@ public class MouseLook : MonoBehaviour
                 useFirework = true;
                 damage = 10;
                 reloadTime = 1f;
-                dist = 1000f;
+                dist = 5f;
                 currWeapon = 6;
                 //switchSound.Play();
                 if (currAmmoF > 0)
