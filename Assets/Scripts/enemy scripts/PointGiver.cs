@@ -9,6 +9,7 @@ public class PointGiver : MonoBehaviour
     public int targetPoints;
     public EnemyHealth health;
     public bool isHead;
+    public AudioSource headShot;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class PointGiver : MonoBehaviour
             health.health -= amount;
         if (isHead == true){
             health.health -= amount * 2;
+            headShot.Play();
         }
         if (health.health <= 0f && health.partOfArray == false)
         {

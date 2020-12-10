@@ -594,6 +594,7 @@ MonoBehaviour:
   aAnim: {fileID: 0}
   aMus: {fileID: 0}
   bMus: {fileID: 0}
+  bossSpawn: 0
 --- !u!1 &7997200904609477335
 GameObject:
   m_ObjectHideFlags: 0
@@ -5631,8 +5632,8 @@ MonoBehaviour:
   knifeStab: {fileID: 8300000, guid: 6dda35b5d20353e4cb8304749c9b09fc, type: 3}
   shotGunBlast: {fileID: 8300000, guid: 9c5a7bae5eaac1c498176f4a041b26b4, type: 3}
   shotGunClick: {fileID: 8300000, guid: 33a6c2f4498211947ae5673bf14be80d, type: 3}
-  machineGunShoot: {fileID: 8300000, guid: 127168c5584fb7e48b60b8b15b5e0f9d, type: 3}
-  machineGunLastShot: {fileID: 8300000, guid: 1ebd826256690464f9c5c475d4733f4f, type: 3}
+  machineGunShoot: {fileID: 8300000, guid: fc075bf13b45adb4abcf2c7519cb6671, type: 3}
+  machineGunLastShot: {fileID: 8300000, guid: 1d1223d9d4a274e4b93452663be079c7, type: 3}
   machineGunClick: {fileID: 8300000, guid: 37340b0d84dc24a46aae1a0f7cdc25b1, type: 3}
   rocketLauncherShoot: {fileID: 8300000, guid: 17a059a336f9f3c49b9e3d47e156e3c0, type: 3}
   weaponShoot: {fileID: 4913947592025779583}
