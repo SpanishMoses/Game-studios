@@ -9,6 +9,7 @@ public class TextManager : MonoBehaviour
 
     //code from https://www.youtube.com/watch?v=f-oSXg6_AMQ&t=336s
 
+    public GameObject pistol;
     public Animator anim;
     public GameObject pixie;
     public GameObject textBox;
@@ -42,6 +43,10 @@ public class TextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (sentenceNum == 8){
+            pistol.SetActive(false);
+        }
+
         if (text.text == sentences[index] && sentenceNum < 9){
             player.cantMove = false;
             anim.SetFloat("Blend", 0);
