@@ -13,7 +13,8 @@ public class Settings : MonoBehaviour
     public MouseLook mouse;
     public Slider slide;
     public TMP_Text senseNum;
-    
+
+    public bool enableCon;
 
     //public Dropdown resolutionDropdown;
 
@@ -21,11 +22,13 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
+        enableCon = PlayerPrefs.GetInt("Confetti", 0) > 0;
+
         //resolutions = Screen.resolutions;
 
         //resolutionDropdown.ClearOptions();
 
-        List<string> options = new List<string>();
+        //List<string> options = new List<string>();
 
         //int currentResolutionIndex = 0;
 
@@ -69,6 +72,30 @@ public class Settings : MonoBehaviour
     public void Update()
     {
         senseNum.text = "" + slide.value;
+
+
+        int yesConfetti;
+        yesConfetti = enableCon ? 1 : 0;
+
+        if (enableCon == true)
+        {
+            PlayerPrefs.SetInt("Confetti", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Confetti", 0);
+        }
+
+
+    }
+
+    public void EnableConfetti(bool confettiYes){
+        if (confettiYes == true){
+            enableCon = true;
+        } else
+        {
+            enableCon = false;
+        }
         
     }
 }

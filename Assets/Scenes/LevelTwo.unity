@@ -23423,6 +23423,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1709922173762175086, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2397621507738903115, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -23431,6 +23435,10 @@ PrefabInstance:
       propertyPath: mouse
       value: 
       objectReference: {fileID: 805336120}
+    - target: {fileID: 4739027563777523544, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4750535086502157218, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -23482,6 +23490,10 @@ PrefabInstance:
     - target: {fileID: 7126730898913609261, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_Color.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191641245829423326, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_TagString
+      value: Settings
       objectReference: {fileID: 0}
     - target: {fileID: 7787872129350017557, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -23625,6 +23637,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9219706769741458376, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219706769741458376, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219706769741458376, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -23815,6 +23835,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2581621830880240836, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
   m_PrefabInstance: {fileID: 511888334}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &511888365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4131755984509197223, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 511888334}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ee6ed16ad53ff4a9dedafcc9592794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &512405896 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3078089889733719319, guid: 2f14224bfe77e6e42886d4b3165598a3, type: 3}
@@ -38538,6 +38569,10 @@ PrefabInstance:
       propertyPath: gainAmmoPic
       value: 
       objectReference: {fileID: 511888344}
+    - target: {fileID: 7997200904646466785, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: set
+      value: 
+      objectReference: {fileID: 511888365}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
 --- !u!114 &805336119 stripped

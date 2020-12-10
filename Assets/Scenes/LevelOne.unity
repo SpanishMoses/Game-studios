@@ -45025,6 +45025,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2581621830880240836, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
   m_PrefabInstance: {fileID: 863931535}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &863931557 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4131755984509197223, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 863931535}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ee6ed16ad53ff4a9dedafcc9592794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &866694183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5774970288954368735, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
@@ -81197,6 +81208,10 @@ PrefabInstance:
       propertyPath: gainAmmoPic
       value: 
       objectReference: {fileID: 1832730443}
+    - target: {fileID: 7997200904646466785, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: set
+      value: 
+      objectReference: {fileID: 863931557}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
 --- !u!114 &1963100917 stripped

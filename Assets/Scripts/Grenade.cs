@@ -11,15 +11,19 @@ public class Grenade : MonoBehaviour
     public float damage = 10f;
 
     public GameObject blood;
+    public GameObject confetti;
 
     public GameObject effect;
 
     public AudioSource hit;
 
+    public MouseLook mouse;
+
     // Start is called before the first frame update
     void Start()
     {
         Invoke("Explode", delay);
+        mouse = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MouseLook>();
     }
 
     // Update is called once per frame
@@ -43,7 +47,14 @@ public class Grenade : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                Instantiate(blood, near.transform.position, Quaternion.identity);
+                if (mouse.set.enableCon == false){
+                    Instantiate(blood, near.transform.position, Quaternion.identity);
+                }
+                if (mouse.set.enableCon == true)
+                {
+                    Instantiate(confetti, near.transform.position, Quaternion.identity);
+                }
+
                 Debug.Log("Got some points");
             }
             PlayerMovement playerMove = near.GetComponent<PlayerMovement>();
@@ -55,7 +66,14 @@ public class Grenade : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                Instantiate(blood, near.transform.position, Quaternion.identity);
+                if (mouse.set.enableCon == false)
+                {
+                    Instantiate(blood, near.transform.position, Quaternion.identity);
+                }
+                if (mouse.set.enableCon == true)
+                {
+                    Instantiate(confetti, near.transform.position, Quaternion.identity);
+                }
             }
         }
 

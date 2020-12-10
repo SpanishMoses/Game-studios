@@ -15,6 +15,8 @@ public class MouseLook : MonoBehaviour
     // player prefs help from https://www.youtube.com/watch?v=ETXPdH4QHKA&ab_channel=GameDevSpecialist
     //shake code from https://www.youtube.com/watch?v=kzHHAdvVkto
 
+    public Settings set;
+
     public GameObject gainAmmoPic;
 
     public WeaponSwitch wep;
@@ -82,6 +84,7 @@ public class MouseLook : MonoBehaviour
     public TMP_Text ammoText;
 
     public GameObject blood;
+    public GameObject confetti;
     public GameObject impact;
     public GameObject shell;
     public GameObject rifleShell;
@@ -714,13 +717,27 @@ public class MouseLook : MonoBehaviour
             if (point != null){
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                Instantiate(blood, hit.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, hit.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, hit.point, Quaternion.identity);
+                }
                 Debug.Log("Got some points");
             }
             BossDrone bossDrone = hit.transform.GetComponent<BossDrone>();
             if (bossDrone != null){
                 bossDrone.TakeDamage(damage);
-                Instantiate(blood, hit.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, hit.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, hit.point, Quaternion.identity);
+                }
             }
         }
     }
@@ -745,13 +762,27 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                Instantiate(blood, sHit.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, sHit.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, sHit.point, Quaternion.identity);
+                }
             }
             BossDrone bossDrone = sHit.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                Instantiate(blood, sHit.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, sHit.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, sHit.point, Quaternion.identity);
+                }
             }
         }
 
@@ -764,13 +795,26 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                Instantiate(blood, sHit2.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, sHit2.point, Quaternion.identity);
+                }
+                if (set.enableCon == true){
+                    Instantiate(confetti, sHit2.point, Quaternion.identity);
+                }
             }
             BossDrone bossDrone = sHit2.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                Instantiate(blood, sHit2.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, sHit2.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, sHit2.point, Quaternion.identity);
+                }
             }
         }
 
@@ -783,13 +827,27 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                Instantiate(blood, sHit3.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, sHit3.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, sHit3.point, Quaternion.identity);
+                }
             }
             BossDrone bossDrone = sHit3.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                Instantiate(blood, sHit3.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, sHit3.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, sHit3.point, Quaternion.identity);
+                }
             }
         }
 
@@ -802,13 +860,27 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                Instantiate(blood, sHit4.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, sHit4.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, sHit4.point, Quaternion.identity);
+                }
             }
             BossDrone bossDrone = sHit4.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                Instantiate(blood, sHit4.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, sHit4.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, sHit4.point, Quaternion.identity);
+                }
             }
         }
 
@@ -821,13 +893,27 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                Instantiate(blood, sHit5.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, sHit5.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, sHit5.point, Quaternion.identity);
+                }
             }
             BossDrone bossDrone = sHit5.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                Instantiate(blood, sHit5.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, sHit5.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, sHit5.point, Quaternion.identity);
+                }
             }
         }
     }
@@ -845,13 +931,27 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                Instantiate(blood, mHit.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, mHit.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, mHit.point, Quaternion.identity);
+                }
             }
             BossDrone bossDrone = mHit.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                Instantiate(blood, mHit.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, mHit.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, mHit.point, Quaternion.identity);
+                }
             }
         }
     }
@@ -870,7 +970,14 @@ public class MouseLook : MonoBehaviour
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
                 secondarySound.Play();
-                Instantiate(blood, kHit.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, kHit.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, kHit.point, Quaternion.identity);
+                }
                 if (point.health.health <= 0)
                 {
                     currAmmoP += 5;
@@ -887,7 +994,14 @@ public class MouseLook : MonoBehaviour
             {
                 bossDrone.TakeDamage(damage);
                 secondarySound.Play();
-                Instantiate(blood, kHit.point, Quaternion.identity);
+                if (set.enableCon == false)
+                {
+                    Instantiate(blood, kHit.point, Quaternion.identity);
+                }
+                if (set.enableCon == true)
+                {
+                    Instantiate(confetti, kHit.point, Quaternion.identity);
+                }
             }
         }
     }
