@@ -53,9 +53,22 @@ public class ExplodingEnemy : MonoBehaviour
             locActive = true;
         }
 
-        if (Vector2.Distance(transform.position, playerLoc.transform.position) < blowUpDist)
+        /*if (Vector2.Distance(transform.position, playerLoc.transform.position) < blowUpDist)
         {
+            Debug.Log("ayyyy");
             StartCoroutine(beignBlowUp());
+        }*/
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+
+        foreach (Collider near in colliders)
+        {
+            
+            PlayerMovement playerMove = near.GetComponent<PlayerMovement>();
+            if (playerMove != null)
+            {
+                StartCoroutine(beignBlowUp());
+            }
         }
 
         if (locActive == true)
