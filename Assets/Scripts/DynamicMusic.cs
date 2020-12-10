@@ -18,7 +18,8 @@ public class DynamicMusic : MonoBehaviour
 
     public bool battleSpawn;
     float volumeChange = 0.1f;
-    float maxVolume = 0.25f;
+    float maxVolume = 0.08f;
+    float aMaxVolume = 0.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -66,9 +67,9 @@ public class DynamicMusic : MonoBehaviour
             aMus.volume += volumeChange * Time.deltaTime;
             bMus.volume -= volumeChange * Time.deltaTime;
 
-            if (aMus.volume >= maxVolume)
+            if (aMus.volume >= aMaxVolume)
             {
-                aMus.volume = maxVolume;
+                aMus.volume = aMaxVolume;
             }
         }
     }

@@ -542,6 +542,7 @@ public class PlayerMovement : MonoBehaviour
                 mouse.currAmmoF += consume.amount;
                 pickups.clip = ammoPickup;
                 pickups.Play();
+                StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);
             }
 
@@ -549,6 +550,7 @@ public class PlayerMovement : MonoBehaviour
                 mouse.currAmmoG += consume.amount;
                 pickups.clip = ammoPickup;
                 pickups.Play();
+                StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);
             }
         }
