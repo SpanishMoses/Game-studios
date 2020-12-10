@@ -16,6 +16,10 @@ public class DynamicMusic : MonoBehaviour
     public AudioSource bMus;
     public int bossSpawn;
 
+    public bool battleSpawn;
+    float volumeChange = 0.1f;
+    float maxVolume = 0.25f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +28,6 @@ public class DynamicMusic : MonoBehaviour
         dyn = GameObject.FindGameObjectWithTag("Player").GetComponent<DynamicMusic>();
         ambiance = GameObject.FindGameObjectWithTag("AMusic");
         aAnim = GameObject.FindGameObjectWithTag("AMusic").GetComponent<Animator>();
-        bMus.mute = true;
     }
 
     // Update is called once per frame
@@ -36,20 +39,37 @@ public class DynamicMusic : MonoBehaviour
 
         if (enemiesSpawned > 0)
         {
-            aMus.mute = true;
-            bMus.mute = false;
+            battleSpawn = true;
         }
 
         if (enemiesSpawned == 0)
         {
-            aMus.mute = false;
-            bMus.mute = true;
+            battleSpawn = false;
         }
 
         if (bossSpawn > 0)
         {
-            aMus.mute = true;
-            bMus.mute = false;
+            battleSpawn = true;
+        }
+
+        if (battleSpawn == true){
+            aMus.volume -= volumeChange * Time.deltaTime;
+            bMus.volume += volumeChange * Time.deltaTime;
+
+            if (bMus.volume >= maxVolume){
+                bMus.volume = maxVolume;
+            }
+        }
+
+        if (battleSpawn == false)
+        {
+            aMus.volume += volumeChange * Time.deltaTime;
+            bMus.volume -= volumeChange * Time.deltaTime;
+
+            if (aMus.volume >= maxVolume)
+            {
+                aMus.volume = maxVolume;
+            }
         }
     }
 
