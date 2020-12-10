@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7221158286829145587}
+  - component: {fileID: 6836503460012132404}
   m_Layer: 0
   m_Name: Soul
   m_TagString: Untagged
@@ -31,6 +32,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6836503460012132404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809514535347047152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4682fdfc9b3ad4f87a0a74cbca438a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2724135302741937948
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,8 +54,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2433741517315054749}
   - component: {fileID: 2567247763023001978}
-  - component: {fileID: 516329208871383330}
   - component: {fileID: 3420654859068050116}
+  - component: {fileID: 755574098}
   m_Layer: 0
   m_Name: Soul Sprite
   m_TagString: Untagged
@@ -105,7 +118,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -7260111474371800604, guid: fc62359b5316bd84e8a0a61ee3cd2582, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -115,25 +128,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &516329208871383330
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2724135302741937948}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 869c2189c124e4c4da19bbd0751b42d8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3420654859068050116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,3 +140,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388ac282535047841a027b1f1b7ec4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &755574098
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2724135302741937948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c6f8d56e85eab343baa66f06757e66b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
