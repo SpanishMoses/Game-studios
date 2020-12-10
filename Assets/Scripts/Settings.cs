@@ -13,33 +13,34 @@ public class Settings : MonoBehaviour
     public MouseLook mouse;
     public Slider slide;
     public TMP_Text senseNum;
+    
 
-    public Dropdown resolutionDropdown;
+    //public Dropdown resolutionDropdown;
 
-    Resolution[] resolutions;
+    //Resolution[] resolutions;
 
     private void Start()
     {
-        resolutions = Screen.resolutions;
+        //resolutions = Screen.resolutions;
 
-        resolutionDropdown.ClearOptions();
+        //resolutionDropdown.ClearOptions();
 
         List<string> options = new List<string>();
 
-        int currentResolutionIndex = 0;
+        //int currentResolutionIndex = 0;
 
-        for (int i = 0; i < resolutions.Length; i++){
+        /*for (int i = 0; i < resolutions.Length; i++){
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
 
             if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height){
                 currentResolutionIndex = i;
             }
-        }
+        }*/
 
-        resolutionDropdown.AddOptions(options);
+        /*resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+        resolutionDropdown.RefreshShownValue();*/
     }
 
     public void SetVolume(float volume){
@@ -59,11 +60,11 @@ public class Settings : MonoBehaviour
         Screen.fullScreen = isFullScreen;
     }
 
-    public void SetResolution(int resolutionIndex){
+    /*public void SetResolution(int resolutionIndex){
         Resolution resolution = resolutions[resolutionIndex];
 
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
+    }*/
 
     public void Update()
     {

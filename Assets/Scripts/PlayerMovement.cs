@@ -548,11 +548,15 @@ public class PlayerMovement : MonoBehaviour
 
             if (consume != null && consume.isRocket == true){
                 mouse.currAmmoF += consume.amount;
+                pickups.clip = ammoPickup;
+                pickups.Play();
                 Destroy(other.gameObject);
             }
 
             if (consume != null && consume.isGrenade == true){
                 mouse.currAmmoG += consume.amount;
+                pickups.clip = ammoPickup;
+                pickups.Play();
                 Destroy(other.gameObject);
             }
         }
