@@ -767,7 +767,7 @@ public class PlayerMovement : MonoBehaviour
         checkText.SetActive(false);
     }
 
-    IEnumerator flashAmmo(){
+    public IEnumerator flashAmmo(){
         gainAmmoPic.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         gainAmmoPic.SetActive(false);

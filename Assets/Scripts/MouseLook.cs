@@ -15,6 +15,8 @@ public class MouseLook : MonoBehaviour
     // player prefs help from https://www.youtube.com/watch?v=ETXPdH4QHKA&ab_channel=GameDevSpecialist
     //shake code from https://www.youtube.com/watch?v=kzHHAdvVkto
 
+    public GameObject gainAmmoPic;
+
     public WeaponSwitch wep;
 
     public bool shootEnabled;
@@ -161,7 +163,7 @@ public class MouseLook : MonoBehaviour
         useFirework = false;
         damage = 2;
         reloadTime = 0.3f;
-        dist = 50f;
+        dist = 1000f;
         currWeapon = 1;
         mouseSensitivity = PlayerPrefs.GetFloat("Sense", 4);
         currAmmoP = PlayerPrefs.GetInt("Pistol_Ammo", 0);
@@ -325,7 +327,7 @@ public class MouseLook : MonoBehaviour
                 useFirework = false;
                 damage = 2;
                 reloadTime = 0.2f;
-                dist = 50f;
+                dist = 1000f;
                 currWeapon = 1;
                 //switchSound.Play();
                 if (currAmmoP > 0){
@@ -375,7 +377,7 @@ public class MouseLook : MonoBehaviour
                 useFirework = false;
                 damage = 2;
                 reloadTime = 1f;
-                dist = 50f;
+                dist = 1000f;
                 currWeapon = 3;
                 //switchSound.Play();
                 if (currAmmoM > 0)
@@ -420,7 +422,7 @@ public class MouseLook : MonoBehaviour
                 useFirework = false;
                 damage = 10;
                 reloadTime = 1f;
-                dist = 20f;
+                dist = 1000f;
                 currWeapon = 5;
                 //switchSound.Play();
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
@@ -438,7 +440,7 @@ public class MouseLook : MonoBehaviour
                 useFirework = true;
                 damage = 10;
                 reloadTime = 1f;
-                dist = 20f;
+                dist = 1000f;
                 currWeapon = 6;
                 //switchSound.Play();
                 if (currAmmoF > 0)
@@ -886,6 +888,7 @@ public class MouseLook : MonoBehaviour
                     currAmmoF += 1;
                     currAmmoG += 1;
                     Instantiate(ammoEffect, kHit.point, Quaternion.identity);
+                    StartCoroutine(flashAmmo());
                 }
             }
             BossDrone bossDrone = kHit.transform.GetComponent<BossDrone>();
@@ -969,5 +972,12 @@ public class MouseLook : MonoBehaviour
     {
         CancelInvoke("StartGhostShaking");
         ghost.transform.position = ghostInitialPosition;
+    }
+
+    public IEnumerator flashAmmo()
+    {
+        gainAmmoPic.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        gainAmmoPic.SetActive(false);
     }
 }
