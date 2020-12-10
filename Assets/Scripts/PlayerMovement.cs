@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement instance;
 
+    public GameObject confetti;
+
     public MouseLook mouse;
 
     private Rigidbody rb;
@@ -505,6 +507,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Pit"){
             StartCoroutine(respawnTimer());
             Debug.Log("hi");
+        }
+
+        if (other.gameObject.tag == "Present"){
+            Instantiate(confetti, other.transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
         }
 
         if (other.gameObject.tag == "Consumable"){
