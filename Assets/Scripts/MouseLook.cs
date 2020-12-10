@@ -422,7 +422,7 @@ public class MouseLook : MonoBehaviour
                 useFirework = false;
                 damage = 10;
                 reloadTime = 1f;
-                dist = 1000f;
+                dist = 5f;
                 currWeapon = 5;
                 //switchSound.Play();
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
@@ -440,7 +440,7 @@ public class MouseLook : MonoBehaviour
                 useFirework = true;
                 damage = 10;
                 reloadTime = 1f;
-                dist = 5f;
+                dist = 1000f;
                 currWeapon = 6;
                 //switchSound.Play();
                 if (currAmmoF > 0)
