@@ -584,12 +584,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ceb23fa8fe0caa4c84a2e16ca1bc18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  encounterBegan: 0
   dyn: {fileID: 0}
   anim: {fileID: 0}
   music: {fileID: 0}
   enemies: []
   enemiesSpawned: 0
   ambiance: {fileID: 0}
+  aAnim: {fileID: 0}
+  aMus: {fileID: 0}
+  bMus: {fileID: 0}
 --- !u!1 &7997200904609477335
 GameObject:
   m_ObjectHideFlags: 0
@@ -5563,6 +5567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571c3783fbe019e48bb3cdbcb246dde8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gainAmmoPic: {fileID: 0}
   wep: {fileID: 0}
   shootEnabled: 0
   weapons: {fileID: 0}
@@ -5581,8 +5586,8 @@ MonoBehaviour:
   lastShot: {fileID: 0}
   currAmmoP: 50
   maxAmmoP: 100
-  currAmmoS: 20
-  maxAmmoS: 40
+  currAmmoS: 25
+  maxAmmoS: 25
   currAmmoM: 120
   maxAmmoM: 120
   currAmmoG: 3

@@ -26,7 +26,7 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.SetFloat("CheckPointZ", positionZ);
             PlayerPrefs.SetInt("PriorH", 50);
             PlayerPrefs.SetInt("PriorP", 0);
-            PlayerPrefs.SetInt("PriorS", 40);
+            PlayerPrefs.SetInt("PriorS", 25);
             PlayerPrefs.SetInt("PriorM", 120);
             PlayerPrefs.SetInt("PriorG", 6);
             PlayerPrefs.SetInt("PriorF", 8);
@@ -38,7 +38,7 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("Curr_Health", 50);
         PlayerPrefs.SetInt("Current_Score", 0);
         PlayerPrefs.SetInt("Pistol_Ammo", 0);
-        PlayerPrefs.SetInt("Shotgun_Ammo", 40);
+        PlayerPrefs.SetInt("Shotgun_Ammo", 25);
         PlayerPrefs.SetInt("Machinegun_Ammo", 120);
         PlayerPrefs.SetInt("Grenade_Ammo", 6);
         PlayerPrefs.SetInt("Firework_Ammo", 8);

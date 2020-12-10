@@ -167,7 +167,7 @@ public class MouseLook : MonoBehaviour
         currWeapon = 1;
         mouseSensitivity = PlayerPrefs.GetFloat("Sense", 4);
         currAmmoP = PlayerPrefs.GetInt("Pistol_Ammo", 0);
-        currAmmoS = PlayerPrefs.GetInt("Shotgun_Ammo", 40);
+        currAmmoS = PlayerPrefs.GetInt("Shotgun_Ammo", 25);
         currAmmoM = PlayerPrefs.GetInt("Machinegun_Ammo", 120);
         currAmmoG = PlayerPrefs.GetInt("Grenade_Ammo", 6);
         currAmmoF = PlayerPrefs.GetInt("Firework_Ammo", 8);
