@@ -605,13 +605,17 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (other.gameObject.tag == "Final"){
+        if (other.gameObject.tag == "Final") {
             GameObject spot = GameObject.FindGameObjectWithTag("MiniCheck");
             player.transform.position = spot.transform.position;
             Physics.SyncTransforms();
             BossSpawner bossy = other.transform.GetComponent<BossSpawner>();
             bossy.boss.SetActive(true);
             bossy.boss.GetComponent<Boss>().healthSlide.SetActive(true);
+            for (int i = 0; i < bossy.spawners.Length; i++)
+            {
+                bossy.spawners[i].SetActive(true);
+            }
         }
 
         if (other.gameObject.tag == "finish"){

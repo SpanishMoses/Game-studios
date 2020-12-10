@@ -14,6 +14,7 @@ public class DynamicMusic : MonoBehaviour
     public Animator aAnim;
     public AudioSource aMus;
     public AudioSource bMus;
+    public int bossSpawn;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,8 @@ public class DynamicMusic : MonoBehaviour
     {
         enemiesSpawned = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
+        bossSpawn = GameObject.FindGameObjectsWithTag("Boss").Length;
+
         if (enemiesSpawned > 0)
         {
             aMus.mute = true;
@@ -41,6 +44,12 @@ public class DynamicMusic : MonoBehaviour
         {
             aMus.mute = false;
             bMus.mute = true;
+        }
+
+        if (bossSpawn > 0)
+        {
+            aMus.mute = true;
+            bMus.mute = false;
         }
     }
 

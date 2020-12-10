@@ -17,5 +17,7 @@ public class Soul : MonoBehaviour
         Vector3 velocity = new Vector3(0, speed * Time.deltaTime);
         pos += transform.rotation * velocity;
         transform.position = pos;
+
+        Destroy(gameObject, 7f);
     }
 }

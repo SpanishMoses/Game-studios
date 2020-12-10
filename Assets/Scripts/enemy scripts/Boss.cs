@@ -55,9 +55,12 @@ public class Boss : MonoBehaviour
     public AudioClip staggeredSound;
     public AudioClip deathSound;
 
+
+
     private void Awake()
     {
         healthSlide.SetActive(false);
+        
     }
 
     // Start is called before the first frame update
