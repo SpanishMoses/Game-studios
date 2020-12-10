@@ -13,7 +13,6 @@ public class Settings : MonoBehaviour
     public MouseLook mouse;
     public Slider slide;
     public TMP_Text senseNum;
-    public TMP_Text volNum;
 
     public Dropdown resolutionDropdown;
 
@@ -45,7 +44,6 @@ public class Settings : MonoBehaviour
 
     public void SetVolume(float volume){
         mixer.SetFloat("Volume", volume);
-        volNum.text = "" + volume;
     }
 
     public void SetSensitivity(float sensitivity){
