@@ -271,12 +271,6 @@ public class PlayerMovement : MonoBehaviour
             dangerScreen.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.L)){
-            GameObject spot = GameObject.FindGameObjectWithTag("MiniCheck");
-            player.transform.position = spot.transform.position;
-            Physics.SyncTransforms();
-        }
-
         //Controls camera bob while moving and jumping
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
@@ -529,8 +523,6 @@ public class PlayerMovement : MonoBehaviour
                     mouse.currAmmoP += consume.amount;
                     mouse.currAmmoS += consume.amount;
                     mouse.currAmmoM += consume.amount;
-                    mouse.currAmmoG += consume.amount;
-                    mouse.currAmmoF = consume.amount;
                 Destroy(other.gameObject);
                 pickups.clip = ammoPickup;
                 pickups.Play();

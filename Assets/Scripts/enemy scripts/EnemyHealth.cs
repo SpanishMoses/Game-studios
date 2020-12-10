@@ -48,6 +48,7 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0f){
             for (int i = 0; i < parts.Length; i++){
                 parts[i].SetActive(false);
+                collid.enabled = false;
             }
         }
 

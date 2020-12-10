@@ -699,15 +699,6 @@ public class MouseLook : MonoBehaviour
         fireWorkSlide.maxValue = maxAmmoF;
         fireWorkSlide.value = currAmmoF;
 
-        //testing purposes
-        if (Input.GetKey(KeyCode.M)){
-            currAmmoM = 120;
-            currAmmoP = 100;
-            currAmmoS = 40;
-            currAmmoG = 6;
-            currAmmoF = 8;
-        }
-
     }
 
     void ShootPistol(){
