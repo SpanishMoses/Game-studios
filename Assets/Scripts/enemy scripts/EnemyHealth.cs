@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject endPortal;
     public GameObject bloodSplat;
     public GameObject soul;
+    public GameObject deathPart;
 
     public GameObject[] parts;
 
@@ -90,6 +91,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(soul, transform.position, Quaternion.identity);
+            Instantiate(deathPart, transform.position, Quaternion.identity);
             if (splatBlood == true)
             {
                 RaycastHit ray;
@@ -106,6 +108,7 @@ public class EnemyHealth : MonoBehaviour
         {
             enemySpawn.deductEnemy(amountTaken);
             Instantiate(soul, transform.position, Quaternion.identity);
+            Instantiate(deathPart, transform.position, Quaternion.identity);
             Destroy(gameObject);
             if (splatBlood == true)
             {
@@ -124,6 +127,7 @@ public class EnemyHealth : MonoBehaviour
             enemySpawn.deductEnemy(amountTaken);
             Instantiate(weapon, transform.position, Quaternion.identity);
             Instantiate(soul, transform.position, Quaternion.identity);
+            Instantiate(deathPart, transform.position, Quaternion.identity);
             Destroy(gameObject);
             if (splatBlood == true)
             {
