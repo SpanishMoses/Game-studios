@@ -24,7 +24,7 @@ public class DynamicMusic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        music = GameObject.FindGameObjectWithTag("Music");
+        //music = GameObject.FindGameObjectWithTag("Music");
         anim = GameObject.FindGameObjectWithTag("Music").GetComponent<Animator>();
         dyn = GameObject.FindGameObjectWithTag("Player").GetComponent<DynamicMusic>();
         ambiance = GameObject.FindGameObjectWithTag("AMusic");

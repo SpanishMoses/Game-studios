@@ -43,7 +43,7 @@ public class TextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sentenceNum == 8){
+        if (sentenceNum >= 8){
             pistol.SetActive(false);
         }
 

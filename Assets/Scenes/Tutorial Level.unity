@@ -6378,9 +6378,10 @@ GameObject:
   - component: {fileID: 589071242}
   - component: {fileID: 589071241}
   - component: {fileID: 589071240}
+  - component: {fileID: 589071244}
   m_Layer: 15
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: Mus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6486,6 +6487,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589071238}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &589071244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589071238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b984c311cb90048a6b4df0a2926847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mus: {fileID: 1476388919}
 --- !u!1001 &589978718
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -177,6 +177,9 @@ public class PlayerMovement : MonoBehaviour
         mouse.currAmmoG = priorGrenadeAmmo;
         mouse.currAmmoF = priorFireWorkAmmo;
         point.totalPoints = priorPoints;
+        //this line of code may fix weird cursor issue. delete if it doesnt 
+        Cursor.lockState = CursorLockMode.Locked;
+        //blocking this off
         player.transform.position = new Vector3(pointX, pointY, pointZ);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
         {
@@ -577,6 +580,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "MachineGunAmmo"){
             mouse.currAmmoM += 2;
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Mus"){
+            EnableMusic mus = other.transform.GetComponent<EnableMusic>();
+            mus.mus.SetActive(true);
         }
 
         if (other.gameObject.tag == "End"){
