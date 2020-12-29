@@ -240,6 +240,8 @@ public class PlayerMovement : MonoBehaviour
                     {
                         velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
                         pressedJump = true;
+                        jumping.Play();
+                        setPitch();
                         time = 0;
                     } else if ( time >= maxTime){
                         pressedJump = true;
