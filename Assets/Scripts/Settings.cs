@@ -12,8 +12,10 @@ public class Settings : MonoBehaviour
     public AudioMixer mixer;
     public MouseLook mouse;
     public Slider slide;
+    public Slider volSlide;
     public TMP_Text senseNum;
 
+    public Toggle tog;
     public bool enableCon;
 
     //public Dropdown resolutionDropdown;
@@ -22,7 +24,17 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
-        enableCon = PlayerPrefs.GetInt("Confetti", 0) > 0;
+        /*enableCon = PlayerPrefs.GetInt("Confetti", 0) > 0;
+
+        if (enableCon == true)
+        {
+            EnableConfetti(true);
+        }
+
+        if (enableCon == false)
+        {
+            EnableConfetti(false);
+        }
 
         //resolutions = Screen.resolutions;
 
@@ -48,6 +60,7 @@ public class Settings : MonoBehaviour
 
     public void SetVolume(float volume){
         mixer.SetFloat("Volume", volume);
+        volSlide.value = volume;
     }
 
     public void SetSensitivity(float sensitivity){
@@ -73,31 +86,34 @@ public class Settings : MonoBehaviour
     {
         senseNum.text = "" + mouse.mouseSensitivity;
 
+        slide.value = mouse.mouseSensitivity;
 
-        int yesConfetti;
+        /*int yesConfetti;
         yesConfetti = enableCon ? 1 : 0;
 
         if (enableCon == true)
         {
             PlayerPrefs.SetInt("Confetti", 1);
-            EnableConfetti(true);
+            Debug.Log("worked");
         }
         else
         {
             PlayerPrefs.SetInt("Confetti", 0);
-            EnableConfetti(false);
-        }
+        }*/
 
 
     }
 
     public void EnableConfetti(bool confettiYes){
-        if (confettiYes == true){
-            enableCon = true;
-        } else
-        {
-            enableCon = false;
-        }
         
+        if (confettiYes == true)
+        {
+            mouse.enableCon = true;
+        }
+        else
+        {
+            mouse.enableCon = false;
+        }
+
     }
 }

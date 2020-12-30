@@ -143,6 +143,8 @@ public class MouseLook : MonoBehaviour
     float shakeAmount = 5f;
     public GameObject ghost;
 
+    public bool enableCon;
+
     /*PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
     public int value;
     value = shotGunBool ? 1 : 0;*/
@@ -186,6 +188,8 @@ public class MouseLook : MonoBehaviour
         knifeBool = PlayerPrefs.GetInt("EnableKnife", 0) > 0;
         grenadeBool = PlayerPrefs.GetInt("EnableGrenade", 0) > 0;
         fireWorkBool = PlayerPrefs.GetInt("EnableFireWork", 0) > 0;
+
+        enableCon = PlayerPrefs.GetInt("Confetti", 0) > 0;
 
         /*machineGunBool = false;
         shotGunBool = false;
@@ -687,6 +691,21 @@ public class MouseLook : MonoBehaviour
             PlayerPrefs.SetInt("EnableFireWork", 0);
         }
 
+        int yesConfetti;
+        yesConfetti = enableCon ? 1 : 0;
+
+        if (enableCon == true)
+        {
+            PlayerPrefs.SetInt("Confetti", 1);
+            Debug.Log("worked");
+            set.tog.isOn = true;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Confetti", 0);
+            set.tog.isOn = false;
+        }
+
         pistolSlide.maxValue = maxAmmoP;
         pistolSlide.value = currAmmoP;
 
@@ -717,11 +736,11 @@ public class MouseLook : MonoBehaviour
             if (point != null){
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, hit.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, hit.point, Quaternion.identity);
                 }
@@ -730,11 +749,11 @@ public class MouseLook : MonoBehaviour
             BossDrone bossDrone = hit.transform.GetComponent<BossDrone>();
             if (bossDrone != null){
                 bossDrone.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, hit.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, hit.point, Quaternion.identity);
                 }
@@ -762,11 +781,11 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, sHit.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, sHit.point, Quaternion.identity);
                 }
@@ -775,11 +794,11 @@ public class MouseLook : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, sHit.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, sHit.point, Quaternion.identity);
                 }
@@ -795,11 +814,11 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, sHit2.point, Quaternion.identity);
                 }
-                if (set.enableCon == true){
+                if (enableCon == true){
                     Instantiate(confetti, sHit2.point, Quaternion.identity);
                 }
             }
@@ -807,11 +826,11 @@ public class MouseLook : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, sHit2.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, sHit2.point, Quaternion.identity);
                 }
@@ -827,11 +846,11 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, sHit3.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, sHit3.point, Quaternion.identity);
                 }
@@ -840,11 +859,11 @@ public class MouseLook : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, sHit3.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, sHit3.point, Quaternion.identity);
                 }
@@ -860,11 +879,11 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, sHit4.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, sHit4.point, Quaternion.identity);
                 }
@@ -873,11 +892,11 @@ public class MouseLook : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, sHit4.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, sHit4.point, Quaternion.identity);
                 }
@@ -893,11 +912,11 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, sHit5.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, sHit5.point, Quaternion.identity);
                 }
@@ -906,11 +925,11 @@ public class MouseLook : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, sHit5.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, sHit5.point, Quaternion.identity);
                 }
@@ -931,11 +950,11 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, mHit.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, mHit.point, Quaternion.identity);
                 }
@@ -944,11 +963,11 @@ public class MouseLook : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, mHit.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, mHit.point, Quaternion.identity);
                 }
@@ -970,11 +989,11 @@ public class MouseLook : MonoBehaviour
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
                 secondarySound.Play();
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, kHit.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, kHit.point, Quaternion.identity);
                 }
@@ -994,11 +1013,11 @@ public class MouseLook : MonoBehaviour
             {
                 bossDrone.TakeDamage(damage);
                 secondarySound.Play();
-                if (set.enableCon == false)
+                if (enableCon == false)
                 {
                     Instantiate(blood, kHit.point, Quaternion.identity);
                 }
-                if (set.enableCon == true)
+                if (enableCon == true)
                 {
                     Instantiate(confetti, kHit.point, Quaternion.identity);
                 }

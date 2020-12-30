@@ -41,11 +41,11 @@ public class Firework : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
-                if (mouse.set.enableCon == false)
+                if (mouse.enableCon == false)
                 {
                     Instantiate(blood, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.set.enableCon == true)
+                if (mouse.enableCon == true)
                 {
                     Instantiate(confetti, near.transform.position, Quaternion.identity);
                 }
@@ -60,11 +60,11 @@ public class Firework : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (mouse.set.enableCon == false)
+                if (mouse.enableCon == false)
                 {
                     Instantiate(blood, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.set.enableCon == true)
+                if (mouse.enableCon == true)
                 {
                     Instantiate(confetti, near.transform.position, Quaternion.identity);
                 }
