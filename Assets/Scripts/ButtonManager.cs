@@ -31,6 +31,7 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.SetInt("PriorG", 6);
             PlayerPrefs.SetInt("PriorF", 8);
             PlayerPrefs.SetInt("PriorScore", 0);
+            PlayerPrefs.SetFloat("Sense", 4);
         }
     }
 
@@ -67,7 +68,7 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("EnableKnife", 1);
         PlayerPrefs.SetInt("EnableGrenade", 1);
         PlayerPrefs.SetInt("EnableFireWork", 1);
-
+        PlayerPrefs.SetFloat("Sense", 4);
         PlayerPrefs.SetInt("Current_Round", 1);
     }
 

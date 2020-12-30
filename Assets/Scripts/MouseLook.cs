@@ -168,7 +168,7 @@ public class MouseLook : MonoBehaviour
         reloadTime = 0.3f;
         dist = 1000f;
         currWeapon = 1;
-        mouseSensitivity = PlayerPrefs.GetFloat("Sense", 4);
+        mouseSensitivity = PlayerPrefs.GetFloat("Sense", set.slide.value);
         currAmmoP = PlayerPrefs.GetInt("Pistol_Ammo", 0);
         currAmmoS = PlayerPrefs.GetInt("Shotgun_Ammo", 25);
         currAmmoM = PlayerPrefs.GetInt("Machinegun_Ammo", 120);

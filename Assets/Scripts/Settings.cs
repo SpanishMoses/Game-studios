@@ -71,7 +71,7 @@ public class Settings : MonoBehaviour
 
     public void Update()
     {
-        senseNum.text = "" + slide.value;
+        senseNum.text = "" + mouse.mouseSensitivity;
 
 
         int yesConfetti;
@@ -80,10 +80,12 @@ public class Settings : MonoBehaviour
         if (enableCon == true)
         {
             PlayerPrefs.SetInt("Confetti", 1);
+            EnableConfetti(true);
         }
         else
         {
             PlayerPrefs.SetInt("Confetti", 0);
+            EnableConfetti(false);
         }
 
 
