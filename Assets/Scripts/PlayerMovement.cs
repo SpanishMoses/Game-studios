@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using Steamworks;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -134,6 +135,9 @@ public class PlayerMovement : MonoBehaviour
     float shakeAmount = 5f;
     public GameObject ghost;
 
+
+    public int jumpNum;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -234,6 +238,7 @@ public class PlayerMovement : MonoBehaviour
                 pressedJump = true;
                 jumping.Play();
                 setPitch();
+                jumpNum++;
         }
 
             if (pressedJump == false && isGrounded == false && isDead == false){
@@ -257,6 +262,13 @@ public class PlayerMovement : MonoBehaviour
                 velocity.y += gravity * Time.deltaTime;
             }
         controller.Move(velocity * Time.deltaTime);
+
+
+            //test achievment thing
+            if (!SteamManager.Initialized) { return; }
+            if (jumpNum == 5) { return;  }
+            SteamUserStats.SetAchievement("Jump");
+            SteamUserStats.StoreStats();
 
             //Dash
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x < 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z < 0f)
