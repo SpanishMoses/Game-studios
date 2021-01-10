@@ -264,12 +264,6 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
 
-            //test achievment thing
-            if (!SteamManager.Initialized) { return; }
-            if (jumpNum == 5) { return;  }
-            SteamUserStats.SetAchievement("Jump");
-            SteamUserStats.StoreStats();
-
             //Dash
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x < 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z < 0f)
             {

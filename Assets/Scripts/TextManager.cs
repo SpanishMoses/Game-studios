@@ -25,6 +25,8 @@ public class TextManager : MonoBehaviour
 
     private PlayerMovement player;
 
+    public bool enable;
+
     RectTransform rect;
     public GameObject killText;
 
@@ -68,7 +70,7 @@ public class TextManager : MonoBehaviour
 
             if (sentenceNum == 9){
                 anim.SetBool("TutDone", true);
-                
+                enable = true;
             }
         }
     }

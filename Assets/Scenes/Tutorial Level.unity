@@ -61281,7 +61281,7 @@ GameObject:
   - component: {fileID: 802174467}
   m_Layer: 0
   m_Name: text manager
-  m_TagString: Untagged
+  m_TagString: Dia
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61325,6 +61325,7 @@ MonoBehaviour:
   index: 0
   typingSpeed: 0.0001
   sentenceNum: 0
+  enable: 0
   killText: {fileID: 2061332535}
 --- !u!4 &802174468
 Transform:
@@ -65968,6 +65969,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8016271603441680444, guid: ccdc5c7ebf1ba1244b521038a9335b53, type: 3}
   m_PrefabInstance: {fileID: 1258099355}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1266875363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266875365}
+  - component: {fileID: 1266875364}
+  m_Layer: 0
+  m_Name: achievment progress
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1266875364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266875363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2875a69a42ede694bbcc91a7c83272a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialArea: 1
+  player: {fileID: 0}
+  text: {fileID: 0}
+--- !u!4 &1266875365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266875363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.796837, y: 20.347599, z: 35.002037}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 47
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1270748346
 PrefabInstance:
   m_ObjectHideFlags: 0
