@@ -47323,7 +47323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 722936964421982949, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_RootOrder
-      value: 34
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 864305034155825840, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: mouse
@@ -47519,7 +47519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969956366114145506, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_RootOrder
-      value: 33
+      value: 34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
@@ -49711,7 +49711,7 @@ GameObject:
   - component: {fileID: 1069336341}
   m_Layer: 0
   m_Name: achievment progress
-  m_TagString: Untagged
+  m_TagString: Steam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49728,7 +49728,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2875a69a42ede694bbcc91a7c83272a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialArea: 0
   player: {fileID: 0}
+  text: {fileID: 0}
+  bearKills: 0
+  unicornKills: 0
+  droneKills: 0
+  explodeKills: 0
+  pandaKills: 0
 --- !u!4 &1069336342
 Transform:
   m_ObjectHideFlags: 0

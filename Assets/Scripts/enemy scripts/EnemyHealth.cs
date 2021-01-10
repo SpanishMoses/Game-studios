@@ -39,6 +39,19 @@ public class EnemyHealth : MonoBehaviour
 
     public AudioSource death;
 
+    public bool isBear;
+    public bool isUnicorn;
+    public bool isDrone;
+    public bool isExplode;
+    public bool isPanda;
+
+    public Achievment achieve;
+
+    private void Start()
+    {
+        achieve = GameObject.FindGameObjectWithTag("Steam").GetComponent<Achievment>();
+    }
+
     private void Update()
     {
         if (health <= minHealth){
@@ -104,6 +117,21 @@ public class EnemyHealth : MonoBehaviour
                     }
                 }
             }
+            if (isBear == true){
+                achieve.bearKills++;
+            }
+            if (isUnicorn == true){
+                achieve.unicornKills++;
+            }
+            if (isDrone == true){
+                achieve.droneKills++;
+            }
+            if (isExplode == true){
+                achieve.explodeKills++;
+            }
+            if (isPanda == true){
+                achieve.pandaKills++;
+            }
         }
         if (partOfArray == true)
         {
@@ -121,6 +149,26 @@ public class EnemyHealth : MonoBehaviour
                         Instantiate(bloodSplat, ray.point + new Vector3(0, 0.2f, 0), Quaternion.LookRotation(-ray.normal));
                     }
                 }
+            }
+            if (isBear == true)
+            {
+                achieve.bearKills++;
+            }
+            if (isUnicorn == true)
+            {
+                achieve.unicornKills++;
+            }
+            if (isDrone == true)
+            {
+                achieve.droneKills++;
+            }
+            if (isExplode == true)
+            {
+                achieve.explodeKills++;
+            }
+            if (isPanda == true)
+            {
+                achieve.pandaKills++;
             }
         }
         if (specialDrop == true)
@@ -140,6 +188,26 @@ public class EnemyHealth : MonoBehaviour
                         Instantiate(bloodSplat, ray.point + new Vector3(0, 0.05f, 0), Quaternion.LookRotation(-ray.normal));
                     }
                 }
+            }
+            if (isBear == true)
+            {
+                achieve.bearKills++;
+            }
+            if (isUnicorn == true)
+            {
+                achieve.unicornKills++;
+            }
+            if (isDrone == true)
+            {
+                achieve.droneKills++;
+            }
+            if (isExplode == true)
+            {
+                achieve.explodeKills++;
+            }
+            if (isPanda == true)
+            {
+                achieve.pandaKills++;
             }
         }
     }

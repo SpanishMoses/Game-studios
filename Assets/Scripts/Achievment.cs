@@ -10,6 +10,13 @@ public class Achievment : MonoBehaviour
     public PlayerMovement player;
     public TextManager text;
 
+    //for enemy amounts
+    public int bearKills;
+    public int unicornKills;
+    public int droneKills;
+    public int explodeKills;
+    public int pandaKills;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +31,34 @@ public class Achievment : MonoBehaviour
     {
 
         //test achievment thing
-        if (player.jumpNum == 5)
+        if (bearKills <= 5)
         {
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_One");
             SteamUserStats.StoreStats();
         }
 
-        if (text.enable == true){
+        if (unicornKills <= 5){
+            if (!SteamManager.Initialized) { return; }
+            SteamUserStats.SetAchievement("Exterminator_Part_Two");
+            SteamUserStats.StoreStats();
+        }
+
+        if (droneKills <= 5){
+            if (!SteamManager.Initialized) { return; }
+            SteamUserStats.SetAchievement("Exterminator_Part_Two");
+            SteamUserStats.StoreStats();
+        }
+
+        if (explodeKills <= 5)
+        {
+            if (!SteamManager.Initialized) { return; }
+            SteamUserStats.SetAchievement("Exterminator_Part_Two");
+            SteamUserStats.StoreStats();
+        }
+
+        if (pandaKills <= 5)
+        {
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Two");
             SteamUserStats.StoreStats();

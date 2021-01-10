@@ -410,6 +410,12 @@ MonoBehaviour:
   enemyShoot: {fileID: 5443037403398029714}
   deathNoise: {fileID: 8300000, guid: c7d4003a9794863449f874bd815510c5, type: 3}
   death: {fileID: 7659356316387560185}
+  isBear: 0
+  isUnicorn: 0
+  isDrone: 1
+  isExplode: 0
+  isPanda: 0
+  achieve: {fileID: 0}
 --- !u!135 &927143007604561144
 SphereCollider:
   m_ObjectHideFlags: 0
