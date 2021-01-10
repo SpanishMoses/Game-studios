@@ -31,33 +31,33 @@ public class Achievment : MonoBehaviour
     {
 
         //test achievment thing
-        if (bearKills <= 5)
+        if (bearKills >= 5)
         {
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_One");
             SteamUserStats.StoreStats();
         }
 
-        if (unicornKills <= 5){
+        if (unicornKills >= 5){
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Two");
             SteamUserStats.StoreStats();
         }
 
-        if (droneKills <= 5){
+        if (droneKills >= 5){
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Three");
             SteamUserStats.StoreStats();
         }
 
-        if (explodeKills <= 5)
+        if (explodeKills >= 5)
         {
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Four");
             SteamUserStats.StoreStats();
         }
 
-        if (pandaKills <= 5)
+        if (pandaKills >= 5)
         {
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Five");
