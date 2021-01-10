@@ -46,21 +46,21 @@ public class Achievment : MonoBehaviour
 
         if (droneKills <= 5){
             if (!SteamManager.Initialized) { return; }
-            SteamUserStats.SetAchievement("Exterminator_Part_Two");
+            SteamUserStats.SetAchievement("Exterminator_Part_Three");
             SteamUserStats.StoreStats();
         }
 
         if (explodeKills <= 5)
         {
             if (!SteamManager.Initialized) { return; }
-            SteamUserStats.SetAchievement("Exterminator_Part_Two");
+            SteamUserStats.SetAchievement("Exterminator_Part_Four");
             SteamUserStats.StoreStats();
         }
 
         if (pandaKills <= 5)
         {
             if (!SteamManager.Initialized) { return; }
-            SteamUserStats.SetAchievement("Exterminator_Part_Two");
+            SteamUserStats.SetAchievement("Exterminator_Part_Five");
             SteamUserStats.StoreStats();
         }
 
