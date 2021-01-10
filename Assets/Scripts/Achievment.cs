@@ -36,5 +36,9 @@ public class Achievment : MonoBehaviour
             SteamUserStats.SetAchievement("Exterminator_Part_Two");
             SteamUserStats.StoreStats();
         }
+
+        if (Input.GetKeyDown(KeyCode.L)){
+            SteamUserStats.ResetAllStats(true);
+        }
     }
 }
