@@ -65,6 +65,7 @@ public class Achievment : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.L)){
+            if (!SteamManager.Initialized) { return; }
             SteamUserStats.ResetAllStats(true);
         }
     }
