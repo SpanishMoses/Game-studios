@@ -31,13 +31,15 @@ public class ExplodingEnemy : MonoBehaviour
 
     public AudioSource fuse;
 
+    public Achievment achieve;
+
     // Start is called before the first frame update
     void Start()
     {
         playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-
+        achieve = GameObject.FindGameObjectWithTag("Steam").GetComponent<Achievment>();
 
     }
 
@@ -168,6 +170,7 @@ public class ExplodingEnemy : MonoBehaviour
 
     IEnumerator beignBlowUp(){
         yield return new WaitForSeconds(1f);
+        achieve.explodeKills++;
         detonation();
         health.collid.enabled = true;
         health.health = 0;
@@ -175,6 +178,7 @@ public class ExplodingEnemy : MonoBehaviour
     IEnumerator beignBlowUpNew()
     {
         yield return new WaitForSeconds(1f);
+        achieve.explodeKills++;
         detonationNew();
         health.collid.enabled = true;
         health.health = 0;
