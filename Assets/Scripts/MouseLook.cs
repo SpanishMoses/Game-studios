@@ -143,6 +143,8 @@ public class MouseLook : MonoBehaviour
     float shakeAmount = 5f;
     public GameObject ghost;
 
+    public Achievment achieve;
+
     public bool enableCon;
 
     /*PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
@@ -157,6 +159,7 @@ public class MouseLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        achieve = GameObject.FindGameObjectWithTag("Steam").GetComponent<Achievment>();
         shootReady = true;
         grenadeReady = true;
         fireWorkReady = true;

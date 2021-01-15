@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Steamworks;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -45,6 +46,8 @@ public class EnemyHealth : MonoBehaviour
     public bool isExplode;
     public bool isPanda;
 
+    public bool isBoss;
+
     public Achievment achieve;
 
     private void Start()
@@ -62,6 +65,9 @@ public class EnemyHealth : MonoBehaviour
             for (int i = 0; i < parts.Length; i++){
                 parts[i].SetActive(false);
                 collid.enabled = false;
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Queen_Slayer");
+                SteamUserStats.StoreStats();
             }
         }
 

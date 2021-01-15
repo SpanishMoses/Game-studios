@@ -137,6 +137,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     public int jumpNum;
+    public int medic;
+    public int munitions;
+
 
     private void Awake()
     {
@@ -263,6 +266,24 @@ public class PlayerMovement : MonoBehaviour
             }
         controller.Move(velocity * Time.deltaTime);
 
+            //achievement stuff
+            if (jumpNum >= 300){
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("B_Hopper");
+                SteamUserStats.StoreStats();
+            }
+
+            if (medic >= 100){
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Combat_Medic");
+                SteamUserStats.StoreStats();
+            }
+
+            if (munitions >= 100){
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Munition_Man");
+                SteamUserStats.StoreStats();
+            }
 
             //Dash
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x < 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z < 0f)
@@ -529,6 +550,7 @@ public class PlayerMovement : MonoBehaviour
             Consumables consume = other.transform.GetComponent<Consumables>();
             if (consume != null && consume.isHealth == true){
                 health += consume.amount;
+                medic += consume.amount;
                 pickups.clip = healthPickup;
                 pickups.Play();
                 ShakeIt();
@@ -541,6 +563,7 @@ public class PlayerMovement : MonoBehaviour
                     mouse.currAmmoP += consume.amount;
                     mouse.currAmmoS += consume.amount;
                     mouse.currAmmoM += consume.amount;
+                munitions++;
                 Destroy(other.gameObject);
                 pickups.clip = ammoPickup;
                 pickups.Play();
@@ -614,14 +637,23 @@ public class PlayerMovement : MonoBehaviour
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelOne"))
             {
-                Cursor.lockState = CursorLockMode.None;
+                //Cursor.lockState = CursorLockMode.None;
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Tourist_One");
+                SteamUserStats.StoreStats();
                 SceneManager.LoadScene("LevelTwoLoadScreen");
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelTwo")){
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Tourist_Two");
+                SteamUserStats.StoreStats();
                 SceneManager.LoadScene("LevelThreeLoadScreen");
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
             {
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Tourist_Three");
+                SteamUserStats.StoreStats();
                 SceneManager.LoadScene("LevelFourLoadScreen");
             }
         }
@@ -640,6 +672,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (other.gameObject.tag == "finish"){
+            if (!SteamManager.Initialized) { return; }
+            SteamUserStats.SetAchievement("Tourist_Four");
+            SteamUserStats.StoreStats();
             SceneManager.LoadScene("credits");
             Cursor.lockState = CursorLockMode.None;
         }
