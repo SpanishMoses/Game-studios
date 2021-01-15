@@ -24473,7 +24473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door:
-  - {fileID: 0}
+  - {fileID: 367067348}
   enemies:
   - {fileID: 2044515043}
   - {fileID: 1466925838}
@@ -76395,6 +76395,12 @@ MonoBehaviour:
   droneKills: 0
   explodeKills: 0
   pandaKills: 0
+  pistolKill: 0
+  shotGunKill: 0
+  rifleKill: 0
+  knifeKill: 0
+  grenadeKill: 0
+  fireWorkKill: 0
 --- !u!4 &1622905663
 Transform:
   m_ObjectHideFlags: 0
