@@ -14,9 +14,12 @@ public class Firework : MonoBehaviour
 
     public MouseLook mouse;
 
+    public Achievment achieve;
+
     // Start is called before the first frame update
     void Start()
     {
+        achieve = GameObject.FindGameObjectWithTag("Steam").GetComponent<Achievment>();
         mouse = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MouseLook>();
     }
 
@@ -41,6 +44,10 @@ public class Firework : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
+                if (point.health.health <= 0)
+                {
+                    achieve.fireWorkKill++;
+                }
                 if (mouse.enableCon == false)
                 {
                     Instantiate(blood, near.transform.position, Quaternion.identity);

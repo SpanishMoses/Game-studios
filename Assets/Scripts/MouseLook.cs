@@ -739,6 +739,9 @@ public class MouseLook : MonoBehaviour
             if (point != null){
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
+                if (point.health.health <= 0){
+                    achieve.pistolKill++;
+                }
                 if (enableCon == false)
                 {
                     Instantiate(blood, hit.point, Quaternion.identity);
@@ -784,6 +787,10 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
+                if (point.health.health <= 0)
+                {
+                    achieve.shotGunKill++;
+                }
                 if (enableCon == false)
                 {
                     Instantiate(blood, sHit.point, Quaternion.identity);
@@ -817,6 +824,10 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
+                if (point.health.health <= 0)
+                {
+                    achieve.shotGunKill++;
+                }
                 if (enableCon == false)
                 {
                     Instantiate(blood, sHit2.point, Quaternion.identity);
@@ -849,6 +860,10 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
+                if (point.health.health <= 0)
+                {
+                    achieve.shotGunKill++;
+                }
                 if (enableCon == false)
                 {
                     Instantiate(blood, sHit3.point, Quaternion.identity);
@@ -882,6 +897,10 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
+                if (point.health.health <= 0)
+                {
+                    achieve.shotGunKill++;
+                }
                 if (enableCon == false)
                 {
                     Instantiate(blood, sHit4.point, Quaternion.identity);
@@ -915,6 +934,10 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
+                if (point.health.health <= 0)
+                {
+                    achieve.shotGunKill++;
+                }
                 if (enableCon == false)
                 {
                     Instantiate(blood, sHit5.point, Quaternion.identity);
@@ -953,6 +976,10 @@ public class MouseLook : MonoBehaviour
             {
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
+                if (point.health.health <= 0)
+                {
+                    achieve.rifleKill++;
+                }
                 if (enableCon == false)
                 {
                     Instantiate(blood, mHit.point, Quaternion.identity);
@@ -992,6 +1019,10 @@ public class MouseLook : MonoBehaviour
                 point.GivePoint(point.targetPoints);
                 point.TakeDamage(damage);
                 secondarySound.Play();
+                if (point.health.health <= 0)
+                {
+                    achieve.knifeKill++;
+                }
                 if (enableCon == false)
                 {
                     Instantiate(blood, kHit.point, Quaternion.identity);

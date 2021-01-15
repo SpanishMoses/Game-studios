@@ -71,6 +71,12 @@ public class Achievment : MonoBehaviour
             SteamUserStats.StoreStats();
         }
 
+        if (pistolKill >= 1 && shotGunKill >= 1 && rifleKill >= 1 && knifeKill >= 1 && grenadeKill >= 1 && fireWorkKill >= 1){
+            if (!SteamManager.Initialized) { return; }
+            SteamUserStats.SetAchievement("Weapon_Specialist");
+            SteamUserStats.StoreStats();
+        }
+
         if (Input.GetKeyDown(KeyCode.L)){
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.ResetAllStats(true);

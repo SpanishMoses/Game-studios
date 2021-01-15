@@ -340,6 +340,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true){
             Time.timeScale = 1f;
+            if (!SteamManager.Initialized) { return; }
+            SteamUserStats.SetAchievement("Immortality_Is_Overrated");
+            SteamUserStats.StoreStats();
             ResetPos();
             /*health = 50;
             point.totalPoints -= 1000;
