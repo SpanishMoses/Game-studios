@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Steamworks;
 
 public class TextManager : MonoBehaviour
 {
@@ -66,6 +67,9 @@ public class TextManager : MonoBehaviour
                 //myMusic.mus.Play();
                 StartCoroutine(whipe());
                 sentenceNum++;
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Begin_The_Slaughter");
+                SteamUserStats.StoreStats();
             }
 
             if (sentenceNum == 9){

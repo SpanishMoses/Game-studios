@@ -31,11 +31,36 @@ public class Achievment : MonoBehaviour
         if (tutorialArea == true){
             text = GameObject.FindGameObjectWithTag("Dia").GetComponent<TextManager>();
         }
+        bearKills = PlayerPrefs.GetInt("B_Kills", 0);
+        unicornKills = PlayerPrefs.GetInt("U_Kills", 0);
+        droneKills = PlayerPrefs.GetInt("D_Kills", 0);
+        explodeKills = PlayerPrefs.GetInt("E_Kills", 0);
+        pandaKills = PlayerPrefs.GetInt("P_Kills", 0);
+
+        pistolKill = PlayerPrefs.GetInt("P_Gun_Kills", 0);
+        shotGunKill = PlayerPrefs.GetInt("S_Gun_Kills", 0);
+        rifleKill = PlayerPrefs.GetInt("R_Gun_Kills", 0);
+        knifeKill = PlayerPrefs.GetInt("K_Gun_Kills", 0);
+        grenadeKill = PlayerPrefs.GetInt("G_Gun_Kills", 0);
+        fireWorkKill = PlayerPrefs.GetInt("F_Gun_Kills", 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        PlayerPrefs.SetInt("B_Kills", bearKills);
+        PlayerPrefs.SetInt("U_Kills", unicornKills);
+        PlayerPrefs.SetInt("D_Kills", droneKills);
+        PlayerPrefs.SetInt("E_Kills", explodeKills);
+        PlayerPrefs.SetInt("P_Kills", pandaKills);
+
+        PlayerPrefs.SetInt("P_Gun_Kills", pistolKill);
+        PlayerPrefs.SetInt("S_Gun_Kills", shotGunKill);
+        PlayerPrefs.SetInt("R_Gun_Kills", rifleKill);
+        PlayerPrefs.SetInt("K_Gun_Kills", knifeKill);
+        PlayerPrefs.SetInt("G_Gun_Kills", grenadeKill);
+        PlayerPrefs.SetInt("F_Gun_Kills", fireWorkKill);
 
         //test achievment thing
         if (bearKills >= 100)
@@ -68,6 +93,12 @@ public class Achievment : MonoBehaviour
         {
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Five");
+            SteamUserStats.StoreStats();
+        }
+
+        if (bearKills >= 100 && unicornKills >= 100 && droneKills >= 100 && explodeKills >= 100 && pandaKills >= 100){
+            if (!SteamManager.Initialized) { return; }
+            SteamUserStats.SetAchievement("Ultimate_Slayer");
             SteamUserStats.StoreStats();
         }
 

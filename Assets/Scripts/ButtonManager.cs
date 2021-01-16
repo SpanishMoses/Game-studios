@@ -32,6 +32,7 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.SetInt("PriorF", 8);
             PlayerPrefs.SetInt("PriorScore", 0);
             PlayerPrefs.SetFloat("Sense", 4);
+            PlayerPrefs.SetInt("GOD", 0);
         }
     }
 

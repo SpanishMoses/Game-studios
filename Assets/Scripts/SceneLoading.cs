@@ -21,6 +21,7 @@ public class SceneLoading : MonoBehaviour
         PlayerPrefs.SetFloat("CheckPointX", positionX);
         PlayerPrefs.SetFloat("CheckPointY", positionY);
         PlayerPrefs.SetFloat("CheckPointZ", positionZ);
+        PlayerPrefs.SetInt("NOHIT", 0);
     }
 
     IEnumerator LoadAsyncOperation(string newGameLevel)

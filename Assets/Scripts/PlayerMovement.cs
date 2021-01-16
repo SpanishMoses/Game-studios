@@ -139,7 +139,11 @@ public class PlayerMovement : MonoBehaviour
     public int jumpNum;
     public int medic;
     public int munitions;
+    public int deathCounter;
+    public int noDeathCounter;
+    public float distance;
 
+    public bool noHit;
 
     private void Awake()
     {
@@ -193,11 +197,39 @@ public class PlayerMovement : MonoBehaviour
             PlayerPrefs.SetInt("Pistol_Ammo", 100);
         }
         Physics.SyncTransforms();
+
+        jumpNum = PlayerPrefs.GetInt("JUMP", 0);
+        medic = PlayerPrefs.GetInt("HEALTH", 0);
+        munitions = PlayerPrefs.GetInt("AMMO", 0);
+        deathCounter = PlayerPrefs.GetInt("DEATH", 0);
+        noDeathCounter = PlayerPrefs.GetInt("GOD", 0);
+        distance = PlayerPrefs.GetFloat("DIST", 0);
+        noHit = PlayerPrefs.GetInt("NOHIT", 0) > 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //achivement variable progress
+        PlayerPrefs.SetInt("JUMP", jumpNum);
+        PlayerPrefs.SetInt("HEALTH", medic);
+        PlayerPrefs.SetInt("AMMO", munitions);
+        PlayerPrefs.SetInt("DEATH", deathCounter);
+        PlayerPrefs.SetFloat("DIST", distance);
+        PlayerPrefs.SetInt("GOD", noDeathCounter);
+
+        int noHitEnable;
+        noHitEnable = noHit ? 1 : 0;
+
+        if (noHit == true)
+        {
+            PlayerPrefs.SetInt("NOHIT", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("NOHIT", 0);
+        }
+
         PlayerPrefs.SetInt("Curr_Health", health);
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -218,7 +250,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 move = transform.right * x * speed + transform.forward * z * speed + transform.up * velocity.y;
 
                 controller.Move(move * Time.deltaTime);
-                
+                distance += 0.5f * Time.deltaTime;
             }
             if (onLadder == true){
                 Vector3 moveUp = transform.up * z;
@@ -285,6 +317,25 @@ public class PlayerMovement : MonoBehaviour
                 SteamUserStats.StoreStats();
             }
 
+            if (deathCounter == 1){
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Immortality_Is_Overrated");
+                SteamUserStats.StoreStats();
+            }
+
+            if (deathCounter == 10)
+            {
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Maybe_Not_So_Easy");
+                SteamUserStats.StoreStats();
+            }
+
+            if (distance >= 666){
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Explorer");
+                SteamUserStats.StoreStats();
+            }
+
             //Dash
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x < 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z < 0f)
             {
@@ -340,9 +391,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true){
             Time.timeScale = 1f;
-            if (!SteamManager.Initialized) { return; }
-            SteamUserStats.SetAchievement("Immortality_Is_Overrated");
-            SteamUserStats.StoreStats();
+            deathCounter++;
             ResetPos();
             /*health = 50;
             point.totalPoints -= 1000;
@@ -640,6 +689,11 @@ public class PlayerMovement : MonoBehaviour
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelOne"))
             {
+                if (noHit == false){
+                    if (!SteamManager.Initialized) { return; }
+                    SteamUserStats.SetAchievement("Clean_Run");
+                    SteamUserStats.StoreStats();
+                }
                 //Cursor.lockState = CursorLockMode.None;
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_One");
@@ -647,6 +701,12 @@ public class PlayerMovement : MonoBehaviour
                 SceneManager.LoadScene("LevelTwoLoadScreen");
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelTwo")){
+                if (noHit == false)
+                {
+                    if (!SteamManager.Initialized) { return; }
+                    SteamUserStats.SetAchievement("Clean_Run");
+                    SteamUserStats.StoreStats();
+                }
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_Two");
                 SteamUserStats.StoreStats();
@@ -654,6 +714,12 @@ public class PlayerMovement : MonoBehaviour
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
             {
+                if (noHit == false)
+                {
+                    if (!SteamManager.Initialized) { return; }
+                    SteamUserStats.SetAchievement("Clean_Run");
+                    SteamUserStats.StoreStats();
+                }
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_Three");
                 SteamUserStats.StoreStats();
@@ -675,11 +741,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (other.gameObject.tag == "finish"){
+            if (noHit == false)
+            {
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Clean_Run");
+                SteamUserStats.StoreStats();
+            }
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Tourist_Four");
             SteamUserStats.StoreStats();
             SceneManager.LoadScene("credits");
             Cursor.lockState = CursorLockMode.None;
+            if (noDeathCounter == 0){
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Unstoppable");
+                SteamUserStats.StoreStats();
+            }
         }
 
         if (other.gameObject.tag == "Door"){
@@ -728,6 +805,7 @@ public class PlayerMovement : MonoBehaviour
     public void TakeDamage(int amount)
     {
         health -= amount;
+        noHit = true;
         PlayerPrefs.SetInt("Curr_Health", health);
         selectHurtNum();
         if (hurtNum == 1){
