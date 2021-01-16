@@ -189,6 +189,13 @@ MonoBehaviour:
   pitch: 0
   healthPos: {fileID: 0}
   ghost: {fileID: 0}
+  jumpNum: 0
+  medic: 0
+  munitions: 0
+  deathCounter: 0
+  noDeathCounter: 0
+  distance: 0
+  noHit: 0
 --- !u!82 &5277950087755630345
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5611,6 +5618,7 @@ MonoBehaviour:
   ammoText: {fileID: 0}
   blood: {fileID: 4738052880662677020, guid: d7da91d05f0805d40bf64d88e803bf7b, type: 3}
   confetti: {fileID: 743254575686259867, guid: 6d80b0419fa54244fb08a0bbfd035c4b, type: 3}
+  candy: {fileID: 4738052880662677020, guid: 91c36938c21e2a24dbea5e84d9423173, type: 3}
   impact: {fileID: 4738052880662677020, guid: 36aa7e35003522348940264f59bc4080, type: 3}
   shell: {fileID: 1969163310703086288, guid: c9ff36036361e6f4399cb76e723e6a8a, type: 3}
   rifleShell: {fileID: 1969163310703086288, guid: 4ef38bcb717306743b2feed63d3e8293, type: 3}
@@ -5655,6 +5663,9 @@ MonoBehaviour:
   grenadeSlide: {fileID: 0}
   fireWorkSlide: {fileID: 0}
   ghost: {fileID: 0}
+  achieve: {fileID: 0}
+  enableCon: 0
+  enableCandy: 0
 --- !u!95 &7997200904646466718
 Animator:
   serializedVersion: 3

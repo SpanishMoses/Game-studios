@@ -85,6 +85,7 @@ public class MouseLook : MonoBehaviour
 
     public GameObject blood;
     public GameObject confetti;
+    public GameObject candy;
     public GameObject impact;
     public GameObject shell;
     public GameObject rifleShell;
@@ -146,6 +147,7 @@ public class MouseLook : MonoBehaviour
     public Achievment achieve;
 
     public bool enableCon;
+    public bool enableCandy;
 
     /*PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
     public int value;
@@ -193,7 +195,7 @@ public class MouseLook : MonoBehaviour
         fireWorkBool = PlayerPrefs.GetInt("EnableFireWork", 0) > 0;
 
         enableCon = PlayerPrefs.GetInt("Confetti", 0) > 0;
-
+        enableCandy = PlayerPrefs.GetInt("Candy", 0) > 0;
         /*machineGunBool = false;
         shotGunBool = false;
         knifeBool = false;
@@ -709,6 +711,17 @@ public class MouseLook : MonoBehaviour
             set.tog.isOn = false;
         }
 
+        int yesCandy;
+        yesCandy = enableCandy ? 1 : 0;
+
+        if (enableCandy == true){
+            PlayerPrefs.SetInt("Candy", 1);
+            set.tog2.isOn = true;
+        } else{
+            PlayerPrefs.SetInt("Candy", 0);
+            set.tog2.isOn = false;
+        }
+
         pistolSlide.maxValue = maxAmmoP;
         pistolSlide.value = currAmmoP;
 
@@ -742,26 +755,33 @@ public class MouseLook : MonoBehaviour
                 if (point.health.health <= 0){
                     achieve.pistolKill++;
                 }
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, hit.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, hit.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true){
+                    Instantiate(candy, hit.point, Quaternion.identity);
                 }
                 Debug.Log("Got some points");
             }
             BossDrone bossDrone = hit.transform.GetComponent<BossDrone>();
             if (bossDrone != null){
                 bossDrone.TakeDamage(damage);
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, hit.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, hit.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, hit.point, Quaternion.identity);
                 }
             }
         }
@@ -791,26 +811,34 @@ public class MouseLook : MonoBehaviour
                 {
                     achieve.shotGunKill++;
                 }
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, sHit.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
-                    Instantiate(confetti, sHit.point, Quaternion.identity);
+                    Instantiate(confetti,sHit.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, sHit.point, Quaternion.identity);
                 }
             }
             BossDrone bossDrone = sHit.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, sHit.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, sHit.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, sHit.point, Quaternion.identity);
                 }
             }
         }
@@ -828,25 +856,34 @@ public class MouseLook : MonoBehaviour
                 {
                     achieve.shotGunKill++;
                 }
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, sHit2.point, Quaternion.identity);
                 }
-                if (enableCon == true){
+                if (enableCon == true && enableCandy == false)
+                {
                     Instantiate(confetti, sHit2.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, sHit2.point, Quaternion.identity);
                 }
             }
             BossDrone bossDrone = sHit2.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, sHit2.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, sHit2.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, sHit2.point, Quaternion.identity);
                 }
             }
         }
@@ -864,26 +901,34 @@ public class MouseLook : MonoBehaviour
                 {
                     achieve.shotGunKill++;
                 }
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, sHit3.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, sHit3.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, sHit3.point, Quaternion.identity);
                 }
             }
             BossDrone bossDrone = sHit3.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, sHit3.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, sHit3.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, sHit3.point, Quaternion.identity);
                 }
             }
         }
@@ -901,26 +946,34 @@ public class MouseLook : MonoBehaviour
                 {
                     achieve.shotGunKill++;
                 }
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, sHit4.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, sHit4.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, sHit4.point, Quaternion.identity);
                 }
             }
             BossDrone bossDrone = sHit4.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, sHit4.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, sHit4.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, sHit4.point, Quaternion.identity);
                 }
             }
         }
@@ -938,26 +991,34 @@ public class MouseLook : MonoBehaviour
                 {
                     achieve.shotGunKill++;
                 }
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, sHit5.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, sHit5.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, sHit5.point, Quaternion.identity);
                 }
             }
             BossDrone bossDrone = sHit5.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, sHit5.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, sHit5.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, sHit5.point, Quaternion.identity);
                 }
             }
         }
@@ -980,26 +1041,34 @@ public class MouseLook : MonoBehaviour
                 {
                     achieve.rifleKill++;
                 }
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, mHit.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, mHit.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, mHit.point, Quaternion.identity);
                 }
             }
             BossDrone bossDrone = mHit.transform.GetComponent<BossDrone>();
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, mHit.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, mHit.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, mHit.point, Quaternion.identity);
                 }
             }
         }
@@ -1023,13 +1092,17 @@ public class MouseLook : MonoBehaviour
                 {
                     achieve.knifeKill++;
                 }
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, kHit.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, kHit.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, kHit.point, Quaternion.identity);
                 }
                 if (point.health.health <= 0)
                 {
@@ -1047,13 +1120,17 @@ public class MouseLook : MonoBehaviour
             {
                 bossDrone.TakeDamage(damage);
                 secondarySound.Play();
-                if (enableCon == false)
+                if (enableCon == false && enableCandy == false)
                 {
                     Instantiate(blood, kHit.point, Quaternion.identity);
                 }
-                if (enableCon == true)
+                if (enableCon == true && enableCandy == false)
                 {
                     Instantiate(confetti, kHit.point, Quaternion.identity);
+                }
+                if (enableCon == false && enableCandy == true)
+                {
+                    Instantiate(candy, kHit.point, Quaternion.identity);
                 }
             }
         }

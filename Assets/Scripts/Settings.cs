@@ -16,6 +16,7 @@ public class Settings : MonoBehaviour
     public TMP_Text senseNum;
 
     public Toggle tog;
+    public Toggle tog2;
     public bool enableCon;
 
     //public Dropdown resolutionDropdown;
@@ -109,11 +110,21 @@ public class Settings : MonoBehaviour
         if (confettiYes == true)
         {
             mouse.enableCon = true;
+            EnableCandy(false);
         }
         else
         {
             mouse.enableCon = false;
         }
 
+    }
+
+    public void EnableCandy(bool candyYes){
+        if (candyYes == true){
+            mouse.enableCandy = true;
+            EnableConfetti(false);
+        } else{
+            mouse.enableCandy = false;
+        }
     }
 }

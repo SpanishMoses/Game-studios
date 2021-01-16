@@ -11,6 +11,7 @@ public class Firework : MonoBehaviour
     public GameObject blood;
     public GameObject effect;
     public GameObject confetti;
+    public GameObject candy;
 
     public MouseLook mouse;
 
@@ -48,13 +49,17 @@ public class Firework : MonoBehaviour
                 {
                     achieve.fireWorkKill++;
                 }
-                if (mouse.enableCon == false)
+                if (mouse.enableCon == false && mouse.enableCandy == false)
                 {
                     Instantiate(blood, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.enableCon == true)
+                if (mouse.enableCon == true && mouse.enableCandy == false)
                 {
                     Instantiate(confetti, near.transform.position, Quaternion.identity);
+                }
+                if (mouse.enableCon == false && mouse.enableCandy == true)
+                {
+                    Instantiate(candy, near.transform.position, Quaternion.identity);
                 }
                 Debug.Log("Got some points");
             }
@@ -67,13 +72,17 @@ public class Firework : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (mouse.enableCon == false)
+                if (mouse.enableCon == false && mouse.enableCandy == false)
                 {
                     Instantiate(blood, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.enableCon == true)
+                if (mouse.enableCon == true && mouse.enableCandy == false)
                 {
                     Instantiate(confetti, near.transform.position, Quaternion.identity);
+                }
+                if (mouse.enableCon == false && mouse.enableCandy == true)
+                {
+                    Instantiate(candy, near.transform.position, Quaternion.identity);
                 }
             }
         }

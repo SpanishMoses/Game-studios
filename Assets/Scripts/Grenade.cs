@@ -12,6 +12,7 @@ public class Grenade : MonoBehaviour
 
     public GameObject blood;
     public GameObject confetti;
+    public GameObject candy;
 
     public GameObject effect;
 
@@ -54,12 +55,16 @@ public class Grenade : MonoBehaviour
                 {
                     achieve.grenadeKill++;
                 }
-                if (mouse.enableCon == false){
+                if (mouse.enableCon == false && mouse.enableCandy == false){
                     Instantiate(blood, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.enableCon == true)
+                if (mouse.enableCon == true && mouse.enableCandy == false)
                 {
                     Instantiate(confetti, near.transform.position, Quaternion.identity);
+                }
+                if (mouse.enableCon == false && mouse.enableCandy == true)
+                {
+                    Instantiate(candy, near.transform.position, Quaternion.identity);
                 }
 
                 Debug.Log("Got some points");
@@ -73,13 +78,17 @@ public class Grenade : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (mouse.enableCon == false)
+                if (mouse.enableCon == false && mouse.enableCandy == false)
                 {
                     Instantiate(blood, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.enableCon == true)
+                if (mouse.enableCon == true && mouse.enableCandy == false)
                 {
                     Instantiate(confetti, near.transform.position, Quaternion.identity);
+                }
+                if (mouse.enableCon == false && mouse.enableCandy == true)
+                {
+                    Instantiate(candy, near.transform.position, Quaternion.identity);
                 }
             }
         }
