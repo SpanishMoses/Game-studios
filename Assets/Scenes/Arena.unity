@@ -45959,13 +45959,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 57c4ec63ebd21124b8ef26664e22ebae, type: 2}
   m_audioClip: {fileID: 8300000, guid: e0f33d85fd740fa46a350d4adc7cd811, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.08
+  m_Volume: 0.043
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 182
+  Priority: 196
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -47323,7 +47323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 722936964421982949, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_RootOrder
-      value: 35
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 864305034155825840, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: mouse
@@ -47331,7 +47331,7 @@ PrefabInstance:
       objectReference: {fileID: 895246088}
     - target: {fileID: 1163094621631193260, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1517965069823029947, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: mouse
@@ -47339,7 +47339,7 @@ PrefabInstance:
       objectReference: {fileID: 895246088}
     - target: {fileID: 3109581124577439272, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3802512818573934639, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_RootOrder
@@ -47375,7 +47375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6176248040882885084, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 6517983498854183605, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -47507,7 +47507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8488178003802581383, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 8718025479618191715, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_AnchorMax.x
@@ -47519,7 +47519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969956366114145506, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_RootOrder
-      value: 34
+      value: 33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
@@ -49736,6 +49736,12 @@ MonoBehaviour:
   droneKills: 0
   explodeKills: 0
   pandaKills: 0
+  pistolKill: 0
+  shotGunKill: 0
+  rifleKill: 0
+  knifeKill: 0
+  grenadeKill: 0
+  fireWorkKill: 0
 --- !u!4 &1069336342
 Transform:
   m_ObjectHideFlags: 0
