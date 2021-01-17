@@ -25,7 +25,7 @@ public class DynamicMusic : MonoBehaviour
     void Start()
     {
         //music = GameObject.FindGameObjectWithTag("Music");
-        anim = GameObject.FindGameObjectWithTag("Music").GetComponent<Animator>();
+        
         dyn = GameObject.FindGameObjectWithTag("Player").GetComponent<DynamicMusic>();
         ambiance = GameObject.FindGameObjectWithTag("AMusic");
         aAnim = GameObject.FindGameObjectWithTag("AMusic").GetComponent<Animator>();
