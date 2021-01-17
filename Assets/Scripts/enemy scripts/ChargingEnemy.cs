@@ -32,6 +32,8 @@ public class ChargingEnemy : MonoBehaviour
     public AudioSource charging;
     public AudioSource windSound;
 
+    public 
+
     void Awake()
     {
         Instantiate(spawnEffect, transform.position, transform.rotation);
