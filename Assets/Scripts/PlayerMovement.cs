@@ -303,24 +303,28 @@ public class PlayerMovement : MonoBehaviour
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("B_Hopper");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_12", 1);
             }
 
             if (medic >= 100){
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Combat_Medic");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_15", 1);
             }
 
             if (munitions >= 100){
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Munition_Man");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_16", 1);
             }
 
             if (deathCounter == 1){
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Immortality_Is_Overrated");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_19", 1);
             }
 
             if (deathCounter == 10)
@@ -328,12 +332,14 @@ public class PlayerMovement : MonoBehaviour
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Maybe_Not_So_Easy");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_20", 1);
             }
 
             if (distance >= 666){
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Explorer");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_13", 1);
             }
 
             //Dash
@@ -693,11 +699,13 @@ public class PlayerMovement : MonoBehaviour
                     if (!SteamManager.Initialized) { return; }
                     SteamUserStats.SetAchievement("Clean_Run");
                     SteamUserStats.StoreStats();
+                    PlayerPrefs.SetInt("ACH_17", 1);
                 }
                 //Cursor.lockState = CursorLockMode.None;
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_One");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_8", 1);
                 SceneManager.LoadScene("LevelTwoLoadScreen");
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelTwo")){
@@ -706,10 +714,12 @@ public class PlayerMovement : MonoBehaviour
                     if (!SteamManager.Initialized) { return; }
                     SteamUserStats.SetAchievement("Clean_Run");
                     SteamUserStats.StoreStats();
+                    PlayerPrefs.SetInt("ACH_17", 1);
                 }
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_Two");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_9", 1);
                 SceneManager.LoadScene("LevelThreeLoadScreen");
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
@@ -719,10 +729,12 @@ public class PlayerMovement : MonoBehaviour
                     if (!SteamManager.Initialized) { return; }
                     SteamUserStats.SetAchievement("Clean_Run");
                     SteamUserStats.StoreStats();
+                    PlayerPrefs.SetInt("ACH_17", 1);
                 }
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_Three");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_10", 1);
                 SceneManager.LoadScene("LevelFourLoadScreen");
             }
         }
@@ -746,16 +758,19 @@ public class PlayerMovement : MonoBehaviour
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Clean_Run");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_17", 1);
             }
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Tourist_Four");
             SteamUserStats.StoreStats();
+            PlayerPrefs.SetInt("ACH_11", 1);
             SceneManager.LoadScene("credits");
             Cursor.lockState = CursorLockMode.None;
             if (noDeathCounter == 0){
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Unstoppable");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_18", 1);
             }
         }
 

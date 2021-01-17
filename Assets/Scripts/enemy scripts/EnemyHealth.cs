@@ -68,6 +68,7 @@ public class EnemyHealth : MonoBehaviour
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Queen_Slayer");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_14", 1);
             }
         }
 

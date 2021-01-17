@@ -68,18 +68,21 @@ public class Achievment : MonoBehaviour
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_One");
             SteamUserStats.StoreStats();
+            PlayerPrefs.SetInt("ACH_1", 1);
         }
 
         if (unicornKills >= 100){
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Two");
             SteamUserStats.StoreStats();
+            PlayerPrefs.SetInt("ACH_2", 1);
         }
 
         if (droneKills >= 100){
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Three");
             SteamUserStats.StoreStats();
+            PlayerPrefs.SetInt("ACH_3", 1);
         }
 
         if (explodeKills >= 100)
@@ -87,6 +90,7 @@ public class Achievment : MonoBehaviour
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Four");
             SteamUserStats.StoreStats();
+            PlayerPrefs.SetInt("ACH_4", 1);
         }
 
         if (pandaKills >= 100)
@@ -94,18 +98,21 @@ public class Achievment : MonoBehaviour
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Five");
             SteamUserStats.StoreStats();
+            PlayerPrefs.SetInt("ACH_5", 1);
         }
 
         if (bearKills >= 100 && unicornKills >= 100 && droneKills >= 100 && explodeKills >= 100 && pandaKills >= 100){
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Ultimate_Slayer");
             SteamUserStats.StoreStats();
+            PlayerPrefs.SetInt("ACH_6", 1);
         }
 
         if (pistolKill >= 1 && shotGunKill >= 1 && rifleKill >= 1 && knifeKill >= 1 && grenadeKill >= 1 && fireWorkKill >= 1){
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Weapon_Specialist");
             SteamUserStats.StoreStats();
+            PlayerPrefs.SetInt("ACH_21", 1);
         }
 
         if (Input.GetKeyDown(KeyCode.L)){

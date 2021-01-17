@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class DisplayAchieve : MonoBehaviour
 {
     public TextMeshProUGUI text;
+    public GameObject achievements;
+    public GameObject menu;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +26,15 @@ public class DisplayAchieve : MonoBehaviour
     public void hoverNow(string desc)
     {
         text.text = desc;
+    }
+
+    public void display(){
+        menu.SetActive(false);
+        achievements.SetActive(true);
+    }
+
+    public void back(){
+        achievements.SetActive(false);
+        menu.SetActive(true);
     }
 }

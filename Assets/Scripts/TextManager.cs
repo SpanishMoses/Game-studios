@@ -70,6 +70,7 @@ public class TextManager : MonoBehaviour
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Begin_The_Slaughter");
                 SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_7", 1);
             }
 
             if (sentenceNum == 9){
