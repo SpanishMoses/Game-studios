@@ -62,13 +62,10 @@ public class EnemyHealth : MonoBehaviour
         }
         
         if (health <= 0f){
-            for (int i = 0; i < parts.Length; i++){
+            collid.enabled = false;
+            for (int i = 0; i < parts.Length; i++)
+            {
                 parts[i].SetActive(false);
-                collid.enabled = false;
-                if (!SteamManager.Initialized) { return; }
-                SteamUserStats.SetAchievement("Queen_Slayer");
-                SteamUserStats.StoreStats();
-                PlayerPrefs.SetInt("ACH_14", 1);
             }
         }
 
@@ -220,6 +217,10 @@ public class EnemyHealth : MonoBehaviour
     }
 
     public void EndGame(){
+        if (!SteamManager.Initialized) { return; }
+        SteamUserStats.SetAchievement("Queen_Slayer");
+        SteamUserStats.StoreStats();
+        PlayerPrefs.SetInt("ACH_14", 1);
         Destroy(gameObject);
         endPortal.SetActive(true);
             

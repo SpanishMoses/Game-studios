@@ -701,12 +701,13 @@ public class PlayerMovement : MonoBehaviour
                     SteamUserStats.StoreStats();
                     PlayerPrefs.SetInt("ACH_17", 1);
                 }
+                SceneManager.LoadScene("LevelTwoLoadScreen");
                 //Cursor.lockState = CursorLockMode.None;
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_One");
                 SteamUserStats.StoreStats();
                 PlayerPrefs.SetInt("ACH_8", 1);
-                SceneManager.LoadScene("LevelTwoLoadScreen");
+                
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelTwo")){
                 if (noHit == false)
@@ -716,11 +717,12 @@ public class PlayerMovement : MonoBehaviour
                     SteamUserStats.StoreStats();
                     PlayerPrefs.SetInt("ACH_17", 1);
                 }
+                SceneManager.LoadScene("LevelThreeLoadScreen");
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_Two");
                 SteamUserStats.StoreStats();
                 PlayerPrefs.SetInt("ACH_9", 1);
-                SceneManager.LoadScene("LevelThreeLoadScreen");
+                
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
             {
@@ -731,11 +733,12 @@ public class PlayerMovement : MonoBehaviour
                     SteamUserStats.StoreStats();
                     PlayerPrefs.SetInt("ACH_17", 1);
                 }
+                SceneManager.LoadScene("LevelFourLoadScreen");
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_Three");
                 SteamUserStats.StoreStats();
                 PlayerPrefs.SetInt("ACH_10", 1);
-                SceneManager.LoadScene("LevelFourLoadScreen");
+                
             }
         }
 
@@ -760,11 +763,12 @@ public class PlayerMovement : MonoBehaviour
                 SteamUserStats.StoreStats();
                 PlayerPrefs.SetInt("ACH_17", 1);
             }
+            SceneManager.LoadScene("credits");
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Tourist_Four");
             SteamUserStats.StoreStats();
             PlayerPrefs.SetInt("ACH_11", 1);
-            SceneManager.LoadScene("credits");
+            
             Cursor.lockState = CursorLockMode.None;
             if (noDeathCounter == 0){
                 if (!SteamManager.Initialized) { return; }
