@@ -326,6 +326,10 @@ MonoBehaviour:
   isDrone: 0
   isExplode: 1
   isPanda: 0
+  isBoss: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 92471
   achieve: {fileID: 0}
 --- !u!135 &3084354493356832631
 SphereCollider:
@@ -397,6 +401,7 @@ MonoBehaviour:
   health: {fileID: 6493892797810561508}
   effect: {fileID: 374630153486716386, guid: 671f225d96f866345a4cbd419022cf8c, type: 3}
   fuse: {fileID: 800612543631647525}
+  achieve: {fileID: 0}
 --- !u!114 &-8841420107170377065
 MonoBehaviour:
   m_ObjectHideFlags: 0

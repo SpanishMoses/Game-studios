@@ -48,6 +48,8 @@ public class EnemyHealth : MonoBehaviour
 
     public bool isBoss;
 
+    public LayerMask layer;
+
     public Achievment achieve;
 
     private void Start()
@@ -113,7 +115,7 @@ public class EnemyHealth : MonoBehaviour
             if (splatBlood == true)
             {
                 RaycastHit ray;
-                if (Physics.Raycast(transform.position, -transform.up, out ray))
+                if (Physics.Raycast(transform.position, -transform.up, out ray, layer))
                 {
                     if (ray.collider != null)
                     {

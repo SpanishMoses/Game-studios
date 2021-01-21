@@ -114,10 +114,5 @@ public class Achievment : MonoBehaviour
             SteamUserStats.StoreStats();
             PlayerPrefs.SetInt("ACH_21", 1);
         }
-
-        if (Input.GetKeyDown(KeyCode.L)){
-            if (!SteamManager.Initialized) { return; }
-            SteamUserStats.ResetAllStats(true);
-        }
     }
 }
