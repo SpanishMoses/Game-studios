@@ -63029,7 +63029,7 @@ AudioSource:
   m_GameObject: {fileID: 926792895}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 57c4ec63ebd21124b8ef26664e22ebae, type: 2}
   m_audioClip: {fileID: 8300000, guid: a9500f45924dd114b9bc50b593e83be9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -66006,6 +66006,12 @@ MonoBehaviour:
   droneKills: 0
   explodeKills: 0
   pandaKills: 0
+  pistolKill: 0
+  shotGunKill: 0
+  rifleKill: 0
+  knifeKill: 0
+  grenadeKill: 0
+  fireWorkKill: 0
 --- !u!4 &1266875365
 Transform:
   m_ObjectHideFlags: 0
