@@ -49,18 +49,15 @@ public class Firework : MonoBehaviour
                 {
                     achieve.fireWorkKill++;
                 }
-                if (mouse.enableCon == false && mouse.enableCandy == false)
+                if (mouse.enableCon == false)
                 {
                     Instantiate(blood, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.enableCon == true && mouse.enableCandy == false)
+                if (mouse.enableCon == true)
                 {
                     Instantiate(confetti, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.enableCon == false && mouse.enableCandy == true)
-                {
-                    Instantiate(candy, near.transform.position, Quaternion.identity);
-                }
+                
                 Debug.Log("Got some points");
             }
             PlayerMovement playerMove = near.GetComponent<PlayerMovement>();
@@ -72,21 +69,23 @@ public class Firework : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (mouse.enableCon == false && mouse.enableCandy == false)
+                if (mouse.enableCon == false)
                 {
                     Instantiate(blood, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.enableCon == true && mouse.enableCandy == false)
+                if (mouse.enableCon == true)
                 {
                     Instantiate(confetti, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.enableCon == false && mouse.enableCandy == true)
-                {
-                    Instantiate(candy, near.transform.position, Quaternion.identity);
-                }
             }
         }
-        Instantiate(effect, transform.position, transform.rotation);
+        if (mouse.enableCandy == true){
+            Instantiate(candy, transform.position, transform.rotation);
+        }
+        if (mouse.enableCandy == false){
+            Instantiate(effect, transform.position, transform.rotation);
+        }
+        
         Destroy(gameObject);
     }
 }

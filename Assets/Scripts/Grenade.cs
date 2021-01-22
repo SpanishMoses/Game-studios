@@ -55,16 +55,13 @@ public class Grenade : MonoBehaviour
                 {
                     achieve.grenadeKill++;
                 }
-                if (mouse.enableCon == false && mouse.enableCandy == false){
+                if (mouse.enableCon == false)
+                {
                     Instantiate(blood, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.enableCon == true && mouse.enableCandy == false)
+                if (mouse.enableCon == true)
                 {
                     Instantiate(confetti, near.transform.position, Quaternion.identity);
-                }
-                if (mouse.enableCon == false && mouse.enableCandy == true)
-                {
-                    Instantiate(candy, near.transform.position, Quaternion.identity);
                 }
 
                 Debug.Log("Got some points");
@@ -78,17 +75,13 @@ public class Grenade : MonoBehaviour
             if (bossDrone != null)
             {
                 bossDrone.TakeDamage(damage);
-                if (mouse.enableCon == false && mouse.enableCandy == false)
+                if (mouse.enableCon == false)
                 {
                     Instantiate(blood, near.transform.position, Quaternion.identity);
                 }
-                if (mouse.enableCon == true && mouse.enableCandy == false)
+                if (mouse.enableCon == true)
                 {
                     Instantiate(confetti, near.transform.position, Quaternion.identity);
-                }
-                if (mouse.enableCon == false && mouse.enableCandy == true)
-                {
-                    Instantiate(candy, near.transform.position, Quaternion.identity);
                 }
             }
         }

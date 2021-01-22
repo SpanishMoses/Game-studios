@@ -29,10 +29,13 @@ public class ExplodingEnemy : MonoBehaviour
     public EnemyHealth health;
 
     public GameObject effect;
+    public GameObject candy;
 
     public AudioSource fuse;
 
     public Achievment achieve;
+
+    public MouseLook mouse;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +44,7 @@ public class ExplodingEnemy : MonoBehaviour
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         achieve = GameObject.FindGameObjectWithTag("Steam").GetComponent<Achievment>();
-
+        mouse = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MouseLook>();
     }
 
     void Awake()
@@ -132,7 +135,14 @@ public class ExplodingEnemy : MonoBehaviour
             }
         }
         navMeshAgent.SetDestination(transform.position);
-        Instantiate(effect, transform.position, transform.rotation);
+        if (mouse.enableCandy == true)
+        {
+            Instantiate(candy, transform.position, transform.rotation);
+        }
+        if (mouse.enableCandy == false)
+        {
+            Instantiate(effect, transform.position, transform.rotation);
+        }
         if (deductExplode == true)
         {
             enemySpawn.deductEnemy(1);
@@ -165,7 +175,14 @@ public class ExplodingEnemy : MonoBehaviour
             }
         }
         navMeshAgent.SetDestination(transform.position);
-        Instantiate(effect, transform.position, transform.rotation);
+        if (mouse.enableCandy == true)
+        {
+            Instantiate(candy, transform.position, transform.rotation);
+        }
+        if (mouse.enableCandy == false)
+        {
+            Instantiate(effect, transform.position, transform.rotation);
+        }
         Destroy(gameObject);
     }
 
