@@ -18,7 +18,10 @@ public class Settings : MonoBehaviour
 
     public Toggle tog;
     public Toggle tog2;
+    public Toggle tog3;
     public bool enableCon;
+
+    public bool enableSpecial;
 
     //public Dropdown resolutionDropdown;
 
@@ -114,7 +117,6 @@ public class Settings : MonoBehaviour
         if (confettiYes == true)
         {
             mouse.enableCon = true;
-            EnableCandy(false);
         }
         else
         {
@@ -126,9 +128,16 @@ public class Settings : MonoBehaviour
     public void EnableCandy(bool candyYes){
         if (candyYes == true){
             mouse.enableCandy = true;
-            EnableConfetti(false);
         } else{
             mouse.enableCandy = false;
+        }
+    }
+
+    public void Special(bool specialYes){
+        if (specialYes == true){
+            mouse.enableSpecial = true;
+        } else{
+            mouse.enableSpecial = false;
         }
     }
 }

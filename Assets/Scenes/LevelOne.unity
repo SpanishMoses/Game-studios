@@ -895,6 +895,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1539887625790828168, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
+--- !u!1 &19758801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3907006671973228752, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+  m_PrefabInstance: {fileID: 2132028334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &20034953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 156361817992670623, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
@@ -2669,9 +2674,46 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3744357652960032891, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
   m_PrefabInstance: {fileID: 2132028334}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &73822801 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4949326467131979856, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+  m_PrefabInstance: {fileID: 2132028334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &73822803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3744357652960032899, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+  m_PrefabInstance: {fileID: 2132028334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &73822804 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4093453077932253641, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+  m_PrefabInstance: {fileID: 2132028334}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73822796}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04450540e4026d34da2402ec20f10904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &73822805 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2493743618457992060, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+  m_PrefabInstance: {fileID: 2132028334}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73822796}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96df1b2f2e8eaa74a83da3e9243743b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &73822806 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -818272189372778815, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+  m_PrefabInstance: {fileID: 2132028334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &73822808 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3744357652960032890, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
   m_PrefabInstance: {fileID: 2132028334}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &74080690 stripped
@@ -37014,6 +37056,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4147931221581453130, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
+--- !u!95 &626477265 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4578830280438513932, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+  m_PrefabInstance: {fileID: 2132028334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &627859515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7366453023009247463, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
@@ -45167,6 +45214,10 @@ PrefabInstance:
       propertyPath: yesButt
       value: 
       objectReference: {fileID: 863931559}
+    - target: {fileID: 7630180644673896499, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7787872129544107102, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 55.13965
@@ -50073,6 +50124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388ac282535047841a027b1f1b7ec4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1008714808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1665158231376067533, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+  m_PrefabInstance: {fileID: 2132028334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1009538935 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7787872130455004653, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
@@ -85503,6 +85559,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388ac282535047841a027b1f1b7ec4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2090397916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7746238114183913061, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+  m_PrefabInstance: {fileID: 2132028334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2090938321 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3795542507162306422, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
@@ -86550,6 +86611,94 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1760641121}
     m_Modifications:
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: parts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: partOfArray
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: splatBlood
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: health
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: isUnicorn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: layer.m_Bits
+      value: 92471
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 1280918458059091844, guid: 0486ee34cc2e65c489b65fd4471f5a99, type: 3}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: bloodSplat
+      value: 
+      objectReference: {fileID: 7745473371805903458, guid: 2781ba08072ebf940b75055e9e83d1d4, type: 3}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: soul
+      value: 
+      objectReference: {fileID: 1809514535347047152, guid: b72513a0c4e97274881b568b32a34161, type: 3}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: deathPart
+      value: 
+      objectReference: {fileID: 7360900305728538124, guid: 6c579c4d3718d524a9ff913701c231f0, type: 3}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: parts.Array.data[0]
+      value: 
+      objectReference: {fileID: 19758801}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: parts.Array.data[1]
+      value: 
+      objectReference: {fileID: 2090397916}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: parts.Array.data[2]
+      value: 
+      objectReference: {fileID: 1008714808}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 73822796}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: collid
+      value: 
+      objectReference: {fileID: 73822808}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 73822806}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: special
+      value: 
+      objectReference: {fileID: 626477265}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: enemySpawn
+      value: 
+      objectReference: {fileID: 619471299}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: enemyMove
+      value: 
+      objectReference: {fileID: 73822804}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: enemyShoot
+      value: 
+      objectReference: {fileID: 73822805}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: deathNoise
+      value: 
+      objectReference: {fileID: 8300000, guid: c5191611fc9dc104fa996aed0cd1d6de, type: 3}
+    - target: {fileID: 2134375140453948163, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 73822801}
     - target: {fileID: 3744357652960032891, guid: 7a147c6bc42d8d2458de2e3e89d7bdc6, type: 3}
       propertyPath: m_Name
       value: charge enemy

@@ -10,6 +10,7 @@ public class PointGiver : MonoBehaviour
     public EnemyHealth health;
     public bool isHead;
     public AudioSource headShot;
+    public bool hasSpecial;
 
     private void Awake()
     {
@@ -37,6 +38,9 @@ public class PointGiver : MonoBehaviour
             collid.enabled = false;
             health.death.clip = health.deathNoise;
             health.death.Play();
+            if (hasSpecial == true){
+                health.special.SetTrigger("IsDead");
+            }
         }
         if (health.health <= 0 && health.partOfArray == true)
         {
@@ -48,6 +52,10 @@ public class PointGiver : MonoBehaviour
             collid.enabled = false;
             health.death.clip = health.deathNoise;
             health.death.Play();
+            if (hasSpecial == true)
+            {
+                health.special.SetTrigger("IsDead");
+            }
         }
     }
     }

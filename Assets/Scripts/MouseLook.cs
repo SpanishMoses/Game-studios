@@ -148,6 +148,7 @@ public class MouseLook : MonoBehaviour
 
     public bool enableCon;
     public bool enableCandy;
+    public bool enableSpecial;
 
     /*PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
     public int value;
@@ -197,6 +198,7 @@ public class MouseLook : MonoBehaviour
 
         enableCon = PlayerPrefs.GetInt("Confetti", 0) > 0;
         enableCandy = PlayerPrefs.GetInt("Candy", 0) > 0;
+        enableSpecial = PlayerPrefs.GetInt("SPECIAL", 0) > 0;
         /*machineGunBool = false;
         shotGunBool = false;
         knifeBool = false;
@@ -721,6 +723,16 @@ public class MouseLook : MonoBehaviour
         } else{
             PlayerPrefs.SetInt("Candy", 0);
             set.tog2.isOn = false;
+        }
+
+        int yesSpecial;
+        yesSpecial = enableSpecial ? 1 : 0;
+        if (enableSpecial == true){
+            PlayerPrefs.SetInt("SPECIAL", 1);
+            set.tog3.isOn = true;
+        } else{
+            PlayerPrefs.SetInt("SPECIAL", 0);
+            set.tog3.isOn = false;
         }
 
         pistolSlide.maxValue = maxAmmoP;

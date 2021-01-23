@@ -30,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
     public Collider collid;
 
     public Animator animator;
+    public Animator special;
 
     //public ArrayedEnemy array;
     public EnemySpawner enemySpawn;

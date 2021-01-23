@@ -22,7 +22,8 @@ public class ChargingEnemy : MonoBehaviour
     public bool locActive;
     public bool isCharging;
 
-    private Animator animator;
+    public Animator animator;
+    public Animator specialAnim;
 
     public GameObject spawnEffect;
 
@@ -44,7 +45,6 @@ public class ChargingEnemy : MonoBehaviour
     {
         playerLoc = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         isCharging = false;
-        animator = GetComponent<Animator>();
         navMeshAgent = this.GetComponent<NavMeshAgent>();
     }
 
@@ -59,7 +59,8 @@ public class ChargingEnemy : MonoBehaviour
         if (locActive == true && isCharging == false)
         {
             animator.SetBool("IsMoving", false);
-            
+            specialAnim.SetBool("IsMoving", false);
+
             time += Time.deltaTime;
             //rb.constraints = RigidbodyConstraints.FreezeAll;
             if (time >= timeBetweenCharges)
@@ -78,7 +79,8 @@ public class ChargingEnemy : MonoBehaviour
 
         if (isCharging == true){
             animator.SetBool("IsMoving", true);
-            
+            specialAnim.SetBool("IsMoving", true);
+
             if (playerLoc.transform.position != null)
             {
                 Vector3 targetVector = playerLoc.transform.position;
