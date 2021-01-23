@@ -8,6 +8,7 @@ using TMPro;
 public class Settings : MonoBehaviour
 {
     //code from https://www.youtube.com/watch?v=YOaYQrN1oYQ&t=157s&ab_channel=Brackeys
+    //volume help from https://forum.unity.com/threads/solved-playerprefs-save-for-my-audio-problem.478091/
 
     public AudioMixer mixer;
     public MouseLook mouse;
@@ -57,10 +58,13 @@ public class Settings : MonoBehaviour
         /*resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();*/
+        
     }
 
     public void SetVolume(float volume){
         mixer.SetFloat("Volume", volume);
+        mixer.GetFloat("Volume", out volume);
+        PlayerPrefs.SetFloat("Volume", volume);
         volSlide.value = volume;
     }
 
