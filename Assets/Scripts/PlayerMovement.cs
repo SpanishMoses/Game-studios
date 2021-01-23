@@ -91,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource pickups;
     public AudioClip death;
     public AudioClip checkNoise;
+    public AudioClip presPickup;
 
     float mass = 3.0F; // defines the character mass
     Vector3 impact = Vector3.zero;
@@ -144,6 +145,8 @@ public class PlayerMovement : MonoBehaviour
     public float distance;
 
     public bool noHit;
+
+    public int presentsFound;
 
     private void Awake()
     {
@@ -204,6 +207,7 @@ public class PlayerMovement : MonoBehaviour
         deathCounter = PlayerPrefs.GetInt("DEATH", 0);
         noDeathCounter = PlayerPrefs.GetInt("GOD", 0);
         distance = PlayerPrefs.GetFloat("DIST", 0);
+        presentsFound = PlayerPrefs.GetInt("Presents", 0);
         noHit = PlayerPrefs.GetInt("NOHIT", 0) > 0;
     }
 
@@ -217,6 +221,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerPrefs.SetInt("DEATH", deathCounter);
         PlayerPrefs.SetFloat("DIST", distance);
         PlayerPrefs.SetInt("GOD", noDeathCounter);
+        PlayerPrefs.SetInt("Presents", presentsFound);
 
         int noHitEnable;
         noHitEnable = noHit ? 1 : 0;
@@ -601,7 +606,36 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Present"){
             Instantiate(confetti, other.transform.position, Quaternion.identity);
-            Destroy(other.gameObject);
+            PresentManager pres = other.transform.GetComponent<PresentManager>();
+            if (pres != null && pres.tutorialFound == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial Level"))
+            {
+                presentsFound++;
+                pickups.clip = presPickup;
+                pickups.Play();
+            }
+            if (pres != null && pres.level1Found == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelOne")){
+                presentsFound++;
+                pickups.clip = presPickup;
+                pickups.Play();
+            }
+            if (pres != null && pres.level2Found == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelTwo"))
+            {
+                presentsFound++;
+                pickups.clip = presPickup;
+                pickups.Play();
+            }
+            if (pres != null && pres.level3Found == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
+            {
+                presentsFound++;
+                pickups.clip = presPickup;
+                pickups.Play();
+            }
+            if (pres != null && pres.level4Found == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelFour"))
+            {
+                presentsFound++;
+                pickups.clip = presPickup;
+                pickups.Play();
+            }
         }
 
         if (other.gameObject.tag == "Consumable"){

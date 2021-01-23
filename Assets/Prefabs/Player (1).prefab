@@ -158,6 +158,7 @@ MonoBehaviour:
   pickups: {fileID: 7533758336592620477}
   death: {fileID: 8300000, guid: 4fbbbf02396e1f5459d97ffc4a8720cf, type: 3}
   checkNoise: {fileID: 8300000, guid: ac975e02df3f474488d3200570934ffb, type: 3}
+  presPickup: {fileID: 8300000, guid: 267cee5fb0b787d468f290636875d003, type: 3}
   pointX: 0
   pointY: 0
   pointZ: 0
@@ -196,6 +197,7 @@ MonoBehaviour:
   noDeathCounter: 0
   distance: 0
   noHit: 0
+  presentsFound: 0
 --- !u!82 &5277950087755630345
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5666,6 +5668,7 @@ MonoBehaviour:
   achieve: {fileID: 0}
   enableCon: 0
   enableCandy: 0
+  enableSpecial: 0
 --- !u!95 &7997200904646466718
 Animator:
   serializedVersion: 3
