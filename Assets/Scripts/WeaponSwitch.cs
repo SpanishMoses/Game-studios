@@ -39,6 +39,8 @@ public class WeaponSwitch : MonoBehaviour
             justSwitched = false;
         }
 
+        
+
         /*if ( justSwitched == true)
         {
             switchWep = true;

@@ -352,6 +352,7 @@ public class MouseLook : MonoBehaviour
                     weaponShoot.clip = pistolClick;
                 }
                 //ammoText.text = currAmmoP + "/" + maxAmmoP;
+                anim.SetBool("NoGrenadeAmmo", false);
             }
 
             if (Input.GetKey(KeyCode.Alpha2) && PlayerPrefs.GetInt("EnableShotgun") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableShotgun") != 0 && play.freezeMouse == false && currWeapon == 2)
@@ -377,6 +378,7 @@ public class MouseLook : MonoBehaviour
                 {
                     weaponShoot.clip = shotGunClick;
                 }
+                anim.SetBool("NoGrenadeAmmo", false);
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
@@ -402,6 +404,7 @@ public class MouseLook : MonoBehaviour
                 if (currAmmoM == 0){
                     weaponShoot.clip = machineGunClick;
                 }
+                anim.SetBool("NoGrenadeAmmo", false);
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
@@ -422,6 +425,7 @@ public class MouseLook : MonoBehaviour
                 //switchSound.Play();
                 weaponShoot.clip = knifeSwing;
                 secondarySound.clip = knifeStab;
+                anim.SetBool("NoGrenadeAmmo", false);
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
@@ -441,6 +445,17 @@ public class MouseLook : MonoBehaviour
                 currWeapon = 5;
                 //switchSound.Play();
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
+
+                if (currAmmoG == 0)
+                {
+                    anim.SetBool("NoGrenadeAmmo", true);
+                    Debug.Log("set");
+                }
+
+                if (currAmmoG > 0)
+                {
+                    anim.SetBool("NoGrenadeAmmo", false);
+                }
             }
 
             if (Input.GetKey(KeyCode.Alpha6) && PlayerPrefs.GetInt("EnableFireWork") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableFireWork") != 0 && play.freezeMouse == false && currWeapon == 6)
@@ -462,6 +477,7 @@ public class MouseLook : MonoBehaviour
                 {
                     weaponShoot.clip = rocketLauncherShoot;
                 }
+                anim.SetBool("NoGrenadeAmmo", false);
                 //ammoText.text = currAmmoS + "/" + maxAmmoS;
             }
 
