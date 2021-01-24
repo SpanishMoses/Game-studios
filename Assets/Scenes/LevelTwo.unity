@@ -23618,6 +23618,10 @@ PrefabInstance:
       propertyPath: mouse
       value: 
       objectReference: {fileID: 805336120}
+    - target: {fileID: 864305034155825840, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 805336119}
     - target: {fileID: 977645479697848715, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -23662,6 +23666,10 @@ PrefabInstance:
       propertyPath: mouse
       value: 
       objectReference: {fileID: 805336120}
+    - target: {fileID: 4131755984509197223, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 805336119}
     - target: {fileID: 4739027563777523544, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
@@ -24150,12 +24158,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4757235624319275809, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
   m_PrefabInstance: {fileID: 511888334}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 511888371}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &511888371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1761784370918509610, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 511888334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &512405896 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3078089889733719319, guid: 2f14224bfe77e6e42886d4b3165598a3, type: 3}
@@ -38903,6 +38916,10 @@ PrefabInstance:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 511888370}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 511888371}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)

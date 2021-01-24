@@ -153,7 +153,10 @@ public class PlayerMovement : MonoBehaviour
     public float seconds;
     public float minutes;
     public float hours;
+    public GameObject timeText;
     public TextMeshProUGUI timerText;
+
+    public bool showTimer;
 
     private void Awake()
     {
@@ -221,6 +224,9 @@ public class PlayerMovement : MonoBehaviour
         seconds = PlayerPrefs.GetFloat("SECONDS", 0);
         minutes = PlayerPrefs.GetFloat("MINUTES", 0);
         hours = PlayerPrefs.GetFloat("HOURS", 0);
+
+        showTimer = PlayerPrefs.GetInt("SHOWME", 0) > 0;
+        showTimer = true;
     }
 
     // Update is called once per frame
@@ -252,6 +258,18 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("NOHIT", 0);
+        }
+
+
+        int EnableTime;
+        EnableTime = showTimer ? 1 : 0;
+        if (showTimer == true){
+            PlayerPrefs.SetInt("SHOWME", 1);
+            timeText.SetActive(true);
+        }
+        else{
+            PlayerPrefs.SetInt("SHOWME", 0);
+            timeText.SetActive(false);
         }
 
         PlayerPrefs.SetInt("Curr_Health", health);

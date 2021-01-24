@@ -12,6 +12,7 @@ public class Settings : MonoBehaviour
 
     public AudioMixer mixer;
     public MouseLook mouse;
+    public PlayerMovement player;
     public Slider slide;
     public Slider volSlide;
     public TMP_Text senseNum;
@@ -22,6 +23,7 @@ public class Settings : MonoBehaviour
     public bool enableCon;
 
     public bool enableSpecial;
+    public bool enableTimer;
 
     //public Dropdown resolutionDropdown;
 
@@ -138,6 +140,14 @@ public class Settings : MonoBehaviour
             mouse.enableSpecial = true;
         } else{
             mouse.enableSpecial = false;
+        }
+    }
+
+    public void timer(bool show){
+        if (show == true){
+            player.showTimer = true;
+        } else{
+            player.showTimer = false;
         }
     }
 }
