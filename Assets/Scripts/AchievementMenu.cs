@@ -28,6 +28,10 @@ public class AchievementMenu : MonoBehaviour
     public Image achievement19;
     public Image achievement20;
     public Image achievement21;
+    //start from here now
+    public Image achievement22;
+    public Image achievement23;
+    public Image achievement24;
 
     public Sprite complete1;
     public Sprite complete2;
@@ -50,6 +54,10 @@ public class AchievementMenu : MonoBehaviour
     public Sprite complete19;
     public Sprite complete20;
     public Sprite complete21;
+    //start from here now
+    public Sprite complete22;
+    public Sprite complete23;
+    public Sprite complete24;
 
     public int get1;
     public int get2;
@@ -72,6 +80,10 @@ public class AchievementMenu : MonoBehaviour
     public int get19;
     public int get20;
     public int get21;
+    //start from here now
+    public int get22;
+    public int get23;
+    public int get24;
 
     // Start is called before the first frame update
     void Start()
@@ -97,6 +109,10 @@ public class AchievementMenu : MonoBehaviour
         get19 = PlayerPrefs.GetInt("ACH_19");
         get20 = PlayerPrefs.GetInt("ACH_20");
         get21 = PlayerPrefs.GetInt("ACH_21");
+        //start from here now
+        get22 = PlayerPrefs.GetInt("ACH_22");
+        get23 = PlayerPrefs.GetInt("ACH_23");
+        get24 = PlayerPrefs.GetInt("ACH_24");
     }
 
     // Update is called once per frame
@@ -184,8 +200,16 @@ public class AchievementMenu : MonoBehaviour
         if (get21 == 1){
             achievement21.sprite = complete21;
         }
-        if (Input.GetKeyDown(KeyCode.L)){
-            PlayerPrefs.SetInt("ACH_1", 0);
+        if (get22 == 1){
+            achievement22.sprite = complete22;
+        }
+        if (get23 == 1)
+        {
+            achievement23.sprite = complete23;
+        }
+        if (get24 == 1)
+        {
+            achievement24.sprite = complete24;
         }
     }
 }

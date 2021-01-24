@@ -366,6 +366,21 @@ public class PlayerMovement : MonoBehaviour
                 PlayerPrefs.SetInt("ACH_13", 1);
             }
 
+            if (presentsFound == 1){
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("What's_This");
+                SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_22", 1);
+            }
+
+            if (presentsFound == 6)
+            {
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("The_Collector");
+                SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_23", 1);
+            }
+
             //Dash
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x < 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z < 0f)
             {
@@ -825,19 +840,27 @@ public class PlayerMovement : MonoBehaviour
                 SteamUserStats.StoreStats();
                 PlayerPrefs.SetInt("ACH_17", 1);
             }
-            SceneManager.LoadScene("credits");
+            
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Tourist_Four");
             SteamUserStats.StoreStats();
             PlayerPrefs.SetInt("ACH_11", 1);
             
-            Cursor.lockState = CursorLockMode.None;
+            
             if (noDeathCounter == 0){
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Unstoppable");
                 SteamUserStats.StoreStats();
                 PlayerPrefs.SetInt("ACH_18", 1);
             }
+            if (minutes < 15){
+                if (!SteamManager.Initialized) { return; }
+                SteamUserStats.SetAchievement("Speed_Runner");
+                SteamUserStats.StoreStats();
+                PlayerPrefs.SetInt("ACH_24", 1);
+            }
+            SceneManager.LoadScene("credits");
+            Cursor.lockState = CursorLockMode.None;
         }
 
         if (other.gameObject.tag == "Door"){
