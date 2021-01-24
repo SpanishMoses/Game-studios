@@ -45588,6 +45588,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bea4108987093745a9000208deddcbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &863931565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4757235624319275809, guid: d99f97939fe9dc04b84975ffc5cc8394, type: 3}
+  m_PrefabInstance: {fileID: 863931535}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &866694183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5774970288954368735, guid: b41ab40840b672c46a671ec80fe21003, type: 3}
@@ -81905,6 +81916,10 @@ PrefabInstance:
       propertyPath: checkText
       value: 
       objectReference: {fileID: 863931556}
+    - target: {fileID: 7997200904571926900, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 863931565}
     - target: {fileID: 7997200904571926902, guid: ece68788a06fb9c4180ec199d43b7863, type: 3}
       propertyPath: m_Name
       value: Player (1)

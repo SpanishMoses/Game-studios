@@ -51,7 +51,12 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("EnableKnife", 0);
         PlayerPrefs.SetInt("EnableGrenade", 0);
         PlayerPrefs.SetInt("EnableFireWork", 0);
-        
+
+        PlayerPrefs.SetFloat("TIMER", 0);
+        PlayerPrefs.SetFloat("SECONDS", 0);
+        PlayerPrefs.SetFloat("MINUTES", 0);
+        PlayerPrefs.SetFloat("HOURS", 0);
+
     }
 
     public void arenaEnter(){

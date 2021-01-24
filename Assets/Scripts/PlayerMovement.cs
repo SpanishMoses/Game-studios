@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     //knockback help from https://answers.unity.com/questions/242648/force-on-character-controller-knockback.html
     //footstep noise help from https://www.youtube.com/watch?v=ih8gyGeC7xs&ab_channel=EYEmaginary
     //shake code from https://www.youtube.com/watch?v=kzHHAdvVkto
+    //stop watch help from https://www.youtube.com/watch?v=T1HBdQSEM-4
 
     public UnityEngine.CharacterController controller;
 
@@ -148,6 +149,12 @@ public class PlayerMovement : MonoBehaviour
 
     public int presentsFound;
 
+    public float timer;
+    public float seconds;
+    public float minutes;
+    public float hours;
+    public TextMeshProUGUI timerText;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -209,11 +216,18 @@ public class PlayerMovement : MonoBehaviour
         distance = PlayerPrefs.GetFloat("DIST", 0);
         presentsFound = PlayerPrefs.GetInt("Presents", 0);
         noHit = PlayerPrefs.GetInt("NOHIT", 0) > 0;
+
+        timer = PlayerPrefs.GetFloat("TIMER", 0);
+        seconds = PlayerPrefs.GetFloat("SECONDS", 0);
+        minutes = PlayerPrefs.GetFloat("MINUTES", 0);
+        hours = PlayerPrefs.GetFloat("HOURS", 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        StopWatchCalculations();
+
         //achivement variable progress
         PlayerPrefs.SetInt("JUMP", jumpNum);
         PlayerPrefs.SetInt("HEALTH", medic);
@@ -222,6 +236,11 @@ public class PlayerMovement : MonoBehaviour
         PlayerPrefs.SetFloat("DIST", distance);
         PlayerPrefs.SetInt("GOD", noDeathCounter);
         PlayerPrefs.SetInt("Presents", presentsFound);
+
+        PlayerPrefs.SetFloat("TIMER", timer);
+        PlayerPrefs.SetFloat("SECONDS", seconds);
+        PlayerPrefs.SetFloat("MINUTES", minutes);
+        PlayerPrefs.SetFloat("HOURS", hours);
 
         int noHitEnable;
         noHitEnable = noHit ? 1 : 0;
@@ -435,6 +454,15 @@ public class PlayerMovement : MonoBehaviour
         dir.Normalize();
         if (dir.y < 0) dir.y = -dir.y; // reflect down force on the ground
         impact += dir.normalized * force / mass;
+    }
+
+    public void StopWatchCalculations(){
+        timer += Time.deltaTime;
+        seconds = (int)(timer % 60);
+        minutes = (int)((timer / 60) % 60);
+        hours = (int)(timer / 3600);
+
+        timerText.text = hours.ToString("00") + ":" + minutes.ToString("00") + ":" + seconds.ToString("00");
     }
 
     public void ResumeGame(){
