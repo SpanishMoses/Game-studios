@@ -673,29 +673,34 @@ public class PlayerMovement : MonoBehaviour
                 presentsFound++;
                 pickups.clip = presPickup;
                 pickups.Play();
+                pres.tutorialFound = true;
             }
             if (pres != null && pres.level1Found == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelOne")){
                 presentsFound++;
                 pickups.clip = presPickup;
                 pickups.Play();
+                pres.level1Found = true;
             }
             if (pres != null && pres.level2Found == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelTwo"))
             {
                 presentsFound++;
                 pickups.clip = presPickup;
                 pickups.Play();
+                pres.level2Found = true;
             }
             if (pres != null && pres.level3Found == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelThree"))
             {
                 presentsFound++;
                 pickups.clip = presPickup;
                 pickups.Play();
+                pres.level3Found = true;
             }
             if (pres != null && pres.level4Found == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelFour"))
             {
                 presentsFound++;
                 pickups.clip = presPickup;
                 pickups.Play();
+                pres.level4Found = true;
             }
         }
 
