@@ -226,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
         hours = PlayerPrefs.GetFloat("HOURS", 0);
 
         showTimer = PlayerPrefs.GetInt("SHOWME", 0) > 0;
-        showTimer = true;
+        showTimer = false;
     }
 
     // Update is called once per frame
