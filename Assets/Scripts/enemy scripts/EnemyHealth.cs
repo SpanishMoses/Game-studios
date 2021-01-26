@@ -149,7 +149,7 @@ public class EnemyHealth : MonoBehaviour
             if (splatBlood == true)
             {
                 RaycastHit ray;
-                if (Physics.Raycast(transform.position, -transform.up, out ray))
+                if (Physics.Raycast(transform.position, -transform.up, out ray, layer))
                 {
                     if (ray.collider != null)
                     {
@@ -188,7 +188,7 @@ public class EnemyHealth : MonoBehaviour
             if (splatBlood == true)
             {
                 RaycastHit ray;
-                if (Physics.Raycast(transform.position, -transform.up, out ray))
+                if (Physics.Raycast(transform.position, -transform.up, out ray, layer))
                 {
                     if (ray.collider != null)
                     {

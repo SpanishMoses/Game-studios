@@ -453,8 +453,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true){
+            
             Time.timeScale = 1f;
-            deathCounter++;
+            
             ResetPos();
             /*health = 50;
             point.totalPoints -= 1000;
@@ -943,9 +944,10 @@ public class PlayerMovement : MonoBehaviour
         }
         sound.Play();
         StartCoroutine(flashHit());
-        if (health <= 0){
+        if (health <= 0 && isDead == false){
             sound.clip = death;
             sound.Play();
+            deathCounter++;
         }
         if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Arena"))
         {
@@ -958,7 +960,7 @@ public class PlayerMovement : MonoBehaviour
             isDead = true;
             freezeMouse = true;
             deadText.SetActive(true);
-            canDash = false;                      
+            canDash = false;
             cam.transform.position = groundCheck.position;
         }
         if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
