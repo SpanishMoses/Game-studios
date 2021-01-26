@@ -158,6 +158,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool showTimer;
 
+    public bool isDeadArena;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -944,11 +946,20 @@ public class PlayerMovement : MonoBehaviour
         }
         sound.Play();
         StartCoroutine(flashHit());
-        if (health <= 0 && isDead == false){
+        if (health <= 0 && isDead == false && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Arena"))
+        {
             sound.clip = death;
             sound.Play();
             deathCounter++;
         }
+
+        if (health <= 0 && isDeadArena == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
+        {
+            sound.clip = death;
+            sound.Play();
+            deathCounter++;
+        }
+
         if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Arena"))
         {
             mouse.unpaused = true;
@@ -965,7 +976,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
         {
-            
+            isDeadArena = true;
             mouse.unpaused = true;
             mouse.shootEnabled = false;
             damagePic.SetActive(true);
