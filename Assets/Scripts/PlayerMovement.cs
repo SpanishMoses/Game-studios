@@ -350,7 +350,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerPrefs.SetInt("ACH_12", 1);
             }
 
-            if (medic >= 100){
+            if (medic >= 1000){
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Combat_Medic");
                 SteamUserStats.StoreStats();
