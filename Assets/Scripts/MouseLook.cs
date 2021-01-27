@@ -1117,7 +1117,7 @@ public class MouseLook : MonoBehaviour
             Vector3 direction = targetPoint - cam.transform.position;
             GameObject bullet = Instantiate(firework, cam.transform.position, Quaternion.identity);
             bullet.transform.forward = direction.normalized;
-            bullet.GetComponent<Rigidbody>().AddForce(direction.normalized * 20f, ForceMode.Impulse);
+            bullet.GetComponent<Rigidbody>().AddForce(direction.normalized * 37f, ForceMode.Impulse);
         }      
     }
 

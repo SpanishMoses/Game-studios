@@ -709,7 +709,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Consumable"){
             Consumables consume = other.transform.GetComponent<Consumables>();
-            if (consume != null && consume.isHealth == true){
+            if (consume != null && consume.isHealth == true && health < 100){
                 health += consume.amount;
                 medic += consume.amount;
                 pickups.clip = healthPickup;
@@ -723,7 +723,7 @@ public class PlayerMovement : MonoBehaviour
                 
                     mouse.currAmmoP += consume.amount;
                     mouse.currAmmoS += consume.amount;
-                    mouse.currAmmoM += consume.amount;
+                    mouse.currAmmoM += 25;
                 munitions++;
                 Destroy(other.gameObject);
                 pickups.clip = ammoPickup;
@@ -740,7 +740,7 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(other.gameObject);
             }
 
-            if (consume != null && consume.isRocket == true){
+            if (consume != null && consume.isRocket == true && mouse.currAmmoF < 8){
                 mouse.currAmmoF += consume.amount;
                 pickups.clip = ammoPickup;
                 pickups.Play();
@@ -748,7 +748,7 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(other.gameObject);
             }
 
-            if (consume != null && consume.isGrenade == true){
+            if (consume != null && consume.isGrenade == true && mouse.currAmmoG < 6){
                 mouse.currAmmoG += consume.amount;
                 pickups.clip = ammoPickup;
                 pickups.Play();
@@ -856,6 +856,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 bossy.spawners[i].SetActive(true);
             }
+            EnableMusic mus = other.transform.GetComponent<EnableMusic>();
+            mus.mus.SetActive(true);
         }
 
         if (other.gameObject.tag == "finish"){
