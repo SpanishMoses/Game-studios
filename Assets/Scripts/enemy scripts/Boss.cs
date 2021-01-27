@@ -134,6 +134,10 @@ public class Boss : MonoBehaviour
             SetDestination();
         }*/
 
+        if (health.health <= 0){
+            collid.enabled = false;
+        }
+
         if (canRumble == true){
             rumbleTime += Time.deltaTime;
             if (rumbleTime >= maxRumbleTime){
