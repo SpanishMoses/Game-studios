@@ -33,6 +33,7 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.SetInt("PriorScore", 0);
             PlayerPrefs.SetFloat("Sense", 4);
             PlayerPrefs.SetInt("GOD", 0);
+            PlayerPrefs.DeleteAll();
         }
     }
 
