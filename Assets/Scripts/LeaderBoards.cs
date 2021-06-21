@@ -26,6 +26,7 @@ public class LeaderBoards : MonoBehaviour
         }
         else
         {
+            score = PlayerPrefs.GetInt("high_wave", 0);
             //Change upload method to 
             SteamAPICall_t hSteamAPICall = SteamUserStats.UploadLeaderboardScore(s_currentLeaderboard, ELeaderboardUploadScoreMethod.k_ELeaderboardUploadScoreMethodKeepBest, score, null, 0);
             m_uploadResult.Set(hSteamAPICall, OnLeaderboardUploadResult);
@@ -80,7 +81,7 @@ public class LeaderBoards : MonoBehaviour
             LeaderboardData lD;
             lD.username = SteamFriends.GetFriendPersonaName(leaderboardEntry.m_steamIDUser);
             lD.rank = leaderboardEntry.m_nGlobalRank;
-            lD.score = leaderboardEntry.m_nScore = PlayerPrefs.GetInt("high_wave", 0); 
+            lD.score = leaderboardEntry.m_nScore = PlayerPrefs.GetInt("high_wave"); 
             LeaderboardDataset.Add(lD);
             Debug.Log($"User: {lD.username} - Score: {lD.score} - Rank: {lD.rank}");
         }
