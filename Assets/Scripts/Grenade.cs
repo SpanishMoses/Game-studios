@@ -19,6 +19,7 @@ public class Grenade : MonoBehaviour
     public AudioSource hit;
 
     public MouseLook mouse;
+    public PlayerMovement play;
 
     public Achievment achieve;
 
@@ -28,6 +29,7 @@ public class Grenade : MonoBehaviour
         Invoke("Explode", delay);
         mouse = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MouseLook>();
         achieve = GameObject.FindGameObjectWithTag("Steam").GetComponent<Achievment>();
+        play = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -50,7 +52,14 @@ public class Grenade : MonoBehaviour
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
-                point.TakeDamage(damage);
+                if (play.canInstaKill == false)
+                {
+                    point.TakeDamage(damage);
+                }
+                if (play.canInstaKill == true)
+                {
+                    point.TakeDamage(1000);
+                }
                 if (point.health.health <= 0)
                 {
                     achieve.grenadeKill++;

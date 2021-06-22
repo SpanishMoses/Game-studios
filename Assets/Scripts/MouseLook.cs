@@ -780,7 +780,13 @@ public class MouseLook : MonoBehaviour
             PointGiver point = hit.transform.GetComponent<PointGiver>();
             if (point != null){
                 point.GivePoint(point.targetPoints);
-                point.TakeDamage(damage);
+                if (play.canInstaKill == false)
+                {
+                    point.TakeDamage(damage);
+                }
+                if (play.canInstaKill == true){
+                    point.TakeDamage(1000);
+                }
                 if (point.health.health <= 0){
                     achieve.pistolKill++;
                 }
@@ -829,7 +835,14 @@ public class MouseLook : MonoBehaviour
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
-                point.TakeDamage(damage);
+                if (play.canInstaKill == false)
+                {
+                    point.TakeDamage(damage);
+                }
+                if (play.canInstaKill == true)
+                {
+                    point.TakeDamage(1000);
+                }
                 if (point.health.health <= 0)
                 {
                     achieve.shotGunKill++;
@@ -866,7 +879,14 @@ public class MouseLook : MonoBehaviour
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
-                point.TakeDamage(damage);
+                if (play.canInstaKill == false)
+                {
+                    point.TakeDamage(damage);
+                }
+                if (play.canInstaKill == true)
+                {
+                    point.TakeDamage(1000);
+                }
                 if (point.health.health <= 0)
                 {
                     achieve.shotGunKill++;
@@ -903,7 +923,14 @@ public class MouseLook : MonoBehaviour
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
-                point.TakeDamage(damage);
+                if (play.canInstaKill == false)
+                {
+                    point.TakeDamage(damage);
+                }
+                if (play.canInstaKill == true)
+                {
+                    point.TakeDamage(1000);
+                }
                 if (point.health.health <= 0)
                 {
                     achieve.shotGunKill++;
@@ -940,7 +967,14 @@ public class MouseLook : MonoBehaviour
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
-                point.TakeDamage(damage);
+                if (play.canInstaKill == false)
+                {
+                    point.TakeDamage(damage);
+                }
+                if (play.canInstaKill == true)
+                {
+                    point.TakeDamage(1000);
+                }
                 if (point.health.health <= 0)
                 {
                     achieve.shotGunKill++;
@@ -977,7 +1011,14 @@ public class MouseLook : MonoBehaviour
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
-                point.TakeDamage(damage);
+                if (play.canInstaKill == false)
+                {
+                    point.TakeDamage(damage);
+                }
+                if (play.canInstaKill == true)
+                {
+                    point.TakeDamage(1000);
+                }
                 if (point.health.health <= 0)
                 {
                     achieve.shotGunKill++;
@@ -1019,7 +1060,14 @@ public class MouseLook : MonoBehaviour
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
-                point.TakeDamage(damage);
+                if (play.canInstaKill == false)
+                {
+                    point.TakeDamage(damage);
+                }
+                if (play.canInstaKill == true)
+                {
+                    point.TakeDamage(1000);
+                }
                 if (point.health.health <= 0)
                 {
                     achieve.rifleKill++;
@@ -1061,7 +1109,14 @@ public class MouseLook : MonoBehaviour
             if (point != null)
             {
                 point.GivePoint(point.targetPoints);
-                point.TakeDamage(damage);
+                if (play.canInstaKill == false)
+                {
+                    point.TakeDamage(damage);
+                }
+                if (play.canInstaKill == true)
+                {
+                    point.TakeDamage(1000);
+                }
                 secondarySound.Play();
                 if (point.health.health <= 0)
                 {

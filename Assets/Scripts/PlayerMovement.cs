@@ -160,6 +160,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isDeadArena;
 
+    public bool canInstaKill;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -755,6 +757,28 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);
             }
+
+            if (consume != null && consume.isMax == true){
+                mouse.currAmmoP += 100;
+                mouse.currAmmoS += 100; 
+                mouse.currAmmoM += 100;
+                mouse.currAmmoF += 100;
+                mouse.currAmmoG += 100;
+                pickups.Play();
+                Destroy(other.gameObject);
+            }
+
+            if (consume != null && consume.isSpeed == true){
+                StartCoroutine(GoFast());
+                pickups.Play();
+                Destroy(other.gameObject);
+            }
+
+            if (consume != null && consume.isInstaKill == true){
+                StartCoroutine(KILL());
+                pickups.Play();
+                Destroy(other.gameObject);
+            }
         }
 
         if (other.gameObject.tag == "PistolAmmo"){
@@ -1076,6 +1100,20 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1f);
         deadScreen.SetActive(false);
         SceneManager.LoadScene("GameWorld");
+    }
+    
+    IEnumerator GoFast(){
+        speed = 18f;
+        defaultSpeed = 18f;
+        yield return new WaitForSeconds(20f);
+        speed = 12f;
+        defaultSpeed = 12f;
+    }
+
+    IEnumerator KILL(){
+        canInstaKill = true;
+        yield return new WaitForSeconds(20f);
+        canInstaKill = false;
     }
 
     public void ShakeIt()
