@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HighscoreUIMan : MonoBehaviour
 {
@@ -43,8 +44,8 @@ public class HighscoreUIMan : MonoBehaviour
     }
     void FillHighscorePrefab(GameObject _prefab, LeaderBoards.LeaderboardData _lData)
     {
-        _prefab.transform.Find("username").GetComponent<Text>().text = _lData.username;
-        _prefab.transform.Find("score").GetComponent<Text>().text = _lData.score.ToString();
-        _prefab.transform.Find("rank").GetComponent<Text>().text = _lData.rank.ToString();
+        _prefab.transform.Find("username").GetComponent<TextMeshProUGUI>().text = _lData.username;
+        _prefab.transform.Find("score").GetComponent<TextMeshProUGUI>().text = _lData.score.ToString();
+        _prefab.transform.Find("rank").GetComponent<TextMeshProUGUI>().text = _lData.rank.ToString();
     }
 }
