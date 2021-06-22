@@ -18,6 +18,13 @@ public class LeaderBoards : MonoBehaviour
         public int score;
     }
     List<LeaderboardData> LeaderboardDataset;
+
+
+    private void Start()
+    {
+        if (!SteamManager.Initialized) { return; }
+    }
+
     public void UpdateScore(int score)
     {
         if (!s_initialized)
@@ -32,10 +39,12 @@ public class LeaderBoards : MonoBehaviour
             m_uploadResult.Set(hSteamAPICall, OnLeaderboardUploadResult);
         }
     }
+
     private void Awake()
     {
         SteamAPICall_t hSteamAPICall = SteamUserStats.FindLeaderboard("Rounds Survived");
         m_findResult.Set(hSteamAPICall, OnLeaderboardFindResult);
+
     }
     private void OnLeaderboardFindResult(LeaderboardFindResult_t pCallback, bool failure)
     {

@@ -9,6 +9,12 @@ public class HighscoreUIMan : MonoBehaviour
     [SerializeField] Transform holder;
     [SerializeField] GameObject highscorePrefab;
     List<GameObject> highscorePrefabs = new List<GameObject>();
+
+    private void Start()
+    {
+        if (!SteamManager.Initialized) { return; }
+    }
+
     public void BtnBeginFillLeaderboardLocal()
     {
         FindObjectOfType<LeaderBoards>().GetLeaderBoardData(Steamworks.ELeaderboardDataRequest.k_ELeaderboardDataRequestGlobalAroundUser, 14);

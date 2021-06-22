@@ -13,6 +13,12 @@ public class Consumables : MonoBehaviour
     public bool isRocket;
     public bool isGrenade;
 
+    public bool isInstaKill;
+    public bool isSpeed;
+    public bool isMax;
+    public bool isDoubleJump;
+    public bool isInfinite;
+
     // Start is called before the first frame update
     void Start()
     {
