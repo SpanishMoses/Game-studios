@@ -64,6 +64,7 @@ MonoBehaviour:
   health: {fileID: 6493892797810561508}
   isHead: 0
   headShot: {fileID: 4630033257301339154}
+  hasSpecial: 0
 --- !u!82 &4630033257301339154
 AudioSource:
   m_ObjectHideFlags: 0
@@ -181,6 +182,7 @@ GameObject:
   - component: {fileID: 1563466433277572635}
   - component: {fileID: -942877984860358082}
   - component: {fileID: 800612543631647525}
+  - component: {fileID: 4953696088698950704}
   m_Layer: 9
   m_Name: exploding enemy
   m_TagString: Enemy
@@ -316,6 +318,7 @@ MonoBehaviour:
   parent: {fileID: 6493892797810561530}
   collid: {fileID: 3084354493356832631}
   animator: {fileID: 6493892797810561516}
+  special: {fileID: 0}
   enemySpawn: {fileID: 0}
   enemyMove: {fileID: 1563466433277572635}
   enemyShoot: {fileID: -8841420107170377065}
@@ -331,6 +334,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 92471
   achieve: {fileID: 0}
+  yes: 0
 --- !u!135 &3084354493356832631
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -641,3 +645,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4953696088698950704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493892797810561530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8986e9d0ecc2cb4418cfe246ea95039a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 6493892797810561530}
+  health: {fileID: 6493892797810561508}
+  itemNum: 0
+  speed: {fileID: 6927241941101654917, guid: 5183a47fc6f90a646b057975a2333117, type: 3}
+  insta: {fileID: 5894162378678084662, guid: 2f994e213db652142b877688a237da7a, type: 3}
+  max: {fileID: 6093016650357019929, guid: d8486791c39d8644f99f4aff3297cbe5, type: 3}
+  infinite: {fileID: 4903695651904218978, guid: 0e5f08fc1ae542242bededa26faae088, type: 3}
+  drop: {fileID: 4953696088698950704}

@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 2426885397508310357}
   - component: {fileID: 2772511825480952836}
   - component: {fileID: 6143250923786486406}
+  - component: {fileID: 8578892149311709830}
   m_Layer: 9
   m_Name: charge enemy
   m_TagString: Enemy
@@ -239,6 +240,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 92471
   achieve: {fileID: 0}
+  yes: 0
 --- !u!65 &3744357652960032890
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -692,6 +694,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &8578892149311709830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3744357652960032891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8986e9d0ecc2cb4418cfe246ea95039a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3744357652960032891}
+  health: {fileID: 3744357652960032893}
+  itemNum: 0
+  speed: {fileID: 6927241941101654917, guid: 5183a47fc6f90a646b057975a2333117, type: 3}
+  insta: {fileID: 5894162378678084662, guid: 2f994e213db652142b877688a237da7a, type: 3}
+  max: {fileID: 6093016650357019929, guid: d8486791c39d8644f99f4aff3297cbe5, type: 3}
+  infinite: {fileID: 4903695651904218978, guid: 0e5f08fc1ae542242bededa26faae088, type: 3}
+  drop: {fileID: 8578892149311709830}
 --- !u!1 &3907006671973228752
 GameObject:
   m_ObjectHideFlags: 0

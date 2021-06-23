@@ -11,13 +11,13 @@ public class LeaderBoardV2 : MonoBehaviour
     private CallResult<LeaderboardFindResult_t> m_findResult = new CallResult<LeaderboardFindResult_t>();
     private CallResult<LeaderboardScoreUploaded_t> m_uploadResult = new CallResult<LeaderboardScoreUploaded_t>();
     private CallResult<LeaderboardScoresDownloaded_t> m_downloadResult = new CallResult<LeaderboardScoresDownloaded_t>();
-    public struct LeaderboardData
+    public struct LeaderboardDataV2
     {
         public string username;
         public int rank;
         public int score;
     }
-    List<LeaderboardData> LeaderboardDataset;
+    List<LeaderboardDataV2> LeaderboardDatasetV2;
 
 
     private void Start()
@@ -80,21 +80,21 @@ public class LeaderBoardV2 : MonoBehaviour
     private void OnLeaderboardDownloadResult(LeaderboardScoresDownloaded_t pCallback, bool failure)
     {
         Debug.Log($"Steam Leaderboard Download: Did it fail? {failure}, Result - {pCallback.m_hSteamLeaderboardEntries}");
-        LeaderboardDataset = new List<LeaderboardData>();
+        LeaderboardDatasetV2 = new List<LeaderboardDataV2>();
         //Iterates through each entry gathered in leaderboard
         for (int i = 0; i < pCallback.m_cEntryCount; i++)
         {
             LeaderboardEntry_t leaderboardEntry;
             SteamUserStats.GetDownloadedLeaderboardEntry(pCallback.m_hSteamLeaderboardEntries, i, out leaderboardEntry, null, 0);
             //Example of how leaderboardEntry might be held/used
-            LeaderboardData lD;
+            LeaderboardDataV2 lD;
             lD.username = SteamFriends.GetFriendPersonaName(leaderboardEntry.m_steamIDUser);
             lD.rank = leaderboardEntry.m_nGlobalRank;
             lD.score = leaderboardEntry.m_nScore = PlayerPrefs.GetInt("high_waveV2");
-            LeaderboardDataset.Add(lD);
+            LeaderboardDatasetV2.Add(lD);
             Debug.Log($"User: {lD.username} - Score: {lD.score} - Rank: {lD.rank}");
         }
         //This is the callback for my own project - function is asynchronous so it must return from here rather than from GetLeaderBoardData
-        FindObjectOfType<HighscoreUIManV2>().FillLeaderboard(LeaderboardDataset);
+        FindObjectOfType<HighscoreUIManV2>().FillLeaderboard(LeaderboardDatasetV2);
     }
 }

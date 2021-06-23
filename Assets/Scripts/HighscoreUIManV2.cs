@@ -28,21 +28,21 @@ public class HighscoreUIManV2 : MonoBehaviour
     {
         FindObjectOfType<LeaderBoardV2>().GetLeaderBoardData(Steamworks.ELeaderboardDataRequest.k_ELeaderboardDataRequestFriends, 14);
     }
-    public void FillLeaderboard(List<LeaderBoardV2.LeaderboardData> lDataset)
+    public void FillLeaderboard(List<LeaderBoardV2.LeaderboardDataV2> lDataset)
     {
         Debug.Log("filling leaderboard");
         foreach (GameObject g in highscorePrefabs)
         {
             Destroy(g);
         }
-        foreach (LeaderBoardV2.LeaderboardData lD in lDataset)
+        foreach (LeaderBoardV2.LeaderboardDataV2 lD in lDataset)
         {
             GameObject g = Instantiate(highscorePrefab, holder);
             highscorePrefabs.Add(g);
             FillHighscorePrefab(g, lD);
         }
     }
-    void FillHighscorePrefab(GameObject _prefab, LeaderBoardV2.LeaderboardData _lData)
+    void FillHighscorePrefab(GameObject _prefab, LeaderBoardV2.LeaderboardDataV2 _lData)
     {
         _prefab.transform.Find("username").GetComponent<TextMeshProUGUI>().text = _lData.username;
         _prefab.transform.Find("score").GetComponent<TextMeshProUGUI>().text = _lData.score.ToString();

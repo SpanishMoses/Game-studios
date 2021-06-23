@@ -53,6 +53,8 @@ public class EnemyHealth : MonoBehaviour
 
     public Achievment achieve;
 
+    public bool yes;
+
     private void Start()
     {
         achieve = GameObject.FindGameObjectWithTag("Steam").GetComponent<Achievment>();
@@ -113,6 +115,7 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
             Instantiate(soul, transform.position, Quaternion.identity);
             Instantiate(deathPart, transform.position, Quaternion.identity);
+            yes = true;
             if (splatBlood == true)
             {
                 RaycastHit ray;
@@ -145,6 +148,7 @@ public class EnemyHealth : MonoBehaviour
             enemySpawn.deductEnemy(amountTaken);
             Instantiate(soul, transform.position, Quaternion.identity);
             Instantiate(deathPart, transform.position, Quaternion.identity);
+            yes = true;
             Destroy(gameObject);
             if (splatBlood == true)
             {
@@ -184,6 +188,7 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(weapon, transform.position, Quaternion.identity);
             Instantiate(soul, transform.position, Quaternion.identity);
             Instantiate(deathPart, transform.position, Quaternion.identity);
+            yes = true;
             Destroy(gameObject);
             if (splatBlood == true)
             {

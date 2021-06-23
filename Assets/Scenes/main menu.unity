@@ -3298,6 +3298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509698642}
   - component: {fileID: 509698643}
+  - component: {fileID: 509698644}
   m_Layer: 0
   m_Name: arena menu
   m_TagString: Untagged
@@ -3335,6 +3336,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7be88a795b708e64fa3a0a4ef05a2214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &509698644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509698641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe63e03b34ff7894aa573f5012f0cf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &515414657
@@ -21182,7 +21195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Patch 2.7.2
+  m_text: 'Patch 2.7.3
 
 
 

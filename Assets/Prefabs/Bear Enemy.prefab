@@ -63,6 +63,7 @@ MonoBehaviour:
   health: {fileID: 7387750312513737436}
   isHead: 0
   headShot: {fileID: 0}
+  hasSpecial: 0
 --- !u!1 &2571454294734708412
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +127,7 @@ MonoBehaviour:
   health: {fileID: 7387750312513737436}
   isHead: 0
   headShot: {fileID: 0}
+  hasSpecial: 0
 --- !u!1 &6707233495742440775
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +192,7 @@ MonoBehaviour:
   health: {fileID: 7387750312513737436}
   isHead: 1
   headShot: {fileID: 5650360407985428461}
+  hasSpecial: 0
 --- !u!82 &5650360407985428461
 AudioSource:
   m_ObjectHideFlags: 0
@@ -306,6 +309,7 @@ GameObject:
   - component: {fileID: 7387750312513737428}
   - component: {fileID: 3712773173942233828}
   - component: {fileID: 3483771400628006149}
+  - component: {fileID: -1801608919230593728}
   m_Layer: 9
   m_Name: Bear Enemy
   m_TagString: Enemy
@@ -490,6 +494,7 @@ MonoBehaviour:
   parent: {fileID: 7387750312513737410}
   collid: {fileID: 7387750312513737411}
   animator: {fileID: 7387750312513737428}
+  special: {fileID: 0}
   enemySpawn: {fileID: 0}
   enemyMove: {fileID: 7387750312513737438}
   enemyShoot: {fileID: 7387750312513737437}
@@ -505,6 +510,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 92471
   achieve: {fileID: 0}
+  yes: 0
 --- !u!65 &7387750312513737411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -742,3 +748,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1801608919230593728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7387750312513737410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8986e9d0ecc2cb4418cfe246ea95039a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 7387750312513737410}
+  health: {fileID: 7387750312513737436}
+  itemNum: 0
+  speed: {fileID: 6927241941101654917, guid: 5183a47fc6f90a646b057975a2333117, type: 3}
+  insta: {fileID: 5894162378678084662, guid: 2f994e213db652142b877688a237da7a, type: 3}
+  max: {fileID: 6093016650357019929, guid: d8486791c39d8644f99f4aff3297cbe5, type: 3}
+  infinite: {fileID: 4903695651904218978, guid: 0e5f08fc1ae542242bededa26faae088, type: 3}
+  drop: {fileID: -1801608919230593728}
