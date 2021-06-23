@@ -7,6 +7,7 @@ using TMPro;
 {
     public TMP_Text highScoreText;
     public TMP_Text highWave;
+    public TMP_Text highWaveV2;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,10 @@ using TMPro;
         highScoreText.text = "Highest Score: " + highScore;
 
         int highestWave = PlayerPrefs.GetInt("high_wave", 0);
-        highWave.text = "Highest Wave: " + highestWave;
+        highWave.text = "Highest Wave (Big): " + highestWave;
+
+        int highestWaveV2 = PlayerPrefs.GetInt("high_waveV2", 0);
+        highWaveV2.text = "Highest Wave (Small):" + highestWaveV2;
     }
 
     // Update is called once per frame

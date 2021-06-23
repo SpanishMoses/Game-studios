@@ -161,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isDeadArena;
 
     public bool canInstaKill;
+    public bool dontLoseAmmo;
 
     private void Awake()
     {
@@ -779,6 +780,12 @@ public class PlayerMovement : MonoBehaviour
                 pickups.Play();
                 Destroy(other.gameObject);
             }
+
+            if (consume != null && consume.isInfinite == true){
+                StartCoroutine(MAX());
+                pickups.Play();
+                Destroy(other.gameObject);
+            }
         }
 
         if (other.gameObject.tag == "PistolAmmo"){
@@ -1012,6 +1019,22 @@ public class PlayerMovement : MonoBehaviour
             canDash = false;
             StartCoroutine(sendBack());
         }
+
+        /*if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena")){
+            ArenaManager arena = GameObject.FindGameObjectWithTag("rank").GetComponent<ArenaManager>();
+            if (arena.round > 20){
+                amount += 10;
+            }
+        }
+
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ArenaV2"))
+        {
+            ArenaManager arena = GameObject.FindGameObjectWithTag("rank").GetComponent<ArenaManager>();
+            if (arena.round > 20)
+            {
+                amount += 10;
+            }
+        }*/
     }
 
     IEnumerator sendBack(){
@@ -1114,6 +1137,12 @@ public class PlayerMovement : MonoBehaviour
         canInstaKill = true;
         yield return new WaitForSeconds(20f);
         canInstaKill = false;
+    }
+
+    IEnumerator MAX(){
+        dontLoseAmmo = true;
+        yield return new WaitForSeconds(20f);
+        dontLoseAmmo = false;
     }
 
     public void ShakeIt()

@@ -770,7 +770,10 @@ public class MouseLook : MonoBehaviour
 
     void ShootPistol(){
         RaycastHit hit;
-        currAmmoP--;
+        if (play.dontLoseAmmo == false)
+        {
+            currAmmoP--;
+        }
         PlayerPrefs.SetInt("Pistol_Ammo", currAmmoP);
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, dist, layers))
         {
@@ -1050,7 +1053,10 @@ public class MouseLook : MonoBehaviour
 
     void ShootMachineGun(){
         RaycastHit mHit;
-        currAmmoM--;
+        if (play.dontLoseAmmo == false)
+        {
+            currAmmoM--;
+        }
         PlayerPrefs.SetInt("Machinegun_Ammo", currAmmoM);
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out mHit, dist, layers))
         {
