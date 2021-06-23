@@ -457,10 +457,27 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true){
+        if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("ArenaV2"))
+        {
             
             Time.timeScale = 1f;
             
+            ResetPos();
+            /*health = 50;
+            point.totalPoints -= 1000;
+            isDead = false;
+            freezeMouse = false;
+            deadText.SetActive(false);
+            mouse.unpaused = false;
+            ghost.transform.position = ghostInitialPosition;*/
+            SceneManager.LoadScene(sceneName);
+        }
+
+        if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Arena"))
+        {
+
+            Time.timeScale = 1f;
+
             ResetPos();
             /*health = 50;
             point.totalPoints -= 1000;
@@ -1008,6 +1025,47 @@ public class PlayerMovement : MonoBehaviour
             cam.transform.position = groundCheck.position;
         }
         if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
+        {
+            isDeadArena = true;
+            mouse.unpaused = true;
+            mouse.shootEnabled = false;
+            damagePic.SetActive(true);
+            cantMove = true;
+            speed = 0;
+            freezeMouse = true;
+            canDash = false;
+            StartCoroutine(sendBack());
+        }
+
+        if (health <= 0 && isDead == false && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("ArenaV2"))
+        {
+            sound.clip = death;
+            sound.Play();
+            deathCounter++;
+        }
+
+        if (health <= 0 && isDeadArena == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ArenaV2"))
+        {
+            sound.clip = death;
+            sound.Play();
+            deathCounter++;
+        }
+
+        if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("ArenaV2"))
+        {
+            mouse.unpaused = true;
+            //Time.timeScale = 0f;
+            mouse.shootEnabled = false;
+            damagePic.SetActive(true);
+            cantMove = true;
+            speed = 0;
+            isDead = true;
+            freezeMouse = true;
+            deadText.SetActive(true);
+            canDash = false;
+            cam.transform.position = groundCheck.position;
+        }
+        if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ArenaV2"))
         {
             isDeadArena = true;
             mouse.unpaused = true;
