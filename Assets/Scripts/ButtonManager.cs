@@ -76,6 +76,7 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("EnableFireWork", 1);
         PlayerPrefs.SetFloat("Sense", 4);
         PlayerPrefs.SetInt("Current_Round", 1);
+        PlayerPrefs.SetInt("Current_RoundV2", 1);
     }
 
     public void hoverNow(){
