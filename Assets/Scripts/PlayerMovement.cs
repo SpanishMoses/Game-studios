@@ -473,7 +473,7 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene(sceneName);
         }
 
-        if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Arena"))
+        if (isDead == true && isDeadArena == false && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Arena"))
         {
 
             Time.timeScale = 1f;
@@ -1010,7 +1010,7 @@ public class PlayerMovement : MonoBehaviour
             deathCounter++;
         }
 
-        if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Arena"))
+        if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Arena") || health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("ArenaV2"))
         {
             mouse.unpaused = true;
             //Time.timeScale = 0f;
@@ -1024,7 +1024,7 @@ public class PlayerMovement : MonoBehaviour
             canDash = false;
             cam.transform.position = groundCheck.position;
         }
-        if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena"))
+        if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena") || health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ArenaV2"))
         {
             isDeadArena = true;
             mouse.unpaused = true;
@@ -1051,7 +1051,7 @@ public class PlayerMovement : MonoBehaviour
             deathCounter++;
         }
 
-        if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("ArenaV2"))
+        /*if (health <= 0f && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("ArenaV2"))
         {
             mouse.unpaused = true;
             //Time.timeScale = 0f;
@@ -1076,7 +1076,7 @@ public class PlayerMovement : MonoBehaviour
             freezeMouse = true;
             canDash = false;
             StartCoroutine(sendBack());
-        }
+        }*/
 
         /*if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena")){
             ArenaManager arena = GameObject.FindGameObjectWithTag("rank").GetComponent<ArenaManager>();
