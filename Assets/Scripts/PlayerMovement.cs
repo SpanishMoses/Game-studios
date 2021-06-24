@@ -727,6 +727,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (other.gameObject.tag == "ArenaStart"){
+            StartArena start = other.transform.GetComponent<StartArena>();
+            if (start != null){
+                start.hasPassed = true;
+            }
+        }
+
         if (other.gameObject.tag == "Consumable"){
             Consumables consume = other.transform.GetComponent<Consumables>();
             if (consume != null && consume.isHealth == true && health < 100){
