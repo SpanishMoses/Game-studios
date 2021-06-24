@@ -16,10 +16,10 @@ using TMPro;
         highScoreText.text = "Highest Score: " + highScore;
 
         int highestWave = PlayerPrefs.GetInt("high_wave", 0);
-        highWave.text = "Highest Wave (Big): " + highestWave;
+        highWave.text = "Highest Wave (Terrace Taverns): " + highestWave;
 
         int highestWaveV2 = PlayerPrefs.GetInt("high_waveV2", 0);
-        highWaveV2.text = "Highest Wave (Small):" + highestWaveV2;
+        highWaveV2.text = "Highest Wave (Pleasant Patch): " + highestWaveV2;
     }
 
     // Update is called once per frame
