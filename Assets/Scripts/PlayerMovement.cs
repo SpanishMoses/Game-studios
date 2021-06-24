@@ -163,6 +163,16 @@ public class PlayerMovement : MonoBehaviour
     public bool canInstaKill;
     public bool dontLoseAmmo;
 
+    public float duration;
+    public float duration2;
+    public float duration3;
+    public GameObject speedImage;
+    public Image fillImageSpeed;
+    public GameObject instaImage;
+    public Image fillImageInsta;
+    public GameObject infiniteImage;
+    public Image fillImageInfinite;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -414,6 +424,22 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Dash());
                 StartCoroutine(DashRecharge());
             }
+        }
+
+        if (fillImageSpeed.fillAmount > 0)
+        {
+            duration -= Time.deltaTime;
+            fillImageSpeed.fillAmount = duration / 20f;
+        }
+
+        if (fillImageInsta.fillAmount > 0){
+            duration2 -= Time.deltaTime;
+            fillImageInsta.fillAmount = duration2 / 20f;
+        }
+
+        if (fillImageInfinite.fillAmount > 0){
+            duration3 -= Time.deltaTime;
+            fillImageInfinite.fillAmount = duration3 / 20f;
         }
 
         if (health < 30){
@@ -789,25 +815,36 @@ public class PlayerMovement : MonoBehaviour
                 mouse.currAmmoM += 100;
                 mouse.currAmmoF += 100;
                 mouse.currAmmoG += 100;
+                pickups.clip = ammoPickup;
                 pickups.Play();
+                StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);
             }
 
             if (consume != null && consume.isSpeed == true){
                 StartCoroutine(GoFast());
                 pickups.Play();
+                pickups.clip = ammoPickup;
+                StartCoroutine(flashAmmo());
+                //StartCoroutine(TimerSpeed(20));
                 Destroy(other.gameObject);
             }
 
             if (consume != null && consume.isInstaKill == true){
                 StartCoroutine(KILL());
+                //StartCoroutine(TimerInsta());
+                pickups.clip = ammoPickup;
                 pickups.Play();
+                StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);
             }
 
             if (consume != null && consume.isInfinite == true){
                 StartCoroutine(MAX());
+                //StartCoroutine(TimerInfinite());
+                pickups.clip = ammoPickup;
                 pickups.Play();
+                StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);
             }
         }
@@ -1193,6 +1230,8 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator GoFast(){
         speed = 18f;
         defaultSpeed = 18f;
+        fillImageSpeed.fillAmount = 1;
+        duration = 20;
         yield return new WaitForSeconds(20f);
         speed = 12f;
         defaultSpeed = 12f;
@@ -1200,15 +1239,20 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator KILL(){
         canInstaKill = true;
+        fillImageInsta.fillAmount = 1;
+        duration2 = 20;
         yield return new WaitForSeconds(20f);
         canInstaKill = false;
     }
 
     IEnumerator MAX(){
         dontLoseAmmo = true;
+        fillImageInfinite.fillAmount = 1;
+        duration3 = 20;
         yield return new WaitForSeconds(20f);
         dontLoseAmmo = false;
     }
+
 
     public void ShakeIt()
     {

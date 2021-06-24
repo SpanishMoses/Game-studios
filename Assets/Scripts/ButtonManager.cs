@@ -59,24 +59,33 @@ public class ButtonManager : MonoBehaviour
 
     }
 
-    public void arenaEnter(){
-        PlayerPrefs.SetInt("Curr_Health", 100);
-        PlayerPrefs.SetInt("Current_Score", 0);
-        PlayerPrefs.SetInt("Pistol_Ammo", 100);
-        PlayerPrefs.SetInt("Shotgun_Ammo", 40);
-        PlayerPrefs.SetInt("Machinegun_Ammo", 120);
-        PlayerPrefs.SetInt("Grenade_Ammo", 6);
-        PlayerPrefs.SetInt("Firework_Ammo", 8);
-        PlayerPrefs.SetInt("Curr_Health", 50);
+    public void arenaEnter(string arena)
+    {
+        Time.timeScale = 1f;
+        StartCoroutine(loadArena());
+        IEnumerator loadArena()
+        {
+            yield return new WaitForSeconds(1);
+            SceneManager.LoadScene(arena);
+            PlayerPrefs.SetInt("Curr_Health", 100);
+            PlayerPrefs.SetInt("Current_Score", 0);
+            PlayerPrefs.SetInt("Pistol_Ammo", 100);
+            PlayerPrefs.SetInt("PriorP", 100);
+            PlayerPrefs.SetInt("Shotgun_Ammo", 40);
+            PlayerPrefs.SetInt("Machinegun_Ammo", 120);
+            PlayerPrefs.SetInt("Grenade_Ammo", 6);
+            PlayerPrefs.SetInt("Firework_Ammo", 8);
+            PlayerPrefs.SetInt("Curr_Health", 50);
 
-        PlayerPrefs.SetInt("EnableShotgun", 1);
-        PlayerPrefs.SetInt("EnableMachineGun", 1);
-        PlayerPrefs.SetInt("EnableKnife", 1);
-        PlayerPrefs.SetInt("EnableGrenade", 1);
-        PlayerPrefs.SetInt("EnableFireWork", 1);
-        PlayerPrefs.SetFloat("Sense", 4);
-        PlayerPrefs.SetInt("Current_Round", 1);
-        PlayerPrefs.SetInt("Current_RoundV2", 1);
+            PlayerPrefs.SetInt("EnableShotgun", 1);
+            PlayerPrefs.SetInt("EnableMachineGun", 1);
+            PlayerPrefs.SetInt("EnableKnife", 1);
+            PlayerPrefs.SetInt("EnableGrenade", 1);
+            PlayerPrefs.SetInt("EnableFireWork", 1);
+            PlayerPrefs.SetFloat("Sense", 4);
+            PlayerPrefs.SetInt("Current_Round", 1);
+            PlayerPrefs.SetInt("Current_RoundV2", 1);
+        }
     }
 
     public void hoverNow(){

@@ -60,7 +60,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.98, y: 3.33, z: 1.72}
+  m_Size: {x: 4.995284, y: 4, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8393148030430097243
 MonoBehaviour:
@@ -77,6 +77,8 @@ MonoBehaviour:
   spawnPos: {fileID: 8393148030430097240}
   health: {fileID: 2111376356277406610, guid: eead9e18d0134f042b7086af913624bb, type: 3}
   ammo: {fileID: 412740961166910714, guid: b6f3f207da0ce2740b30f246aa587977, type: 3}
+  rocketAmmo: {fileID: 0}
+  grenadeAmmo: {fileID: 0}
   itemNum: 0
   spawnTime: 0
   maxSpawnTime: 2

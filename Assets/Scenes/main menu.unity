@@ -2194,8 +2194,8 @@ GameObject:
   - component: {fileID: 384491903}
   - component: {fileID: 384491902}
   - component: {fileID: 384491901}
-  - component: {fileID: 384491900}
   - component: {fileID: 384491899}
+  - component: {fileID: 384491900}
   m_Layer: 5
   m_Name: Arena V1 Button
   m_TagString: Untagged
@@ -2336,7 +2336,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 954994481}
+        - m_Target: {fileID: 384491902}
           m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
           m_MethodName: hoverNow
           m_Mode: 1
@@ -2439,7 +2439,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 384491902}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: SinglePlayerbutton
+        m_MethodName: arenaEnter
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2447,18 +2447,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: ArenaLoad
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 384491902}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: arenaEnter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &384491904
@@ -12473,7 +12461,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 954994481}
+        - m_Target: {fileID: 1196122647}
           m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
           m_MethodName: hoverNow
           m_Mode: 1
@@ -12576,7 +12564,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1196122647}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: SinglePlayerbutton
+        m_MethodName: arenaEnter
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12584,18 +12572,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: ArenaLoadV2
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1196122647}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: arenaEnter
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1196122649
@@ -20229,7 +20205,19 @@ MonoBehaviour:
   - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 954994481}
+          m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+          m_MethodName: nowClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1605450685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21245,7 +21233,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Patch 2.7.9
+  m_text: 'Patch 2.8
 
 
 

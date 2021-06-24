@@ -198,6 +198,23 @@ MonoBehaviour:
   distance: 0
   noHit: 0
   presentsFound: 0
+  timer: 0
+  seconds: 0
+  minutes: 0
+  hours: 0
+  timeText: {fileID: 0}
+  timerText: {fileID: 0}
+  showTimer: 0
+  isDeadArena: 0
+  canInstaKill: 0
+  dontLoseAmmo: 0
+  duration: 20
+  speedImage: {fileID: 0}
+  fillImageSpeed: {fileID: 0}
+  instaImage: {fileID: 0}
+  fillImageInsta: {fileID: 0}
+  infiniteImage: {fileID: 0}
+  fillImageInfinite: {fileID: 0}
 --- !u!82 &5277950087755630345
 AudioSource:
   m_ObjectHideFlags: 0
