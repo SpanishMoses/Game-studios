@@ -43,6 +43,30 @@ public class ArenaManager : MonoBehaviour
         highRound = PlayerPrefs.GetInt("high_wave", 0);
         //enemies = GameObject.FindGameObjectsWithTag("Enemy");
         chooseSong();
+        songNum = PlayerPrefs.GetInt("Song");
+        if (songNum == 1)
+        {
+            musicMan.clip = track4;
+            musicMan.Play();
+        }
+
+        if (songNum == 2)
+        {
+            musicMan.clip = track1;
+            musicMan.Play();
+        }
+
+        if (songNum == 3)
+        {
+            musicMan.clip = track2;
+            musicMan.Play();
+        }
+
+        if (songNum == 4)
+        {
+            musicMan.clip = track3;
+            musicMan.Play();
+        }
     }
 
     // Update is called once per frame
@@ -55,7 +79,7 @@ public class ArenaManager : MonoBehaviour
             //StartCoroutine(newRound());
         }*/
 
-        if (round == 5){
+        if (round == 5) {
             maxSpawns = 20;
         }
         if (round == 10)
@@ -73,14 +97,14 @@ public class ArenaManager : MonoBehaviour
 
         enemiesSpawned = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
-        if (enemiesSpawned >= maxSpawns){
-            for (int i = 0; i < enemySpawners.Length; i++){
+        if (enemiesSpawned >= maxSpawns) {
+            for (int i = 0; i < enemySpawners.Length; i++) {
                 enemySpawners[i].SetActive(false);
                 spawnersInactive = true;
             }
         }
 
-        if (enemiesSpawned == 0 & spawnersInactive == true && currentlyRound == true){
+        if (enemiesSpawned == 0 & spawnersInactive == true && currentlyRound == true) {
             currentlyRound = false;
             StartCoroutine(newRound());
         }
@@ -92,10 +116,12 @@ public class ArenaManager : MonoBehaviour
         }*/
 
         PlayerPrefs.SetInt("Current_Round", round);
-        if (round > highRound){
+        if (round > highRound) {
             highRound = round;
             PlayerPrefs.SetInt("high_wave", highRound);
         }
+
+        
     }
 
     IEnumerator newRound(){
@@ -120,7 +146,7 @@ public class ArenaManager : MonoBehaviour
     }
 
     public void chooseSong(){
-        songNum = Random.Range(1, 8);
+        /*songNum = Random.Range(1, 8);
         if (songNum == 1){
             musicMan.clip = track1;
             musicMan.Play();
@@ -159,6 +185,8 @@ public class ArenaManager : MonoBehaviour
         {
             musicMan.clip = track4;
             musicMan.Play();
-        }
+        }*/
+
+    
     }
 }

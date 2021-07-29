@@ -43,6 +43,30 @@ public class ArenaManagerV2 : MonoBehaviour
         highRound = PlayerPrefs.GetInt("high_waveV2", 0);
         //enemies = GameObject.FindGameObjectsWithTag("Enemy");
         chooseSong();
+        songNum = PlayerPrefs.GetInt("Song");
+        if (songNum == 1)
+        {
+            musicMan.clip = track4;
+            musicMan.Play();
+        }
+
+        if (songNum == 2)
+        {
+            musicMan.clip = track1;
+            musicMan.Play();
+        }
+
+        if (songNum == 3)
+        {
+            musicMan.clip = track2;
+            musicMan.Play();
+        }
+
+        if (songNum == 4)
+        {
+            musicMan.clip = track3;
+            musicMan.Play();
+        }
     }
 
     // Update is called once per frame
@@ -127,7 +151,7 @@ public class ArenaManagerV2 : MonoBehaviour
 
     public void chooseSong()
     {
-        songNum = Random.Range(1, 8);
+        /*songNum = Random.Range(1, 8);
         if (songNum == 1)
         {
             musicMan.clip = track1;
@@ -167,6 +191,6 @@ public class ArenaManagerV2 : MonoBehaviour
         {
             musicMan.clip = track4;
             musicMan.Play();
-        }
+        }*/
     }
 }
