@@ -36,21 +36,22 @@ public class EnemyShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    private void FixedUpdate()
+    {
         if (mov.locActive == true || mov.backUp == true || startShootAnyways == true)
         {
-            shootTime += Time.deltaTime;
-            if (shootTime >= timeBetweenShots){
+            shootTime += Time.fixedDeltaTime;
+            if (shootTime >= timeBetweenShots)
+            {
                 shootTime = 0;
                 timeBetweenShots = Random.Range(2, 4);
                 shoot();
                 StartCoroutine(shootStop());
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 
     private void shoot() 

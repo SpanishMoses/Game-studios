@@ -29,13 +29,7 @@ public class DroneShoot : MonoBehaviour
     void Update()
     {
         
-            shootTime += Time.deltaTime;
-            if (shootTime >= timeBetweenShots)
-            {
-                shootTime = 0;
-                timeBetweenShots = Random.Range(2, 4);
-                shoot();
-            }
+            
         
             
 
@@ -43,7 +37,13 @@ public class DroneShoot : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        shootTime += Time.fixedDeltaTime;
+        if (shootTime >= timeBetweenShots)
+        {
+            shootTime = 0;
+            timeBetweenShots = Random.Range(2, 4);
+            shoot();
+        }
     }
 
     private void shoot()

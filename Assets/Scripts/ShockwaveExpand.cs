@@ -17,11 +17,12 @@ public class ShockwaveExpand : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void FixedUpdate()
     {
-        timeVar += Time.deltaTime;
-        if (timeVar > 0.1){
+        timeVar += Time.fixedDeltaTime;
+        if (timeVar > 0.1)
+        {
             timeVar = 0;
             radius += 1f;
         }

@@ -54,6 +54,11 @@ public class ExplodingEnemy : MonoBehaviour
 
     private void Update()
     {
+        
+    }
+
+    private void FixedUpdate()
+    {
         if (Vector2.Distance(transform.position, playerLoc.transform.position) < playerDist)
         {
             locActive = true;
@@ -69,7 +74,7 @@ public class ExplodingEnemy : MonoBehaviour
 
         foreach (Collider near in colliders)
         {
-            
+
             PlayerMovement playerMove = near.GetComponent<PlayerMovement>();
             if (playerMove != null)
             {
@@ -94,14 +99,10 @@ public class ExplodingEnemy : MonoBehaviour
             animator.SetBool("IsMoving", true); ;
         }
 
-        if (health.health <= 0){
+        if (health.health <= 0)
+        {
             StartCoroutine(beignBlowUpNew());
         }
-    }
-
-    private void FixedUpdate()
-    {
-
     }
 
     void SetDestination()

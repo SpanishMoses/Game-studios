@@ -43,19 +43,29 @@ public class EnemyMove : MonoBehaviour
 
     private void Update()
     {
+        
+
+        if (health.health <= 0){
+            navMeshAgent.SetDestination(transform.position);
+        }
+    }
+
+    private void FixedUpdate()
+    {
         if (Vector2.Distance(transform.position, playerLoc.transform.position) < playerDist)
         {
             locActive = true;
             backUp = false;
         }
 
-            if (Vector2.Distance(transform.position, playerLoc.transform.position) < backUpDist)
+        if (Vector2.Distance(transform.position, playerLoc.transform.position) < backUpDist)
         {
             backUp = true;
             locActive = false;
         }
 
-        if (backUp == false){
+        if (backUp == false)
+        {
             locActive = true;
         }
 
@@ -80,24 +90,17 @@ public class EnemyMove : MonoBehaviour
             animator.SetBool("IsMoving", true); ;
         }
 
-        if (shoot.alreadyShoot == true){
+        if (shoot.alreadyShoot == true)
+        {
             navMeshAgent.isStopped = true;
 
         }
 
-        if (shoot.alreadyShoot == false){
+        if (shoot.alreadyShoot == false)
+        {
             navMeshAgent.isStopped = false;
-            
-        }
 
-        if (health.health <= 0){
-            navMeshAgent.SetDestination(transform.position);
         }
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 
     void SetDestination(){

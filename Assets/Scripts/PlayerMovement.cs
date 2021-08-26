@@ -289,32 +289,9 @@ public class PlayerMovement : MonoBehaviour
 
         PlayerPrefs.SetInt("Curr_Health", health);
 
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        
 
-        if(isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-            pressedJump = false;
-            time = 0;
-        }
-
-        if (cantMove == false || onLadder == false){ 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-            if (onLadder == false)
-            {
-                Vector3 move = transform.right * x * speed + transform.forward * z * speed + transform.up * velocity.y;
-
-                controller.Move(move * Time.deltaTime);
-                distance += 0.5f * Time.deltaTime;
-            }
-            if (onLadder == true){
-                Vector3 moveUp = transform.up * z;
-                controller.Move(transform.up * speed * Time.deltaTime);
-            }
-
-           if (controller.isGrounded == true && controller.velocity.magnitude > 2f && moveNoise.isPlaying == false){
+            if (controller.isGrounded == true && controller.velocity.magnitude > 2f && moveNoise.isPlaying == false) {
                 moveNoise.Play();
             }
 
@@ -323,38 +300,8 @@ public class PlayerMovement : MonoBehaviour
                 moveNoise.Stop();
             }
 
-            //Jump
-            if (Input.GetButtonDown("Jump") && isGrounded && pressedJump == false && onLadder == false && isDead == false)
-        {
-            velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
-                pressedJump = true;
-                jumping.Play();
-                setPitch();
-                jumpNum++;
-        }
-
-            if (pressedJump == false && isGrounded == false && isDead == false){
-                time += Time.deltaTime;
-                if (time <= maxTime && onLadder == false){
-                    if (Input.GetButtonDown("Jump") && pressedJump == false)
-                    {
-                        velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
-                        pressedJump = true;
-                        jumping.Play();
-                        setPitch();
-                        time = 0;
-                    } else if ( time >= maxTime){
-                        pressedJump = true;
-                        time = 0;
-                    }
-                }
-            }
-            if (onLadder == false)
-            {
-                velocity.y += gravity * Time.deltaTime;
-            }
-        controller.Move(velocity * Time.deltaTime);
-
+            
+        
             //achievement stuff
             if (jumpNum >= 300){
                 if (!SteamManager.Initialized) { return; }
@@ -414,17 +361,8 @@ public class PlayerMovement : MonoBehaviour
                 PlayerPrefs.SetInt("ACH_23", 1);
             }
 
-            //Dash
-            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x < 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z < 0f)
-            {
-                DashEffect.Play();
-                canDash = false;
-                sound.clip = dashNoise;
-                sound.Play();
-                StartCoroutine(Dash());
-                StartCoroutine(DashRecharge());
-            }
-        }
+            
+        
 
         if (fillImageSpeed.fillAmount > 0)
         {
@@ -530,6 +468,82 @@ public class PlayerMovement : MonoBehaviour
 
         if (impact.magnitude > 0.2F) controller.Move(impact * Time.deltaTime);
         impact = Vector3.Lerp(impact, Vector3.zero, 5 * Time.deltaTime);
+    }
+
+    public void FixedUpdate()
+    {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+            pressedJump = false;
+            time = 0;
+        }
+
+        if (cantMove == false || onLadder == false)
+        {
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+
+            if (onLadder == false)
+            {
+                Vector3 move = transform.right * x * speed + transform.forward * z * speed + transform.up * velocity.y;
+
+                controller.Move(move * Time.deltaTime);
+                distance += 0.5f * Time.deltaTime;
+            }
+            if (onLadder == true)
+            {
+                Vector3 moveUp = transform.up * z;
+                controller.Move(transform.up * speed * Time.deltaTime);
+            }
+            //Dash
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x < 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z < 0f)
+            {
+                DashEffect.Play();
+                canDash = false;
+                sound.clip = dashNoise;
+                sound.Play();
+                StartCoroutine(Dash());
+                StartCoroutine(DashRecharge());
+            }
+        }
+        //Jump
+        if (Input.GetButtonDown("Jump") && isGrounded && pressedJump == false && onLadder == false && isDead == false)
+        {
+            velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
+            pressedJump = true;
+            jumping.Play();
+            setPitch();
+            jumpNum++;
+        }
+
+        if (pressedJump == false && isGrounded == false && isDead == false)
+        {
+            time += Time.deltaTime;
+            if (time <= maxTime && onLadder == false)
+            {
+                if (Input.GetButtonDown("Jump") && pressedJump == false)
+                {
+                    velocity.y = Mathf.Sqrt(jumpHight * -2f * gravity);
+                    pressedJump = true;
+                    jumping.Play();
+                    setPitch();
+                    time = 0;
+                }
+                else if (time >= maxTime)
+                {
+                    pressedJump = true;
+                    time = 0;
+                }
+            }
+        }
+        if (onLadder == false)
+        {
+            velocity.y += gravity * Time.deltaTime;
+        }
+        controller.Move(velocity * Time.deltaTime);
     }
 
     public void AddImpact(Vector3 dir, float force){

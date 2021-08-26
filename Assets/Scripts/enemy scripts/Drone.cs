@@ -36,6 +36,18 @@ public class Drone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
+        if (health.health <= 0){
+            shoot.enabled = false;
+            characterVelocity = 0;
+
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+    }
+
+    private void FixedUpdate()
+    {
         if (Vector2.Distance(transform.position, playerLoc.transform.position) > 5 && health.health > 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, playerLoc.position, characterVelocity * Time.deltaTime);
@@ -55,13 +67,6 @@ public class Drone : MonoBehaviour
         if (Vector2.Distance(transform.position, playerLoc.transform.position) > 50 && health.health > 0)
         {
             transform.position = Vector3.MoveTowards(transform.position, playerLoc.position, characterVelocity * Time.deltaTime);
-        }
-
-        if (health.health <= 0){
-            shoot.enabled = false;
-            characterVelocity = 0;
-
-            rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 
