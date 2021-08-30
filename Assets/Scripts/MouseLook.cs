@@ -699,11 +699,7 @@ public class MouseLook : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && usePistol == true && shootReady == true && currAmmoP > 0 && unpaused == true)
         {
             ShootPistol();
-            anim.SetTrigger("PistolShoot");
-            crosshairAnim.SetTrigger("Expand");
-            camAnim.SetTrigger("camShake1");
-            weaponShoot.Play();
-            StartCoroutine(reload());
+            
         }
 
         if (currAmmoP == 0 && Input.GetKey(KeyCode.Mouse0) && shootReady == true && usePistol == true && unpaused == true)
@@ -715,12 +711,7 @@ public class MouseLook : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && useShotgun == true && shootReady == true && currAmmoS <= maxAmmoS && currAmmoS > 0 && unpaused == true)
         {
             shootShotgun();
-            anim.SetTrigger("ShotgunShoot");
-            crosshairAnim.SetTrigger("Expand");
-            camAnim.SetTrigger("camShake2");
-            weaponShoot.Play();
-            Instantiate(shell, shellEjectPt.transform.position, transform.rotation);
-            StartCoroutine(reload());
+            
         }
 
         if (currAmmoS == 0 && Input.GetKey(KeyCode.Mouse0) && shootReady == true && useShotgun == true && unpaused == true)
@@ -732,12 +723,7 @@ public class MouseLook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0) && useMachineGun == true && shootReady == true && currAmmoM <= maxAmmoM && currAmmoM > 0 && Time.time >= nextTimeToFire && unpaused == true)
         {
-            nextTimeToFire = Time.time + 1f / fireRate;
-            anim.SetTrigger("RifleShoot");
-            crosshairAnim.SetTrigger("Expand");
-            camAnim.SetTrigger("camShake3");
-            Instantiate(rifleShell, shellEjectPt.transform.position, transform.rotation);
-            weaponShoot.Play();
+            
             ShootMachineGun();
             isShooting = true;
         }
@@ -758,29 +744,19 @@ public class MouseLook : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && useKnife == true && shootReady == true && unpaused == true)
         {
             StabKnife();
-            anim.SetTrigger("ShivShoot");
-            crosshairAnim.SetTrigger("Expand");
-            camAnim.SetTrigger("camShake3");
-            weaponShoot.Play();
-            StartCoroutine(reload());
+            
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && useGrenade == true && grenadeReady == true && currAmmoG <= maxAmmoG && currAmmoG > 0 && unpaused == true)
         {
             ThrowGrenade();
-            anim.SetTrigger("GrenadeShoot");
-            crosshairAnim.SetTrigger("Expand");
-            StartCoroutine(reloadGrenade());
+            
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && useFirework == true && fireWorkReady == true && currAmmoF <= maxAmmoF && currAmmoF > 0 && unpaused == true)
         {
             ShootFireworkk();
-            anim.SetTrigger("FireworkShoot");
-            crosshairAnim.SetTrigger("Expand");
-            camAnim.SetTrigger("camShake2");
-            weaponShoot.Play();
-            StartCoroutine(reloadFireWork());
+            
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && shootReady == true && currAmmoP == 0)
@@ -791,6 +767,11 @@ public class MouseLook : MonoBehaviour
 
     void ShootPistol(){
         RaycastHit hit;
+        anim.SetTrigger("PistolShoot");
+        crosshairAnim.SetTrigger("Expand");
+        camAnim.SetTrigger("camShake1");
+        weaponShoot.Play();
+        StartCoroutine(reload());
         if (play.dontLoseAmmo == false)
         {
             currAmmoP--;
@@ -847,6 +828,12 @@ public class MouseLook : MonoBehaviour
         RaycastHit sHit3;
         RaycastHit sHit4;
         RaycastHit sHit5;
+        anim.SetTrigger("ShotgunShoot");
+        crosshairAnim.SetTrigger("Expand");
+        camAnim.SetTrigger("camShake2");
+        weaponShoot.Play();
+        Instantiate(shell, shellEjectPt.transform.position, transform.rotation);
+        StartCoroutine(reload());
         currAmmoS--;
         PlayerPrefs.SetInt("Shotgun_Ammo", currAmmoS);
 
@@ -1074,6 +1061,12 @@ public class MouseLook : MonoBehaviour
 
     void ShootMachineGun(){
         RaycastHit mHit;
+        nextTimeToFire = Time.time + 1f / fireRate;
+        anim.SetTrigger("RifleShoot");
+        crosshairAnim.SetTrigger("Expand");
+        camAnim.SetTrigger("camShake3");
+        Instantiate(rifleShell, shellEjectPt.transform.position, transform.rotation);
+        weaponShoot.Play();
         if (play.dontLoseAmmo == false)
         {
             currAmmoM--;
@@ -1127,7 +1120,11 @@ public class MouseLook : MonoBehaviour
     void StabKnife()
     {
         RaycastHit kHit;
-
+        anim.SetTrigger("ShivShoot");
+        crosshairAnim.SetTrigger("Expand");
+        camAnim.SetTrigger("camShake3");
+        weaponShoot.Play();
+        StartCoroutine(reload());
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out kHit, dist, layers))
         {
             Debug.Log(kHit.transform.name);
@@ -1187,10 +1184,18 @@ public class MouseLook : MonoBehaviour
 
     void ThrowGrenade(){
         StartCoroutine(BeginThrow());
+        anim.SetTrigger("GrenadeShoot");
+        crosshairAnim.SetTrigger("Expand");
+        StartCoroutine(reloadGrenade());
     }
 
     void ShootFireworkk(){
         currAmmoF--;
+        anim.SetTrigger("FireworkShoot");
+        crosshairAnim.SetTrigger("Expand");
+        camAnim.SetTrigger("camShake2");
+        weaponShoot.Play();
+        StartCoroutine(reloadFireWork());
         PlayerPrefs.SetInt("Firework_Ammo", currAmmoM);
         RaycastHit fHit;
         Vector3 targetPoint;
