@@ -167,6 +167,7 @@ MonoBehaviour:
   health: {fileID: 3403842977151912147}
   isHead: 1
   headShot: {fileID: 8173683547362763537}
+  hasSpecial: 0
 --- !u!65 &3479408949519313401
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -405,6 +406,7 @@ MonoBehaviour:
   parent: {fileID: 3403842977151912152}
   collid: {fileID: 927143007604561144}
   animator: {fileID: 3403842977151912144}
+  special: {fileID: 0}
   enemySpawn: {fileID: 0}
   enemyMove: {fileID: -2523470118489310395}
   enemyShoot: {fileID: 5443037403398029714}
@@ -420,6 +422,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 92471
   achieve: {fileID: 0}
+  yes: 0
 --- !u!135 &927143007604561144
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -444,7 +447,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3ee7188846f991b4eb134f3179b187c2, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -942,6 +945,7 @@ MonoBehaviour:
   health: {fileID: 3403842977151912147}
   isHead: 0
   headShot: {fileID: 0}
+  hasSpecial: 0
 --- !u!65 &4575436486635893818
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1022,6 +1026,7 @@ MonoBehaviour:
   health: {fileID: 3403842977151912147}
   isHead: 0
   headShot: {fileID: 0}
+  hasSpecial: 0
 --- !u!65 &7917817157040021851
 BoxCollider:
   m_ObjectHideFlags: 0

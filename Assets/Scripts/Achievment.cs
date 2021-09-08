@@ -45,10 +45,8 @@ public class Achievment : MonoBehaviour
         fireWorkKill = PlayerPrefs.GetInt("F_Gun_Kills", 0);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-
         PlayerPrefs.SetInt("B_Kills", bearKills);
         PlayerPrefs.SetInt("U_Kills", unicornKills);
         PlayerPrefs.SetInt("D_Kills", droneKills);
@@ -71,14 +69,16 @@ public class Achievment : MonoBehaviour
             PlayerPrefs.SetInt("ACH_1", 1);
         }
 
-        if (unicornKills >= 100){
+        if (unicornKills >= 100)
+        {
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Two");
             SteamUserStats.StoreStats();
             PlayerPrefs.SetInt("ACH_2", 1);
         }
 
-        if (droneKills >= 100){
+        if (droneKills >= 100)
+        {
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Exterminator_Part_Three");
             SteamUserStats.StoreStats();
@@ -101,14 +101,16 @@ public class Achievment : MonoBehaviour
             PlayerPrefs.SetInt("ACH_5", 1);
         }
 
-        if (bearKills >= 100 && unicornKills >= 100 && droneKills >= 100 && explodeKills >= 100 && pandaKills >= 100){
+        if (bearKills >= 100 && unicornKills >= 100 && droneKills >= 100 && explodeKills >= 100 && pandaKills >= 100)
+        {
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Ultimate_Slayer");
             SteamUserStats.StoreStats();
             PlayerPrefs.SetInt("ACH_6", 1);
         }
 
-        if (pistolKill >= 1 && shotGunKill >= 1 && rifleKill >= 1 && knifeKill >= 1 && grenadeKill >= 1 && fireWorkKill >= 1){
+        if (pistolKill >= 1 && shotGunKill >= 1 && rifleKill >= 1 && knifeKill >= 1 && grenadeKill >= 1 && fireWorkKill >= 1)
+        {
             if (!SteamManager.Initialized) { return; }
             SteamUserStats.SetAchievement("Weapon_Specialist");
             SteamUserStats.StoreStats();
