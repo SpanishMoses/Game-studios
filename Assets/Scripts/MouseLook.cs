@@ -217,265 +217,65 @@ public class MouseLook : MonoBehaviour
             camAnim.SetBool("IsDead", true);
         }*/
 
-        
+
 
         /*if (Input.GetKeyUp(KeyCode.Mouse0)){
             unpaused = true;
         }*/
 
-        
 
-            
 
-            //ammo text scripts
-            //used for changing the text to accomadate what type of gun you're using
-            if (usePistol == true)
-            {
-                ammoText.text = currAmmoP + "/" + maxAmmoP;
-            }
-
-            if (useShotgun == true)
-            {
-                ammoText.text = currAmmoS + "/" + maxAmmoS;
-            }
-
-            if (useMachineGun == true)
-            {
-                ammoText.text = currAmmoM + "/" + maxAmmoM;
-            }
-
-            if (useKnife == true)
-            {
-                ammoText.text = "Stab away";
-            }
-
-            if (useGrenade == true)
-            {
-                ammoText.text = currAmmoG + "/" + maxAmmoG;
-            }
-
-            if (useFirework == true)
-            {
-                ammoText.text = currAmmoF + "/" + maxAmmoF;
-            }
-
-            if (currAmmoP >= maxAmmoP)
-            {
-                currAmmoP = maxAmmoP;
-            }
-
-            if (currAmmoS >= maxAmmoS)
-            {
-                currAmmoS = maxAmmoS;
-            }
-
-            if (currAmmoM >= maxAmmoM)
-            {
-                currAmmoM = maxAmmoM;
-            }
-
-            if (currAmmoG >= maxAmmoG)
-            {
-                currAmmoG = maxAmmoG;
-            }
-
-            if (currAmmoF >= maxAmmoF)
-            {
-                currAmmoF = maxAmmoF;
-            }
-        
-
-        if (currAmmoP < 0)
+        if (play.freezeMouse == false)
         {
-            currAmmoP = 0;
-        }
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        if (currAmmoS < 0)
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            playerBody.Rotate(Vector3.up * mouseX);
+        }
+        if (shootEnabled == false)
         {
-            currAmmoS = 0;
+            weapons.SetActive(false);
+            crossHair.SetActive(false);
+            ammoText.enabled = false;
         }
 
-        if (currAmmoM < 0)
+        if (shootEnabled == true)
         {
-            currAmmoM = 0;
-        }
+            pistolHud.SetActive(true);
+            weapons.SetActive(true);
+            crossHair.SetActive(true);
+            ammoText.enabled = true;
 
-        if (currAmmoG < 0)
-        {
-            currAmmoG = 0;
-        }
-
-        if (currAmmoF < 0)
-        {
-            currAmmoF = 0;
-        }
-
-        int shotGunEnable;
-        shotGunEnable = shotGunBool? 1 : 0; 
-
-        if (shotGunBool == true){
-            PlayerPrefs.SetInt("EnableShotgun", 1);
-            shotGunHud.SetActive(true);
-        } else {
-            PlayerPrefs.SetInt("EnableShotgun", 0);
-        }
-
-
-        int machineGunEnable;
-        machineGunEnable = machineGunBool ? 1 : 0;
-
-        if (machineGunBool == true){
-            PlayerPrefs.SetInt("EnableMachineGun", 1);
-            machineGunHud.SetActive(true);
-        }else
-        {
-            PlayerPrefs.SetInt("EnableMachineGun", 0);
-        }
-
-
-        int knifeEnable;
-        knifeEnable = knifeBool ? 1 : 0;
-
-        if (knifeBool == true){
-            PlayerPrefs.SetInt("EnableKnife", 1);
-            knifeHud.SetActive(true);
-        }
-        else{
-            PlayerPrefs.SetInt("EnableKnife", 0);
-        }
-
-
-        int grenadeEnable;
-        grenadeEnable = grenadeBool ? 1 : 0;
-
-        if (grenadeBool == true){
-            PlayerPrefs.SetInt("EnableGrenade", 1);
-            grenadeHud.SetActive(true);
-        }else
-        {
-            PlayerPrefs.SetInt("EnableGrenade", 0);
-        }
-
-
-        int fireWorkEnable;
-        fireWorkEnable = fireWorkBool ? 1 : 0;
-
-        if (fireWorkBool == true){
-            PlayerPrefs.SetInt("EnableFireWork", 1);
-            fireWorkHud.SetActive(true);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("EnableFireWork", 0);
-        }
-
-        int yesConfetti;
-        yesConfetti = enableCon ? 1 : 0;
-
-        if (enableCon == true)
-        {
-            PlayerPrefs.SetInt("Confetti", 1);
-            Debug.Log("worked");
-            set.tog.isOn = true;
-        }
-        else
-        {
-            PlayerPrefs.SetInt("Confetti", 0);
-            set.tog.isOn = false;
-        }
-
-        int yesCandy;
-        yesCandy = enableCandy ? 1 : 0;
-
-        if (enableCandy == true){
-            PlayerPrefs.SetInt("Candy", 1);
-            set.tog2.isOn = true;
-        } else{
-            PlayerPrefs.SetInt("Candy", 0);
-            set.tog2.isOn = false;
-        }
-
-        int yesSpecial;
-        yesSpecial = enableSpecial ? 1 : 0;
-        if (enableSpecial == true){
-            PlayerPrefs.SetInt("SPECIAL", 1);
-            set.tog3.isOn = true;
-        } else{
-            PlayerPrefs.SetInt("SPECIAL", 0);
-            set.tog3.isOn = false;
-        }
-
-        pistolSlide.maxValue = maxAmmoP;
-        pistolSlide.value = currAmmoP;
-
-        shotGunSlide.maxValue = maxAmmoS;
-        shotGunSlide.value = currAmmoS;
-
-        machineGunSlide.maxValue = maxAmmoM;
-        machineGunSlide.value = currAmmoM;
-
-        grenadeSlide.maxValue = maxAmmoG;
-        grenadeSlide.value = currAmmoG;
-
-        fireWorkSlide.maxValue = maxAmmoF;
-        fireWorkSlide.value = currAmmoF;
-
-    }
-
-
-    private void FixedUpdate()
-{
-    if (play.freezeMouse == false)
-    {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
-    }
-    if (shootEnabled == false)
-    {
-        weapons.SetActive(false);
-        crossHair.SetActive(false);
-        ammoText.enabled = false;
-    }
-
-    if (shootEnabled == true)
-    {
-        pistolHud.SetActive(true);
-        weapons.SetActive(true);
-        crossHair.SetActive(true);
-        ammoText.enabled = true;
-
-        float w = Input.GetAxis("Mouse ScrollWheel");
-        if (w < 0f && play.freezeMouse == false)
-        {
-            //currWeapon = currWeapon + 1;
-            upChange = true;
-            wep.justSwitched = true;
-            if (wep.endSwitch == true)
+            float w = Input.GetAxis("Mouse ScrollWheel");
+            if (w < 0f && play.freezeMouse == false)
             {
-                wep.endSwitch = false;
-                currWeapon = currWeapon + 1;
-                wep.anim.SetTrigger("WeaponSwitch");
+                //currWeapon = currWeapon + 1;
+                upChange = true;
+                wep.justSwitched = true;
+                if (wep.endSwitch == true)
+                {
+                    wep.endSwitch = false;
+                    currWeapon = currWeapon + 1;
+                    wep.anim.SetTrigger("WeaponSwitch");
+                }
+            }
+            else if (w > 0f && play.freezeMouse == false)
+            {
+                //currWeapon = currWeapon - 1;
+                upChange = false;
+                wep.justSwitched = true;
+                if (wep.endSwitch == true)
+                {
+                    wep.endSwitch = false;
+                    currWeapon = currWeapon - 1;
+                    wep.anim.SetTrigger("WeaponSwitch");
+                }
             }
         }
-        else if (w > 0f && play.freezeMouse == false)
-        {
-            //currWeapon = currWeapon - 1;
-            upChange = false;
-            wep.justSwitched = true;
-            if (wep.endSwitch == true)
-            {
-                wep.endSwitch = false;
-                currWeapon = currWeapon - 1;
-                wep.anim.SetTrigger("WeaponSwitch");
-            }
-        }
-    }
 
         if (currWeapon < 1)
         {
@@ -699,7 +499,7 @@ public class MouseLook : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && usePistol == true && shootReady == true && currAmmoP > 0 && unpaused == true)
         {
             ShootPistol();
-            
+
         }
 
         if (currAmmoP == 0 && Input.GetKey(KeyCode.Mouse0) && shootReady == true && usePistol == true && unpaused == true)
@@ -711,7 +511,7 @@ public class MouseLook : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && useShotgun == true && shootReady == true && currAmmoS <= maxAmmoS && currAmmoS > 0 && unpaused == true)
         {
             shootShotgun();
-            
+
         }
 
         if (currAmmoS == 0 && Input.GetKey(KeyCode.Mouse0) && shootReady == true && useShotgun == true && unpaused == true)
@@ -723,7 +523,7 @@ public class MouseLook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0) && useMachineGun == true && shootReady == true && currAmmoM <= maxAmmoM && currAmmoM > 0 && Time.time >= nextTimeToFire && unpaused == true)
         {
-            
+
             ShootMachineGun();
             isShooting = true;
         }
@@ -744,25 +544,225 @@ public class MouseLook : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && useKnife == true && shootReady == true && unpaused == true)
         {
             StabKnife();
-            
+
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && useGrenade == true && grenadeReady == true && currAmmoG <= maxAmmoG && currAmmoG > 0 && unpaused == true)
         {
             ThrowGrenade();
-            
+
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && useFirework == true && fireWorkReady == true && currAmmoF <= maxAmmoF && currAmmoF > 0 && unpaused == true)
         {
             ShootFireworkk();
-            
+
         }
 
         if (Input.GetKey(KeyCode.Mouse0) && shootReady == true && currAmmoP == 0)
         {
             Debug.Log("no ammo");
         }
+
+        //ammo text scripts
+        //used for changing the text to accomadate what type of gun you're using
+        if (usePistol == true)
+            {
+                ammoText.text = currAmmoP + "/" + maxAmmoP;
+            }
+
+            if (useShotgun == true)
+            {
+                ammoText.text = currAmmoS + "/" + maxAmmoS;
+            }
+
+            if (useMachineGun == true)
+            {
+                ammoText.text = currAmmoM + "/" + maxAmmoM;
+            }
+
+            if (useKnife == true)
+            {
+                ammoText.text = "Stab away";
+            }
+
+            if (useGrenade == true)
+            {
+                ammoText.text = currAmmoG + "/" + maxAmmoG;
+            }
+
+            if (useFirework == true)
+            {
+                ammoText.text = currAmmoF + "/" + maxAmmoF;
+            }
+
+            if (currAmmoP >= maxAmmoP)
+            {
+                currAmmoP = maxAmmoP;
+            }
+
+            if (currAmmoS >= maxAmmoS)
+            {
+                currAmmoS = maxAmmoS;
+            }
+
+            if (currAmmoM >= maxAmmoM)
+            {
+                currAmmoM = maxAmmoM;
+            }
+
+            if (currAmmoG >= maxAmmoG)
+            {
+                currAmmoG = maxAmmoG;
+            }
+
+            if (currAmmoF >= maxAmmoF)
+            {
+                currAmmoF = maxAmmoF;
+            }
+        
+
+        if (currAmmoP < 0)
+        {
+            currAmmoP = 0;
+        }
+
+        if (currAmmoS < 0)
+        {
+            currAmmoS = 0;
+        }
+
+        if (currAmmoM < 0)
+        {
+            currAmmoM = 0;
+        }
+
+        if (currAmmoG < 0)
+        {
+            currAmmoG = 0;
+        }
+
+        if (currAmmoF < 0)
+        {
+            currAmmoF = 0;
+        }
+
+        int shotGunEnable;
+        shotGunEnable = shotGunBool? 1 : 0; 
+
+        if (shotGunBool == true){
+            PlayerPrefs.SetInt("EnableShotgun", 1);
+            shotGunHud.SetActive(true);
+        } else {
+            PlayerPrefs.SetInt("EnableShotgun", 0);
+        }
+
+
+        int machineGunEnable;
+        machineGunEnable = machineGunBool ? 1 : 0;
+
+        if (machineGunBool == true){
+            PlayerPrefs.SetInt("EnableMachineGun", 1);
+            machineGunHud.SetActive(true);
+        }else
+        {
+            PlayerPrefs.SetInt("EnableMachineGun", 0);
+        }
+
+
+        int knifeEnable;
+        knifeEnable = knifeBool ? 1 : 0;
+
+        if (knifeBool == true){
+            PlayerPrefs.SetInt("EnableKnife", 1);
+            knifeHud.SetActive(true);
+        }
+        else{
+            PlayerPrefs.SetInt("EnableKnife", 0);
+        }
+
+
+        int grenadeEnable;
+        grenadeEnable = grenadeBool ? 1 : 0;
+
+        if (grenadeBool == true){
+            PlayerPrefs.SetInt("EnableGrenade", 1);
+            grenadeHud.SetActive(true);
+        }else
+        {
+            PlayerPrefs.SetInt("EnableGrenade", 0);
+        }
+
+
+        int fireWorkEnable;
+        fireWorkEnable = fireWorkBool ? 1 : 0;
+
+        if (fireWorkBool == true){
+            PlayerPrefs.SetInt("EnableFireWork", 1);
+            fireWorkHud.SetActive(true);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("EnableFireWork", 0);
+        }
+
+        int yesConfetti;
+        yesConfetti = enableCon ? 1 : 0;
+
+        if (enableCon == true)
+        {
+            PlayerPrefs.SetInt("Confetti", 1);
+            Debug.Log("worked");
+            set.tog.isOn = true;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Confetti", 0);
+            set.tog.isOn = false;
+        }
+
+        int yesCandy;
+        yesCandy = enableCandy ? 1 : 0;
+
+        if (enableCandy == true){
+            PlayerPrefs.SetInt("Candy", 1);
+            set.tog2.isOn = true;
+        } else{
+            PlayerPrefs.SetInt("Candy", 0);
+            set.tog2.isOn = false;
+        }
+
+        int yesSpecial;
+        yesSpecial = enableSpecial ? 1 : 0;
+        if (enableSpecial == true){
+            PlayerPrefs.SetInt("SPECIAL", 1);
+            set.tog3.isOn = true;
+        } else{
+            PlayerPrefs.SetInt("SPECIAL", 0);
+            set.tog3.isOn = false;
+        }
+
+        pistolSlide.maxValue = maxAmmoP;
+        pistolSlide.value = currAmmoP;
+
+        shotGunSlide.maxValue = maxAmmoS;
+        shotGunSlide.value = currAmmoS;
+
+        machineGunSlide.maxValue = maxAmmoM;
+        machineGunSlide.value = currAmmoM;
+
+        grenadeSlide.maxValue = maxAmmoG;
+        grenadeSlide.value = currAmmoG;
+
+        fireWorkSlide.maxValue = maxAmmoF;
+        fireWorkSlide.value = currAmmoF;
+
+    }
+
+
+    private void FixedUpdate()
+{
+    
     }
 
     void ShootPistol(){
