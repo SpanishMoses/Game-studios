@@ -57,7 +57,7 @@ public class LeaderBoards : MonoBehaviour
         Debug.Log($"Steam Leaderboard Upload: Did it fail? {failure}, Score: {pCallback.m_nScore}, HasChanged: {pCallback.m_bScoreChanged}");
     }
     //change ELeaderboardDataRequest to get a different set (focused around player or global)
-    public void GetLeaderBoardData(ELeaderboardDataRequest _type = ELeaderboardDataRequest.k_ELeaderboardDataRequestGlobal, int entries = 14)
+    public void GetLeaderBoardData(ELeaderboardDataRequest _type = ELeaderboardDataRequest.k_ELeaderboardDataRequestGlobal, int entries = 10)
     {
         SteamAPICall_t hSteamAPICall;
         switch (_type)
