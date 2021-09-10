@@ -173,6 +173,11 @@ public class PlayerMovement : MonoBehaviour
     public GameObject infiniteImage;
     public Image fillImageInfinite;
 
+    public int levelOneDone;
+    public int levelTwoDone;
+    public int levelThreeDone;
+    public int levelFourDone;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -240,8 +245,16 @@ public class PlayerMovement : MonoBehaviour
         minutes = PlayerPrefs.GetFloat("MINUTES", 0);
         hours = PlayerPrefs.GetFloat("HOURS", 0);
 
+        levelOneDone = PlayerPrefs.GetInt("LevOne", 0);
+        levelTwoDone = PlayerPrefs.GetInt("LevTwo", 0);
+        levelThreeDone = PlayerPrefs.GetInt("LevThree", 0);
+        levelFourDone = PlayerPrefs.GetInt("LevFour", 0);
+
         showTimer = PlayerPrefs.GetInt("SHOWME", 0) > 0;
         showTimer = false;
+
+
+
     }
 
     // Update is called once per frame
@@ -905,6 +918,7 @@ public class PlayerMovement : MonoBehaviour
                     SteamUserStats.StoreStats();
                     PlayerPrefs.SetInt("ACH_17", 1);
                 }
+                PlayerPrefs.SetInt("LevOne", 1);
                 SceneManager.LoadScene("LevelTwoLoadScreen");
                 //Cursor.lockState = CursorLockMode.None;
                 if (!SteamManager.Initialized) { return; }
@@ -921,6 +935,7 @@ public class PlayerMovement : MonoBehaviour
                     SteamUserStats.StoreStats();
                     PlayerPrefs.SetInt("ACH_17", 1);
                 }
+                PlayerPrefs.SetInt("LevTwo", 1);
                 SceneManager.LoadScene("LevelThreeLoadScreen");
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_Two");
@@ -937,7 +952,8 @@ public class PlayerMovement : MonoBehaviour
                     SteamUserStats.StoreStats();
                     PlayerPrefs.SetInt("ACH_17", 1);
                 }
-                SceneManager.LoadScene("LevelFourLoadScreen");
+                PlayerPrefs.SetInt("LevThree", 1);
+                SceneManager.LoadScene("LevelFourLoadScreen");             
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_Three");
                 SteamUserStats.StoreStats();
@@ -988,6 +1004,7 @@ public class PlayerMovement : MonoBehaviour
                 SteamUserStats.StoreStats();
                 PlayerPrefs.SetInt("ACH_24", 1);
             }
+            PlayerPrefs.SetInt("LevFour", 1);
             SceneManager.LoadScene("credits");
             Cursor.lockState = CursorLockMode.None;
         }

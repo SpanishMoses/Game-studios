@@ -59,6 +59,59 @@ public class ButtonManager : MonoBehaviour
 
     }
 
+    public void enterLevelOne(){
+        PlayerPrefs.SetInt("Curr_Health", 50);
+        PlayerPrefs.SetInt("Current_Score", 0);
+        PlayerPrefs.SetInt("Pistol_Ammo", 100);
+        PlayerPrefs.SetInt("Shotgun_Ammo", 25);
+        PlayerPrefs.SetInt("Machinegun_Ammo", 120);
+        PlayerPrefs.SetInt("Grenade_Ammo", 6);
+        PlayerPrefs.SetInt("Firework_Ammo", 8);
+        PlayerPrefs.SetInt("Curr_Health", 50);
+
+        PlayerPrefs.SetInt("EnableShotgun", 1);
+        PlayerPrefs.SetInt("EnableMachineGun", 0);
+        PlayerPrefs.SetInt("EnableKnife", 1);
+        PlayerPrefs.SetInt("EnableGrenade", 0);
+        PlayerPrefs.SetInt("EnableFireWork", 0);
+    }
+
+    public void enterLevelTw0()
+    {
+        PlayerPrefs.SetInt("Curr_Health", 50);
+        PlayerPrefs.SetInt("Current_Score", 0);
+        PlayerPrefs.SetInt("Pistol_Ammo", 100);
+        PlayerPrefs.SetInt("Shotgun_Ammo", 25);
+        PlayerPrefs.SetInt("Machinegun_Ammo", 120);
+        PlayerPrefs.SetInt("Grenade_Ammo", 6);
+        PlayerPrefs.SetInt("Firework_Ammo", 8);
+        PlayerPrefs.SetInt("Curr_Health", 50);
+
+        PlayerPrefs.SetInt("EnableShotgun", 1);
+        PlayerPrefs.SetInt("EnableMachineGun", 1);
+        PlayerPrefs.SetInt("EnableKnife", 1);
+        PlayerPrefs.SetInt("EnableGrenade", 0);
+        PlayerPrefs.SetInt("EnableFireWork", 0);
+    }
+
+    public void enterLevelFinal()
+    {
+        PlayerPrefs.SetInt("Curr_Health", 50);
+        PlayerPrefs.SetInt("Current_Score", 0);
+        PlayerPrefs.SetInt("Pistol_Ammo", 100);
+        PlayerPrefs.SetInt("Shotgun_Ammo", 25);
+        PlayerPrefs.SetInt("Machinegun_Ammo", 120);
+        PlayerPrefs.SetInt("Grenade_Ammo", 6);
+        PlayerPrefs.SetInt("Firework_Ammo", 8);
+        PlayerPrefs.SetInt("Curr_Health", 50);
+
+        PlayerPrefs.SetInt("EnableShotgun", 1);
+        PlayerPrefs.SetInt("EnableMachineGun", 1);
+        PlayerPrefs.SetInt("EnableKnife", 1);
+        PlayerPrefs.SetInt("EnableGrenade", 1);
+        PlayerPrefs.SetInt("EnableFireWork", 1);
+    }
+
     public void arenaEnter(string arena)
     {
         Time.timeScale = 1f;
