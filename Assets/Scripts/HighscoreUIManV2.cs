@@ -18,15 +18,15 @@ public class HighscoreUIManV2 : MonoBehaviour
 
     public void BtnBeginFillLeaderboardLocal()
     {
-        FindObjectOfType<LeaderBoardV2>().GetLeaderBoardData(Steamworks.ELeaderboardDataRequest.k_ELeaderboardDataRequestGlobalAroundUser, 14);
+        FindObjectOfType<LeaderBoardV2>().GetLeaderBoardData(Steamworks.ELeaderboardDataRequest.k_ELeaderboardDataRequestGlobalAroundUser, 10);
     }
     public void BtnBeginFillLeaderboardGlobal()
     {
-        FindObjectOfType<LeaderBoardV2>().GetLeaderBoardData(Steamworks.ELeaderboardDataRequest.k_ELeaderboardDataRequestGlobal, 14);
+        FindObjectOfType<LeaderBoardV2>().GetLeaderBoardData(Steamworks.ELeaderboardDataRequest.k_ELeaderboardDataRequestGlobal, 10);
     }
     public void BtnBeginFillLeaderboardFriends()
     {
-        FindObjectOfType<LeaderBoardV2>().GetLeaderBoardData(Steamworks.ELeaderboardDataRequest.k_ELeaderboardDataRequestFriends, 14);
+        FindObjectOfType<LeaderBoardV2>().GetLeaderBoardData(Steamworks.ELeaderboardDataRequest.k_ELeaderboardDataRequestFriends, 10);
     }
     public void FillLeaderboard(List<LeaderBoardV2.LeaderboardDataV2> lDataset)
     {
