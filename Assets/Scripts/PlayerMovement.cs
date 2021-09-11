@@ -908,6 +908,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerPrefs.SetInt("PriorScore", priorPoints);
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial Level"))
             {
+                PlayerPrefs.SetInt("LevOne", 1);
                 SceneManager.LoadScene("LevelOneLoadScreen");
             }
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LevelOne"))
@@ -918,7 +919,7 @@ public class PlayerMovement : MonoBehaviour
                     SteamUserStats.StoreStats();
                     PlayerPrefs.SetInt("ACH_17", 1);
                 }
-                PlayerPrefs.SetInt("LevOne", 1);
+                PlayerPrefs.SetInt("LevTwo", 1);
                 SceneManager.LoadScene("LevelTwoLoadScreen");
                 //Cursor.lockState = CursorLockMode.None;
                 if (!SteamManager.Initialized) { return; }
@@ -935,7 +936,7 @@ public class PlayerMovement : MonoBehaviour
                     SteamUserStats.StoreStats();
                     PlayerPrefs.SetInt("ACH_17", 1);
                 }
-                PlayerPrefs.SetInt("LevTwo", 1);
+                PlayerPrefs.SetInt("LevThree", 1);
                 SceneManager.LoadScene("LevelThreeLoadScreen");
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_Two");
@@ -952,7 +953,7 @@ public class PlayerMovement : MonoBehaviour
                     SteamUserStats.StoreStats();
                     PlayerPrefs.SetInt("ACH_17", 1);
                 }
-                PlayerPrefs.SetInt("LevThree", 1);
+                PlayerPrefs.SetInt("LevFour", 1);
                 SceneManager.LoadScene("LevelFourLoadScreen");             
                 if (!SteamManager.Initialized) { return; }
                 SteamUserStats.SetAchievement("Tourist_Three");
@@ -1004,7 +1005,6 @@ public class PlayerMovement : MonoBehaviour
                 SteamUserStats.StoreStats();
                 PlayerPrefs.SetInt("ACH_24", 1);
             }
-            PlayerPrefs.SetInt("LevFour", 1);
             SceneManager.LoadScene("credits");
             Cursor.lockState = CursorLockMode.None;
         }

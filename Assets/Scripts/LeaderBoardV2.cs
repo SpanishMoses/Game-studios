@@ -90,7 +90,7 @@ public class LeaderBoardV2 : MonoBehaviour
             LeaderboardDataV2 lD;
             lD.username = SteamFriends.GetFriendPersonaName(leaderboardEntry.m_steamIDUser);
             lD.rank = leaderboardEntry.m_nGlobalRank;
-            lD.score = leaderboardEntry.m_nScore = PlayerPrefs.GetInt("high_waveV2");
+            lD.score = leaderboardEntry.m_nScore;
             LeaderboardDatasetV2.Add(lD);
             Debug.Log($"User: {lD.username} - Score: {lD.score} - Rank: {lD.rank}");
         }
