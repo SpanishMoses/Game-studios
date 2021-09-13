@@ -36,11 +36,17 @@ public class Playlist : MonoBehaviour
             PlayerPrefs.SetInt("Song", 4);
         }
 
-        if (songNum < 1){
-            songNum = 4;
+        if (songNum == 5)
+        {
+            text.text = "Shuffle";
+            PlayerPrefs.SetInt("Song", 5);
         }
 
-        if (songNum > 4){
+        if (songNum < 1){
+            songNum = 5;
+        }
+
+        if (songNum > 5){
             songNum = 1;
         }
     }

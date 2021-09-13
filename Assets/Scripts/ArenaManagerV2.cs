@@ -29,6 +29,7 @@ public class ArenaManagerV2 : MonoBehaviour
     public AudioClip track2;
     public AudioClip track3;
     public AudioClip track4;
+    public AudioClip track5;
     public int songNum;
 
     // Start is called before the first frame update
@@ -65,6 +66,12 @@ public class ArenaManagerV2 : MonoBehaviour
         if (songNum == 4)
         {
             musicMan.clip = track3;
+            musicMan.Play();
+        }
+
+        if (songNum == 5)
+        {
+            musicMan.clip = track5;
             musicMan.Play();
         }
     }
