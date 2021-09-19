@@ -126,6 +126,11 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip moving5;
     public AudioClip moving6;
 
+    public AudioClip maxAmmo;
+    public AudioClip superSpeed;
+    public AudioClip instaKill;
+    public AudioClip infiniteAmmo;
+
     public AudioSource sound;
     public AudioSource moveNoise;
     public AudioSource jumping;
@@ -837,7 +842,7 @@ public class PlayerMovement : MonoBehaviour
                 mouse.currAmmoM += 100;
                 mouse.currAmmoF += 100;
                 mouse.currAmmoG += 100;
-                pickups.clip = ammoPickup;
+                pickups.clip = maxAmmo;
                 pickups.Play();
                 StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);
@@ -845,8 +850,8 @@ public class PlayerMovement : MonoBehaviour
 
             if (consume != null && consume.isSpeed == true){
                 StartCoroutine(GoFast());
+                pickups.clip = superSpeed;
                 pickups.Play();
-                pickups.clip = ammoPickup;
                 StartCoroutine(flashAmmo());
                 //StartCoroutine(TimerSpeed(20));
                 Destroy(other.gameObject);
@@ -855,7 +860,7 @@ public class PlayerMovement : MonoBehaviour
             if (consume != null && consume.isInstaKill == true){
                 StartCoroutine(KILL());
                 //StartCoroutine(TimerInsta());
-                pickups.clip = ammoPickup;
+                pickups.clip = instaKill;
                 pickups.Play();
                 StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);
@@ -864,7 +869,7 @@ public class PlayerMovement : MonoBehaviour
             if (consume != null && consume.isInfinite == true){
                 StartCoroutine(MAX());
                 //StartCoroutine(TimerInfinite());
-                pickups.clip = ammoPickup;
+                pickups.clip = infiniteAmmo;
                 pickups.Play();
                 StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);

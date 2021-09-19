@@ -184,6 +184,10 @@ MonoBehaviour:
   moving4: {fileID: 8300000, guid: 8f6c3a30efb5f094198c4a991a37d2c2, type: 3}
   moving5: {fileID: 8300000, guid: c68e9d9c502383340ac68111e4f1657a, type: 3}
   moving6: {fileID: 8300000, guid: 9786828f9148fcb48bf7dab98debe3fd, type: 3}
+  maxAmmo: {fileID: 8300000, guid: f6185f2c16c94f74080abd4c588cda2c, type: 3}
+  superSpeed: {fileID: 8300000, guid: 876eb38ff8b21984e85490e1f5ae3d65, type: 3}
+  instaKill: {fileID: 8300000, guid: 14788844ade719447b256ba9a56e084c, type: 3}
+  infiniteAmmo: {fileID: 8300000, guid: 141023212d242734a97f83c05f5dc8a4, type: 3}
   sound: {fileID: 5277950087755630345}
   moveNoise: {fileID: 7614781457003351789}
   jumping: {fileID: -7716338958077030471}
@@ -209,12 +213,18 @@ MonoBehaviour:
   canInstaKill: 0
   dontLoseAmmo: 0
   duration: 20
+  duration2: 0
+  duration3: 0
   speedImage: {fileID: 0}
   fillImageSpeed: {fileID: 0}
   instaImage: {fileID: 0}
   fillImageInsta: {fileID: 0}
   infiniteImage: {fileID: 0}
   fillImageInfinite: {fileID: 0}
+  levelOneDone: 0
+  levelTwoDone: 0
+  levelThreeDone: 0
+  levelFourDone: 0
 --- !u!82 &5277950087755630345
 AudioSource:
   m_ObjectHideFlags: 0
