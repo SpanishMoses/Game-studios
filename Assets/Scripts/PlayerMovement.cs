@@ -171,12 +171,16 @@ public class PlayerMovement : MonoBehaviour
     public float duration;
     public float duration2;
     public float duration3;
+    public float duration4;
     public GameObject speedImage;
     public Image fillImageSpeed;
     public GameObject instaImage;
     public Image fillImageInsta;
     public GameObject infiniteImage;
     public Image fillImageInfinite;
+
+    public GameObject dashImage;
+    public Image fillDashImage;
 
     public int levelOneDone;
     public int levelTwoDone;
@@ -336,6 +340,8 @@ public class PlayerMovement : MonoBehaviour
             //Dash
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x < 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z < 0f)
             {
+                fillDashImage.fillAmount = 0;
+                duration4 = 0;
                 DashEffect.Play();
                 canDash = false;
                 sound.clip = dashNoise;
@@ -467,6 +473,11 @@ public class PlayerMovement : MonoBehaviour
         if (fillImageInfinite.fillAmount > 0){
             duration3 -= Time.deltaTime;
             fillImageInfinite.fillAmount = duration3 / 20f;
+        }
+
+        if (fillDashImage.fillAmount < 1){
+            duration4 += Time.deltaTime;
+            fillDashImage.fillAmount = duration4 / 1f;
         }
 
         if (health < 30){
@@ -618,7 +629,10 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator DashRecharge()
     {
+
+        //duration4 += Time.deltaTime;
         yield return new WaitForSeconds(timeBetweenDashes);
+        fillDashImage.fillAmount = 1;
         canDash = true;
     }
 
