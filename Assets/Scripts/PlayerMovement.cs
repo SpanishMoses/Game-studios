@@ -94,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip checkNoise;
     public AudioClip presPickup;
 
+    public AudioSource powerVoice;
+
     float mass = 3.0F; // defines the character mass
     Vector3 impact = Vector3.zero;
 
@@ -863,16 +865,16 @@ public class PlayerMovement : MonoBehaviour
                 mouse.currAmmoM += 100;
                 mouse.currAmmoF += 100;
                 mouse.currAmmoG += 100;
-                pickups.clip = maxAmmo;
-                pickups.Play();
+                powerVoice.clip = maxAmmo;
+                powerVoice.Play();
                 StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);
             }
 
             if (consume != null && consume.isSpeed == true){
                 StartCoroutine(GoFast());
-                pickups.clip = superSpeed;
-                pickups.Play();
+                powerVoice.clip = superSpeed;
+                powerVoice.Play();
                 StartCoroutine(flashAmmo());
                 //StartCoroutine(TimerSpeed(20));
                 Destroy(other.gameObject);
@@ -881,8 +883,8 @@ public class PlayerMovement : MonoBehaviour
             if (consume != null && consume.isInstaKill == true){
                 StartCoroutine(KILL());
                 //StartCoroutine(TimerInsta());
-                pickups.clip = instaKill;
-                pickups.Play();
+                powerVoice.clip = instaKill;
+                powerVoice.Play();
                 StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);
             }
@@ -890,8 +892,8 @@ public class PlayerMovement : MonoBehaviour
             if (consume != null && consume.isInfinite == true){
                 StartCoroutine(MAX());
                 //StartCoroutine(TimerInfinite());
-                pickups.clip = infiniteAmmo;
-                pickups.Play();
+                powerVoice.clip = infiniteAmmo;
+                powerVoice.Play();
                 StartCoroutine(flashAmmo());
                 Destroy(other.gameObject);
             }
