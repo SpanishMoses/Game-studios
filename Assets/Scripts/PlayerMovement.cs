@@ -345,8 +345,8 @@ public class PlayerMovement : MonoBehaviour
             //Dash
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && x < 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z > 0f || Input.GetKeyDown(KeyCode.LeftShift) && canDash == true && z < 0f)
             {
-                fillDashImage.fillAmount = 0;
-                duration4 = 0;
+                fillDashImage.fillAmount = 1;
+                duration4 = 1;
                 DashEffect.Play();
                 canDash = false;
                 sound.clip = dashNoise;
@@ -480,8 +480,8 @@ public class PlayerMovement : MonoBehaviour
             fillImageInfinite.fillAmount = duration3 / 20f;
         }
 
-        if (fillDashImage.fillAmount < 1){
-            duration4 += Time.deltaTime;
+        if (fillDashImage.fillAmount > 0){
+            duration4 -= Time.deltaTime;
             fillDashImage.fillAmount = duration4 / 1f;
         }
 
@@ -636,10 +636,10 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator DashRecharge()
     {
-
+        //fillDashImage.fillAmount = 1;
         //duration4 += Time.deltaTime;
         yield return new WaitForSeconds(timeBetweenDashes);
-        fillDashImage.fillAmount = 1;
+        
         canDash = true;
     }
 
