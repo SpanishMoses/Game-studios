@@ -136,6 +136,11 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource jumping;
     public float pitch;
 
+    public AudioSource arenaVoice;
+    public AudioSource arenaBackground;
+    public AudioClip gameOver;
+    public AudioClip roundEndingPitch;
+
     public Transform healthPos;
     Vector3 ghostInitialPosition;
     float shakeTime = 0.05f;
@@ -520,6 +525,8 @@ public class PlayerMovement : MonoBehaviour
                  dropSahdow.transform.position = ray.point;
             }
         }
+
+        
 
         if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("ArenaV2"))
         {
@@ -1115,7 +1122,14 @@ public class PlayerMovement : MonoBehaviour
         }
         if (health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena") || health <= 0f && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ArenaV2"))
         {
-            isDeadArena = true;
+            if (isDeadArena == false){
+                
+                    arenaVoice.clip = gameOver;
+                    arenaVoice.Play();
+                    arenaBackground.clip = roundEndingPitch;
+                    arenaBackground.Play();
+                isDeadArena = true;
+            }
             mouse.unpaused = true;
             mouse.shootEnabled = false;
             damagePic.SetActive(true);
@@ -1123,6 +1137,7 @@ public class PlayerMovement : MonoBehaviour
             speed = 0;
             freezeMouse = true;
             canDash = false;
+            
             StartCoroutine(sendBack());
         }
 

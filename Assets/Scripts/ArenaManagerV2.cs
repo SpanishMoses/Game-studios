@@ -32,6 +32,12 @@ public class ArenaManagerV2 : MonoBehaviour
     public AudioClip track5;
     public int songNum;
 
+    public AudioSource announcer;
+    public AudioSource ambiance;
+    public AudioClip getReady;
+    public AudioClip firstDing;
+    public AudioClip secondDing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -148,9 +154,15 @@ public class ArenaManagerV2 : MonoBehaviour
 
         }
         yield return new WaitForSeconds(0.5f);
+        announcer.clip = getReady;
+        announcer.Play();
+        ambiance.clip = firstDing;
+        ambiance.Play();
         randomTextObj.SetActive(true);
         randomText.text = "Get Ready";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
+        ambiance.clip = secondDing;
+        ambiance.Play();
         randomText.text = "SLAUGHTER";
         yield return new WaitForSeconds(1f);
         randomTextObj.SetActive(false);
