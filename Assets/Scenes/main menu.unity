@@ -5039,8 +5039,8 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 0, b: 0.61123896, a: 0.6862745}
     m_HighlightedColor: {r: 1, g: 0.50377357, b: 0.8073475, a: 0.6862745}
     m_PressedColor: {r: 0.19212127, g: 1, b: 0, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 1, g: 0, b: 0.6117647, a: 1}
+    m_DisabledColor: {r: 1, g: 0, b: 0.6117647, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0
   m_SpriteState:
@@ -13080,6 +13080,18 @@ MonoBehaviour:
       - m_Target: {fileID: 954994481}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: resetScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 954994481}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: onlyTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22514,8 +22526,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.599991, y: 442.58478}
-  m_SizeDelta: {x: 95.40001, y: 103.410446}
+  m_AnchoredPosition: {x: 4.599991, y: 523}
+  m_SizeDelta: {x: 95.40001, y: -5.400528}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1426350924
 MonoBehaviour:
@@ -22537,7 +22549,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Campaign
+  m_text: '
+
+
+
+
+
+    Campaign'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 955a6302daa303644ba3ea212b2337cb, type: 2}
   m_sharedMaterial: {fileID: -365547968756893122, guid: 955a6302daa303644ba3ea212b2337cb, type: 2}
@@ -22600,7 +22618,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 152.19658}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

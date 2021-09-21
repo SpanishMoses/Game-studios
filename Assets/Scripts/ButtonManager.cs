@@ -24,16 +24,20 @@ public class ButtonManager : MonoBehaviour
             PlayerPrefs.SetFloat("CheckPointX", positionX);
             PlayerPrefs.SetFloat("CheckPointY", positionY);
             PlayerPrefs.SetFloat("CheckPointZ", positionZ);
-            PlayerPrefs.SetInt("PriorH", 50);
-            PlayerPrefs.SetInt("PriorP", 0);
-            PlayerPrefs.SetInt("PriorS", 25);
-            PlayerPrefs.SetInt("PriorM", 120);
-            PlayerPrefs.SetInt("PriorG", 6);
-            PlayerPrefs.SetInt("PriorF", 8);
-            PlayerPrefs.SetInt("PriorScore", 0);
-            PlayerPrefs.SetFloat("Sense", 4);
-            PlayerPrefs.SetInt("GOD", 0);
+            
         }
+    }
+
+    public void onlyTutorial(){
+        PlayerPrefs.SetInt("PriorH", 50);
+        PlayerPrefs.SetInt("PriorP", 0);
+        PlayerPrefs.SetInt("PriorS", 25);
+        PlayerPrefs.SetInt("PriorM", 120);
+        PlayerPrefs.SetInt("PriorG", 6);
+        PlayerPrefs.SetInt("PriorF", 8);
+        PlayerPrefs.SetInt("PriorScore", 0);
+        PlayerPrefs.SetFloat("Sense", 4);
+        PlayerPrefs.SetInt("GOD", 0);
     }
 
     public void resetScore(){
@@ -62,6 +66,7 @@ public class ButtonManager : MonoBehaviour
     public void enterLevelOne(){
         PlayerPrefs.SetInt("Curr_Health", 50);
         PlayerPrefs.SetInt("Current_Score", 0);
+        PlayerPrefs.SetInt("PriorP", 100);
         PlayerPrefs.SetInt("Pistol_Ammo", 100);
         PlayerPrefs.SetInt("Shotgun_Ammo", 25);
         PlayerPrefs.SetInt("Machinegun_Ammo", 120);
@@ -80,6 +85,7 @@ public class ButtonManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Curr_Health", 50);
         PlayerPrefs.SetInt("Current_Score", 0);
+        PlayerPrefs.SetInt("PriorP", 100);
         PlayerPrefs.SetInt("Pistol_Ammo", 100);
         PlayerPrefs.SetInt("Shotgun_Ammo", 25);
         PlayerPrefs.SetInt("Machinegun_Ammo", 120);
@@ -98,6 +104,7 @@ public class ButtonManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Curr_Health", 50);
         PlayerPrefs.SetInt("Current_Score", 0);
+        PlayerPrefs.SetInt("PriorP", 100);
         PlayerPrefs.SetInt("Pistol_Ammo", 100);
         PlayerPrefs.SetInt("Shotgun_Ammo", 25);
         PlayerPrefs.SetInt("Machinegun_Ammo", 120);
@@ -122,6 +129,7 @@ public class ButtonManager : MonoBehaviour
             SceneManager.LoadScene(arena);
             PlayerPrefs.SetInt("Curr_Health", 100);
             PlayerPrefs.SetInt("Current_Score", 0);
+            PlayerPrefs.SetInt("PriorP", 100);
             PlayerPrefs.SetInt("Pistol_Ammo", 100);
             PlayerPrefs.SetInt("PriorP", 100);
             PlayerPrefs.SetInt("Shotgun_Ammo", 40);
