@@ -17,7 +17,7 @@ public class dropPower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        itemNum = Random.Range(1, 40);
+        itemNum = Random.Range(1, 20);
     }
 
     // Update is called once per frame
@@ -33,35 +33,35 @@ public class dropPower : MonoBehaviour
             Instantiate(speed, enemy.transform.position, Quaternion.identity);
             drop.enabled = false;
         }
-        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena") && itemNum == 15)
+        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena") && itemNum == 7)
         {
             Instantiate(insta, enemy.transform.position, Quaternion.identity);
             drop.enabled = false;
         }
 
-        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ArenaV2") && itemNum == 15)
+        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ArenaV2") && itemNum == 7)
         {
             Instantiate(insta, enemy.transform.position, Quaternion.identity);
             drop.enabled = false;
         }
-        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena") && itemNum == 30)
+        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena") && itemNum == 14)
         {
             Instantiate(max, enemy.transform.position, Quaternion.identity);
             drop.enabled = false;
         }
 
-        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ArenaV2") && itemNum == 30)
+        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ArenaV2") && itemNum == 14)
         {
             Instantiate(max, enemy.transform.position, Quaternion.identity);
             drop.enabled = false;
         }
-        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena") && itemNum == 40)
+        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Arena") && itemNum == 20)
         {
             Instantiate(infinite, enemy.transform.position, Quaternion.identity);
             drop.enabled = false;
         }
 
-        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ArenaV2") && itemNum == 40)
+        if (health.health <= 0 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("ArenaV2") && itemNum == 20)
         {
             Instantiate(infinite, enemy.transform.position, Quaternion.identity);
             drop.enabled = false;
