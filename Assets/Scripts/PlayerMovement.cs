@@ -530,7 +530,7 @@ public class PlayerMovement : MonoBehaviour
 
         
 
-        if (isDead == true && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("ArenaV2"))
+        if (isDead == true && isDeadArena == false && Input.GetKey(KeyCode.Mouse0) && mouse.unpaused == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("ArenaV2"))
         {
             
             Time.timeScale = 1f;
@@ -1202,6 +1202,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     IEnumerator sendBack(){
+        mouse.unpaused = true;
+        mouse.shootEnabled = false;
+        mouse.shootReady = false;
+        damagePic.SetActive(true);
+        cantMove = true;
+        speed = 0;
+        freezeMouse = true;
+        canDash = false;
         yield return new WaitForSeconds(2);
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("main menu");

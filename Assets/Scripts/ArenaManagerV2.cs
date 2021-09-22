@@ -46,6 +46,7 @@ public class ArenaManagerV2 : MonoBehaviour
         currentlyRound = true;
         spawnersInactive = false;
         randomTextObj.SetActive(false);
+        StartCoroutine(newRound());
         round = PlayerPrefs.GetInt("Current_RoundV2", 1);
         highRound = PlayerPrefs.GetInt("high_waveV2", 0);
         //enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -123,7 +124,7 @@ public class ArenaManagerV2 : MonoBehaviour
         if (enemiesSpawned == 0 & spawnersInactive == true && currentlyRound == true)
         {
             currentlyRound = false;
-            StartCoroutine(newRound());
+            StartCoroutine(newRoundCont());
         }
 
         roundText.text = "Round: " + round;
@@ -145,7 +146,7 @@ public class ArenaManagerV2 : MonoBehaviour
         //set all enemy spawners inactive
         yield return new WaitForSeconds(5);
         //set all enemy spanwers active
-        round += 1;
+        //round += 1;
         spawnersInactive = false;
         currentlyRound = true;
         for (int i = 0; i < enemySpawners.Length; i++)
@@ -156,6 +157,33 @@ public class ArenaManagerV2 : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         announcer.clip = getReady;
         announcer.Play();
+        ambiance.clip = firstDing;
+        ambiance.Play();
+        randomTextObj.SetActive(true);
+        randomText.text = "Get Ready";
+        yield return new WaitForSeconds(1.5f);
+        ambiance.clip = secondDing;
+        ambiance.Play();
+        randomText.text = "SLAUGHTER";
+        yield return new WaitForSeconds(1f);
+        randomTextObj.SetActive(false);
+    }
+
+    IEnumerator newRoundCont(){
+        //set all enemy spawners inactive
+        yield return new WaitForSeconds(5);
+        //set all enemy spanwers active
+        round += 1;
+        spawnersInactive = false;
+        currentlyRound = true;
+        for (int i = 0; i < enemySpawners.Length; i++)
+        {
+            enemySpawners[i].SetActive(true);
+
+        }
+        yield return new WaitForSeconds(0.5f);
+        //announcer.clip = getReady;
+        //announcer.Play();
         ambiance.clip = firstDing;
         ambiance.Play();
         randomTextObj.SetActive(true);
