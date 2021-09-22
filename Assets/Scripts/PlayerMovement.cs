@@ -1053,7 +1053,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "ItemSpawn"){
             ItemSpawners item = other.transform.GetComponent<ItemSpawners>();
-            item.beginSpawn = true;
+            //item.beginSpawn = true;
         }
     }
 
