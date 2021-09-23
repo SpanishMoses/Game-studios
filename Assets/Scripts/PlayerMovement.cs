@@ -194,6 +194,8 @@ public class PlayerMovement : MonoBehaviour
     public int levelThreeDone;
     public int levelFourDone;
 
+    public GameObject arenaFade;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -1139,7 +1141,7 @@ public class PlayerMovement : MonoBehaviour
             speed = 0;
             freezeMouse = true;
             canDash = false;
-            
+            arenaFade.SetActive(true);
             StartCoroutine(sendBack());
         }
 
@@ -1210,7 +1212,7 @@ public class PlayerMovement : MonoBehaviour
         speed = 0;
         freezeMouse = true;
         canDash = false;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("main menu");
     }

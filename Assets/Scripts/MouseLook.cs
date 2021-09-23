@@ -344,7 +344,6 @@ public class MouseLook : MonoBehaviour
         //weapon switching logic
         if (Input.GetKey(KeyCode.Alpha1) && play.freezeMouse == false || currWeapon == 1)
         {
-            Debug.Log("usePistol");
             anim.SetTrigger("Switch_Pistol");
             usePistol = true;
             useShotgun = false;
@@ -371,7 +370,6 @@ public class MouseLook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha2) && PlayerPrefs.GetInt("EnableShotgun") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableShotgun") != 0 && play.freezeMouse == false && currWeapon == 2)
         {
-            Debug.Log("useshotgun");
             anim.SetTrigger("Switch_Shotgun");
             useShotgun = true;
             usePistol = false;
@@ -398,7 +396,6 @@ public class MouseLook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha3) && PlayerPrefs.GetInt("EnableMachineGun") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableMachineGun") != 0 && play.freezeMouse == false && currWeapon == 3)
         {
-            Debug.Log("usemachinegun");
             anim.SetTrigger("Switch_Rifle");
             useShotgun = false;
             usePistol = false;
@@ -425,7 +422,6 @@ public class MouseLook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha4) && PlayerPrefs.GetInt("EnableKnife") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableKnife") != 0 && play.freezeMouse == false && currWeapon == 4)
         {
-            Debug.Log("useknife");
             anim.SetTrigger("Switch_Shiv");
             useShotgun = false;
             usePistol = false;
@@ -446,7 +442,6 @@ public class MouseLook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha5) && PlayerPrefs.GetInt("EnableGrenade") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableGrenade") != 0 && play.freezeMouse == false && currWeapon == 5)
         {
-            Debug.Log("usegrenade");
             anim.SetTrigger("Switch_Grenade");
             useShotgun = false;
             usePistol = false;
@@ -475,7 +470,6 @@ public class MouseLook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha6) && PlayerPrefs.GetInt("EnableFireWork") != 0 && play.freezeMouse == false || PlayerPrefs.GetInt("EnableFireWork") != 0 && play.freezeMouse == false && currWeapon == 6)
         {
-            Debug.Log("usefirework");
             anim.SetTrigger("Switch_Firework");
             useShotgun = false;
             usePistol = false;
