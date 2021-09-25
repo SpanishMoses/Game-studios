@@ -236,6 +236,7 @@ MonoBehaviour:
   levelTwoDone: 0
   levelThreeDone: 0
   levelFourDone: 0
+  arenaFade: {fileID: 0}
 --- !u!82 &5277950087755630345
 AudioSource:
   m_ObjectHideFlags: 0
@@ -848,7 +849,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.72
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5995,6 +5996,8 @@ MonoBehaviour:
   enableCon: 0
   enableCandy: 0
   enableSpecial: 0
+  enableInvert: 0
+  flip: 0
 --- !u!95 &7997200904646466718
 Animator:
   serializedVersion: 3

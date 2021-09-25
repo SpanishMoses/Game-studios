@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 6927241941101654914}
   - component: {fileID: 6927241941101654915}
   - component: {fileID: 6927241941101654916}
+  - component: {fileID: 3720257326616834777}
   m_Layer: 15
   m_Name: speed
   m_TagString: Consumable
@@ -232,3 +233,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6927241941101654917}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3720257326616834777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6927241941101654917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec0f9eafbd47fd4d8e35daaaaa31e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  maxTime: 20
+  sprite: {fileID: 6927241940799776229}
+  spriteFade: 0.3
