@@ -2233,7 +2233,6 @@ GameObject:
   - component: {fileID: 326927165}
   - component: {fileID: 326927164}
   - component: {fileID: 326927166}
-  - component: {fileID: 326927167}
   m_Layer: 0
   m_Name: leaderboard manager
   m_TagString: Untagged
@@ -2279,26 +2278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe63e03b34ff7894aa573f5012f0cf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &326927167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326927163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee705b8c800794c4b972f84d3a85bcb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  butt1: {fileID: 1124842820}
-  butt2: {fileID: 1997204198}
-  butt3: {fileID: 1746633876}
-  butt4: {fileID: 386338172}
-  get1: 0
-  get2: 0
-  get3: 0
-  get4: 0
 --- !u!1 &330692117
 GameObject:
   m_ObjectHideFlags: 0
@@ -24777,6 +24756,7 @@ GameObject:
   - component: {fileID: 1751229383}
   - component: {fileID: 1751229382}
   - component: {fileID: 1751229381}
+  - component: {fileID: 1751229384}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -24912,6 +24892,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1751229384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751229380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee705b8c800794c4b972f84d3a85bcb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  butt1: {fileID: 1124842820}
+  butt2: {fileID: 1997204198}
+  butt3: {fileID: 1746633876}
+  butt4: {fileID: 386338172}
+  get1: 0
+  get2: 0
+  get3: 0
+  get4: 0
 --- !u!1 &1795713437
 GameObject:
   m_ObjectHideFlags: 0
