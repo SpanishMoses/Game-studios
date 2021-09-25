@@ -149,6 +149,8 @@ public class MouseLook : MonoBehaviour
     public bool enableCon;
     public bool enableCandy;
     public bool enableSpecial;
+    public bool enableInvert;
+    public bool flip;
 
     /*PlayerPrefs.SetInt("EnableShotgun", (shotGunBool ? 1: 0));
     public int value;
@@ -227,14 +229,27 @@ public class MouseLook : MonoBehaviour
 
         if (play.freezeMouse == false)
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+            if (enableInvert == false)
+            {
+                float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+                float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+                xRotation -= mouseY;
+                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-            playerBody.Rotate(Vector3.up * mouseX);
+                transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+                playerBody.Rotate(Vector3.up * mouseX);
+            }
+            if (enableInvert == true){
+                float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+                float mouseY = -Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+                xRotation -= mouseY;
+                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+                transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+                playerBody.Rotate(Vector3.up * mouseX);
+            }
         }
         if (shootEnabled == false)
         {
@@ -734,6 +749,16 @@ public class MouseLook : MonoBehaviour
         } else{
             PlayerPrefs.SetInt("SPECIAL", 0);
             set.tog3.isOn = false;
+        }
+
+        int yesInvert;
+        yesInvert = enableInvert ? 1 : 0;
+        if (enableInvert == true){
+            PlayerPrefs.SetInt("INVERT", 1);
+            set.tog4.isOn = true;
+        }else{
+            PlayerPrefs.SetInt("INVERT", 0);
+            set.tog4.isOn = false;
         }
 
         pistolSlide.maxValue = maxAmmoP;

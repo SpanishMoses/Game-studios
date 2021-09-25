@@ -20,10 +20,13 @@ public class Settings : MonoBehaviour
     public Toggle tog;
     public Toggle tog2;
     public Toggle tog3;
+    public Toggle tog4;
     public bool enableCon;
 
     public bool enableSpecial;
     public bool enableTimer;
+
+    public bool why;
 
     //public Dropdown resolutionDropdown;
 
@@ -148,6 +151,15 @@ public class Settings : MonoBehaviour
             player.showTimer = true;
         } else{
             player.showTimer = false;
+        }
+    }
+
+    public void invert(bool killMe){
+        if (killMe == true){
+            mouse.enableInvert = true;
+        } else
+        {
+            mouse.enableInvert = false;
         }
     }
 }
