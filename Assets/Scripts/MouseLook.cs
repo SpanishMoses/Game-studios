@@ -201,6 +201,7 @@ public class MouseLook : MonoBehaviour
         enableCon = PlayerPrefs.GetInt("Confetti", 0) > 0;
         enableCandy = PlayerPrefs.GetInt("Candy", 0) > 0;
         enableSpecial = PlayerPrefs.GetInt("SPECIAL", 0) > 0;
+        enableInvert = PlayerPrefs.GetInt("INVERT", 0) > 0;
         /*machineGunBool = false;
         shotGunBool = false;
         knifeBool = false;
