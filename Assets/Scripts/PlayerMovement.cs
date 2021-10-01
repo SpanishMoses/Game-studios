@@ -196,6 +196,8 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject arenaFade;
 
+    public ButtonManager mang;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -465,7 +467,11 @@ public class PlayerMovement : MonoBehaviour
                 PlayerPrefs.SetInt("ACH_23", 1);
             }
 
-            
+           if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.R)){
+            mang.onlyTutorial();
+            mang.resetScore();
+            SceneManager.LoadScene("loading screen");
+        } 
         
 
         if (fillImageSpeed.fillAmount > 0)

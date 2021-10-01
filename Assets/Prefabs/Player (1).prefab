@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 54431250117748762}
   - component: {fileID: 1579285484565977264}
   - component: {fileID: 7370449407032423550}
+  - component: {fileID: 3003998495502670366}
   m_Layer: 12
   m_Name: Player (1)
   m_TagString: Player
@@ -237,6 +238,7 @@ MonoBehaviour:
   levelThreeDone: 0
   levelFourDone: 0
   arenaFade: {fileID: 0}
+  mang: {fileID: 3003998495502670366}
 --- !u!82 &5277950087755630345
 AudioSource:
   m_ObjectHideFlags: 0
@@ -933,6 +935,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3003998495502670366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7997200904571926902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bea4108987093745a9000208deddcbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionX: 0
+  positionY: 0
+  positionZ: 0
+  noise: {fileID: 7370449407032423550}
+  hover: {fileID: 8300000, guid: 915cdefe4496db3479db695f11c7186a, type: 3}
+  enterSound: {fileID: 8300000, guid: 135c235d210700945a3a4526247e80c2, type: 3}
 --- !u!1 &7997200904609477335
 GameObject:
   m_ObjectHideFlags: 0
