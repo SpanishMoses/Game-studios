@@ -14,6 +14,8 @@ public class SceneLoading : MonoBehaviour
     public float positionY;
     public float positionZ;
 
+    public float loadTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class SceneLoading : MonoBehaviour
     IEnumerator LoadAsyncOperation(string newGameLevel)
     {
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(loadTime);
         AsyncOperation gameLevel = SceneManager.LoadSceneAsync(newGameLevel);
 
         while (gameLevel.progress < 1){
