@@ -273,7 +273,8 @@ public class PlayerMovement : MonoBehaviour
         showTimer = PlayerPrefs.GetInt("SHOWME", 0) > 0;
         showTimer = false;
 
-
+        PlayerPrefs.SetInt("Current_Round", 1);
+        PlayerPrefs.SetInt("Current_RoundV2", 1);
 
     }
 
