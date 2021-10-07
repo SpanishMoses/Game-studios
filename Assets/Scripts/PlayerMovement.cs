@@ -276,6 +276,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerPrefs.SetInt("Current_Round", 1);
         PlayerPrefs.SetInt("Current_RoundV2", 1);
 
+        showTimer = true;
     }
 
     // Update is called once per frame
@@ -471,6 +472,10 @@ public class PlayerMovement : MonoBehaviour
            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.R)){
             mang.onlyTutorial();
             mang.resetScore();
+            PlayerPrefs.SetFloat("TIMER", 0);
+            PlayerPrefs.SetFloat("SECONDS", 0);
+            PlayerPrefs.SetFloat("MINUTES", 0);
+            PlayerPrefs.SetFloat("HOURS", 0);
             SceneManager.LoadScene("loading screen");
         } 
         
