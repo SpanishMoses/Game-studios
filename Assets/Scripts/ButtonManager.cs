@@ -38,6 +38,11 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("PriorScore", 0);
         PlayerPrefs.SetFloat("Sense", 4);
         PlayerPrefs.SetInt("GOD", 0);
+        PlayerPrefs.SetInt("EnableShotgun", 0);
+        PlayerPrefs.SetInt("EnableMachineGun", 0);
+        PlayerPrefs.SetInt("EnableKnife", 0);
+        PlayerPrefs.SetInt("EnableGrenade", 0);
+        PlayerPrefs.SetInt("EnableFireWork", 0);
     }
 
     public void resetScore(){
